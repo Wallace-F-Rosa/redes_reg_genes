@@ -1,0 +1,1527 @@
+input = 122
+stage = 3
+
+a b = 13 22(0 2)
+A line 0 col 0
+code 0
+A line 0 col 1
+code 0
+A line 0 col 2
+code 0
+OK A
+
+a b = 13 42(0 4)
+A line 0 col 0
+code 0
+A line 1 col 1
+code 0
+A line 0 col 2
+code 0
+OK A
+
+a b = 7 17(6 8)
+A line 24 col 0
+code 0
+A line 96 col 1
+code 1
+A line 8 col 2
+code 2
+OK A
+
+a b = 6 16(10 12)
+A line 40 col 0
+code 0
+A line 33 col 1
+code 2
+A line 8 col 2
+code 2
+OK A
+
+a b = 5 15(14 16)
+A line 57 col 0
+code 0
+A line 96 col 1
+code 3
+A line 16 col 2
+code 2
+
+a b = 5 15(14 18)
+A line 57 col 0
+code 0
+A line 96 col 1
+code 3
+A line 16 col 2
+code 2
+
+a b = 5 15(14 20)
+A line 57 col 0
+code 0
+A line 97 col 1
+code 3
+A line 16 col 2
+code 2
+OK A
+
+a b = 4 14(16 18)
+A line 65 col 0
+code 1
+A line 0 col 1
+code 0
+A line 16 col 2
+code 0
+
+a b = 4 14(16 22)
+A line 65 col 0
+code 1
+A line 1 col 1
+code 0
+A line 16 col 2
+code 0
+
+a b = 4 14(16 24)
+A line 65 col 0
+code 1
+A line 0 col 1
+code 0
+A line 24 col 2
+code 0
+OK A
+
+a b = 3 12(18 22)
+A line 73 col 0
+code 1
+A line 33 col 1
+code 0
+A line 16 col 2
+code 2
+
+a b = 3 12(18 26)
+A line 73 col 0
+code 1
+A line 32 col 1
+code 0
+A line 24 col 2
+code 2
+
+a b = 3 12(18 28)
+A line 73 col 0
+code 1
+A line 33 col 1
+code 0
+A line 24 col 2
+code 2
+
+a b = 3 12(18 30)
+A line 73 col 0
+code 1
+A line 33 col 1
+code 0
+A line 24 col 2
+code 2
+
+a b = 3 12(18 32)
+A line 72 col 0
+code 1
+A line 40 col 1
+code 0
+A line 32 col 2
+code 2
+OK A
+
+a b = 2 11(22 26)
+A line 89 col 0
+code 1
+A line 96 col 1
+code 1
+A line 24 col 2
+code 2
+
+a b = 2 11(22 28)
+A line 89 col 0
+code 1
+A line 97 col 1
+code 1
+A line 24 col 2
+code 2
+
+a b = 2 11(22 30)
+A line 89 col 0
+code 1
+A line 97 col 1
+code 1
+A line 24 col 2
+code 2
+
+a b = 2 11(22 34)
+A line 88 col 0
+code 1
+A line 104 col 1
+code 1
+A line 32 col 2
+code 2
+OK A
+
+a b = 1 10(26 28)
+A line 105 col 0
+code 1
+A line 33 col 1
+code 2
+A line 24 col 2
+code 2
+
+a b = 1 10(26 30)
+A line 105 col 0
+code 1
+A line 33 col 1
+code 2
+A line 24 col 2
+code 2
+
+a b = 1 10(26 36)
+A line 104 col 0
+code 1
+A line 41 col 1
+code 2
+A line 32 col 2
+code 2
+OK A
+
+a b = 0 9(28 30)
+A line 113 col 0
+code 1
+A line 65 col 1
+code 3
+A line 24 col 2
+code 0
+OK A
+
+a b = 22 30(2 38)
+A line 8 col 0
+code 0
+A line 41 col 1
+code 0
+A line 32 col 2
+code 2
+
+a b = 22 30(2 40)
+A line 8 col 0
+code 0
+A line 40 col 1
+code 0
+A line 40 col 2
+code 2
+OK A
+
+a b = 42 50(4 38)
+A line 16 col 0
+code 0
+A line 73 col 1
+code 1
+A line 32 col 2
+code 0
+
+a b = 42 50(4 42)
+A line 16 col 0
+code 0
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 42 50(4 44)
+A line 16 col 0
+code 0
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 42 50(4 46)
+A line 16 col 0
+code 0
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 42 50(4 48)
+A line 17 col 0
+code 0
+A line 72 col 1
+code 1
+A line 48 col 2
+code 0
+OK A
+
+a b = 17 26(8 38)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 32 col 2
+code 0
+
+a b = 17 26(8 42)
+A line 32 col 0
+code 0
+A line 8 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 26(8 44)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 26(8 46)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 26(8 50)
+A line 33 col 0
+code 0
+A line 8 col 1
+code 2
+A line 48 col 2
+code 0
+OK A
+
+a b = 17 46(8 38)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 32 col 2
+code 0
+
+a b = 17 46(8 42)
+A line 32 col 0
+code 0
+A line 8 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 46(8 44)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 46(8 46)
+A line 32 col 0
+code 0
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 17 46(8 52)
+A line 33 col 0
+code 0
+A line 9 col 1
+code 2
+A line 48 col 2
+code 0
+OK A
+
+a b = 16 25(12 38)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 32 col 2
+code 0
+
+a b = 16 25(12 42)
+A line 48 col 0
+code 0
+A line 72 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 25(12 44)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 25(12 46)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 25(12 54)
+A line 49 col 0
+code 0
+A line 73 col 1
+code 3
+A line 48 col 2
+code 0
+OK A
+
+a b = 16 45(12 38)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 32 col 2
+code 0
+
+a b = 16 45(12 42)
+A line 48 col 0
+code 0
+A line 72 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 45(12 44)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 45(12 46)
+A line 48 col 0
+code 0
+A line 73 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 16 45(12 56)
+A line 49 col 0
+code 0
+A line 72 col 1
+code 3
+A line 56 col 2
+code 0
+
+a b = 16 45(12 58)
+A line 49 col 0
+code 0
+A line 72 col 1
+code 3
+A line 56 col 2
+code 0
+
+a b = 16 45(12 60)
+A line 49 col 0
+code 0
+A line 73 col 1
+code 3
+A line 56 col 2
+code 0
+OK A
+
+a b = 15 24(20 38)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 32 col 2
+code 0
+
+a b = 15 24(20 42)
+A line 80 col 0
+code 1
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 24(20 44)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 24(20 46)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 24(20 56)
+A line 81 col 0
+code 1
+A line 72 col 1
+code 1
+A line 56 col 2
+code 0
+OK A
+
+a b = 15 44(20 38)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 32 col 2
+code 0
+
+a b = 15 44(20 42)
+A line 80 col 0
+code 1
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 44(20 44)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 44(20 46)
+A line 80 col 0
+code 1
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 15 44(20 58)
+A line 81 col 0
+code 1
+A line 72 col 1
+code 1
+A line 56 col 2
+code 0
+OK A
+
+a b = 14 23(24 38)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 32 col 2
+code 0
+
+a b = 14 23(24 42)
+A line 96 col 0
+code 1
+A line 8 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 23(24 44)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 23(24 46)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 23(24 62)
+A line 97 col 0
+code 1
+A line 9 col 1
+code 2
+A line 56 col 2
+code 0
+OK A
+
+a b = 14 43(24 38)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 32 col 2
+code 0
+
+a b = 14 43(24 42)
+A line 96 col 0
+code 1
+A line 8 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 43(24 44)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 43(24 46)
+A line 96 col 0
+code 1
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 14 43(24 64)
+A line 96 col 0
+code 1
+A line 16 col 1
+code 2
+A line 64 col 2
+code 1
+OK A
+
+a b = 12 21(32 38)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 32 col 2
+code 0
+
+a b = 12 21(32 42)
+A line 0 col 0
+code 2
+A line 8 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 21(32 44)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 21(32 46)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 21(32 66)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 21(32 68)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 21(32 70)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 21(32 72)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 21(32 74)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 21(32 76)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 21(32 78)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 21(32 80)
+A line 1 col 0
+code 2
+A line 16 col 1
+code 0
+A line 80 col 2
+code 1
+
+a b = 12 21(32 82)
+A line 1 col 0
+code 2
+A line 16 col 1
+code 0
+A line 80 col 2
+code 1
+
+a b = 12 21(32 84)
+A line 1 col 0
+code 2
+A line 17 col 1
+code 0
+A line 80 col 2
+code 1
+OK A
+
+a b = 12 41(32 38)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 32 col 2
+code 0
+
+a b = 12 41(32 42)
+A line 0 col 0
+code 2
+A line 8 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 41(32 44)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 41(32 46)
+A line 0 col 0
+code 2
+A line 9 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 12 41(32 66)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 41(32 68)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 41(32 70)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 64 col 2
+code 1
+
+a b = 12 41(32 72)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 41(32 74)
+A line 0 col 0
+code 2
+A line 16 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 41(32 76)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 41(32 78)
+A line 0 col 0
+code 2
+A line 17 col 1
+code 0
+A line 72 col 2
+code 1
+
+a b = 12 41(32 80)
+A line 1 col 0
+code 2
+A line 16 col 1
+code 0
+A line 80 col 2
+code 1
+
+a b = 12 41(32 82)
+A line 1 col 0
+code 2
+A line 16 col 1
+code 0
+A line 80 col 2
+code 1
+
+a b = 12 41(32 86)
+A line 1 col 0
+code 2
+A line 17 col 1
+code 0
+A line 80 col 2
+code 1
+OK A
+
+a b = 11 20(34 38)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 32 col 2
+code 2
+
+a b = 11 20(34 42)
+A line 8 col 0
+code 2
+A line 40 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 20(34 44)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 20(34 46)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 20(34 66)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 20(34 68)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 20(34 70)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 20(34 72)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 20(34 74)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 20(34 76)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 20(34 78)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 20(34 80)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 11 20(34 82)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 11 20(34 88)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 88 col 2
+code 3
+OK A
+
+a b = 11 40(34 38)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 32 col 2
+code 2
+
+a b = 11 40(34 42)
+A line 8 col 0
+code 2
+A line 40 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 40(34 44)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 40(34 46)
+A line 8 col 0
+code 2
+A line 41 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 11 40(34 66)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 40(34 68)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 40(34 70)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 64 col 2
+code 3
+
+a b = 11 40(34 72)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 40(34 74)
+A line 8 col 0
+code 2
+A line 48 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 40(34 76)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 40(34 78)
+A line 8 col 0
+code 2
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 11 40(34 80)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 11 40(34 82)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 11 40(34 90)
+A line 9 col 0
+code 2
+A line 48 col 1
+code 0
+A line 88 col 2
+code 3
+OK A
+
+a b = 10 19(36 38)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 32 col 2
+code 0
+
+a b = 10 19(36 42)
+A line 16 col 0
+code 2
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 19(36 44)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 19(36 46)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 19(36 66)
+A line 16 col 0
+code 2
+A line 80 col 1
+code 1
+A line 64 col 2
+code 1
+OK A
+
+a b = 10 39(36 38)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 32 col 2
+code 0
+
+a b = 10 39(36 42)
+A line 16 col 0
+code 2
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 39(36 44)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 39(36 46)
+A line 16 col 0
+code 2
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 10 39(36 68)
+A line 16 col 0
+code 2
+A line 81 col 1
+code 1
+A line 64 col 2
+code 1
+OK A
+
+a b = 9 18(30 38)
+A line 120 col 0
+code 1
+A line 105 col 1
+code 3
+A line 32 col 2
+code 2
+OK A
+
+a b = 9 38(30 42)
+A line 120 col 0
+code 1
+A line 104 col 1
+code 3
+A line 40 col 2
+code 2
+
+a b = 9 38(30 44)
+A line 120 col 0
+code 1
+A line 105 col 1
+code 3
+A line 40 col 2
+code 2
+OK A
+
+a b = 30 34(40 42)
+A line 32 col 0
+code 2
+A line 8 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 30 34(40 46)
+A line 32 col 0
+code 2
+A line 9 col 1
+code 2
+A line 40 col 2
+code 0
+
+a b = 30 34(40 70)
+A line 32 col 0
+code 2
+A line 17 col 1
+code 2
+A line 64 col 2
+code 1
+
+a b = 30 34(40 72)
+A line 32 col 0
+code 2
+A line 16 col 1
+code 2
+A line 72 col 2
+code 1
+OK A
+
+a b = 50 54(48 42)
+A line 64 col 0
+code 3
+A line 8 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 50 54(48 46)
+A line 64 col 0
+code 3
+A line 9 col 1
+code 0
+A line 40 col 2
+code 0
+
+a b = 50 54(48 70)
+A line 64 col 0
+code 3
+A line 17 col 1
+code 0
+A line 64 col 2
+code 1
+OK A
+
+a b = 26 27(50 42)
+A line 72 col 0
+code 3
+A line 40 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 26 27(50 46)
+A line 72 col 0
+code 3
+A line 41 col 1
+code 0
+A line 40 col 2
+code 2
+
+a b = 26 27(50 74)
+A line 72 col 0
+code 3
+A line 48 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 26 27(50 76)
+A line 72 col 0
+code 3
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 26 27(50 78)
+A line 72 col 0
+code 3
+A line 49 col 1
+code 0
+A line 72 col 2
+code 3
+
+a b = 26 27(50 80)
+A line 73 col 0
+code 3
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 26 27(50 82)
+A line 73 col 0
+code 3
+A line 48 col 1
+code 0
+A line 80 col 2
+code 3
+
+a b = 26 27(50 92)
+A line 73 col 0
+code 3
+A line 49 col 1
+code 0
+A line 88 col 2
+code 3
+OK A
+
+a b = 46 47(52 42)
+A line 80 col 0
+code 3
+A line 72 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 46 47(52 46)
+A line 80 col 0
+code 3
+A line 73 col 1
+code 1
+A line 40 col 2
+code 0
+
+a b = 46 47(52 74)
+A line 80 col 0
+code 3
+A line 80 col 1
+code 1
+A line 72 col 2
+code 1
+OK A
+
+a b = 25 31(54 42)
+A line 88 col 0
+code 3
+A line 104 col 1
+code 1
+A line 40 col 2
+code 2
+
+a b = 25 31(54 46)
+A line 88 col 0
+code 3
+A line 105 col 1
+code 1
+A line 40 col 2
+code 2
+
+a b = 25 31(54 76)
+A line 88 col 0
+code 3
+A line 113 col 1
+code 1
+A line 72 col 2
+code 3
+
+a b = 25 31(54 78)
+A line 88 col 0
+code 3
+A line 113 col 1
+code 1
+A line 72 col 2
+code 3
+
+a b = 25 31(54 80)
+A line 89 col 0
+code 3
+A line 112 col 1
+code 1
+A line 80 col 2
+code 3
+
+a b = 25 31(54 82)
+A line 89 col 0
+code 3
+A line 112 col 1
+code 1
+A line 80 col 2
+code 3
+
+a b = 25 31(54 94)
+A line 89 col 0
+code 3
+A line 113 col 1
+code 1
+A line 88 col 2
+code 3
+OK A
+
+a b = 45 51(60 42)
+A line 112 col 0
+code 3
+A line 72 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 45 51(60 46)
+A line 112 col 0
+code 3
+A line 73 col 1
+code 3
+A line 40 col 2
+code 0
+
+a b = 45 51(60 76)
+A line 112 col 0
+code 3
+A line 81 col 1
+code 3
+A line 72 col 2
+code 1
+
+a b = 45 51(60 78)
+A line 112 col 0
+code 3
+A line 81 col 1
+code 3
+A line 72 col 2
+code 1
+
+a b = 45 51(60 80)
+A line 113 col 0
+code 3
+A line 80 col 1
+code 3
+A line 80 col 2
+code 1
+
+a b = 45 51(60 82)
+A line 113 col 0
+code 3
+A line 80 col 1
+code 3
+A line 80 col 2
+code 1
+
+a b = 45 51(60 96)
+A line 112 col 0
+code 3
+A line 88 col 1
+code 3
+A line 96 col 2
+code 1
+OK A
+
+a b = 24 31(56 94)
+A line 97 col 0
+code 3
+A line 17 col 1
+code 2
+A line 88 col 2
+code 1
+
+a b = 24 31(56 98)
+A line 96 col 0
+code 3
+A line 24 col 1
+code 2
+A line 96 col 2
+code 1
+
+a b = 24 31(56 100)
+A line 96 col 0
+code 3
+A line 25 col 1
+code 2
+A line 96 col 2
+code 1
+
+a b = 24 31(56 102)
+A line 96 col 0
+code 3
+A line 25 col 1
+code 2
+A line 96 col 2
+code 1
+
+a b = 24 31(56 104)
+A line 96 col 0
+code 3
+A line 24 col 1
+code 2
+A line 104 col 2
+code 1
+
+a b = 24 31(56 106)
+A line 96 col 0
+code 3
+A line 24 col 1
+code 2
+A line 104 col 2
+code 1
+
+a b = 24 31(56 108)
+A line 96 col 0
+code 3
+A line 25 col 1
+code 2
+A line 104 col 2
+code 1
+
+a b = 24 31(56 110)
+A line 96 col 0
+code 3
+A line 25 col 1
+code 2
+A line 104 col 2
+code 1
+
+a b = 24 31(56 112)
+A line 97 col 0
+code 3
+A line 24 col 1
+code 2
+A line 112 col 2
+code 1
+
+a b = 24 31(56 114)
+A line 97 col 0
+code 3
+A line 24 col 1
+code 2
+A line 112 col 2
+code 1
+
+a b = 24 31(56 116)
+A line 97 col 0
+code 3
+A line 25 col 1
+code 2
+A line 112 col 2
+code 1
+
+a b = 24 31(56 118)
+A line 97 col 0
+code 3
+A line 25 col 1
+code 2
+A line 112 col 2
+code 1
+
+a b = 24 31(56 120)
+A line 97 col 0
+code 3
+A line 24 col 1
+code 2
+A line 120 col 2
+code 1
+Fail
+Conexoes totais : 69
+Conexoes estabelecidas : 34
