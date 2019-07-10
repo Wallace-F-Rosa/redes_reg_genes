@@ -13,8 +13,8 @@ using namespace std;
 
 #define TABLE_SIZE 1024
 #define BUCKET_SIZE 200
-#define TAM_REDE 41//CONSTANTE_REDE
-#define TAM_PESOS 75//CONSTANTE_PESOS
+#define TAM_REDE CONSTANTE_REDE
+#define TAM_PESOS CONSTANTE_PESOS
 #define TAM_ESTADO (TAM_REDE/32 + (TAM_REDE%32 != 0))
 
 //#define TAM_ESTADO TAM_REDE/32 + (TAM_REDE%32 != 0) //tamanho máximo de cada estado na rede (em bits)

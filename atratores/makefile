@@ -10,7 +10,7 @@ output ="resultados_$(tecnologia)/$(rede).txt"#arquivo de saida
 REDE = 41  #sed "1q;d" $(input)
 PESOS = 75   #sed "2q;d" $(input) | awk '{ for(i=1; i<=NF;i++) j+=$i; print j; j=0 }'
 all:
-	nvcc $(program).cu -o $(program)
+	nvcc -DCONSTANTE_REDE=$(REDE) -DCONSTANTE_PESOS=$(PESOS) $(program).cu -o $(program)
 	./$(program) $(input) $(simN) $(tecnologia) > $(output)
 
 analise:
