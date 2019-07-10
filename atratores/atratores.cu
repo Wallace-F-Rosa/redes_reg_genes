@@ -13,8 +13,9 @@ using namespace std;
 
 #define TABLE_SIZE 2048
 #define BUCKET_SIZE 200
-#define TAM_REDE 40
-#define PESOS_GPU 200
+#define TAM_REDE CONSTANTE_REDE
+#define TAM_PESOS CONSTANTE_PESOS
+#define TAM_ESTADO (TAM_REDE/32 + (TAM_REDE%32 != 0))
 
 //#define TAM_ESTADO TAM_REDE/32 + (TAM_REDE%32 != 0) //tamanho máximo de cada estado na rede (em bits)
 
@@ -57,22 +58,21 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
 {
     bool aleatorio = false;
     if(g.nEq > 40){ aleatorio = true; srand(MAX_ESTADO);}  //rede grande, estados aleatórios   
-    int tamEstado = g.nEq/32 + (g.nEq%32 != 0);
     unsigned int * s0, *s1;
-    s0 = (unsigned int *)malloc(tamEstado*sizeof(unsigned int));
-    s1 = (unsigned int *)malloc(tamEstado*sizeof(unsigned int));
+    s0 = (unsigned int *)malloc(TAM_ESTADO*sizeof(unsigned int));
+    s1 = (unsigned int *)malloc(TAM_ESTADO*sizeof(unsigned int));
     for(unsigned long long estado = 0; estado < MAX_ESTADO; estado++)
     {
         //variáveis necessárias para realizar o passo
         
-        for(int i = 0; i < tamEstado; i++)
+        for(int i = 0; i < TAM_ESTADO; i++)
             s0[i] = s1[i] = 0; 
 
         
         //inicializando estado inicial(o bit mais alto representa o vértice (nEq-1) e o bit mais baixo representa o vértice 0)
         if(aleatorio)
         {
-            for(int i = 0; i < tamEstado; i++)
+            for(int i = 0; i < TAM_ESTADO; i++)
                 s0[i] = (unsigned int)rand() % UINT_MAX; //preenche o estado com numeros aleatórios
         }
         else
@@ -80,17 +80,17 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
             for(int i = 0; i < g.nEq; i++)
             {
                 int var = g.nEq -1 - i; //variável desejada
-                int posAtr = tamEstado - var/32 - (var%32!=0); //posição de atr onde se encontra o bit da variável desejada
+                int posAtr = TAM_ESTADO - var/32 - (var%32!=0); //posição de atr onde se encontra o bit da variável desejada
                 s0[posAtr] |= ((estado >> i)%2) << (var%32);
             }
         }
         
 
-        for(int i = 0; i < tamEstado; i++)
+        for(int i = 0; i < TAM_ESTADO; i++)
             s1[i] = s0[i];
 
          //variaveis auxiliares
-         unsigned int * newEstado = (unsigned int *)malloc(sizeof(unsigned int)*tamEstado);
+         unsigned int * newEstado = (unsigned int *)malloc(sizeof(unsigned int)*TAM_ESTADO);
         
          bool diferente = false;
         
@@ -100,7 +100,7 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
             //s0 anda um passo
 
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
             for(int i = 0; i < g.nEq; i++)
@@ -111,18 +111,18 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
                     bitVar = (g.nEq-1)-g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                     sum_prod += ((s0[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
                 }
                 bitVar = (g.nEq-1)-i; //variavel que será atualizada no novo estado
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar - 32*posAtr);
             }
             //atualiza s0
-            for(int i = 0; i < tamEstado; i++) s0[i] = newEstado[i];
+            for(int i = 0; i < TAM_ESTADO; i++) s0[i] = newEstado[i];
 
             //s1 anda dois passos
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
             for(int i = 0; i < g.nEq; i++)
@@ -133,17 +133,17 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
                     bitVar = (g.nEq-1)-g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                     sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
                 }
                 bitVar = (g.nEq-1)-i;
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar - 32*posAtr);
             }
             //atualiza s1
-            for(int i = 0; i < tamEstado; i++) s1[i] = newEstado[i];
+            for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
 
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
             for(int i = 0; i < g.nEq; i++)
@@ -154,18 +154,18 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
                     bitVar = (g.nEq-1)-g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                     sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
                 }
                 bitVar = (g.nEq-1)-i;
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar - 32*posAtr);
             }
             //atualiza s1
-            for(int i = 0; i < tamEstado; i++) s1[i] = newEstado[i];
+            for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
 
             //testando se s0 != s1
             diferente = false;
-            for(int i = 0; i < tamEstado; i++) if(s0[i] != s1[i]){ diferente = true; break;}
+            for(int i = 0; i < TAM_ESTADO; i++) if(s0[i] != s1[i]){ diferente = true; break;}
         }while(diferente);
 
         int upperBit = -1, lowerBit = -1, hash = 0;
@@ -173,7 +173,7 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
         for(int i = 0; i < g.nEq; i++)
         {
             int bitVar = g.nEq -1 - i;
-            int posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+            int posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
             bool bit = (s1[posAtr] >>(bitVar%32))% 2;
             if(lowerBit == -1 && (bit == 1))
                 lowerBit = i+1;
@@ -191,14 +191,14 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
         //assert(hash >= TABLE_SIZE || hash < 0);
         if(hash >= TABLE_SIZE || hash < 0){
             printf("Estado : ");
-            for(int i = 0; i < tamEstado; i++) printf("%d",s1[i]);
+            for(int i = 0; i < TAM_ESTADO; i++) printf("%d",s1[i]);
             printf(" , hash : %d\n",hash);
             return;
         }
 
         //salvar o atrator na tabela
         bool igual = true;
-        for(int i = 0; i < tamEstado; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
+        for(int i = 0; i < TAM_ESTADO; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
         if(igual)
         {
             Tabela[hash].cont+=1;//se dois estados caem no mesmo balde, soma mais um no estado
@@ -210,11 +210,11 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
             {   
                 hash++;
                 igual = true;
-                for(int i = 0; i < tamEstado; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;} 
+                for(int i = 0; i < TAM_ESTADO; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;} 
                 
             } 
             if(!igual)
-                for(int i = 0; i < tamEstado; i++) Tabela[hash].atr[i]=s1[i];
+                for(int i = 0; i < TAM_ESTADO; i++) Tabela[hash].atr[i]=s1[i];
             Tabela[hash].cont+=1;//se dois estados caem no mesmo balde, soma mais um no estado
             Tabela[hash].periodo=1;
         }
@@ -226,13 +226,13 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
     return;
 }
 
-__device__ void passo(unsigned int * estado, unsigned int tamEstado, const Grafo &g)
+/* __device__ void passo(unsigned int * estado, unsigned int TAM_ESTADO, const Grafo &g)
 {
     unsigned int * newEstado;
-    newEstado = (unsigned int *)malloc(sizeof(unsigned int)*tamEstado);
+    newEstado = (unsigned int *)malloc(sizeof(unsigned int)*TAM_ESTADO);
 
     //passo
-    for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+    for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
     //calcula novo estado
     for(int i = 0; i < g.nEq; i++)
@@ -243,56 +243,46 @@ __device__ void passo(unsigned int * estado, unsigned int tamEstado, const Grafo
         //aplicando a tlf
         for(int j = 0; j < eqsize;  j++, pos += 2){
             bitVar = (g.nEq-1)-g.peso[pos];
-            posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+            posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
             sum_prod += ((estado[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
         }
         bitVar = (g.nEq-1)-i; //variavel que será atualizada no novo estado
         newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
     }
     //atualiza s0
-    for(int i = 0; i < tamEstado; i++) estado[i] = newEstado[i];
+    for(int i = 0; i < TAM_ESTADO; i++) estado[i] = newEstado[i];
 
     free(newEstado);
 
-}
+} */
 
 
-__global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, Atrator *Tabela, unsigned long long MAX_TREAD_ID)
+__global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, Atrator *Tabela, unsigned long long MAX_THREAD_ID)
 {
     //o id da tread é calculado para evitar que as threads excedentes sejam utilizadas
     unsigned long long idx = blockDim.x*blockIdx.x + threadIdx.x;
-
-
-    
     //calculo do estado : estado = blockDim.x*blockIdx.x + threadIdx.x 
-    if(idx < MAX_TREAD_ID)
+    if(idx < MAX_THREAD_ID)
     {
-
         //copia do grafo na memória shared
-        __shared__ Grafo sh_g;
+        __shared__ int eqSize[TAM_REDE];
+        __shared__ int pesoIni[TAM_REDE];
+        __shared__ int T[TAM_REDE];
+        __shared__ int peso[TAM_PESOS*2];
 
         //inicializa a cópía do grafo na memória shared
         if(threadIdx.x==0)
         {
-            sh_g.nEq = g.nEq;
-            
-            sh_g.eqSize = (int *)malloc(sizeof(int)*sh_g.nEq);
-            sh_g.pesoIni = (int *)malloc(sizeof(int)*sh_g.nEq);
-            sh_g.T = (int *)malloc(sizeof(int)*sh_g.nEq);
-            
-            int nPesos = 0;
-            for(int i = 0; i < sh_g.nEq; i++)
+            #pragma unroll
+            for(int i = 0; i < TAM_REDE; i++)
             {
-                sh_g.eqSize[i] = g.eqSize[i];
-                nPesos += g.eqSize[i];
-                sh_g.pesoIni[i] = g.pesoIni[i];
-                sh_g.T[i] = g.T[i];
+                eqSize[i] = g.eqSize[i];
+                pesoIni[i] = g.pesoIni[i];
+                T[i] = g.T[i];
             }
-            
-             // temos peso e variavel
-            sh_g.peso = (int *)malloc(sizeof(int)*nPesos*2);
 
-            for(int i = 0; i < nPesos*2; i++) sh_g.peso[i] = g.peso[i];
+            #pragma unroll
+            for(int i = 0; i < TAM_PESOS*2; i++) peso[i] = g.peso[i];
 
             //testando inicialização do grafo
             /* assert(sh_g.nEq == g.nEq);
@@ -308,36 +298,32 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         __syncthreads();
 
         //rede grande, estado aleatório
-        if(sh_g.nEq > 25)
+        if(TAM_REDE > 25)
             curand_init(idx, idx, 0, curstate + idx);//inicia a seed
 
-        int tamEstado = g.nEq/32 + (g.nEq%32 != 0);
 
         //variáveis necessárias para realizar o passo
-        unsigned int *s0, *s1;
-        size_t B_estado = tamEstado*sizeof(unsigned int);
-        s0 = (unsigned int *)malloc(B_estado);
-        s1 = (unsigned int *)malloc(B_estado);
+        unsigned int s0[TAM_ESTADO], s1[TAM_ESTADO];
         
         //testa se a memoria foi alocada corretamente
         /* assert(s0 != NULL);
         assert(s1 != NULL); */
 
-        for(int i = 0; i < tamEstado; i++)
+        for(int i = 0; i < TAM_ESTADO; i++)
             s0[i] = s1[i] = 0; 
         
-        if(sh_g.nEq > 25)
+        if(TAM_REDE > 25)
         {
-            for(int i = 0; i < tamEstado; i++)
+            for(int i = 0; i < TAM_ESTADO; i++)
                s1[i] = s0[i] = curand(curstate + idx);
         }
         else
         {
             //inicializando estado inicial(o bit mais alto representa o vértice (nEq-1) e o bit mais baixo representa o vértice 0)
-            for(int i = 0; i < sh_g.nEq; i++)
+            for(int i = 0; i < TAM_REDE; i++)
             {
-                int var = sh_g.nEq -1 - i; //variável desejada
-                int posAtr = tamEstado - var/32 - (var%32!=0) ; //posição de atr onde se encontra o bit da variável desejada
+                int var = TAM_REDE -1 - i; //variável desejada
+                int posAtr = TAM_ESTADO - var/32 - (var%32!=0) ; //posição de atr onde se encontra o bit da variável desejada
                 s0[posAtr] |= ((idx >> i)%2) << (var%32);
                 s1[posAtr] |= ((idx >> i)%2) << (var%32);
             }
@@ -345,10 +331,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         
         
         //variaveis auxiliares
-        unsigned int * newEstado;
-        newEstado = (unsigned int *)malloc(sizeof(unsigned int)*tamEstado);
-        
-        
+        unsigned int newEstado[TAM_ESTADO];
         //assert(newEstado != NULL); //testa se a nenoria foi alocada corretamente
 
         //testando se s0 != s1
@@ -358,78 +341,77 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         do
         {
             //s0 anda um passo
-
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
-            for(int i = 0; i < sh_g.nEq; i++)
+            for(int i = 0; i < TAM_REDE; i++)
             {
                 int bitVar = 0; //bit no qual a variavel i é representada
                 int posAtr = 0; //posição do bit no vetor do estado
-                int sum_prod =0, pos = sh_g.pesoIni[i] , eqsize = sh_g.eqSize[i], Teq = sh_g.T[i];
+                int sum_prod =0, pos = pesoIni[i] , eqsize = eqSize[i], Teq = T[i];
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
-                    bitVar = (sh_g.nEq-1)-sh_g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
-                    sum_prod += ((s0[posAtr] >>(bitVar%32))% 2)*sh_g.peso[pos+1];
+                    bitVar = (TAM_REDE-1)-peso[pos];
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
+                    sum_prod += ((s0[posAtr] >>(bitVar%32))% 2)*peso[pos+1];
                 }
-                bitVar = (sh_g.nEq-1)-i; //variavel que será atualizada no novo estado
+                bitVar = (TAM_REDE-1)-i; //variavel que será atualizada no novo estado
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza s0
-            for(int i = 0; i < tamEstado; i++) s0[i] = newEstado[i];
+            for(int i = 0; i < TAM_ESTADO; i++) s0[i] = newEstado[i];
 
-            //passo(s0,tamEstado,sh_g);
+            //passo(s0,TAM_ESTADO,sh_g);
 
             //s1 anda dois passos
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
-            for(int i = 0; i < sh_g.nEq; i++)
+            for(int i = 0; i < TAM_REDE; i++)
             {
                 int bitVar = 0; //bit no qual a variavel i é representada
                 int posAtr = 0; //posição do bit no vetor do estado
-                int sum_prod =0, pos = sh_g.pesoIni[i] , eqsize = sh_g.eqSize[i], Teq = sh_g.T[i];
+                int sum_prod =0, pos = pesoIni[i] , eqsize = eqSize[i], Teq = T[i];
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
-                    bitVar = (sh_g.nEq-1)-sh_g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
-                    sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*sh_g.peso[pos+1];
+                    bitVar = (TAM_REDE-1)-peso[pos];
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
+                    sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*peso[pos+1];
                 }
-                bitVar = (sh_g.nEq-1)-i;
+                bitVar = (TAM_REDE-1)-i;
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza s1
-            for(int i = 0; i < tamEstado; i++) s1[i] = newEstado[i];
+            for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
 
             //passo
-            for(int i = 0; i < tamEstado; i++) newEstado[i]=0; //zera o newEstado
+            for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
             //calcula novo estado
-            for(int i = 0; i < sh_g.nEq; i++)
+            for(int i = 0; i < TAM_REDE; i++)
             {
                 int bitVar = 0; //bit no qual a variavel i é representada
                 int posAtr = 0; //posição do bit no vetor do estado
-                int sum_prod =0, pos = sh_g.pesoIni[i] , eqsize = sh_g.eqSize[i], Teq = sh_g.T[i];
+                int sum_prod =0, pos = pesoIni[i] , eqsize = eqSize[i], Teq = T[i];
                 //aplicando a tlf
                 for(int j = 0; j < eqsize;  j++, pos += 2){
-                    bitVar = (sh_g.nEq-1)-sh_g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
-                    sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*sh_g.peso[pos+1];
+                    bitVar = (TAM_REDE-1)-peso[pos];
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
+                    sum_prod += ((s1[posAtr] >>(bitVar%32))% 2)*peso[pos+1];
                 }
-                bitVar = (sh_g.nEq-1)-i;
+                bitVar = (TAM_REDE-1)-i;
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza s1
-            for(int i = 0; i < tamEstado; i++) s1[i] = newEstado[i];
-            /* passo(s1,tamEstado,sh_g);
-            passo(s1,tamEstado,sh_g); */
+            for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
+            /* passo(s1,TAM_ESTADO,sh_g);
+            passo(s1,TAM_ESTADO,sh_g); */
 
             //testando se s0 != s1
             diferente = false;
-            for(int i = 0; i < tamEstado; i++) if(s0[i] != s1[i]){ diferente = true; break;}
+            for(int i = 0; i < TAM_ESTADO; i++) if(s0[i] != s1[i]){ diferente = true; break;}
         }while(diferente);
         __syncthreads();
         //Neste ponto s0 == s1
@@ -438,129 +420,66 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
 
         //salva na memória global sequencialmente
 
-	for(unsigned int block = 0; block < gridDim.x; block++)
-	{
-	    if(blockIdx.x == block)
-	    {
-            for(unsigned int thread = 0; thread < blockDim.x; thread++)
+	
+        int upperBit = -1, lowerBit = -1, hash = 0;
+        #pragma unroll
+        for(int i = 0; i < TAM_REDE; i++)
+        {
+            int bitVar = TAM_REDE -1 - i;
+            int posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
+            bool bit = (s1[posAtr] >> (bitVar%32))% 2;
+            if(lowerBit == -1 && (bit == 1))
+                lowerBit = i+1;
+            
+            if(bit == 1)
             {
-                if(threadIdx.x == thread)
-                {
-                int upperBit = -1, lowerBit = -1, hash = 0;
-                    #pragma unroll
-                    for(int i = 0; i < sh_g.nEq; i++)
-                    {
-                        int bitVar = sh_g.nEq -1 - i;
-                        int posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
-                        bool bit = (s1[posAtr] >> (bitVar%32))% 2;
-                        if(lowerBit == -1 && (bit == 1))
-                            lowerBit = i+1;
-                        
-                        if(bit == 1)
-                        {
-                            upperBit = i + 1;
-                            hash += upperBit;
-                        }
-                    }
-                    if(upperBit == -1) hash = 0;
-                    else hash = (hash)/1024 + upperBit;
-                    
-                    assert(hash < TABLE_SIZE);
-                    //insere o estado na tabela hash :
-                    if(hash >= TABLE_SIZE || hash < 0){
-                        printf("Estado : ");
-                        for(int i = 0; i < tamEstado; i++) printf("%X",s1[i]);
-                        printf(" , hash : %d\n",hash);
-                        return;
-                    }
+                upperBit = i + 1;
+                hash += upperBit;
+            }
+        }
+        if(upperBit == -1) hash = 0;
+        else hash = (hash)/1024 + upperBit;
+        
+        assert(hash < TABLE_SIZE);
+        //insere o estado na tabela hash :
+        if(hash >= TABLE_SIZE || hash < 0){
+            printf("Erro ao calcular hash\n");
+            printf("Estado : ");
+            for(int i = 0; i < TAM_ESTADO; i++) printf("%X",s1[i]);
+            printf(" , hash : %d\n",hash);
+            return;
+        }
 
-                    //confere se o balde já está cheio e acha um balde vazio
-                    bool igual = true;
-                    for(int i = 0; i < tamEstado; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
-                    if(igual)
-                    {
-                        atomicAdd((unsigned long long *)&(Tabela[hash].cont), (unsigned long long)1);//se dois estados caem no mesmo balde, soma mais um no estado
-                    }
-                    else
-                    {
-                        //procura um balde vazio desde que o estado encontrado nao seja igual ao dos baldes encontrados no caminho
-                        while(Tabela[hash].cont != 0 && (!igual))
-                        {   
-                            hash++;
-                            igual = true;
-                            for(int i = 0; i < tamEstado; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
-                        }
-                        
-                        
-                        for(int i = 0; i < tamEstado; i++){ Tabela[hash].atr[i]=s1[i];} 
-                        atomicAdd((unsigned long long *)&(Tabela[hash].cont), (unsigned long long)1);
-                        Tabela[hash].periodo=1;
-                    }    		
-                } 
-                __syncthreads();		
+        //confere se o balde já está cheio e acha um balde vazio
+        bool igual = true;
+        for(int i = 0; i < TAM_ESTADO; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
+        if(igual)
+        {
+            atomicAdd((unsigned long long *)&(Tabela[hash].cont), (unsigned long long)1);//se dois estados caem no mesmo balde, soma mais um no estado
+        }
+        else
+        {
+            //procura um balde vazio desde que o estado encontrado nao seja igual ao dos baldes encontrados no caminho
+            while(Tabela[hash].cont != 0 && (!igual))
+            {   
+                hash++;
+                igual = true;
+                for(int i = 0; i < TAM_ESTADO; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
             }
             __syncthreads();
-	    }
-	    __syncthreads();
-	}
-    __syncthreads();
-        
-        /* if(idx == 0)
-        {
-            for(int i = 0; i < TABLE_SIZE; i++)
-            {
-                if(Tabela[i].cont != 0)
-                {
-                    printf("%d ",Tabela[i].periodo);
-                    for(int j = 0; j < Tabela[i].periodo; j++)
-                    {
-                        for(int z = 0; z < tamEstado; z++) printf("%X",Tabela[i].atr[j*tamEstado + z]);
-                        printf(" ");
-                    }
-                    printf("%llu\n", Tabela[i].cont);
-                }
-            }
-        }
-        __syncthreads(); */
-        
-
-
-        //teste de inicialização do estado
-        /* if(blockIdx.x == 0)
-        {
-            //imprimindo o estado em sequência
-            for(int i = 0; i < blockDim.x; i++)
-            {
-                if(threadIdx.x == i)
-                {
-                    for(int j = 0; j < sh_g.nEq; j++)
-                    {
-                        int var = sh_g.nEq -1 - j; //variável desejada
-                        int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
-                        bool valor = (Tabela[threadIdx.x].atr[posAtr]>>(var-32*posAtr))%2;
-                        printf("%d",valor);
-                    }
-                    printf("\n");    
-                }
-                __syncthreads();
-            }
             
-        }
-        __syncthreads(); */
-
-        //desaloca memória utilizada
-        free(s0);
-        free(s1);
-        free(newEstado);
-        if(threadIdx.x == 0)
+            for(int i = 0; i < TAM_ESTADO; i++){ Tabela[hash].atr[i]=s1[i];} 
+            atomicAdd((unsigned long long *)&(Tabela[hash].cont), (unsigned long long)1);
+            Tabela[hash].periodo=1;
+        }    		
+        __syncthreads();		
+     
+        
+        /* if(threadIdx.x == 0)
         {
-            free(sh_g.peso);
-            free(sh_g.pesoIni);
-            free(sh_g.eqSize);
-            free(sh_g.T);
-
-            //for(int i = 0; i < TABLE_SIZE; i++) free(sh_Tabela[i].atr);
-        }
+            for(int i = 0; i < TAM_ESTADO; i++) printf("%X",s1[i]);
+            printf("\n");
+        } */
         __syncthreads();
          
     }
@@ -575,18 +494,16 @@ __global__ void gen_rand(curandState * curstate, const Grafo g, const unsigned l
     {
         //inicia a seed
         curand_init(idx, idx, 0, curstate + idx);
-        
-        unsigned int tamEstado = g.nEq/32 + (g.nEq%32!=0);
         unsigned int * estado;
-        estado = (unsigned int *)malloc(sizeof(unsigned int)*tamEstado);
-        for(int i = 0; i < tamEstado; i++) estado[i] = 0;  
+        estado = (unsigned int *)malloc(sizeof(unsigned int)*TAM_ESTADO);
+        for(int i = 0; i < TAM_ESTADO; i++) estado[i] = 0;  
         
        
         
-        for(int i = 0; i < tamEstado; i++)
+        for(int i = 0; i < TAM_ESTADO; i++)
             estado[i] = curand(curstate + idx);
 
-        /* for(int i = 0; i < tamEstado; i++)
+        /* for(int i = 0; i < TAM_ESTADO; i++)
         {
             float randf = curand_uniform(curstate + idx);
             unsigned int max = (2<<31)-1;
@@ -614,7 +531,7 @@ __global__ void gen_rand(curandState * curstate, const Grafo g, const unsigned l
             __syncthreads();
             if(id == idx)
             {
-                for(int i = 0; i < tamEstado; i++) printf("%u",estado[i]);
+                for(int i = 0; i < TAM_ESTADO; i++) printf("%u",estado[i]);
                 printf("\n");
                 __syncthreads();
             }
@@ -634,7 +551,6 @@ __global__ void gen_rand(curandState * curstate, const Grafo g, const unsigned l
 
 Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
 {
-    int tamEstado = g.nEq/32 + (g.nEq%32 != 0);
     //ajeita tabela da GPU
     if(tec == "GPU")
     {
@@ -650,7 +566,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                     if(Tabela[j].cont != 0)
                     {
                         igual = true;
-                        for(int z = 0; z < tamEstado; z++) if(Tabela[i].atr[z] != Tabela[j].atr[z]){ igual = false; break;}
+                        for(int z = 0; z < TAM_ESTADO; z++) if(Tabela[i].atr[z] != Tabela[j].atr[z]){ igual = false; break;}
                     }
                     if(igual)
                     {
@@ -676,8 +592,8 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
     }
 
     //variaveis auxiliares
-    unsigned int * newEstado = new unsigned int[tamEstado];
-    unsigned int * aux = new unsigned int[tamEstado]; //auxiliar para saber os próximos estados do atratror
+    unsigned int * newEstado = new unsigned int[TAM_ESTADO];
+    unsigned int * aux = new unsigned int[TAM_ESTADO]; //auxiliar para saber os próximos estados do atratror
 
     
     //junta os atratores da Tabela no resultado
@@ -687,17 +603,17 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
         {
             resultado[i].periodo = Tabela[i].periodo;
             resultado[i].cont = Tabela[i].cont;
-            vector<unsigned int> atr(tamEstado); // atrator completo que será armazenado em resultado[i].atr
+            vector<unsigned int> atr(TAM_ESTADO); // atrator completo que será armazenado em resultado[i].atr
 
             //zera a posição visitada na Tabela
             Tabela[i].cont = 0;
 
-            for(int j = 0; j < tamEstado; j++) aux[j] = atr[j] = Tabela[i].atr[j];//inicialização de aux e atr
+            for(int j = 0; j < TAM_ESTADO; j++) aux[j] = atr[j] = Tabela[i].atr[j];//inicialização de aux e atr
 
             //aplica um passo em atr para encontrar o próximo estado do atrator
            
             //passo
-            for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
+            for(int j = 0; j < TAM_ESTADO; j++) newEstado[j]=0; //zera o newEstado
 
             //calcula novo estado
             for(int j = 0; j < g.nEq; j++)
@@ -708,22 +624,22 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 //aplicando a tlf
                 for(int z = 0; z < eqsize;  z++, pos += 2){
                     bitVar = (g.nEq-1)-g.peso[pos];
-                    posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                    posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                     sum_prod += ((aux[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
                 }
                 bitVar = (g.nEq-1)-j;
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza aux
-            for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j];
+            for(int j = 0; j < TAM_ESTADO; j++) aux[j] = newEstado[j];
             
             //testar se aux != Tabela[i].atr[j]
             bool diferente = false;
-            for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
+            for(int j = 0; j < TAM_ESTADO; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
             while(diferente)
             {
 
-               /*  for(int j = 0; j < tamEstado; j++) printf("%X",aux[j]);
+               /*  for(int j = 0; j < TAM_ESTADO; j++) printf("%X",aux[j]);
                 cout << endl; */
 
                 //calcula o hash do estado atual
@@ -732,7 +648,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 for(int j = 0; j < g.nEq; j++)
                 {
                     int bitVar = g.nEq -1 - j;
-                    int posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                    int posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                     bool bit = (aux[posAtr] >>(bitVar%32))% 2;
                     if(lowerBit == -1 && (bit == 1))
                         lowerBit = j+1;
@@ -751,7 +667,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 assert(hash < TABLE_SIZE);
 
                 //procurando se o estado encontrado no ciclo esta na tabela
-                for(int j = 0; j < tamEstado; j++) if(Tabela[hash].atr[j] != aux[j]) {igual = false; break;}
+                for(int j = 0; j < TAM_ESTADO; j++) if(Tabela[hash].atr[j] != aux[j]) {igual = false; break;}
                 //procurando se o estado encontrado no ciclo esta na tabela
                 if(hash < TABLE_SIZE) //se o estado estiver na tabela extraimos seus dados
                 {
@@ -759,12 +675,12 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                     {
                         hash++;
                         igual = true;
-                        if(hash < TABLE_SIZE) for(int j = 0; j < tamEstado; j++) if(Tabela[hash].atr[j] != aux[j]) {igual = false; break;}
+                        if(hash < TABLE_SIZE) for(int j = 0; j < TAM_ESTADO; j++) if(Tabela[hash].atr[j] != aux[j]) {igual = false; break;}
                     } 
                 }
                 
 
-                for(int j = 0; j < tamEstado; j++) atr.push_back(aux[j]);
+                for(int j = 0; j < TAM_ESTADO; j++) atr.push_back(aux[j]);
                 resultado[i].periodo++;
                 
                 if(hash < TABLE_SIZE) //se o estado estiver na tabela extraimos seus dados
@@ -775,7 +691,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 }
 
                 //da um passo em aux
-                for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
+                for(int j = 0; j < TAM_ESTADO; j++) newEstado[j]=0; //zera o newEstado
 
                 //calcula novo estado
                 for(int j = 0; j < g.nEq; j++)
@@ -786,19 +702,19 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                     //aplicando a tlf
                     for(int z = 0; z < eqsize;  z++, pos += 2){
                         bitVar = (g.nEq-1)-g.peso[pos];
-                        posAtr = tamEstado - bitVar/32 - (bitVar%32!=0) ;
+                        posAtr = TAM_ESTADO - bitVar/32 - (bitVar%32!=0) ;
                         sum_prod += ((aux[posAtr] >>(bitVar%32))% 2)*g.peso[pos+1];
                     }
                     bitVar = (g.nEq-1)-j;
                     newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
                 }
                 //atualiza aux
-                for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j];
+                for(int j = 0; j < TAM_ESTADO; j++) aux[j] = newEstado[j];
 
 
                 //aux != Tabela[i].atr ?
                 diferente = false;
-                for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
+                for(int j = 0; j < TAM_ESTADO; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
             }
 
 
@@ -817,6 +733,12 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
     return resultado;
 }
 
+
+__global__ void testekernel()
+{
+    if(threadIdx.x == 0)
+        printf("Bloco %d Thread %d\n",blockIdx.x,threadIdx.x);
+}
 
 
 int main(int argc, char **argv)
@@ -848,7 +770,7 @@ int main(int argc, char **argv)
     //ler os tamanhos das equações a seguir
     int nPesos = 0; // numero de pesos
 
-    for(int i = 0; i < nEq; i++)
+    for(int i = 0; i < TAM_REDE; i++)
     {
         is >> g.eqSize[i];
         nPesos+= g.eqSize[i];
@@ -859,7 +781,7 @@ int main(int argc, char **argv)
     cudaMalloc((int **)&(d_g.peso),nPesos*sizeof(int));
 
     int posPeso = 0; //posição dos pesos
-    for(int i = 0; i < nEq; i++)
+    for(int i = 0; i < TAM_REDE; i++)
     {
         int var=0, peso=0, T=0; // variavel da equação, peso e threshold
         g.pesoIni[i] = posPeso;
@@ -900,20 +822,17 @@ int main(int argc, char **argv)
     Tabela = new Atrator[TABLE_SIZE];
     cudaMalloc((Atrator**)&d_Tabela, TABLE_SIZE*sizeof(Atrator));
     unsigned int * d_atr[TABLE_SIZE];
-
-    int tamEstado = nEq/32 + (nEq%32 != 0);
-
     
     for(int i = 0; i < TABLE_SIZE; i++)
     {
-        Tabela[i].atr = new unsigned int[tamEstado];
+        Tabela[i].atr = new unsigned int[TAM_ESTADO];
         Tabela[i].cont = 0;
         Tabela[i].periodo = 0;
 
-        for(int j = 0; j < tamEstado; j++) Tabela[i].atr[j] = 0;
+        for(int j = 0; j < TAM_ESTADO; j++) Tabela[i].atr[j] = 0;
         
-        cudaMalloc((void **)&(d_atr[i]), sizeof(unsigned int)*tamEstado);
-        cudaMemcpy(d_atr[i], Tabela[i].atr, sizeof(unsigned int)*tamEstado, cudaMemcpyHostToDevice);
+        cudaMalloc((void **)&(d_atr[i]), sizeof(unsigned int)*TAM_ESTADO);
+        cudaMemcpy(d_atr[i], Tabela[i].atr, sizeof(unsigned int)*TAM_ESTADO, cudaMemcpyHostToDevice);
 
         cudaMemcpy(&(d_Tabela[i]), &(Tabela[i]), sizeof(Atrator), cudaMemcpyHostToDevice);
         cudaMemcpy(&(d_Tabela[i].atr), &(d_atr[i]), sizeof(unsigned int*), cudaMemcpyHostToDevice);
@@ -924,25 +843,21 @@ int main(int argc, char **argv)
     size_t HeapSize = MB_por_Estado * 1024 * 1024;
 
     string tec = argv[3];
-    
     if(tec == "GPU")
     {
         curandState * d_state;
         cudaMalloc((void **)&d_state, sizeof(curandState) * MAX_ESTADO);
-        cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
+        //cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
     
-        //gen_rand<<<1,1024>>>(d_state,d_g,MAX_ESTADO);
         atrator_tabela_sincrono<<<grid,block>>>(d_state,d_g,d_Tabela,MAX_ESTADO);
         cudaDeviceSynchronize();
-
         //traz o resultado da GPU
         for(int i = 0; i < TABLE_SIZE; i++)
         {
-            cudaMemcpy(Tabela[i].atr, d_atr[i], tamEstado*sizeof(unsigned int), cudaMemcpyDeviceToHost);
+            cudaMemcpy(Tabela[i].atr, d_atr[i], TAM_ESTADO*sizeof(unsigned int), cudaMemcpyDeviceToHost);
             cudaMemcpy(&(Tabela[i].cont), &(d_Tabela[i].cont), sizeof(unsigned long long), cudaMemcpyDeviceToHost);
             cudaMemcpy(&(Tabela[i].periodo), &(d_Tabela[i].periodo), sizeof(unsigned long long), cudaMemcpyDeviceToHost);
         }
-
     }
     else if(tec == "CPU") atrator_tabela_sincrono_cpu(g,Tabela,MAX_ESTADO);
     else
@@ -971,25 +886,25 @@ int main(int argc, char **argv)
     //imprimindo resultado
     for(int i = 0; i < TABLE_SIZE; i++)
     {
-        if(resultado[i].cont)
+        if(resultado[i].periodo != 0)
         {
-            printf("%d ",resultado[i].periodo);
+            printf("%u ",resultado[i].periodo);
             for(int j = 0; j < resultado[i].periodo; j++)
             {
-                for(int z = 0; z < tamEstado; z++) printf("%X",resultado[i].atr[j*tamEstado + z]);
+                for(int z = 0; z < TAM_ESTADO; z++) printf("%X",resultado[i].atr[j*TAM_ESTADO + z]);
                 printf(" ");
             }
                 
             //binario
-            /* for(int j = 0; j < g.nEq; j++)
+            /*  for(int j = 0; j < g.nEq; j++)
             {
                 int var = g.nEq -1 - j; //variável desejada
                 int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
                 bool valor = (Tabela[i].atr[posAtr]>>(var-32*posAtr))%2;
                 printf("%d",valor);
             } */
-            printf("%llu\n", resultado[i].cont);
-        }
+            printf("%llu\n", resultado[i].cont); 
+        }   
     }
     
     //desalocando memória
