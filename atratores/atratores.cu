@@ -11,10 +11,10 @@
 
 using namespace std;
 
-#define TABLE_SIZE 2048
+#define TABLE_SIZE 1024
 #define BUCKET_SIZE 200
-#define TAM_REDE CONSTANTE_REDE
-#define TAM_PESOS CONSTANTE_PESOS
+#define TAM_REDE 41//CONSTANTE_REDE
+#define TAM_PESOS 75//CONSTANTE_PESOS
 #define TAM_ESTADO (TAM_REDE/32 + (TAM_REDE%32 != 0))
 
 //#define TAM_ESTADO TAM_REDE/32 + (TAM_REDE%32 != 0) //tamanho máximo de cada estado na rede (em bits)
@@ -271,29 +271,34 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         __shared__ int peso[TAM_PESOS*2];
 
         //inicializa a cópía do grafo na memória shared
-        if(threadIdx.x==0)
+        if(threadIdx.x<TAM_REDE)
         {
-            #pragma unroll
-            for(int i = 0; i < TAM_REDE; i++)
+            eqSize[threadIdx.x] = g.eqSize[threadIdx.x];
+            pesoIni[threadIdx.x] = g.pesoIni[threadIdx.x];
+            T[threadIdx.x] = g.T[threadIdx.x];
+        }
+        if(TAM_PESOS <= 1024)
+        {
+            if(threadIdx.x<TAM_PESOS)
             {
-                eqSize[i] = g.eqSize[i];
-                pesoIni[i] = g.pesoIni[i];
-                T[i] = g.T[i];
+                peso[threadIdx.x*2] = peso[threadIdx.x*2];
+                peso[threadIdx.x*2+1] = peso[threadIdx.x*2+1]; 
             }
-
-            #pragma unroll
-            for(int i = 0; i < TAM_PESOS*2; i++) peso[i] = g.peso[i];
-
-            //testando inicialização do grafo
-            /* assert(sh_g.nEq == g.nEq);
-            for(int i = 0; i < (nPesos*2); i++) assert(sh_g.peso[i] == g.peso[i]);
-            for(int i = 0; i < sh_g.nEq; i++)
+        }
+        else
+        {
+            int total = TAM_PESOS;
+            while(total >= blockDim.x)
             {
-                assert(sh_g.eqSize[i] == g.eqSize[i]);
-                assert(sh_g.pesoIni[i] == g.pesoIni[i]);
-                assert(sh_g.T[i] == g.T[i]);
-            } */
-
+                peso[threadIdx.x*2] = peso[threadIdx.x*2];
+                peso[threadIdx.x*2+1] = peso[threadIdx.x*2+1];
+                total = total - blockDim.x;
+            }
+            if(threadIdx.x<total)
+            {
+                peso[threadIdx.x*2] = peso[threadIdx.x*2];
+                peso[threadIdx.x*2+1] = peso[threadIdx.x*2+1]; 
+            }
         }
         __syncthreads();
 
@@ -552,7 +557,7 @@ __global__ void gen_rand(curandState * curstate, const Grafo g, const unsigned l
 Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
 {
     //ajeita tabela da GPU
-    if(tec == "GPU")
+    /* if(tec == "GPU")
     {
         for(int i = 0; i < TABLE_SIZE; i++)
         {
@@ -577,7 +582,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 
             }
         }
-    }
+    } */
 
 
     
@@ -896,13 +901,13 @@ int main(int argc, char **argv)
             }
                 
             //binario
-            /*  for(int j = 0; j < g.nEq; j++)
+              for(int j = 0; j < g.nEq; j++)
             {
                 int var = g.nEq -1 - j; //variável desejada
                 int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
                 bool valor = (Tabela[i].atr[posAtr]>>(var-32*posAtr))%2;
                 printf("%d",valor);
-            } */
+            } 
             printf("%llu\n", resultado[i].cont); 
         }   
     }
