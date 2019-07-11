@@ -57,7 +57,7 @@ typedef struct
 void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long long MAX_ESTADO)
 {
     bool aleatorio = false;
-    if(g.nEq > 40){ aleatorio = true; srand(MAX_ESTADO);}  //rede grande, estados aleatórios   
+       
     int tamEstado = g.nEq/32 + (g.nEq%32 != 0);
     unsigned int * s0, *s1;
     s0 = (unsigned int *)malloc(tamEstado*sizeof(unsigned int));
@@ -65,7 +65,7 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
     for(unsigned long long estado = 0; estado < MAX_ESTADO; estado++)
     {
         //variáveis necessárias para realizar o passo
-        
+        if(g.nEq > 25){ aleatorio = true; srand(estado);}  //rede grande, estados aleatórios
         for(int i = 0; i < tamEstado; i++)
             s0[i] = s1[i] = 0; 
 
@@ -75,6 +75,7 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
         {
             for(int i = 0; i < tamEstado; i++)
                 s0[i] = (unsigned int)rand() % UINT_MAX; //preenche o estado com numeros aleatórios
+
         }
         else
         {
@@ -276,20 +277,12 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         __shared__ int peso[TAM_PESOS*2];
 
         //inicializa a cópía do grafo na memória shared
+        
         if(threadIdx.x<TAM_REDE)
-        {
+        {   
             eqSize[threadIdx.x] = g.eqSize[threadIdx.x];
             pesoIni[threadIdx.x] = g.pesoIni[threadIdx.x];
             T[threadIdx.x] = g.T[threadIdx.x];
-            //testando inicialização do grafo
-            /* assert(sh_g.nEq == g.nEq);
-            for(int i = 0; i < (nPesos*2); i++) assert(sh_g.peso[i] == g.peso[i]);
-            for(int i = 0; i < sh_g.nEq; i++)
-            {
-                assert(sh_g.eqSize[i] == g.eqSize[i]);
-                assert(sh_g.pesoIni[i] == g.pesoIni[i]);
-                assert(sh_g.T[i] == g.T[i]);
-            } */
         }
         if(threadIdx.x < TAM_PESOS)
         {
@@ -298,16 +291,12 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         }
         __syncthreads();
 
-
         //rede grande, estado aleatório
-        if(TAM_REDE> 25)
+        if(TAM_REDE > 25)
             curand_init(idx, idx, 0, curstate + idx);//inicia a seed
+
         //variáveis necessárias para realizar o passo
         unsigned int s0[TAM_REDE], s1[TAM_REDE];
-        
-        //testa se a memoria foi alocada corretamente
-        /* assert(s0 != NULL);
-        assert(s1 != NULL); */
 
         for(int i = 0; i < TAM_ESTADO; i++)
             s0[i] = s1[i] = 0; 
@@ -316,6 +305,16 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         {
             for(int i = 0; i < TAM_ESTADO; i++)
                s1[i] = s0[i] = curand(curstate + idx);
+
+            //desligando bits que sobram
+            if(TAM_REDE < 32*TAM_ESTADO)
+            {
+                for(int bitVar = TAM_REDE; bitVar < 32*TAM_ESTADO; bitVar++)
+                {
+                    int posAtr = (bitVar)/32;
+                    s1[posAtr] = s0[posAtr] =(s0[posAtr] & ~(1 << (bitVar%32)));
+                }
+            }
         }
         else
         {
@@ -331,7 +330,9 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         
         
         //variaveis auxiliares
-        unsigned int newEstado[TAM_ESTADO];
+        unsigned int newEstado[TAM_REDE];
+        
+        
         //assert(newEstado != NULL); //testa se a nenoria foi alocada corretamente
 
         //testando se s0 != s1
@@ -406,7 +407,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza s1
-            for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
+            for(int i = 0; i < TAM_REDE; i++) s1[i] = newEstado[i];
             /* passo(s1,tamEstado,sh_g);
             passo(s1,tamEstado,sh_g); */
 
@@ -488,50 +489,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
 	}
     __syncthreads();
         
-        /* if(idx == 0)
-        {
-            for(int i = 0; i < TABLE_SIZE; i++)
-            {
-                if(Tabela[i].cont != 0)
-                {
-                    printf("%d ",Tabela[i].periodo);
-                    for(int j = 0; j < Tabela[i].periodo; j++)
-                    {
-                        for(int z = 0; z < tamEstado; z++) printf("%X",Tabela[i].atr[j*tamEstado + z]);
-                        printf(" ");
-                    }
-                    printf("%llu\n", Tabela[i].cont);
-                }
-            }
-        }
-        __syncthreads(); */
-        
-
-
-        //teste de inicialização do estado
-        /* if(blockIdx.x == 0)
-        {
-            //imprimindo o estado em sequência
-            for(int i = 0; i < blockDim.x; i++)
-            {
-                if(threadIdx.x == i)
-                {
-                    for(int j = 0; j < sh_g.nEq; j++)
-                    {
-                        int var = sh_g.nEq -1 - j; //variável desejada
-                        int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
-                        bool valor = (Tabela[threadIdx.x].atr[posAtr]>>(var-32*posAtr))%2;
-                        printf("%d",valor);
-                    }
-                    printf("\n");    
-                }
-                __syncthreads();
-            }
-            
-        }
-        __syncthreads(); */
-
-         
+       
     }
 }
 
@@ -554,28 +512,6 @@ __global__ void gen_rand(curandState * curstate, const Grafo g, const unsigned l
         
         for(int i = 0; i < tamEstado; i++)
             estado[i] = curand(curstate + idx);
-
-        /* for(int i = 0; i < tamEstado; i++)
-        {
-            float randf = curand_uniform(curstate + idx);
-            unsigned int max = (2<<31)-1;
-            randf *= ( max + 0.999999);
-            randf += 0;
-            unsigned int num = (unsigned int)truncf(randf);
-            estado[i] = num;
-        } */
-        
-        /* for(int i = 0; i < g.nEq; i++)
-        {
-            int var = g.nEq -1 - i; //variável desejada
-            int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
-
-            float randf = curand_uniform(curstate + idx);
-            randf *= (1 - 0 + 0.999999);
-            randf += 0;
-            unsigned int bit = (unsigned int)truncf(randf);
-            estado[posAtr] |= bit << (var - 32*posAtr);
-        } */
         
         
         for(unsigned long long id = 0; id < MAX_TREAD_ID; id++)
@@ -605,7 +541,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
 {
     int tamEstado = g.nEq/32 + (g.nEq%32 != 0);
     //ajeita tabela da GPU
-    if(tec == "GPU")
+    if(tec == "bananas")
     {
         for(int i = 0; i < TABLE_SIZE; i++)
         {
@@ -654,8 +590,8 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
     {
         if(Tabela[i].cont != 0)
         {
-            resultado[i].periodo = Tabela[i].periodo;
-            resultado[i].cont = Tabela[i].cont;
+            resultado[i].periodo += Tabela[i].periodo;
+            resultado[i].cont += Tabela[i].cont;
             vector<unsigned int> atr(tamEstado); // atrator completo que será armazenado em resultado[i].atr
 
             //zera a posição visitada na Tabela
@@ -666,7 +602,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
             //aplica um passo em atr para encontrar o próximo estado do atrator
            
             //passo
-            for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
+            /* for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
 
             //calcula novo estado
             for(int j = 0; j < g.nEq; j++)
@@ -684,12 +620,12 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza aux
-            for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j];
+            for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j]; */
             
             //testar se aux != Tabela[i].atr[j]
             bool diferente = false;
-            for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
-            while(diferente)
+            
+            do
             {
 
                /*  for(int j = 0; j < tamEstado; j++) printf("%X",aux[j]);
@@ -768,7 +704,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 //aux != Tabela[i].atr ?
                 diferente = false;
                 for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
-            }
+            }while(diferente);
 
 
             //copia o atrator completo para a tabela de resultado
@@ -932,7 +868,6 @@ int main(int argc, char **argv)
         cudaFree(d_g.T);
         return 0;
     }
-
     //junta os atratores
     Atrator * resultado ;//= Tabela;
     resultado = junta_atrator(Tabela,g,tec);
@@ -948,19 +883,9 @@ int main(int argc, char **argv)
                 for(int z = 0; z < tamEstado; z++) printf("%X",resultado[i].atr[j*tamEstado + z]);
                 printf(" ");
             }
-                
-            //binario
-            /* for(int j = 0; j < g.nEq; j++)
-            {
-                int var = g.nEq -1 - j; //variável desejada
-                int posAtr = var/32 + (var%32!=0) - 1; //posição de atr onde se encontra o bit da variável desejada
-                bool valor = (Tabela[i].atr[posAtr]>>(var-32*posAtr))%2;
-                printf("%d",valor);
-            } */
             printf("%llu\n", resultado[i].cont);
         }
     }
-    
     //desalocando memória
     for(int i = 0; i < TABLE_SIZE; i++){ cudaFree(d_atr[i]); free(Tabela[i].atr);}  
     free(Tabela);
