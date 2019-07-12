@@ -264,33 +264,30 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
     //o id da tread é calculado para evitar que as threads excedentes sejam utilizadas
     unsigned long long idx = blockDim.x*blockIdx.x + threadIdx.x;
 
+    //copia do grafo na memória shared
+    __shared__ int eqSize[TAM_REDE];
+    __shared__ int pesoIni[TAM_REDE];
+    __shared__ int T[TAM_REDE];
+    __shared__ int peso[TAM_PESOS*2];
+
+    //inicializa a cópía do grafo na memória shared
+    if(threadIdx.x<TAM_REDE)
+    {   
+        eqSize[threadIdx.x] = g.eqSize[threadIdx.x];
+        pesoIni[threadIdx.x] = g.pesoIni[threadIdx.x];
+        T[threadIdx.x] = g.T[threadIdx.x];
+    }
+    if(threadIdx.x < TAM_PESOS)
+    {
+        peso[threadIdx.x*2] = g.peso[threadIdx.x*2];
+        peso[threadIdx.x*2+1] = g.peso[threadIdx.x*2+1];
+    }
+    __syncthreads();
 
     
     //calculo do estado : estado = blockDim.x*blockIdx.x + threadIdx.x 
     if(idx < MAX_TREAD_ID)
     {
-
-        //copia do grafo na memória shared
-        __shared__ int eqSize[TAM_REDE];
-        __shared__ int pesoIni[TAM_REDE];
-        __shared__ int T[TAM_REDE];
-        __shared__ int peso[TAM_PESOS*2];
-
-        //inicializa a cópía do grafo na memória shared
-        
-        if(threadIdx.x<TAM_REDE)
-        {   
-            eqSize[threadIdx.x] = g.eqSize[threadIdx.x];
-            pesoIni[threadIdx.x] = g.pesoIni[threadIdx.x];
-            T[threadIdx.x] = g.T[threadIdx.x];
-        }
-        if(threadIdx.x < TAM_PESOS)
-        {
-            peso[threadIdx.x*2] = g.peso[threadIdx.x*2];
-            peso[threadIdx.x*2+1] = g.peso[threadIdx.x*2+1];
-        }
-        __syncthreads();
-
         //rede grande, estado aleatório
         if(TAM_REDE > 25)
             curand_init(idx, idx, 0, curstate + idx);//inicia a seed
@@ -869,8 +866,8 @@ int main(int argc, char **argv)
         return 0;
     }
     //junta os atratores
-    Atrator * resultado ;//= Tabela;
-    resultado = junta_atrator(Tabela,g,tec);
+    Atrator * resultado = Tabela;
+    //resultado = junta_atrator(Tabela,g,tec);
     //return 0;
     //imprimindo resultado
     for(int i = 0; i < TABLE_SIZE; i++)
@@ -886,6 +883,8 @@ int main(int argc, char **argv)
             printf("%llu\n", resultado[i].cont);
         }
     }
+
+    return 0;
     //desalocando memória
     for(int i = 0; i < TABLE_SIZE; i++){ cudaFree(d_atr[i]); free(Tabela[i].atr);}  
     free(Tabela);
