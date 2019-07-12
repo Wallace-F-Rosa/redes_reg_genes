@@ -76,6 +76,14 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
             for(int i = 0; i < tamEstado; i++)
                 s0[i] = (unsigned int)rand() % UINT_MAX; //preenche o estado com numeros aleatórios
 
+            if(TAM_REDE < 32*TAM_ESTADO)
+            {
+                for(int bitVar = TAM_REDE; bitVar < 32*TAM_ESTADO; bitVar++)
+                {
+                    int posAtr = (bitVar)/32;
+                    s0[posAtr] =(s0[posAtr] & ~(1 << (bitVar%32)));
+                }
+            }
         }
         else
         {
@@ -566,8 +574,6 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
     }
 
 
-    
-
     Atrator * resultado = new Atrator[TABLE_SIZE];
 
     //inicializa tabela
@@ -587,8 +593,8 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
     {
         if(Tabela[i].cont != 0)
         {
-            resultado[i].periodo += Tabela[i].periodo;
-            resultado[i].cont += Tabela[i].cont;
+            resultado[i].periodo = Tabela[i].periodo;
+            resultado[i].cont = Tabela[i].cont;
             vector<unsigned int> atr(tamEstado); // atrator completo que será armazenado em resultado[i].atr
 
             //zera a posição visitada na Tabela
@@ -599,7 +605,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
             //aplica um passo em atr para encontrar o próximo estado do atrator
            
             //passo
-            /* for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
+            for(int j = 0; j < tamEstado; j++) newEstado[j]=0; //zera o newEstado
 
             //calcula novo estado
             for(int j = 0; j < g.nEq; j++)
@@ -617,12 +623,12 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 newEstado[posAtr] |= (sum_prod >= Teq) << (bitVar%32);
             }
             //atualiza aux
-            for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j]; */
+            for(int j = 0; j < tamEstado; j++) aux[j] = newEstado[j];
             
             //testar se aux != Tabela[i].atr[j]
             bool diferente = false;
-            
-            do
+            for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
+            while(diferente)
             {
 
                /*  for(int j = 0; j < tamEstado; j++) printf("%X",aux[j]);
@@ -701,7 +707,7 @@ Atrator * junta_atrator(Atrator * Tabela, const Grafo &g, const string tec)
                 //aux != Tabela[i].atr ?
                 diferente = false;
                 for(int j = 0; j < tamEstado; j++) if(aux[j] != Tabela[i].atr[j]){ diferente = true; break;}
-            }while(diferente);
+            }
 
 
             //copia o atrator completo para a tabela de resultado
@@ -866,8 +872,8 @@ int main(int argc, char **argv)
         return 0;
     }
     //junta os atratores
-    Atrator * resultado = Tabela;
-    //resultado = junta_atrator(Tabela,g,tec);
+    Atrator * resultado ;//= Tabela;
+    resultado = junta_atrator(Tabela,g,tec);
     //return 0;
     //imprimindo resultado
     for(int i = 0; i < TABLE_SIZE; i++)
