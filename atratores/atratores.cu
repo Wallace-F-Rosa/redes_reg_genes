@@ -16,6 +16,8 @@ using namespace std;
 #define TAM_REDE CONSTANTE_REDE
 #define TAM_PESOS CONSTANTE_PESOS
 #define TAM_ESTADO (TAM_REDE/32 + (TAM_REDE%32 != 0))
+#define CLOCK_PER_SEC_CPU 1007.780*1000000
+#define CLOCK_PER_SEC_GPU 1506*1000000
 
 //#define TAM_ESTADO TAM_REDE/32 + (TAM_REDE%32 != 0) //tamanho máximo de cada estado na rede (em bits)
 
@@ -267,7 +269,7 @@ __device__ void passo(unsigned int * estado, unsigned int tamEstado, const Grafo
 }
 
 
-__global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, Atrator *Tabela, unsigned long long MAX_TREAD_ID)
+__global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, Atrator *Tabela, unsigned long long MAX_TREAD_ID, unsigned int * C)
 {
     //o id da tread é calculado para evitar que as threads excedentes sejam utilizadas
     unsigned long long idx = blockDim.x*blockIdx.x + threadIdx.x;
@@ -342,12 +344,13 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
 
         //testando se s0 != s1
         bool diferente = false;
-        
+        unsigned int c1=0,c2=0;
         //procurando o atrator onde os estados caem
         do
         {
             //s0 anda um passo
-
+            
+            
             //passo
             for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
@@ -368,7 +371,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
             }
             //atualiza s0
             for(int i = 0; i < TAM_ESTADO; i++) s0[i] = newEstado[i];
-
+            
             //passo(s0,tamEstado,sh_g);
 
             //s1 anda dois passos
@@ -393,6 +396,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
             //atualiza s1
             for(int i = 0; i < TAM_ESTADO; i++) s1[i] = newEstado[i];
 
+            asm("mov.u32 %0,%%clock;":"=r"(c1));
             //passo
             for(int i = 0; i < TAM_ESTADO; i++) newEstado[i]=0; //zera o newEstado
 
@@ -413,6 +417,7 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
             }
             //atualiza s1
             for(int i = 0; i < TAM_REDE; i++) s1[i] = newEstado[i];
+            asm("mov.u32 %0,%%clock;":"=r"(c2));
             /* passo(s1,tamEstado,sh_g);
             passo(s1,tamEstado,sh_g); */
 
@@ -423,8 +428,8 @@ __global__ void atrator_tabela_sincrono(curandState * curstate, const Grafo g, A
         __syncthreads();
         //Neste ponto s0 == s1
 
-
-
+    //tempo do ultimo passo
+    C[idx] = c2 - c1;
         //salva na memória global sequencialmente
 
 	for(unsigned int block = 0; block < gridDim.x; block++)
@@ -833,16 +838,21 @@ int main(int argc, char **argv)
 
     string tec = argv[3];
     
+    unsigned int * h_C = new unsigned int[MAX_ESTADO];
     if(tec == "GPU")
     {
+        //estado para gerar números aleatórios
         curandState * d_state;
         cudaMalloc((void **)&d_state, sizeof(curandState) * MAX_ESTADO);
-        cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
-    
-        //gen_rand<<<1,1024>>>(d_state,d_g,MAX_ESTADO);
-        atrator_tabela_sincrono<<<grid,block>>>(d_state,d_g,d_Tabela,MAX_ESTADO);
-        cudaDeviceSynchronize();
+        //cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
+        
+        unsigned int * d_C;
+        cudaMalloc(&d_C,sizeof(unsigned int)*MAX_ESTADO);
 
+        //gen_rand<<<1,1024>>>(d_state,d_g,MAX_ESTADO);
+        atrator_tabela_sincrono<<<grid,block>>>(d_state,d_g,d_Tabela,MAX_ESTADO,d_C);
+        cudaDeviceSynchronize();
+        cudaMemcpy(h_C, d_C, sizeof(unsigned int)*MAX_ESTADO, cudaMemcpyDeviceToHost);
         //traz o resultado da GPU
         for(int i = 0; i < TABLE_SIZE; i++)
         {
@@ -890,7 +900,15 @@ int main(int argc, char **argv)
         }
     }
 
-    return 0;
+    double avgT = 0;
+    for(int i = 0; i < MAX_ESTADO; i++)
+        avgT += h_C[i];
+    avgT /= MAX_ESTADO;
+    if(tec == "CPU") avgT /= CLOCK_PER_SEC_CPU;
+    else avgT /= CLOCK_PER_SEC_GPU;
+
+    cerr << "Tempo de 1 passo : "<<h_C[1] << "s\n";
+
     //desalocando memória
     for(int i = 0; i < TABLE_SIZE; i++){ cudaFree(d_atr[i]); free(Tabela[i].atr);}  
     free(Tabela);
