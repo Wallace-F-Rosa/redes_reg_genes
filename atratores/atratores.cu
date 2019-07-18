@@ -833,8 +833,8 @@ int main(int argc, char **argv)
     }
     
 
-    double MB_por_Estado = (9.0/40000.0) * MAX_ESTADO;
-    size_t HeapSize = MB_por_Estado * 1024 * 1024;
+    double MB_Estados = sizeof(unsigned int )*MAX_ESTADO*TAM_ESTADO;
+    size_t HeapSize = 9 * 1024 * 1024 + MB_Estados ;
 
     string tec = argv[3];
     
@@ -844,7 +844,7 @@ int main(int argc, char **argv)
         //estado para gerar números aleatórios
         curandState * d_state;
         cudaMalloc((void **)&d_state, sizeof(curandState) * MAX_ESTADO);
-        //cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
+        cudaDeviceSetLimit(cudaLimitMallocHeapSize, HeapSize);
         
         unsigned int * d_C;
         cudaMalloc(&d_C,sizeof(unsigned int)*MAX_ESTADO);
@@ -907,7 +907,7 @@ int main(int argc, char **argv)
     if(tec == "CPU") avgT /= CLOCK_PER_SEC_CPU;
     else avgT /= CLOCK_PER_SEC_GPU;
 
-    cerr << "Tempo de 1 passo : "<<h_C[1] << "s\n";
+    cerr << "Tempo de 1 passo : "<<avgT<< "s\n";
 
     //desalocando memória
     for(int i = 0; i < TABLE_SIZE; i++){ cudaFree(d_atr[i]); free(Tabela[i].atr);}  

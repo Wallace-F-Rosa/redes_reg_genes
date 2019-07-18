@@ -2,7 +2,7 @@ program =atratores
 arch =sm_30
 metrics =--metrics all --unified-memory-profiling off #--metrics shared_load_transactions_per_request --metrics shared_store_transactions_per_request
 
-simN =1000000#1099511627776#numero de simulações
+simN =20000000#numero de simulações
 rede = Apoptosis network
 input ="../rede_pesos/eq_pesos/40-100/$(rede).txt"#grafo
 tecnologia =GPU# escolhe se vai rodar a função da CPU ou a função da GPU
@@ -14,7 +14,7 @@ all:
 	./$(program) $(input) $(simN) $(tecnologia) > $(output)
 
 analise:
-	nvprof ./$(program) $(input) $(simN) $(tecnologia) > $(output)
+	nvprof --device-buffer-size 600 --profiling-semaphore-pool-size 600 ./$(program) $(input) $(simN) $(tecnologia) > $(output)
 
 memcheck:
 	cuda-memcheck ./$(program) $(input) $(simN) |more
