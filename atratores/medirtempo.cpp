@@ -52,7 +52,8 @@ void passo_bool_Apoptosis_Network(unsigned long long simN)
         v[35] = ( v[34] );
         v[36] = ( v[31] );
         v[37] = ( v[35] );
-        v[38] = ( ( v[20] ) & ! ( v[23] ) ) | ( ( v[14] ) & ! ( v[23] ) );   
+        v[38] = ( ( v[20] ) & ! ( v[23] ) ) | ( ( v[14] ) & ! ( v[23] ) );
+        cout << v[30] ;
     }
 }
 
@@ -133,6 +134,7 @@ void passo_bool_IL_6_Signaling(unsigned long long simN)
         v[68] = ( v[59] );
         v[69] = ( v[8] ) | ( v[9] );
         v[70] = ( ( v[16] ) & !( v[58] ) );
+        cout << v[30];
     }
 }
 
@@ -296,6 +298,7 @@ void passo_bool_CD4_T_cell_signaling(unsigned long long simN)
         v[151] = ( v[151] ) | ( v[133] );
         v[152] = ( v[153] ) | ( v[100] ) | ( v[20] & ( ( ( v[112] ) ) ) ) | ( v[146] );
         v[153] = ( v[138] );
+        cout << v[30];
     }
 }
 
@@ -310,9 +313,8 @@ int main(int argc, char **argv)
     auto start = chrono::steady_clock::now();
     passo_bool_CD4_T_cell_signaling(MAX_ESTADO);
     auto end = chrono::steady_clock::now();
-    cout <<"Tempo 1 passo CPU : " << chrono::duration_cast<chrono::nanoseconds>(end-start).count()/MAX_ESTADO << "ns\n";
-    /* typedef std::numeric_limits< double > dbl;
-    cout.precision(4);
-    cout << fixed<<"Tempo 1 passo CPU : " << tempo_sec*1000 << "ms\n"; */
+    typedef std::numeric_limits< double > dbl;
+    cout.precision(20);
+    cout << fixed <<"\n" << ((double)MAX_ESTADO/chrono::duration_cast<chrono::nanoseconds>(end-start).count()) << " G estados/s\n";
     return 0;
 }
