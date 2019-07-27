@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ctime>
+#include <chrono>
 #include <string>
 #include <limits>
 #include <stdio.h>
@@ -141,20 +141,20 @@ __global__ void passo_bool_IL_6_Signaling(bool * d_v)
     v[68] = ( v[59] );
     v[69] = ( v[8] ) | ( v[9] );
     v[70] = ( ( v[16] ) & !( v[58] ) );
-    for(int i = 0; i < 41; i++)
+    for(int i = 0; i < 87; i++)
         etc ^= v[i];
 }
 
 
 
-__global__ void passo_bool_CD4_T_cell_signaling( bool * d_v)
+__global__ void passo_bool_CD4_T_cell_signaling(bool * d_v)
 {
     __shared__ bool etc;
     bool v[188]={true};
 
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
-    
-    for(int i = 0; i < 87; i++)
+
+    for(int i = 0; i < 188; i++)
         v[i] = (tid>>i)%2;
 
     v[0] = ( v[105] );
@@ -311,7 +311,7 @@ __global__ void passo_bool_CD4_T_cell_signaling( bool * d_v)
     v[151] = ( v[151] ) | ( v[133] );
     v[152] = ( v[153] ) | ( v[100] ) | ( v[20] & ( ( ( v[112] ) ) ) ) | ( v[146] );
     v[153] = ( v[138] );
-    for(int i = 0; i < 41; i++)
+    for(int i = 0; i < 188; i++)
         etc ^= v[i];
 }
 
@@ -327,14 +327,22 @@ int main(int argc, char **argv)
     dim3 block(threads);
     dim3 grid((MAX_ESTADO + block.x -1)/block.x);
     bool *d_v;
-    cudaMalloc(&d_v,sizeof(bool)*MAX_ESTADO);
-    passo_bool_Apoptosis_Network<<<grid,block>>>(d_v);
-    cudaDeviceSynchronize();
+    cudaMalloc(&d_v,sizeof(bool)*188);
+    cudaEvent_t start,stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    float elapsedTime=0;
 
+    cudaEventRecord(start);
+
+    passo_bool_CD4_T_cell_signaling<<<grid,block>>>(d_v);
+    cudaEventRecord(stop);
+
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    cout.precision(20);
+    cout <<"\n" << (elapsedTime) << " ms\n";
     
-    /* double tempo_sec = double(end - beg)/CLOCKS_PER_SEC;
-    typedef std::numeric_limits< double > dbl;
-    cout.precision(4);
-    cout << fixed<<"Tempo 1 passo CPU : " << tempo_sec*1000 << "ms\n"; */
+    cudaFree(d_v);
     return 0;
 }
