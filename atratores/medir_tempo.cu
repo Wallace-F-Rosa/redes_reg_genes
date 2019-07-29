@@ -149,7 +149,7 @@ __global__ void passo_bool_IL_6_Signaling(bool * d_v)
 
 __global__ void passo_bool_CD4_T_cell_signaling(bool * d_v)
 {
-    __shared__ bool etc;
+    
     bool v[188]={true};
 
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
@@ -312,7 +312,7 @@ __global__ void passo_bool_CD4_T_cell_signaling(bool * d_v)
     v[152] = ( v[153] ) | ( v[100] ) | ( v[20] & ( ( ( v[112] ) ) ) ) | ( v[146] );
     v[153] = ( v[138] );
     for(int i = 0; i < 188; i++)
-        etc ^= v[i];
+        d_v[i] = v[i];
 }
 
 
