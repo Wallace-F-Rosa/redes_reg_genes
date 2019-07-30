@@ -287,7 +287,23 @@ if __name__ == '__main__':
 			# # 	orig = [j.replace("v"+i+" ","v["+i+"]") if int(i)< len(list_ext)-1 else j.replace("v"+i,"const")  for j in orig]
 			# 	orig = [pattern.sub(lambda x : '['+x.group(0)+']',j) if int(i)< len(list_ext)-1 else pattern.sub('const',j)  for j in orig]
 			for i in orig:
-				print(i)
+				content = i.split('= ')
+				var = content[0].replace('v[','')
+				var = var.replace(']','') 
+				txt ="aux |= "
+				text = []
+				for c in range(len(content[1])) :
+					if content[1][c] == 'v':
+						text.append('(v')
+					elif content[1][c] == '[':
+						text.append('>>')
+					elif content[1][c] == ']':
+						text.append(')%2')
+					else:
+						text.append(content[1][c]) 
+
+				text = ''.join(text) +"<<"+var
+				print(txt+text+";")
 
 
 			print('\n')
@@ -358,13 +374,15 @@ if __name__ == '__main__':
 
 
 			for i in range(len(orig)):
-				txt =orig[i].split('= ')[0]+"= TLF("
-				txt = txt.replace("v","aux")
+				txt ="aux |= ( ("
+				var = orig[i].split('= ')[0].replace('v','')
+				var = var.replace('[','')
+				var = var.replace(']','')
 
 
 				if(orig[i].split('= ')[1]) != "( const )":
 
-					for j in range(len(modif[i])):
+					for j in range(len(modif[i])-1):
 						#print "*****************"+modif[i][j]
 						if modif[i][j] in num_ext:
 							#print "-----------"+modif[i][j]
@@ -374,8 +392,9 @@ if __name__ == '__main__':
 
 							txt +=" "+str(v_id_ext)+" * "+ str(lst_tlf[i][j])+" +"
 						else:
-							txt += ' vet['+modif[i][j]+"] * "+ str(lst_tlf[i][j])+" +"
-					txt += ", "+str(lst_tlf[i][-1])+" );"
+							txt += ' ( (v>>'+modif[i][j]+")%2 ) * "+ str(lst_tlf[i][j])+" +"
+					txt += ' ( (v>>'+modif[i][len(modif[i])-1]+")%2 ) * "+ str(lst_tlf[i][len(modif[i])-1])
+					txt += ") >= "+str(lst_tlf[i][-1])+" ) <<"+var+";"
 				else:
 					#modif.pop(i)
 					#modif.insert(i,[])
