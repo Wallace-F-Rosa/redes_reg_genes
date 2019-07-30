@@ -7,20 +7,20 @@
 #define CLOCKS_PER_SEC_CPU 1100000000
 using namespace std;
 
-__global__ void passo_bool_Apoptosis_Network(bool * d_v)
+__global__ void passo_bool_Apoptosis_Network(unsigned long long * d_v)
 {
     __shared__ bool etc;
-    bool v[41] = {true};
+    unsigned long long v=0,aux=0;
+    //bool v[4] = {true};
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     
-    for(int i = 0; i < 41; i++)
-        v[i] = (tid>>i)%2;
+    v = tid;
     
-    v[0] = ( v[25] );
-    v[1] = ( v[29] );
-    v[2] = ( ( v[13] & ( ( ( v[3] & v[24] ) ) ) ) & ! ( v[17] ) );
-    v[3] = ( v[38] );
-    v[4] = ( ( v[38] ) & ! ( v[1] ) );
+    aux |= (( v>>3 )%2)<<3;
+    aux |= (( v>>2 )%2 <<2);
+    aux |= ( ( (v>>1)%2 & ( ( ( (v>>3)%2 & (v>>2)%2 ) ) ) ) & ! ( (v>>1)%2 ) ) << 2;
+    aux |= ( (v>>3)%2 ) << 3;
+    /*v[4] = ( ( v[38] ) & ! ( v[1] ) );
     v[5] = ( ( v[20] & ( ( ( v[38] ) ) ) ) & ! ( v[6] ) ) | ( ( v[12] & ( ( ( v[38] ) ) ) ) & ! ( v[6] ) );
     v[6] = ( ( ( v[25] ) & ! ( v[4] ) ) & ! ( v[38] ) );
     v[7] = ( v[11] );
@@ -54,13 +54,13 @@ __global__ void passo_bool_Apoptosis_Network(bool * d_v)
     v[35] = ( v[34] );
     v[36] = ( v[31] );
     v[37] = ( v[35] );
-    v[38] = ( ( v[20] ) & ! ( v[23] ) ) | ( ( v[14] ) & ! ( v[23] ) );
-    for(int i = 0; i < 41; i++)
-        etc ^= v[i];
+    v[38] = ( ( v[20] ) & ! ( v[23] ) ) | ( ( v[14] ) & ! ( v[23] ) ); */
+    
+    d_v[tid] = aux;
 }
 
 
-__global__ void passo_bool_IL_6_Signaling(bool * d_v)
+/* __global__ void passo_bool_IL_6_Signaling(bool * d_v)
 {
     __shared__ bool etc;
     bool v[87] = {true};
@@ -314,7 +314,7 @@ __global__ void passo_bool_CD4_T_cell_signaling(bool * d_v)
     for(int i = 0; i < 188; i++)
         d_v[i] = v[i];
 }
-
+ */
 
 int main(int argc, char **argv)
 {
@@ -326,8 +326,8 @@ int main(int argc, char **argv)
     int threads = 1024;
     dim3 block(threads);
     dim3 grid((MAX_ESTADO + block.x -1)/block.x);
-    bool *d_v;
-    cudaMalloc(&d_v,sizeof(bool)*188);
+    unsigned long long *d_v;
+    cudaMalloc(&d_v,sizeof(unsigned long long)*MAX_ESTADO);
     cudaEvent_t start,stop;
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
@@ -335,7 +335,7 @@ int main(int argc, char **argv)
 
     cudaEventRecord(start);
 
-    passo_bool_CD4_T_cell_signaling<<<grid,block>>>(d_v);
+    passo_bool_Apoptosis_Network<<<grid,block>>>(d_v);
     cudaEventRecord(stop);
 
     cudaEventSynchronize(stop);
