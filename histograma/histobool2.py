@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-nome = "Yeast Apoptosis"
+nome = "MAPK Cancer Cell Fate Network"
 rede = "../redes_bio/40-100/"+nome+"/expr/expressions.ALL.txt"
 
 
