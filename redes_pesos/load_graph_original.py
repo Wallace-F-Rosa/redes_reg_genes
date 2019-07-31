@@ -105,12 +105,8 @@ if __name__ == '__main__':
 
 	try:
 		print(int(sys.argv[2]))
-		redepath = sys.argv[1].split("/")
-		name = redepath[len(redepath)-3]
-		print(name)
 		if int(sys.argv[2]) == 3:
 			print("Abrendo saida.txt")
-			
 			if os.path.exists("grn_gpu/saida.txt"):
 				lines = open("grn_gpu/saida.txt").readlines()
 				if len(lines) == 0:
@@ -136,8 +132,7 @@ if __name__ == '__main__':
 				posdel =list(set(posdel))
 				for e in posdel[::-1]:
 					lines.pop(e)
-				
-				save = open("eq_pesos/"+str(nome)+".txt","w+")
+				save = open("grn_gpu/saida.txt","w")
 				save.writelines(lines)
 		else:
 			line = [ i for i in open(sys.argv[1],'r').readlines() if (len(i.strip().split())>3 or (len(i.strip().split())==3 and not i.strip().split()[2].isdigit()))]
@@ -275,7 +270,6 @@ if __name__ == '__main__':
 			#	print i.replace('or','|')
 			#print (orig)
 			print('\n')
-	
 			orig = [i.replace('or', '|') for i in orig]
 			orig = [i.replace('and', '&') for i in orig]
 			orig = [i.replace('not', '!') for i in orig]
@@ -287,23 +281,7 @@ if __name__ == '__main__':
 			# # 	orig = [j.replace("v"+i+" ","v["+i+"]") if int(i)< len(list_ext)-1 else j.replace("v"+i,"const")  for j in orig]
 			# 	orig = [pattern.sub(lambda x : '['+x.group(0)+']',j) if int(i)< len(list_ext)-1 else pattern.sub('const',j)  for j in orig]
 			for i in orig:
-				content = i.split('= ')
-				var = content[0].replace('v[','')
-				var = var.replace(']','') 
-				txt ="aux |= "
-				text = []
-				for c in range(len(content[1])) :
-					if content[1][c] == 'v':
-						text.append('(v')
-					elif content[1][c] == '[':
-						text.append('>>')
-					elif content[1][c] == ']':
-						text.append(')%2')
-					else:
-						text.append(content[1][c]) 
-
-				text = ''.join(text) +"<<"+var
-				print(txt+text+";")
+				print(i)
 
 
 			print('\n')
@@ -349,7 +327,7 @@ if __name__ == '__main__':
 			num_ext = [i[1] for i in num_ext_id]
 
 			if int(sys.argv[2]) == 1:
-				entry =  open('eq_pesos/'+str(name)+'.txt','w+')
+				entry =  open('grn_gpu/pesosTabela.txt','w')
 				entry.write(str(len(lst_tlf)+len(external))+'\n')
 				eqtam =""
 				for i in modif:
@@ -366,25 +344,21 @@ if __name__ == '__main__':
 						eq += str(modif[i][j])+ " "+str(lst_tlf[i][j])+" "
 					eq += str(lst_tlf[i][-1])
 					entry.write(eq.strip()+'\n')
-				
-				if len(external) != 0 :
-					for cnt in range(len(external)):
-						eq = ""
-						eq += str(num_ext[cnt])+ " "+str(external[cnt][1])+" "+('1' if (external[cnt][1] == 0) else '0' )
-						entry.write(eq.strip()+'\n')
+				for cnt in range(len(external)):
+					eq = ""
+					eq += str(num_ext[cnt])+ " "+str(external[cnt][1])+" "+('1' if (external[cnt][1] == 0) else '0' )
+					entry.write(eq.strip()+'\n')
 				entry.close()
 
 
 			for i in range(len(orig)):
-				txt ="aux |= ( ("
-				var = orig[i].split('= ')[0].replace('v','')
-				var = var.replace('[','')
-				var = var.replace(']','')
+				txt =orig[i].split('= ')[0]+"= TLF("
+				txt = txt.replace("v","aux")
 
 
 				if(orig[i].split('= ')[1]) != "( const )":
 
-					for j in range(len(modif[i])-1):
+					for j in range(len(modif[i])):
 						#print "*****************"+modif[i][j]
 						if modif[i][j] in num_ext:
 							#print "-----------"+modif[i][j]
@@ -394,9 +368,8 @@ if __name__ == '__main__':
 
 							txt +=" "+str(v_id_ext)+" * "+ str(lst_tlf[i][j])+" +"
 						else:
-							txt += ' ( (v>>'+modif[i][j]+")%2 ) * "+ str(lst_tlf[i][j])+" +"
-					txt += ' ( (v>>'+modif[i][len(modif[i])-1]+")%2 ) * "+ str(lst_tlf[i][len(modif[i])-1])
-					txt += ") >= "+str(lst_tlf[i][-1])+" ) <<"+var+";"
+							txt += ' vet['+modif[i][j]+"] * "+ str(lst_tlf[i][j])+" +"
+					txt += ", "+str(lst_tlf[i][-1])+" );"
 				else:
 					#modif.pop(i)
 					#modif.insert(i,[])
