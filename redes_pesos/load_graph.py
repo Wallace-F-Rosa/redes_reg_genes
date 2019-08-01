@@ -294,11 +294,11 @@ if __name__ == '__main__':
 				text = []
 				for c in range(len(content[1])) :
 					if content[1][c] == 'v':
-						text.append('(v')
+						text.append('( (v')
 					elif content[1][c] == '[':
 						text.append('>>')
 					elif content[1][c] == ']':
-						text.append(')%2')
+						text.append(')%2 )')
 					else:
 						text.append(content[1][c]) 
 
