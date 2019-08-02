@@ -3,7 +3,7 @@
 import numpy as np 
 
 #carrega a arquitetura
-arq_path = "config/config8.txt"
+arq_path = "config/config7.txt"
 
 PE_arq = []
 qtd_arq = {}
@@ -19,7 +19,7 @@ arq.close()
 MAX_CICLOS = 3
 #para cada numero de ciclos avalia a rede
 for ciclos in range(0,MAX_CICLOS) :
-
+    print("Redes cobertas com "+str(ciclos+1)+" ciclo(s) : \n")
     print(str(ciclos+1)+" ciclos\n")
     redes_cobertas = 0
 
@@ -103,14 +103,14 @@ for ciclos in range(0,MAX_CICLOS) :
                 break
         
         if cobriu :
-            redes_cobertas = redes_cobertas + 1
+            print(filepath)
         else:
-            print("Falha : "+filepath+" ")
+            #print("Falha : "+filepath+" ")
             """ for pe in PE_rede :
                 if qtd_rede[pe] != 0 :
                     print("PE : "+str(pe) +" qtd : "+str(qtd_rede[pe]) +"\n" ) """
     
-    print("Redes cobertas com "+str(ciclos+1)+" ciclo(s) : "+str(redes_cobertas)+"\n\n")
+    
             
         
 

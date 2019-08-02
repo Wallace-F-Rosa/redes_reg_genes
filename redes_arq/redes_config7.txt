@@ -1,0 +1,57 @@
+Redes cobertas com 1 ciclo(s) : 
+
+1 ciclos
+
+ideal/HGF Signaling in Keratinocytes.txt
+ideal/IGVH mutations in chronic lymphocytic leukemia.txt
+ideal/Glucose Repression Signaling 2009.txt
+ideal/Yeast Apoptosis.txt
+ideal/PC12 Cell Differentiation.txt
+ideal/B bronchiseptica and T retortaeformis coinfectio.txt
+ideal/Apoptosis network.txt
+ideal/Cholesterol Regulatory Pathway.txt
+ideal/Bortezomib Responses in U266 Human Myelo.txt
+ideal/Guard Cell Abscisic Acid Signaling.txt
+Redes cobertas com 2 ciclo(s) : 
+
+2 ciclos
+
+ideal/Differentiation of T lymphocytes.txt
+ideal/HGF Signaling in Keratinocytes.txt
+ideal/IGVH mutations in chronic lymphocytic leukemia.txt
+ideal/Glucose Repression Signaling 2009.txt
+ideal/Yeast Apoptosis.txt
+ideal/PC12 Cell Differentiation.txt
+ideal/B bronchiseptica and T retortaeformis coinfectio.txt
+ideal/EGFR & ErbB Signaling.txt
+ideal/Apoptosis network.txt
+ideal/T-LGL Survival Network 2011.txt
+ideal/Cholesterol Regulatory Pathway.txt
+ideal/Bortezomib Responses in U266 Human Myelo.txt
+ideal/Lymphopoiesis Regulatory Network.txt
+ideal/Guard Cell Abscisic Acid Signaling.txt
+ideal/MAPK Cancer Cell Fate Network.txt
+ideal/Treatment of Castration-Resistant Prostate Ca.txt
+ideal/IL-6 Signalling.txt
+Redes cobertas com 3 ciclo(s) : 
+
+3 ciclos
+
+ideal/Differentiation of T lymphocytes.txt
+ideal/HGF Signaling in Keratinocytes.txt
+ideal/IGVH mutations in chronic lymphocytic leukemia.txt
+ideal/Glucose Repression Signaling 2009.txt
+ideal/Yeast Apoptosis.txt
+ideal/PC12 Cell Differentiation.txt
+ideal/B bronchiseptica and T retortaeformis coinfectio.txt
+ideal/EGFR & ErbB Signaling.txt
+ideal/Apoptosis network.txt
+ideal/T-LGL Survival Network 2011.txt
+ideal/Cholesterol Regulatory Pathway.txt
+ideal/Bortezomib Responses in U266 Human Myelo.txt
+ideal/CD4 T cell signaling.txt
+ideal/Lymphopoiesis Regulatory Network.txt
+ideal/Guard Cell Abscisic Acid Signaling.txt
+ideal/MAPK Cancer Cell Fate Network.txt
+ideal/Treatment of Castration-Resistant Prostate Ca.txt
+ideal/IL-6 Signalling.txt
