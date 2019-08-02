@@ -103,6 +103,7 @@ void passo_tlf_1(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( (v>>28)%2 )<< 33 ;
 
         estado[i] = aux;
+
     }
 }
 
@@ -154,9 +155,13 @@ void passo_bool_2(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>31)%2 )<< 36 ;
         aux |=(unsigned long long) ( (v>>35)%2 )<< 37 ;
         aux |=(unsigned long long) ( ( (v>>20)%2 ) & ! ( (v>>23)%2 ) ) | ( ( (v>>14)%2 ) & ! ( (v>>23)%2 ) )<< 38 ;
+        aux |=(unsigned long long)(v>>39%2) << 39;
+        aux |=(unsigned long long)(v>>40%2) << 40;
+        aux |=(unsigned long long)(v>>41%2) << 41;
     
         estado[i] = aux;
     }
+    
     return;
 }
 
@@ -208,8 +213,11 @@ void passo_tlf_2(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>31)%2 ) * 2) >= 2 ) << 36 ;
         aux |=(unsigned long long) ( ( ( (v>>35)%2 ) * 2) >= 2 ) << 37 ;
         aux |=(unsigned long long) ( ( ( (v>>20)%2 ) * 2 + ( (v>>23)%2 ) * -6 + ( (v>>14)%2 ) * 2) >= 2 ) << 38 ;
+        aux |=(unsigned long long)(v>>39%2) << 39;
+        aux |=(unsigned long long)(v>>40%2) << 40;
+        aux |=(unsigned long long)(v>>41%2) << 41;
         
-        estado[i] = aux;
+        estado[i] = aux; 
     }
     return;
 }
@@ -263,9 +271,14 @@ void passo_bool_3(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>1)%2 )<< 37 ;
         aux |=(unsigned long long) ( (v>>12)%2 )<< 38 ;
         aux |=(unsigned long long) ( (v>>43)%2 )<< 39 ;
+        aux |=(unsigned long long) ( (v>>40)%2 )<< 40 ;
+        aux |=(unsigned long long) ( (v>>41)%2 )<< 41 ;
+        aux |=(unsigned long long) ( (v>>42)%2 )<< 42 ;
+        aux |=(unsigned long long) ( (v>>43)%2 )<< 43 ;
 
-        estado[i] = aux;
+        estado[i] = aux; 
     }
+    
     return;
 }
 
@@ -318,8 +331,12 @@ void passo_tlf_3(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>1)%2 ) * 2) >= 2 ) << 37 ;
         aux |=(unsigned long long) ( ( ( (v>>12)%2 ) * 2) >= 2 ) << 38 ;
         aux |=(unsigned long long) ( ( ( (v>>43)%2 ) * 2) >= 2 ) << 39 ;
+        aux |=(unsigned long long) ( (v>>40)%2 )<< 40 ;
+        aux |=(unsigned long long) ( (v>>41)%2 )<< 41 ;
+        aux |=(unsigned long long) ( (v>>42)%2 )<< 42 ;
+        aux |=(unsigned long long) ( (v>>43)%2 )<< 43 ;
 
-        estado[i] = aux;
+        estado[i] = aux; 
     }
     return;
 }
@@ -375,6 +392,15 @@ void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>37)%2 )<< 38 ;
         aux |=(unsigned long long) ( ( ( ( (v>>39)%2 ) & ! ( (v>>4)%2 ) ) & ! ( (v>>28)%2 ) ) & ! ( (v>>3)%2 ) ) | ( ( ( ( (v>>32)%2 ) & ! ( (v>>4)%2 ) ) & ! ( (v>>28)%2 ) ) & ! ( (v>>3)%2 ) )<< 39 ;
         aux |=(unsigned long long) ( ( ( (v>>40)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>0)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>41)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>28)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>39)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>4)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) ) | ( ( ( (v>>3)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>29)%2 ) )<< 40 ;
+        aux |=(unsigned long long) ( (v>>41)%2 )<< 41 ;
+        aux |=(unsigned long long) ( (v>>42)%2 )<< 42 ;
+        aux |=(unsigned long long) ( (v>>43)%2 )<< 43 ;
+        aux |=(unsigned long long) ( (v>>44)%2 )<< 44 ;
+        aux |=(unsigned long long) ( (v>>45)%2 )<< 45 ;
+        aux |=(unsigned long long) ( (v>>46)%2 )<< 46 ;
+        aux |=(unsigned long long) ( (v>>47)%2 )<< 47 ;
+        aux |=(unsigned long long) ( (v>>48)%2 )<< 48 ;
+        aux |=(unsigned long long) ( (v>>49)%2 )<< 49 ;
 
         estado[i] = aux;
     }
@@ -432,7 +458,16 @@ void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>37)%2 ) * 2) >= 2 ) << 38 ;
         aux |=(unsigned long long) ( ( ( (v>>39)%2 ) * 2 + ( (v>>4)%2 ) * -6 + ( (v>>28)%2 ) * -6 + ( (v>>3)%2 ) * -6 + ( (v>>32)%2 ) * 2) >= 2 ) << 39 ;
         aux |=(unsigned long long) ( ( ( (v>>40)%2 ) * 2 + ( (v>>1)%2 ) * -254 + ( (v>>29)%2 ) * -254 + ( (v>>0)%2 ) * 2 + 0 * 2 + ( (v>>28)%2 ) * 2 + ( (v>>39)%2 ) * 2 + ( (v>>4)%2 ) * 2 + ( (v>>3)%2 ) * 2) >= 2 ) << 40 ;
-        
+        aux |=(unsigned long long) ( (v>>41)%2 )<< 41 ;
+        aux |=(unsigned long long) ( (v>>42)%2 )<< 42 ;
+        aux |=(unsigned long long) ( (v>>43)%2 )<< 43 ;
+        aux |=(unsigned long long) ( (v>>44)%2 )<< 44 ;
+        aux |=(unsigned long long) ( (v>>45)%2 )<< 45 ;
+        aux |=(unsigned long long) ( (v>>46)%2 )<< 46 ;
+        aux |=(unsigned long long) ( (v>>47)%2 )<< 47 ;
+        aux |=(unsigned long long) ( (v>>48)%2 )<< 48 ;
+        aux |=(unsigned long long) ( (v>>49)%2 )<< 49 ;
+
         estado[i] = aux;
     }
     return;
@@ -499,6 +534,7 @@ void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>47)%2 )<< 49 ;
         aux |=(unsigned long long) ( (v>>7)%2 & ( ( ( (v>>41)%2 ) ) & ( ( (v>>37)%2 ) ) ) )<< 50 ;
         aux |=(unsigned long long) ( (v>>50)%2 )<< 51 ;
+        aux |=(unsigned long long) ( (v>>52)%2 )<< 52 ;
 
         estado[i] = aux;
     }
@@ -566,6 +602,7 @@ void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>47)%2 ) * 2) >= 2 ) << 49 ;
         aux |=(unsigned long long) ( ( ( (v>>7)%2 ) * 2 + ( (v>>41)%2 ) * 2 + ( (v>>37)%2 ) * 2) >= 6 ) << 50 ;
         aux |=(unsigned long long) ( ( ( (v>>50)%2 ) * 2) >= 2 ) << 51 ;
+        aux |=(unsigned long long) ( (v>>52)%2 )<< 52 ;
 
         estado[i] = aux;
     }
@@ -630,6 +667,12 @@ void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>41)%2 & ( ( ( (v>>52)%2 ) ) ) ) | ( (v>>21)%2 & ( ( ( (v>>26)%2 ) ) ) ) | ( (v>>26)%2 & ( ( ( (v>>52)%2 ) ) ) ) | ( (v>>42)%2 & ( ( ( (v>>21)%2 ) ) ) )<< 46 ;
         aux |=(unsigned long long) ( (v>>46)%2 & ( ( ( (v>>54)%2 ) ) ) ) | ( (v>>3)%2 & ( ( ( (v>>54)%2 ) ) ) )<< 47 ;
         aux |=(unsigned long long) ( (v>>28)%2 & ( ( ( (v>>10)%2 ) ) ) )<< 48 ;
+        aux |=(unsigned long long) ( (v>>49)%2 )<< 49 ;
+        aux |=(unsigned long long) ( (v>>50)%2 )<< 50 ;
+        aux |=(unsigned long long) ( (v>>51)%2 )<< 51 ;
+        aux |=(unsigned long long) ( (v>>52)%2 )<< 52 ;
+        aux |=(unsigned long long) ( (v>>53)%2 )<< 53 ;
+        aux |=(unsigned long long) ( (v>>54)%2 )<< 54 ;
 
         estado[i] = aux;
     }
@@ -694,6 +737,12 @@ void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>41)%2 ) * 6 + 0 * 14 + ( (v>>21)%2 ) * 14 + ( (v>>26)%2 ) * 10 + ( (v>>42)%2 ) * 6) >= 20 ) << 46 ;
         aux |=(unsigned long long) ( ( ( (v>>46)%2 ) * 2 + 0 * 6 + ( (v>>3)%2 ) * 2) >= 8 ) << 47 ;
         aux |=(unsigned long long) ( ( ( (v>>28)%2 ) * 2 + ( (v>>10)%2 ) * 2) >= 4 ) << 48 ;
+        aux |=(unsigned long long) ( (v>>49)%2 )<< 49 ;
+        aux |=(unsigned long long) ( (v>>50)%2 )<< 50 ;
+        aux |=(unsigned long long) ( (v>>51)%2 )<< 51 ;
+        aux |=(unsigned long long) ( (v>>52)%2 )<< 52 ;
+        aux |=(unsigned long long) ( (v>>53)%2 )<< 53 ;
+        aux |=(unsigned long long) ( (v>>54)%2 )<< 54 ;
 
         estado[i] = aux;
     }
@@ -763,6 +812,12 @@ void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( ( ( ( (v>>49)%2 ) & ! ( (v>>20)%2 ) ) & ! ( (v>>1)%2 ) ) & ! ( (v>>0)%2 ) )<< 51 ;
         aux |=(unsigned long long) ( ( ( (v>>29)%2 ) & ! ( (v>>1)%2 ) ) & ! ( (v>>12)%2 ) )<< 52 ;
         aux |=(unsigned long long) ( ( (v>>15)%2 & ( ( ( (v>>42)%2 ) ) ) ) & ! ( (v>>1)%2 ) )<< 53 ;
+        aux |=(unsigned long long) ( (v>>54)%2 )<< 54 ;
+        aux |=(unsigned long long) ( (v>>55)%2 )<< 55 ;
+        aux |=(unsigned long long) ( (v>>56)%2 )<< 56 ;
+        aux |=(unsigned long long) ( (v>>57)%2 )<< 57 ;
+        aux |=(unsigned long long) ( (v>>58)%2 )<< 58 ;
+        aux |=(unsigned long long) ( (v>>59)%2 )<< 59 ;
 
         estado[i] = aux;
     }
@@ -832,6 +887,12 @@ void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>49)%2 ) * 2 + ( (v>>20)%2 ) * -2 + ( (v>>1)%2 ) * -2 + ( (v>>0)%2 ) * -2) >= 2 ) << 51 ;
         aux |=(unsigned long long) ( ( ( (v>>29)%2 ) * 2 + ( (v>>1)%2 ) * -2 + ( (v>>12)%2 ) * -2) >= 2 ) << 52 ;
         aux |=(unsigned long long) ( ( ( (v>>15)%2 ) * 2 + ( (v>>42)%2 ) * 2 + ( (v>>1)%2 ) * -2) >= 4 ) << 53 ;
+        aux |=(unsigned long long) ( (v>>54)%2 )<< 54 ;
+        aux |=(unsigned long long) ( (v>>55)%2 )<< 55 ;
+        aux |=(unsigned long long) ( (v>>56)%2 )<< 56 ;
+        aux |=(unsigned long long) ( (v>>57)%2 )<< 57 ;
+        aux |=(unsigned long long) ( (v>>58)%2 )<< 58 ;
+        aux |=(unsigned long long) ( (v>>59)%2 )<< 59 ;
 
         estado[i] = aux;
     }
@@ -908,6 +969,7 @@ void passo_bool_9(unsigned long long * init_rand, unsigned long long * estado, u
         aux |=(unsigned long long) ( (v>>22)%2 ) | ( (v>>12)%2 )<< 58 ;
         aux |=(unsigned long long) ( (v>>60)%2 )<< 59 ;
         aux |=(unsigned long long) ( (v>>1)%2 )<< 60 ;
+        aux |=(unsigned long long) ( (v>>61)%2 )<< 61 ;
 
         estado[i] = aux;
     }
@@ -984,6 +1046,7 @@ void passo_tlf_9(unsigned long long * init_rand, unsigned long long * estado, un
         aux |=(unsigned long long) ( ( ( (v>>22)%2 ) * 2 + ( (v>>12)%2 ) * 2) >= 2 ) << 58 ;
         aux |=(unsigned long long) ( ( ( (v>>60)%2 ) * 2) >= 2 ) << 59 ;
         aux |=(unsigned long long) ( ( ( (v>>1)%2 ) * 2) >= 2 ) << 60 ;
+        aux |=(unsigned long long) ( (v>>61)%2 )<< 61 ;
         
 
         estado[i] = aux;
@@ -1017,7 +1080,7 @@ int main(int argc, char **argv)
     init_rand = new unsigned long long[MAX_ESTADO];
     estado = new unsigned long long[MAX_ESTADO];
     auto start = chrono::steady_clock::now();
-    //passo
+    passo_bool_1(init_rand,estado,MAX_ESTADO);
     auto end = chrono::steady_clock::now();
     typedef std::numeric_limits< double > dbl;
     cout.precision(20);
