@@ -1,7 +1,7 @@
 echo "Compiling"
-g++ medirtempo_omp.cpp -std=c++11 -lgomp -o cpu_omp.out
+g++ medirtempo_omp.cpp -std=c++11 -fopenmp -o cpu_omp.out
 
-g++ medirtempo_omp.cpp -std=c++11 -O3 -lgomp -o cpu_omp_o3.out
+g++ medirtempo_omp.cpp -std=c++11 -O3 -fopenmp -o cpu_omp_o3.out
 
 echo "Executing without O3"
 

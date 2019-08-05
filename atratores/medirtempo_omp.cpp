@@ -7,6 +7,7 @@
 #include <omp.h>
 
 #define CLOCKS_PER_SEC_CPU 1100000000
+#define THREADS 8
 using namespace std;
 
 
@@ -15,7 +16,7 @@ void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, u
     unsigned long long v,aux;
 
     omp_set_dynamic(0);
-    #pragma omp parallel for num_threads(8)
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -66,7 +67,8 @@ void passo_tlf_1(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -117,7 +119,8 @@ void passo_bool_2(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -177,7 +180,8 @@ void passo_tlf_2(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -236,7 +240,8 @@ void passo_bool_3(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -298,7 +303,8 @@ void passo_tlf_3(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -359,7 +365,8 @@ void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -427,7 +434,8 @@ void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -494,7 +502,8 @@ void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -564,7 +573,8 @@ void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -634,7 +644,8 @@ void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -706,7 +717,8 @@ void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -778,7 +790,8 @@ void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -855,7 +868,8 @@ void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -932,7 +946,8 @@ void passo_bool_9(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -1011,7 +1026,8 @@ void passo_tlf_9(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(THREADS);
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -1127,7 +1143,7 @@ int main(int argc, char **argv)
     estado = new unsigned long long[MAX_ESTADO];
     double total = 0;
 
-    omp_set_num_threads(8);
+    omp_set_num_threads(THREADS);
     
     for (int i = 0; i < 10; i++){
         auto start = chrono::steady_clock::now();
