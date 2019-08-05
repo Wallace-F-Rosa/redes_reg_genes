@@ -10,17 +10,17 @@ VALUES=("1000", "10000", "100000", "1000000", "10000000", "100000000", "10000000
 
 for i in {0..15}; do
 	echo "Executing without O3: "${FUNC[i]}
-	./cpu_omp.out ${i} 1000 > ${FUNC[i]}".txt"
+	./cpu_omp.out ${i} 1000 > "resultados_OMP/"${FUNC[i]}".txt"
 	for j in {1..6}; do
-		./cpu_omp.out ${i} ${VALUES[j]} >> ${FUNC[i]}".txt"
+		./cpu_omp.out ${i} ${VALUES[j]} >> "resultados_OMP/"${FUNC[i]}".txt"
 	done
 done
 
 for i in {0..15}; do
 	echo "Executing with O3: "${FUNC[i]}
-	./cpu_omp.out ${i} 1000 > ${FUNC[i]}"_O3.txt"
+	./cpu_omp.out ${i} 1000 > "resultados_OMP/"${FUNC[i]}"_O3.txt"
 	for j in {1..6}; do
-		./cpu_omp.out ${i} ${VALUES[j]} >> ${FUNC[i]}".txt"
+		./cpu_omp.out ${i} ${VALUES[j]} >> "resultados_OMP/"${FUNC[i]}".txt"
 	done
 done
 
