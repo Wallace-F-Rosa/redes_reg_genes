@@ -52,7 +52,6 @@ __global__ void passo_bool_1(unsigned long long * init_rand, unsigned long long 
         aux |=(unsigned long long)(unsigned long long) ( (v>>33)%2 )<< 32 ;
         aux |=(unsigned long long)(unsigned long long) ( (v>>28)%2 )<< 33 ;
     
-        if(tid == 0) printf("%d\n",aux);
         estado[tid] = aux;
     }
 }
@@ -111,7 +110,7 @@ unsigned long long confere_bool_1(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_1_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -135,6 +134,19 @@ __global__ void passo_tlf_1(unsigned long long * init_rand, unsigned long long *
         aux |=(unsigned long long) ( ( ( (v>>15)%2 ) * 2 + ( (v>>11)%2 ) * -2) >= 2 ) << 14 ;
         aux |=(unsigned long long) ( ( ( (v>>10)%2 ) * 2 + ( (v>>24)%2 ) * 2) >= 2 ) << 15 ;
         aux |=(unsigned long long) ( ( ( (v>>0)%2 ) * 2 + ( (v>>1)%2 ) * 2 + ( (v>>20)%2 ) * 2) >= 6 ) << 16 ;
+
+    
+        estado[tid] |= aux;
+    }
+}
+
+__global__ void passo_tlf_1_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
+    if(tid < MAX_ESTADO)
+    {
+        v = init_rand[tid];
+    
         aux |=(unsigned long long) ( ( ( (v>>18)%2 ) * 2 + ( (v>>31)%2 ) * -2) >= 2 ) << 17 ;
         aux |=(unsigned long long) ( ( ( (v>>19)%2 ) * 2) >= 2 ) << 18 ;
         aux |=(unsigned long long) ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 19 ;
@@ -154,7 +166,7 @@ __global__ void passo_tlf_1(unsigned long long * init_rand, unsigned long long *
         aux |=(unsigned long long) ( ( ( (v>>28)%2 ) * 2) >= 2 ) << 33 ;
 
     
-        estado[tid] = aux;
+        estado[tid] |= aux;
     }
 }
 
@@ -2417,16 +2429,17 @@ int main(int argc, char **argv)
     cudaMemcpy(d_init_rand, h_init_rand, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
     cudaMemcpy(d_estado, h_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
 
-    /* passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    passo_tlf_1_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
-    passo_tlf_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    passo_tlf_1_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
-    passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-    cudaDeviceSynchronize();
+    /* passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    cudaDeviceSynchronize(); */
     cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
- */
-    passo_bool_1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+
+    /* passo_tlf_1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
+    cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost); */
 
     unsigned long long i = confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
     if(i == MAX_ESTADO)
