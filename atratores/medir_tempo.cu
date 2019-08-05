@@ -118,40 +118,40 @@ __global__ void passo_tlf_1(unsigned long long * init_rand, unsigned long long *
     {
         v = init_rand[tid];
     
-        aux |=(unsigned long long) ( (v>>1)%2 & ( ( ( (v>>2)%2 ) ) ) )<< 0 ;
-        aux |=(unsigned long long) ( (v>>1)%2 )<< 1 ;
-        aux |=(unsigned long long) ( (v>>3)%2 )<< 2 ;
-        aux |=(unsigned long long) ( (v>>4)%2 )<< 3 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 4 ;
-        aux |=(unsigned long long) ( (v>>9)%2 ) | ( (v>>29)%2 )<< 5 ;
-        aux |=(unsigned long long) ( (v>>7)%2 )<< 6 ;
-        aux |=(unsigned long long) ( (v>>8)%2 )<< 7 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 8 ;
-        aux |=(unsigned long long) ( (v>>25)%2 )<< 9 ;
-        aux |=(unsigned long long) ( (v>>24)%2 )<< 10 ;
-        aux |=(unsigned long long) ( (v>>12)%2 )<< 11 ;
-        aux |=(unsigned long long) ( (v>>13)%2 )<< 12 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 13 ;
-        aux |=(unsigned long long) ( ( (v>>15)%2 ) & ! ( (v>>11)%2 ) )<< 14 ;
-        aux |=(unsigned long long) ( (v>>10)%2 ) | ( (v>>24)%2 )<< 15 ;
-        aux |=(unsigned long long) ( (v>>0)%2 & ( ( ( (v>>1)%2 & (v>>20)%2 ) ) ) )<< 16 ;
-        aux |=(unsigned long long) ( ( (v>>18)%2 ) & ! ( (v>>31)%2 ) )<< 17 ;
-        aux |=(unsigned long long) ( (v>>19)%2 )<< 18 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 19 ;
-        aux |=(unsigned long long) ( (v>>21)%2 )<< 20 ;
-        aux |=(unsigned long long) ( (v>>22)%2 )<< 21 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 22 ;
-        aux |=(unsigned long long) ! ( ( (v>>5)%2 ) )<< 23 ;
-        aux |=(unsigned long long) ( (v>>27)%2 )<< 24 ;
-        aux |=(unsigned long long) ( (v>>30)%2 )<< 25 ;
-        aux |=(unsigned long long) ( (v>>16)%2 & ( ( ( (v>>17)%2 ) ) ) )<< 26 ;
-        aux |=(unsigned long long) ( (v>>26)%2 )<< 27 ;
-        aux |=(unsigned long long) ( ( (v>>23)%2 ) & ! ( (v>>31)%2 ) )<< 28 ;
-        aux |=(unsigned long long) ( (v>>25)%2 )<< 29 ;
-        aux |=(unsigned long long) ( (v>>14)%2 )<< 30 ;
-        aux |=(unsigned long long) ( (v>>31)%2 )<< 31 ;
-        aux |=(unsigned long long) ( (v>>33)%2 )<< 32 ;
-        aux |=(unsigned long long) ( (v>>28)%2 )<< 33 ;
+        aux |= ( ( ( (v>>1)%2 ) * 2 + ( (v>>2)%2 ) * 2) >= 4 ) << 0 ;
+        aux |= ( ( ( (v>>1)%2 ) * 2) >= 2 ) << 1 ;
+        aux |= ( ( ( (v>>3)%2 ) * 2) >= 2 ) << 2 ;
+        aux |= ( ( ( (v>>4)%2 ) * 2) >= 2 ) << 3 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 4 ;
+        aux |= ( ( ( (v>>9)%2 ) * 2 + ( (v>>29)%2 ) * 2) >= 2 ) << 5 ;
+        aux |= ( ( ( (v>>7)%2 ) * 2) >= 2 ) << 6 ;
+        aux |= ( ( ( (v>>8)%2 ) * 2) >= 2 ) << 7 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 8 ;
+        aux |= ( ( ( (v>>25)%2 ) * 2) >= 2 ) << 9 ;
+        aux |= ( ( ( (v>>24)%2 ) * 2) >= 2 ) << 10 ;
+        aux |= ( ( ( (v>>12)%2 ) * 2) >= 2 ) << 11 ;
+        aux |= ( ( ( (v>>13)%2 ) * 2) >= 2 ) << 12 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 13 ;
+        aux |= ( ( ( (v>>15)%2 ) * 2 + ( (v>>11)%2 ) * -2) >= 2 ) << 14 ;
+        aux |= ( ( ( (v>>10)%2 ) * 2 + ( (v>>24)%2 ) * 2) >= 2 ) << 15 ;
+        aux |= ( ( ( (v>>0)%2 ) * 2 + ( (v>>1)%2 ) * 2 + ( (v>>20)%2 ) * 2) >= 6 ) << 16 ;
+        aux |= ( ( ( (v>>18)%2 ) * 2 + ( (v>>31)%2 ) * -2) >= 2 ) << 17 ;
+        aux |= ( ( ( (v>>19)%2 ) * 2) >= 2 ) << 18 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 19 ;
+        aux |= ( ( ( (v>>21)%2 ) * 2) >= 2 ) << 20 ;
+        aux |= ( ( ( (v>>22)%2 ) * 2) >= 2 ) << 21 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 22 ;
+        aux |= ( ( ( (v>>5)%2 ) * -2) >= 0 ) << 23 ;
+        aux |= ( ( ( (v>>27)%2 ) * 2) >= 2 ) << 24 ;
+        aux |= ( ( ( (v>>30)%2 ) * 2) >= 2 ) << 25 ;
+        aux |= ( ( ( (v>>16)%2 ) * 2 + ( (v>>17)%2 ) * 2) >= 4 ) << 26 ;
+        aux |= ( ( ( (v>>26)%2 ) * 2) >= 2 ) << 27 ;
+        aux |= ( ( ( (v>>23)%2 ) * 2 + ( (v>>31)%2 ) * -2) >= 2 ) << 28 ;
+        aux |= ( ( ( (v>>25)%2 ) * 2) >= 2 ) << 29 ;
+        aux |= ( ( ( (v>>14)%2 ) * 2) >= 2 ) << 30 ;
+        aux |= ( ( ( (v>>31)%2 ) * 2) >= 2 ) << 31 ;
+        aux |= ( ( ( (v>>33)%2 ) * 2) >= 2 ) << 32 ;
+        aux |= ( ( ( (v>>28)%2 ) * 2) >= 2 ) << 33 ;
 
     
         estado[tid] = aux;
@@ -167,40 +167,40 @@ unsigned long long confere_tlf_1(unsigned long long * init_rand, unsigned long l
         
         v = init_rand[i];
 
-        aux |=(unsigned long long) ( (v>>1)%2 & ( ( ( (v>>2)%2 ) ) ) )<< 0 ;
-        aux |=(unsigned long long) ( (v>>1)%2 )<< 1 ;
-        aux |=(unsigned long long) ( (v>>3)%2 )<< 2 ;
-        aux |=(unsigned long long) ( (v>>4)%2 )<< 3 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 4 ;
-        aux |=(unsigned long long) ( (v>>9)%2 ) | ( (v>>29)%2 )<< 5 ;
-        aux |=(unsigned long long) ( (v>>7)%2 )<< 6 ;
-        aux |=(unsigned long long) ( (v>>8)%2 )<< 7 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 8 ;
-        aux |=(unsigned long long) ( (v>>25)%2 )<< 9 ;
-        aux |=(unsigned long long) ( (v>>24)%2 )<< 10 ;
-        aux |=(unsigned long long) ( (v>>12)%2 )<< 11 ;
-        aux |=(unsigned long long) ( (v>>13)%2 )<< 12 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 13 ;
-        aux |=(unsigned long long) ( ( (v>>15)%2 ) & ! ( (v>>11)%2 ) )<< 14 ;
-        aux |=(unsigned long long) ( (v>>10)%2 ) | ( (v>>24)%2 )<< 15 ;
-        aux |=(unsigned long long) ( (v>>0)%2 & ( ( ( (v>>1)%2 & (v>>20)%2 ) ) ) )<< 16 ;
-        aux |=(unsigned long long) ( ( (v>>18)%2 ) & ! ( (v>>31)%2 ) )<< 17 ;
-        aux |=(unsigned long long) ( (v>>19)%2 )<< 18 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 19 ;
-        aux |=(unsigned long long) ( (v>>21)%2 )<< 20 ;
-        aux |=(unsigned long long) ( (v>>22)%2 )<< 21 ;
-        aux |=(unsigned long long) ( (v>>32)%2 )<< 22 ;
-        aux |=(unsigned long long) ! ( ( (v>>5)%2 ) )<< 23 ;
-        aux |=(unsigned long long) ( (v>>27)%2 )<< 24 ;
-        aux |=(unsigned long long) ( (v>>30)%2 )<< 25 ;
-        aux |=(unsigned long long) ( (v>>16)%2 & ( ( ( (v>>17)%2 ) ) ) )<< 26 ;
-        aux |=(unsigned long long) ( (v>>26)%2 )<< 27 ;
-        aux |=(unsigned long long) ( ( (v>>23)%2 ) & ! ( (v>>31)%2 ) )<< 28 ;
-        aux |=(unsigned long long) ( (v>>25)%2 )<< 29 ;
-        aux |=(unsigned long long) ( (v>>14)%2 )<< 30 ;
-        aux |=(unsigned long long) ( (v>>31)%2 )<< 31 ;
-        aux |=(unsigned long long) ( (v>>33)%2 )<< 32 ;
-        aux |=(unsigned long long) ( (v>>28)%2 )<< 33 ;
+        aux |= ( ( ( (v>>1)%2 ) * 2 + ( (v>>2)%2 ) * 2) >= 4 ) << 0 ;
+        aux |= ( ( ( (v>>1)%2 ) * 2) >= 2 ) << 1 ;
+        aux |= ( ( ( (v>>3)%2 ) * 2) >= 2 ) << 2 ;
+        aux |= ( ( ( (v>>4)%2 ) * 2) >= 2 ) << 3 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 4 ;
+        aux |= ( ( ( (v>>9)%2 ) * 2 + ( (v>>29)%2 ) * 2) >= 2 ) << 5 ;
+        aux |= ( ( ( (v>>7)%2 ) * 2) >= 2 ) << 6 ;
+        aux |= ( ( ( (v>>8)%2 ) * 2) >= 2 ) << 7 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 8 ;
+        aux |= ( ( ( (v>>25)%2 ) * 2) >= 2 ) << 9 ;
+        aux |= ( ( ( (v>>24)%2 ) * 2) >= 2 ) << 10 ;
+        aux |= ( ( ( (v>>12)%2 ) * 2) >= 2 ) << 11 ;
+        aux |= ( ( ( (v>>13)%2 ) * 2) >= 2 ) << 12 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 13 ;
+        aux |= ( ( ( (v>>15)%2 ) * 2 + ( (v>>11)%2 ) * -2) >= 2 ) << 14 ;
+        aux |= ( ( ( (v>>10)%2 ) * 2 + ( (v>>24)%2 ) * 2) >= 2 ) << 15 ;
+        aux |= ( ( ( (v>>0)%2 ) * 2 + ( (v>>1)%2 ) * 2 + ( (v>>20)%2 ) * 2) >= 6 ) << 16 ;
+        aux |= ( ( ( (v>>18)%2 ) * 2 + ( (v>>31)%2 ) * -2) >= 2 ) << 17 ;
+        aux |= ( ( ( (v>>19)%2 ) * 2) >= 2 ) << 18 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 19 ;
+        aux |= ( ( ( (v>>21)%2 ) * 2) >= 2 ) << 20 ;
+        aux |= ( ( ( (v>>22)%2 ) * 2) >= 2 ) << 21 ;
+        aux |= ( ( ( (v>>32)%2 ) * 2) >= 2 ) << 22 ;
+        aux |= ( ( ( (v>>5)%2 ) * -2) >= 0 ) << 23 ;
+        aux |= ( ( ( (v>>27)%2 ) * 2) >= 2 ) << 24 ;
+        aux |= ( ( ( (v>>30)%2 ) * 2) >= 2 ) << 25 ;
+        aux |= ( ( ( (v>>16)%2 ) * 2 + ( (v>>17)%2 ) * 2) >= 4 ) << 26 ;
+        aux |= ( ( ( (v>>26)%2 ) * 2) >= 2 ) << 27 ;
+        aux |= ( ( ( (v>>23)%2 ) * 2 + ( (v>>31)%2 ) * -2) >= 2 ) << 28 ;
+        aux |= ( ( ( (v>>25)%2 ) * 2) >= 2 ) << 29 ;
+        aux |= ( ( ( (v>>14)%2 ) * 2) >= 2 ) << 30 ;
+        aux |= ( ( ( (v>>31)%2 ) * 2) >= 2 ) << 31 ;
+        aux |= ( ( ( (v>>33)%2 ) * 2) >= 2 ) << 32 ;
+        aux |= ( ( ( (v>>28)%2 ) * 2) >= 2 ) << 33 ;
 
         if(aux != estado_gpu[i]){
             cerr << "Estado : " << init_rand[i] << " Posição :"<<i<<"\n";
@@ -2417,18 +2417,18 @@ int main(int argc, char **argv)
     cudaMemcpy(d_init_rand, h_init_rand, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
     cudaMemcpy(d_estado, h_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
 
-    passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    /* passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
     passo_tlf_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
     passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
     cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
+ */
+    passo_bool_1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    cudaDeviceSynchronize();
 
-    /* passo_bool_6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-    cudaDeviceSynchronize(); */
-
-    unsigned long long i = confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO);
+    unsigned long long i = confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
     if(i == MAX_ESTADO)
         cerr << "Resultados da GPU batem com os da CPU\n";
     else
