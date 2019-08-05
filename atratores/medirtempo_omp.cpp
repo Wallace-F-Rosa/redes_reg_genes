@@ -14,7 +14,8 @@ void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    #pragma omp parallel for
+    omp_set_dynamic(0);
+    #pragma omp parallel for num_threads(8)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux = v = 0;
@@ -1125,6 +1126,8 @@ int main(int argc, char **argv)
     init_rand = new unsigned long long[MAX_ESTADO];
     estado = new unsigned long long[MAX_ESTADO];
     double total = 0;
+
+    omp_set_num_threads(8);
     
     for (int i = 0; i < 10; i++){
         auto start = chrono::steady_clock::now();
