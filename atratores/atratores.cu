@@ -208,6 +208,8 @@ void atrator_tabela_sincrono_cpu(const Grafo &g, Atrator * Tabela, unsigned long
             return;
         }
 
+        
+
         //salvar o atrator na tabela
         bool igual = true;
         for(int i = 0; i < tamEstado; i++) if(Tabela[hash].atr[i] != s1[i]) {igual = false; break;}
