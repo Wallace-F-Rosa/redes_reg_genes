@@ -13,7 +13,7 @@ using namespace std;
 __global__ void passo_bool_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
-    ulonglong3 v=0,aux=0;
+    ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
         v.x = init_rand[tid].x;
@@ -53,7 +53,7 @@ unsigned long long confere_bool_1(ulonglong3 * init_rand, ulonglong3 * estado_gp
 __global__ void passo_tlf_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
-    ulonglong3 v=0,aux=0;
+    ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
         v.x = init_rand[tid].x;
