@@ -1,4 +1,5 @@
 	.file	"medirtempo_omp.cpp"
+	.text
 	.section	.rodata
 	.type	_ZStL19piecewise_construct, @object
 	.size	_ZStL19piecewise_construct, 1
@@ -11,7 +12,7 @@ _ZStL19piecewise_construct:
 	.weak	_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_
 	.type	_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_, @function
 _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_:
-.LFB1617:
+.LFB1681:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -29,14 +30,14 @@ _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1617:
+.LFE1681:
 	.size	_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_, .-_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_
 	.section	.text._ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv,"axG",@progbits,_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv,comdat
 	.align 2
 	.weak	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
 	.type	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv, @function
 _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
-.LFB1621:
+.LFB1685:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -50,7 +51,7 @@ _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1621:
+.LFE1685:
 	.size	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv, .-_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
 	.local	_ZL4NAME
 	.comm	_ZL4NAME,448,32
@@ -58,7 +59,7 @@ _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
 	.globl	_Z12passo_bool_1PyS_y
 	.type	_Z12passo_bool_1PyS_y, @function
 _Z12passo_bool_1PyS_y:
-.LFB1860:
+.LFB1934:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -95,18 +96,18 @@ _Z12passo_bool_1PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$3, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
-	andl	$1, %eax
 	salq	$3, %rax
+	andl	$8, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$4, %rax
+	andl	$16, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$9, %rax
@@ -114,14 +115,14 @@ _Z12passo_bool_1PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$29, %rax
-	andl	$1, %eax
 	salq	$5, %rax
+	andl	$32, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
-	andl	$1, %eax
 	salq	$6, %rax
+	andl	$64, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -130,33 +131,33 @@ _Z12passo_bool_1PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$8, %rax
+	andl	$256, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$25, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$24, %rax
-	andl	$1, %eax
 	salq	$10, %rax
+	andl	$1024, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$11, %rax
+	andl	$2048, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$13, %rax
+	andl	$8192, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
@@ -186,8 +187,8 @@ _Z12passo_bool_1PyS_y:
 	shrq	$20, %rax
 	andq	%rdx, %rax
 	andq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$18, %rax
@@ -202,28 +203,28 @@ _Z12passo_bool_1PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
-	andl	$1, %eax
 	salq	$18, %rax
+	andl	$262144, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$21, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
-	andl	$1, %eax
 	salq	$21, %rax
+	andl	$2097152, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	andl	$32, %eax
@@ -237,13 +238,13 @@ _Z12passo_bool_1PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$27, %rax
-	andl	$1, %eax
 	salq	$24, %rax
+	andl	$16777216, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$30, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
@@ -251,13 +252,13 @@ _Z12passo_bool_1PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$17, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$26, %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
@@ -272,26 +273,30 @@ _Z12passo_bool_1PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$25, %rax
-	andl	$1, %eax
 	salq	$29, %rax
+	andl	$536870912, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$14, %rax
-	andl	$1, %eax
 	salq	$30, %rax
+	andl	$1073741824, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	andl	$2147483648, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$33, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$28, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rdx
+	movabsq	$8589934592, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-24(%rbp), %rax
 	leaq	0(,%rax,8), %rdx
@@ -307,12 +312,12 @@ _Z12passo_bool_1PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1860:
+.LFE1934:
 	.size	_Z12passo_bool_1PyS_y, .-_Z12passo_bool_1PyS_y
 	.globl	_Z11passo_tlf_1PyS_y
 	.type	_Z11passo_tlf_1PyS_y, @function
 _Z11passo_tlf_1PyS_y:
-.LFB1861:
+.LFB1935:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -795,12 +800,12 @@ _Z11passo_tlf_1PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1861:
+.LFE1935:
 	.size	_Z11passo_tlf_1PyS_y, .-_Z11passo_tlf_1PyS_y
 	.globl	_Z12passo_bool_2PyS_y
 	.type	_Z12passo_bool_2PyS_y, @function
 _Z12passo_bool_2PyS_y:
-.LFB1862:
+.LFB1936:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -830,8 +835,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$29, %rax
-	andl	$1, %eax
 	addq	%rax, %rax
+	andl	$2, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
@@ -854,8 +859,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
-	andl	$1, %eax
 	salq	$3, %rax
+	andl	$8, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
@@ -940,14 +945,14 @@ _Z12passo_bool_2PyS_y:
 	movzbl	%al, %eax
 	movq	-16(%rbp), %rdx
 	shrq	$10, %rdx
-	andl	$1, %edx
 	salq	$8, %rdx
+	andl	$256, %edx
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -1042,8 +1047,8 @@ _Z12passo_bool_2PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$14, %rax
+	andl	$16384, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
@@ -1052,8 +1057,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$25, %rax
@@ -1111,8 +1116,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$21, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -1127,8 +1132,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$35, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	%rax
@@ -1136,8 +1141,8 @@ _Z12passo_bool_2PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
-	andl	$1, %eax
 	salq	$23, %rax
+	andl	$8388608, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -1163,18 +1168,18 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
-	andl	$1, %eax
 	salq	$28, %rax
+	andl	$268435456, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$27, %rax
@@ -1193,8 +1198,8 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
-	andl	$1, %eax
 	salq	$30, %rax
+	andl	$1073741824, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
@@ -1203,33 +1208,45 @@ _Z12passo_bool_2PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rdx
+	movabsq	$8589934592, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$34, %rax
+	movq	%rax, %rdx
+	movabsq	$17179869184, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
-	andl	$1, %eax
 	salq	$35, %rax
+	movq	%rax, %rdx
+	movabsq	$34359738368, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$31, %rax
-	andl	$1, %eax
 	salq	$36, %rax
+	movq	%rax, %rdx
+	movabsq	$68719476736, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$35, %rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rdx
+	movabsq	$137438953472, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$20, %rax
@@ -1277,12 +1294,12 @@ _Z12passo_bool_2PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1862:
+.LFE1936:
 	.size	_Z12passo_bool_2PyS_y, .-_Z12passo_bool_2PyS_y
 	.globl	_Z11passo_tlf_2PyS_y
 	.type	_Z11passo_tlf_2PyS_y, @function
 _Z11passo_tlf_2PyS_y:
-.LFB1863:
+.LFB1937:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -1404,10 +1421,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$6, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -1471,10 +1487,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$17, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -1538,10 +1553,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$17, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -1565,10 +1579,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$37, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -1592,10 +1605,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -1606,10 +1618,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$17, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -1675,10 +1686,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$24, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -1708,10 +1718,9 @@ _Z11passo_tlf_2PyS_y:
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -1994,10 +2003,9 @@ _Z11passo_tlf_2PyS_y:
 	shrq	$23, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -2038,12 +2046,12 @@ _Z11passo_tlf_2PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1863:
+.LFE1937:
 	.size	_Z11passo_tlf_2PyS_y, .-_Z11passo_tlf_2PyS_y
 	.globl	_Z12passo_bool_3PyS_y
 	.type	_Z12passo_bool_3PyS_y, @function
 _Z12passo_bool_3PyS_y:
-.LFB1864:
+.LFB1938:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -2085,13 +2093,13 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
-	andl	$1, %eax
 	addq	%rax, %rax
+	andl	$2, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -2115,15 +2123,16 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
-	movq	%rax, %rdx
+	movq	%rax, %rcx
 	cmpq	$0, -16(%rbp)
-	sete	%cl
-	movq	-16(%rbp), %rax
-	shrq	$8, %rax
-	andl	$1, %eax
-	orl	%ecx, %eax
+	sete	%al
 	movzbl	%al, %eax
-	andq	%rdx, %rax
+	cltq
+	movq	-16(%rbp), %rdx
+	shrq	$8, %rdx
+	andl	$1, %edx
+	orq	%rdx, %rax
+	andq	%rcx, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
@@ -2132,13 +2141,15 @@ _Z12passo_bool_3PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
 	andl	$1, %eax
+	movq	%rax, %rsi
 	cmpq	$0, -16(%rbp)
-	sete	%sil
-	orl	%esi, %eax
+	sete	%al
 	movzbl	%al, %eax
+	cltq
+	orq	%rsi, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$4, %rax
+	andl	$16, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -2174,8 +2185,8 @@ _Z12passo_bool_3PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$37, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$6, %rax
+	andl	$64, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -2206,30 +2217,38 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
+	movq	%rax, %rdx
+	movq	-16(%rbp), %rax
+	shrq	$41, %rax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %eax
+	cltq
+	andq	%rdx, %rax
 	andl	$1, %eax
 	movq	-16(%rbp), %rdx
-	shrq	$41, %rdx
+	andl	$2048, %edx
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
 	movl	%eax, %ecx
 	movq	-16(%rbp), %rax
 	shrq	$41, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	shrq	$40, %rdx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
+	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
-	andl	$2048, %eax
+	shrq	$40, %rax
 	testq	%rax, %rax
 	sete	%al
 	movzbl	%al, %eax
-	movq	%rdx, %rcx
-	andq	%rax, %rcx
+	cltq
+	andq	%rdx, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rdx
+	andl	$2048, %edx
+	testq	%rdx, %rdx
+	sete	%dl
+	andl	%edx, %eax
+	orl	%eax, %ecx
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
 	andl	$1, %eax
@@ -2238,28 +2257,27 @@ _Z12passo_bool_3PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
+	orl	%ecx, %eax
 	movzbl	%al, %eax
-	orq	%rax, %rcx
-	movq	%rcx, %rdx
-	movq	-16(%rbp), %rax
-	shrq	$41, %rax
-	movq	%rax, %rcx
-	movq	-16(%rbp), %rax
-	shrq	$34, %rax
-	orq	%rax, %rcx
-	movq	-16(%rbp), %rax
-	shrq	$11, %rax
-	orq	%rax, %rcx
-	movq	-16(%rbp), %rax
-	shrq	$40, %rax
-	orq	%rcx, %rax
-	andl	$1, %eax
-	testq	%rax, %rax
+	movq	-16(%rbp), %rdx
+	movq	%rdx, %rcx
+	shrq	$41, %rcx
+	movq	-16(%rbp), %rdx
+	shrq	$34, %rdx
+	orq	%rdx, %rcx
+	movq	-16(%rbp), %rdx
+	shrq	$11, %rdx
+	orq	%rdx, %rcx
+	movq	-16(%rbp), %rdx
+	shrq	$40, %rdx
+	orq	%rcx, %rdx
+	andl	$1, %edx
+	testq	%rdx, %rdx
 	jne	.L168
-	movl	$512, %eax
+	movl	$512, %edx
 	jmp	.L169
 .L168:
-	movl	$0, %eax
+	movl	$0, %edx
 .L169:
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
@@ -2302,65 +2320,48 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$20, %rax
+	movq	%rax, %rdx
+	movq	-16(%rbp), %rax
+	shrq	$4, %rax
+	movq	%rax, %rcx
+	movq	-16(%rbp), %rax
+	shrq	$8, %rax
+	orq	%rax, %rcx
+	movq	-16(%rbp), %rax
+	shrq	$19, %rax
+	orq	%rax, %rcx
+	movq	-16(%rbp), %rax
+	shrq	$14, %rax
+	orq	%rcx, %rax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %eax
+	cltq
+	andq	%rax, %rdx
+	movq	-16(%rbp), %rax
+	shrq	$8, %rax
+	orq	%rax, %rdx
+	movq	-16(%rbp), %rax
+	shrq	$14, %rax
 	movq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
-	testq	%rax, %rax
-	sete	%dl
-	movq	-16(%rbp), %rax
-	shrq	$8, %rax
-	testq	%rax, %rax
-	sete	%al
-	andl	%edx, %eax
-	movzbl	%al, %edx
-	movq	-16(%rbp), %rax
-	shrq	$19, %rax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
-	andl	%eax, %edx
-	movq	-16(%rbp), %rax
-	shrq	$14, %rax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
-	andl	%edx, %eax
-	cltq
-	andq	%rax, %rcx
-	movq	%rcx, %rdx
-	movq	-16(%rbp), %rax
-	shrq	$8, %rax
-	movq	%rdx, %rcx
-	orq	%rax, %rcx
-	movq	-16(%rbp), %rax
-	shrq	$14, %rax
 	movq	%rax, %rsi
 	movq	-16(%rbp), %rax
-	shrq	$4, %rax
-	testq	%rax, %rax
-	sete	%dl
-	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	testq	%rax, %rax
-	sete	%al
-	andl	%edx, %eax
-	movzbl	%al, %edx
+	orq	%rax, %rsi
 	movq	-16(%rbp), %rax
 	shrq	$20, %rax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
-	andl	%eax, %edx
+	orq	%rax, %rsi
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
+	orq	%rsi, %rax
 	testq	%rax, %rax
 	sete	%al
 	movzbl	%al, %eax
-	andl	%edx, %eax
 	cltq
-	andq	%rsi, %rax
-	orq	%rax, %rcx
-	movq	%rcx, %rdx
+	andq	%rcx, %rax
+	orq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
 	orq	%rax, %rdx
@@ -2396,8 +2397,8 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$2, %rax
@@ -2414,8 +2415,8 @@ _Z12passo_bool_3PyS_y:
 	movq	-16(%rbp), %rdx
 	shrq	$2, %rdx
 	andq	%rcx, %rdx
-	andl	$1, %edx
 	salq	$13, %rdx
+	andl	$8192, %edx
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -2443,13 +2444,13 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$17, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$17, %rax
+	andl	$131072, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$11, %rax
@@ -2469,8 +2470,8 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
@@ -2516,8 +2517,8 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$31, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$24, %rax
@@ -2525,23 +2526,23 @@ _Z12passo_bool_3PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$23, %rax
+	andl	$8388608, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$24, %rax
+	andl	$16777216, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$29, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rax, -8(%rbp)
 	movabsq	$8796093022208, %rax
 	andq	-16(%rbp), %rax
@@ -2559,13 +2560,13 @@ _Z12passo_bool_3PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$28, %rax
+	andl	$268435456, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
 	salq	$29, %rax
+	andl	$536870912, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
@@ -2586,43 +2587,59 @@ _Z12passo_bool_3PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$41, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$26, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rdx
+	movabsq	$8589934592, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
-	andl	$1, %eax
 	salq	$34, %rax
+	movq	%rax, %rdx
+	movabsq	$17179869184, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
-	andl	$1, %eax
 	salq	$35, %rax
+	movq	%rax, %rdx
+	movabsq	$34359738368, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$36, %rax
+	movq	%rax, %rdx
+	movabsq	$68719476736, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	%rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rdx
+	movabsq	$137438953472, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$38, %rax
+	movq	%rax, %rdx
+	movabsq	$274877906944, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$39, %rax
+	movq	%rax, %rdx
+	movabsq	$549755813888, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movabsq	$1099511627776, %rax
 	andq	-16(%rbp), %rax
@@ -2650,12 +2667,12 @@ _Z12passo_bool_3PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1864:
+.LFE1938:
 	.size	_Z12passo_bool_3PyS_y, .-_Z12passo_bool_3PyS_y
 	.globl	_Z11passo_tlf_3PyS_y
 	.type	_Z11passo_tlf_3PyS_y, @function
 _Z11passo_tlf_3PyS_y:
-.LFB1865:
+.LFB1939:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -2828,10 +2845,9 @@ _Z11passo_tlf_3PyS_y:
 	shrq	$7, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -2851,10 +2867,9 @@ _Z11passo_tlf_3PyS_y:
 	shrq	$11, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
@@ -2891,10 +2906,9 @@ _Z11passo_tlf_3PyS_y:
 	shrq	$21, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -3346,12 +3360,12 @@ _Z11passo_tlf_3PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1865:
+.LFE1939:
 	.size	_Z11passo_tlf_3PyS_y, .-_Z11passo_tlf_3PyS_y
 	.globl	_Z12passo_bool_5PyS_y
 	.type	_Z12passo_bool_5PyS_y, @function
 _Z12passo_bool_5PyS_y:
-.LFB1866:
+.LFB1940:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -3403,6 +3417,11 @@ _Z12passo_bool_5PyS_y:
 	orl	%ecx, %eax
 	movzbl	%al, %eax
 	orq	%rax, -8(%rbp)
+	movabsq	$2199023255552, %rax
+	andq	-16(%rbp), %rax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %ecx
 	movq	-16(%rbp), %rax
 	shrq	$29, %rax
 	andl	$1, %eax
@@ -3411,7 +3430,7 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	movl	%eax, %ecx
+	movl	%eax, %esi
 	movq	-16(%rbp), %rax
 	shrq	$26, %rax
 	andl	$1, %eax
@@ -3420,14 +3439,8 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
-	movabsq	$2199023255552, %rax
-	andq	-16(%rbp), %rax
-	testq	%rax, %rax
-	sete	%al
+	orl	%esi, %eax
 	movzbl	%al, %eax
-	movq	%rdx, %rcx
 	andq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	%rax
@@ -3457,8 +3470,8 @@ _Z12passo_bool_5PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -3567,13 +3580,13 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$2, %rax
-	andl	$1, %eax
 	salq	$5, %rax
+	andl	$32, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$42, %rax
-	andl	$1, %eax
 	salq	$6, %rax
+	andl	$64, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
@@ -3617,18 +3630,18 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
-	andl	$1, %eax
 	salq	$8, %rax
+	andl	$256, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$9, %rax
-	andl	$1, %eax
 	salq	$10, %rax
+	andl	$1024, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
@@ -3643,8 +3656,8 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$28, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$44, %rax
@@ -3659,8 +3672,8 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$45, %rax
-	andl	$1, %eax
 	salq	$14, %rax
+	andl	$16384, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
@@ -3669,8 +3682,8 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
@@ -3696,13 +3709,13 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$28, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$48, %rax
@@ -3717,34 +3730,44 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$23, %rax
+	andl	$8388608, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$20, %rax
-	andl	$1, %eax
 	salq	$24, %rax
+	andl	$16777216, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$41, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$49, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$2, %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rax, -8(%rbp)
+	movq	-16(%rbp), %rax
+	andl	$16, %eax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %ecx
+	movq	-16(%rbp), %rax
+	andl	$8, %eax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %esi
 	movq	-16(%rbp), %rax
 	shrq	$30, %rax
 	andl	$1, %eax
@@ -3753,7 +3776,7 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	movl	%eax, %ecx
+	movl	%eax, %edi
 	movq	-16(%rbp), %rax
 	shrq	$28, %rax
 	andl	$1, %eax
@@ -3762,20 +3785,9 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
-	movq	-16(%rbp), %rax
-	andl	$8, %eax
-	testq	%rax, %rax
-	sete	%al
+	orl	%edi, %eax
 	movzbl	%al, %eax
-	andq	%rax, %rdx
-	movq	-16(%rbp), %rax
-	andl	$16, %eax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
-	movq	%rdx, %rcx
+	andq	%rsi, %rax
 	andq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$33, %rax
@@ -3802,6 +3814,11 @@ _Z12passo_bool_5PyS_y:
 	orq	%rcx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
+	andl	$1, %eax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %ecx
+	movq	-16(%rbp), %rax
 	shrq	$29, %rax
 	andl	$1, %eax
 	movabsq	$1099511627776, %rdx
@@ -3809,7 +3826,7 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	movl	%eax, %ecx
+	movl	%eax, %esi
 	movq	-16(%rbp), %rax
 	shrq	$35, %rax
 	andl	$1, %eax
@@ -3818,14 +3835,8 @@ _Z12passo_bool_5PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
-	movq	-16(%rbp), %rax
-	andl	$1, %eax
-	testq	%rax, %rax
-	sete	%al
+	orl	%esi, %eax
 	movzbl	%al, %eax
-	movq	%rdx, %rcx
 	andq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	%rax
@@ -3847,8 +3858,8 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
-	andl	$1, %eax
 	salq	$30, %rax
+	andl	$1073741824, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
@@ -3870,8 +3881,10 @@ _Z12passo_bool_5PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rcx
+	movabsq	$4294967296, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -3884,8 +3897,10 @@ _Z12passo_bool_5PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rcx
+	movabsq	$8589934592, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -3922,18 +3937,24 @@ _Z12passo_bool_5PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$18, %rax
-	andl	$1, %eax
 	salq	$36, %rax
+	movq	%rax, %rdx
+	movabsq	$68719476736, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$3, %rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rdx
+	movabsq	$137438953472, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$37, %rax
-	andl	$1, %eax
 	salq	$38, %rax
+	movq	%rax, %rdx
+	movabsq	$274877906944, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
@@ -3982,63 +4003,63 @@ _Z12passo_bool_5PyS_y:
 	orq	%rcx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
-	shrq	$40, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	movl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$41, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$28, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$39, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$4, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
-	movq	-16(%rbp), %rax
 	andl	$536870912, %eax
 	testq	%rax, %rax
 	sete	%al
+	movzbl	%al, %edx
+	movq	-16(%rbp), %rax
+	shrq	$40, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	movl	%eax, %esi
+	movq	-16(%rbp), %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$41, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$28, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$39, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$4, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%esi, %eax
 	movzbl	%al, %eax
 	movq	%rdx, %rcx
 	andq	%rax, %rcx
@@ -4101,12 +4122,12 @@ _Z12passo_bool_5PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1866:
+.LFE1940:
 	.size	_Z12passo_bool_5PyS_y, .-_Z12passo_bool_5PyS_y
 	.globl	_Z11passo_tlf_5PyS_y
 	.type	_Z11passo_tlf_5PyS_y, @function
 _Z11passo_tlf_5PyS_y:
-.LFB1867:
+.LFB1941:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -4138,10 +4159,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$29, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -4165,10 +4185,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$40, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -4218,10 +4237,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$33, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4241,10 +4259,9 @@ _Z11passo_tlf_5PyS_y:
 	andl	$1, %eax
 	addq	%rdi, %rax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -4264,10 +4281,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$28, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4282,10 +4298,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$3, %rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -4329,10 +4344,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$33, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -4631,10 +4645,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$39, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4649,10 +4662,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$3, %rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -4677,10 +4689,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$40, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4690,10 +4701,9 @@ _Z11passo_tlf_5PyS_y:
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -4809,10 +4819,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$31, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -4872,10 +4881,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$4, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4890,10 +4898,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$28, %rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -4913,10 +4920,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$7, %rdx
 	subq	%rdx, %rax
-	salq	$7, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -4926,10 +4932,9 @@ _Z11passo_tlf_5PyS_y:
 	shrq	$29, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$7, %rdx
 	subq	%rdx, %rax
-	salq	$7, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -5002,12 +5007,12 @@ _Z11passo_tlf_5PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1867:
+.LFE1941:
 	.size	_Z11passo_tlf_5PyS_y, .-_Z11passo_tlf_5PyS_y
 	.globl	_Z12passo_bool_6PyS_y
 	.type	_Z12passo_bool_6PyS_y, @function
 _Z12passo_bool_6PyS_y:
-.LFB1868:
+.LFB1942:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -5084,8 +5089,8 @@ _Z12passo_bool_6PyS_y:
 	andq	%rdi, %rax
 	andq	%rsi, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	addq	%rax, %rax
+	andl	$2, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5102,8 +5107,8 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5120,8 +5125,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$37, %rax
-	andl	$1, %eax
 	salq	$4, %rax
+	andl	$16, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5162,8 +5167,8 @@ _Z12passo_bool_6PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$8, %rax
+	andl	$256, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$18, %rax
@@ -5179,14 +5184,14 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
-	andl	$1, %eax
 	salq	$10, %rax
+	andl	$1024, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
@@ -5194,21 +5199,21 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$11, %rax
+	andl	$2048, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$52, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$13, %rax
+	andl	$8192, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5250,8 +5255,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5260,8 +5265,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
-	andl	$1, %eax
 	salq	$17, %rax
+	andl	$131072, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5296,8 +5301,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$49, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5314,8 +5319,8 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5364,14 +5369,14 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$52, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$24, %rax
-	andl	$1, %eax
 	salq	$23, %rax
+	andl	$8388608, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
@@ -5457,8 +5462,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5475,8 +5480,8 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5485,8 +5490,8 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -5502,14 +5507,14 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$28, %rax
+	andl	$268435456, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$4, %rax
-	andl	$1, %eax
 	salq	$29, %rax
+	andl	$536870912, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$3, %rax
@@ -5539,8 +5544,10 @@ _Z12passo_bool_6PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
@@ -5560,14 +5567,18 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
 	andq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rcx
+	movabsq	$8589934592, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
-	andl	$1, %eax
 	salq	$34, %rax
+	movq	%rax, %rdx
+	movabsq	$17179869184, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	%rax
@@ -5575,40 +5586,42 @@ _Z12passo_bool_6PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$35, %rax
+	movq	%rax, %rdx
+	movabsq	$34359738368, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
-	movq	-16(%rbp), %rax
-	shrq	$13, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$524288, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	movl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$12, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$524288, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$524288, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
 	movq	-16(%rbp), %rax
 	andl	$134217728, %eax
 	testq	%rax, %rax
 	sete	%al
+	movzbl	%al, %edx
+	movq	-16(%rbp), %rax
+	shrq	$13, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$524288, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	movl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$12, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$524288, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%eax, %esi
+	movq	-16(%rbp), %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$524288, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%esi, %eax
 	movzbl	%al, %eax
 	movq	%rdx, %rcx
 	andq	%rax, %rcx
@@ -5636,8 +5649,10 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rcx
+	movabsq	$137438953472, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5646,8 +5661,10 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$14, %rax
-	andl	$1, %eax
 	salq	$38, %rax
+	movq	%rax, %rcx
+	movabsq	$274877906944, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5656,8 +5673,10 @@ _Z12passo_bool_6PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$39, %rax
+	movq	%rax, %rcx
+	movabsq	$549755813888, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -5679,8 +5698,10 @@ _Z12passo_bool_6PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
-	andl	$1, %eax
 	salq	$41, %rax
+	movq	%rax, %rdx
+	movabsq	$2199023255552, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
@@ -5692,8 +5713,10 @@ _Z12passo_bool_6PyS_y:
 	shrq	$37, %rax
 	andq	%rcx, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$42, %rax
+	movq	%rax, %rdx
+	movabsq	$4398046511104, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -5708,18 +5731,24 @@ _Z12passo_bool_6PyS_y:
 	shrq	$37, %rax
 	andq	%rcx, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$43, %rax
+	movq	%rax, %rdx
+	movabsq	$8796093022208, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$42, %rax
-	andl	$1, %eax
 	salq	$44, %rax
+	movq	%rax, %rdx
+	movabsq	$17592186044416, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$45, %rax
+	movq	%rax, %rdx
+	movabsq	$35184372088832, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
@@ -5753,13 +5782,17 @@ _Z12passo_bool_6PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$48, %rax
+	movq	%rax, %rdx
+	movabsq	$281474976710656, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
-	andl	$1, %eax
 	salq	$49, %rax
+	movq	%rax, %rdx
+	movabsq	$562949953421312, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
@@ -5771,13 +5804,17 @@ _Z12passo_bool_6PyS_y:
 	shrq	$37, %rax
 	andq	%rcx, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$50, %rax
+	movq	%rax, %rdx
+	movabsq	$1125899906842624, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$50, %rax
-	andl	$1, %eax
 	salq	$51, %rax
+	movq	%rax, %rdx
+	movabsq	$2251799813685248, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movabsq	$4503599627370496, %rax
 	andq	-16(%rbp), %rax
@@ -5796,12 +5833,12 @@ _Z12passo_bool_6PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1868:
+.LFE1942:
 	.size	_Z12passo_bool_6PyS_y, .-_Z12passo_bool_6PyS_y
 	.globl	_Z11passo_tlf_6PyS_y
 	.type	_Z11passo_tlf_6PyS_y, @function
 _Z11passo_tlf_6PyS_y:
-.LFB1869:
+.LFB1943:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -5840,20 +5877,18 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$31, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$33, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rcx, %rax
 	cmpq	$7, %rax
@@ -6009,10 +6044,9 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$34, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rcx, %rax
 	cmpq	$5, %rax
@@ -6305,10 +6339,9 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$24, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -6585,36 +6618,37 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$23, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
 	andl	$1, %eax
+	movq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
 	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	movq	%rdx, %rsi
-	subq	%rax, %rsi
+	movq	%rax, %rsi
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
-	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	subq	%rax, %rdx
+	movq	%rax, %rdx
 	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
+	addq	%rax, %rax
 	addq	%rcx, %rax
 	cmpq	$5, %rax
 	jbe	.L417
@@ -6661,10 +6695,9 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$19, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -6675,10 +6708,9 @@ _Z11passo_tlf_6PyS_y:
 	shrq	$27, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -6980,12 +7012,12 @@ _Z11passo_tlf_6PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1869:
+.LFE1943:
 	.size	_Z11passo_tlf_6PyS_y, .-_Z11passo_tlf_6PyS_y
 	.globl	_Z12passo_bool_7PyS_y
 	.type	_Z12passo_bool_7PyS_y, @function
 _Z12passo_bool_7PyS_y:
-.LFB1870:
+.LFB1944:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -7029,8 +7061,8 @@ _Z12passo_bool_7PyS_y:
 	shrq	$2, %rax
 	orq	%rcx, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	addq	%rax, %rax
+	andl	$2, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
@@ -7038,14 +7070,14 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$49, %rax
-	andl	$1, %eax
 	salq	$3, %rax
+	andl	$8, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
@@ -7071,13 +7103,13 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$6, %rax
 	andq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$5, %rax
+	andl	$32, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$25, %rax
-	andl	$1, %eax
 	salq	$6, %rax
+	andl	$64, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$6, %rax
@@ -7128,14 +7160,14 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$24, %rax
-	andl	$1, %eax
 	salq	$10, %rax
+	andl	$1024, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$51, %rax
@@ -7168,8 +7200,8 @@ _Z12passo_bool_7PyS_y:
 	orq	%rsi, %rax
 	andq	%rcx, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
@@ -7215,8 +7247,8 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -7229,14 +7261,14 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
-	andl	$1, %eax
 	salq	$17, %rax
+	andl	$131072, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$45, %rax
-	andl	$1, %eax
 	salq	$18, %rax
+	andl	$262144, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$41, %rax
@@ -7266,24 +7298,24 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$26, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$36, %rax
-	andl	$1, %eax
 	salq	$21, %rax
+	andl	$2097152, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
@@ -7345,25 +7377,25 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$16, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$25, %rax
 	andq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$29, %rax
-	andl	$1, %eax
 	salq	$28, %rax
+	andl	$268435456, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
@@ -7375,14 +7407,14 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$29, %rax
+	andl	$536870912, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$31, %rax
-	andl	$1, %eax
 	salq	$30, %rax
+	andl	$1073741824, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -7396,13 +7428,17 @@ _Z12passo_bool_7PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rdx
+	movabsq	$8589934592, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$48, %rax
@@ -7459,19 +7495,25 @@ _Z12passo_bool_7PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$31, %rax
-	andl	$1, %eax
 	salq	$36, %rax
+	movq	%rax, %rcx
+	movabsq	$68719476736, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rdx
+	movabsq	$137438953472, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$38, %rax
+	movq	%rax, %rdx
+	movabsq	$274877906944, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$17, %rax
@@ -7486,28 +7528,38 @@ _Z12passo_bool_7PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
-	andl	$1, %eax
 	salq	$40, %rax
+	movq	%rax, %rdx
+	movabsq	$1099511627776, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$41, %rax
+	movq	%rax, %rdx
+	movabsq	$2199023255552, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$3, %rax
-	andl	$1, %eax
 	salq	$42, %rax
+	movq	%rax, %rdx
+	movabsq	$4398046511104, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$53, %rax
-	andl	$1, %eax
 	salq	$43, %rax
+	movq	%rax, %rdx
+	movabsq	$8796093022208, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$27, %rax
-	andl	$1, %eax
 	salq	$44, %rax
+	movq	%rax, %rdx
+	movabsq	$17592186044416, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
@@ -7548,8 +7600,10 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$21, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$46, %rax
+	movq	%rax, %rcx
+	movabsq	$70368744177664, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -7566,8 +7620,10 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$54, %rax
 	andq	%rcx, %rax
-	andl	$1, %eax
 	salq	$47, %rax
+	movq	%rax, %rcx
+	movabsq	$140737488355328, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -7576,8 +7632,10 @@ _Z12passo_bool_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$10, %rax
 	andq	%rdx, %rax
-	andl	$1, %eax
 	salq	$48, %rax
+	movq	%rax, %rdx
+	movabsq	$281474976710656, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movabsq	$562949953421312, %rax
 	andq	-16(%rbp), %rax
@@ -7611,12 +7669,12 @@ _Z12passo_bool_7PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1870:
+.LFE1944:
 	.size	_Z12passo_bool_7PyS_y, .-_Z12passo_bool_7PyS_y
 	.globl	_Z11passo_tlf_7PyS_y
 	.type	_Z11passo_tlf_7PyS_y, @function
 _Z11passo_tlf_7PyS_y:
-.LFB1871:
+.LFB1945:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -7790,10 +7848,9 @@ _Z11passo_tlf_7PyS_y:
 	shrq	$17, %rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
@@ -8015,10 +8072,11 @@ _Z11passo_tlf_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$42, %rax
 	andl	$1, %eax
-	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	subq	%rax, %rdx
+	movq	%rax, %rdx
 	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
+	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$26, %rax
@@ -8090,10 +8148,9 @@ _Z11passo_tlf_7PyS_y:
 	shrq	$44, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -8117,10 +8174,9 @@ _Z11passo_tlf_7PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -8131,10 +8187,9 @@ _Z11passo_tlf_7PyS_y:
 	shrq	$32, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -8312,10 +8367,9 @@ _Z11passo_tlf_7PyS_y:
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -8326,10 +8380,9 @@ _Z11passo_tlf_7PyS_y:
 	shrq	$10, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -8493,10 +8546,11 @@ _Z11passo_tlf_7PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$21, %rax
 	andl	$1, %eax
-	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	subq	%rax, %rdx
+	movq	%rax, %rdx
 	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
+	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$42, %rax
@@ -8591,12 +8645,12 @@ _Z11passo_tlf_7PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1871:
+.LFE1945:
 	.size	_Z11passo_tlf_7PyS_y, .-_Z11passo_tlf_7PyS_y
 	.globl	_Z12passo_bool_8PyS_y
 	.type	_Z12passo_bool_8PyS_y, @function
 _Z12passo_bool_8PyS_y:
-.LFB1872:
+.LFB1946:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -8850,31 +8904,29 @@ _Z12passo_bool_8PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
-	movq	%rax, %rcx
+	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$7, %rax
-	andl	$1, %eax
-	movq	%rax, %rsi
+	movq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	shrq	$11, %rdx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
+	movq	%rax, %rsi
+	movq	-16(%rbp), %rax
+	shrq	$11, %rax
+	testq	%rax, %rax
+	sete	%al
 	movzbl	%al, %eax
-	orq	%rax, %rsi
-	movq	%rsi, %rdx
+	cltq
+	andq	%rsi, %rax
+	orq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
 	movq	%rax, %rsi
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
 	andq	%rsi, %rax
-	andl	$1, %eax
-	orq	%rdx, %rax
-	andq	%rcx, %rax
+	orq	%rcx, %rax
+	andq	%rdx, %rax
 	andl	$1, %eax
 	movq	-16(%rbp), %rdx
 	andl	$2, %edx
@@ -9154,6 +9206,16 @@ _Z12passo_bool_8PyS_y:
 	andq	%rdx, %rax
 	salq	$20, %rax
 	orq	%rax, -8(%rbp)
+	movabsq	$8796093022208, %rax
+	andq	-16(%rbp), %rax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %ecx
+	movq	-16(%rbp), %rax
+	andl	$2, %eax
+	testq	%rax, %rax
+	sete	%al
+	movzbl	%al, %esi
 	movq	-16(%rbp), %rax
 	shrq	$54, %rax
 	movq	%rax, %rdx
@@ -9166,7 +9228,7 @@ _Z12passo_bool_8PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	movl	%eax, %ecx
+	movl	%eax, %edi
 	movq	-16(%rbp), %rax
 	shrq	$23, %rax
 	movq	%rax, %rdx
@@ -9179,20 +9241,9 @@ _Z12passo_bool_8PyS_y:
 	testq	%rdx, %rdx
 	sete	%dl
 	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
-	movq	-16(%rbp), %rax
-	andl	$2, %eax
-	testq	%rax, %rax
-	sete	%al
+	orl	%edi, %eax
 	movzbl	%al, %eax
-	andq	%rax, %rdx
-	movabsq	$8796093022208, %rax
-	andq	-16(%rbp), %rax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
-	movq	%rdx, %rcx
+	andq	%rsi, %rax
 	andq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$55, %rax
@@ -9253,29 +9304,29 @@ _Z12passo_bool_8PyS_y:
 	salq	$22, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
-	movq	-16(%rbp), %rax
-	shrq	$46, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	movl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$32, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%ecx, %eax
-	movzbl	%al, %edx
 	movabsq	$140737488355328, %rax
 	andq	-16(%rbp), %rax
 	testq	%rax, %rax
 	sete	%al
+	movzbl	%al, %edx
+	movq	-16(%rbp), %rax
+	shrq	$46, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	movl	%eax, %esi
+	movq	-16(%rbp), %rax
+	shrq	$32, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rcx
+	andl	$2, %ecx
+	testq	%rcx, %rcx
+	sete	%cl
+	andl	%ecx, %eax
+	orl	%esi, %eax
 	movzbl	%al, %eax
 	movq	%rdx, %rcx
 	andq	%rax, %rcx
@@ -9371,45 +9422,45 @@ _Z12passo_bool_8PyS_y:
 	movzbl	%al, %eax
 	salq	$27, %rax
 	orq	%rax, -8(%rbp)
-	movq	-16(%rbp), %rax
-	shrq	$21, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	movl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$40, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%eax, %ecx
-	movq	-16(%rbp), %rax
-	shrq	$24, %rax
-	andl	$1, %eax
-	movq	-16(%rbp), %rdx
-	andl	$2, %edx
-	testq	%rdx, %rdx
-	sete	%dl
-	andl	%edx, %eax
-	orl	%ecx, %eax
+	movabsq	$17592186044416, %rax
+	andq	-16(%rbp), %rax
+	testq	%rax, %rax
+	sete	%al
 	movzbl	%al, %edx
 	movabsq	$72057594037927936, %rax
 	andq	-16(%rbp), %rax
 	testq	%rax, %rax
 	sete	%al
+	movzbl	%al, %ecx
+	movq	-16(%rbp), %rax
+	shrq	$21, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rsi
+	andl	$2, %esi
+	testq	%rsi, %rsi
+	sete	%sil
+	andl	%esi, %eax
+	movl	%eax, %edi
+	movq	-16(%rbp), %rax
+	shrq	$40, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rsi
+	andl	$2, %esi
+	testq	%rsi, %rsi
+	sete	%sil
+	andl	%esi, %eax
+	orl	%eax, %edi
+	movq	-16(%rbp), %rax
+	shrq	$24, %rax
+	andl	$1, %eax
+	movq	-16(%rbp), %rsi
+	andl	$2, %esi
+	testq	%rsi, %rsi
+	sete	%sil
+	andl	%esi, %eax
+	orl	%edi, %eax
 	movzbl	%al, %eax
-	andq	%rax, %rdx
-	movabsq	$17592186044416, %rax
-	andq	-16(%rbp), %rax
-	testq	%rax, %rax
-	sete	%al
-	movzbl	%al, %eax
+	andq	%rcx, %rax
 	movq	%rdx, %rcx
 	andq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -9972,12 +10023,12 @@ _Z12passo_bool_8PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1872:
+.LFE1946:
 	.size	_Z12passo_bool_8PyS_y, .-_Z12passo_bool_8PyS_y
 	.globl	_Z11passo_tlf_8PyS_y
 	.type	_Z11passo_tlf_8PyS_y, @function
 _Z11passo_tlf_8PyS_y:
-.LFB1873:
+.LFB1947:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -10042,10 +10093,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$30, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -10060,10 +10110,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -10083,10 +10132,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$19, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -10106,10 +10154,9 @@ _Z11passo_tlf_8PyS_y:
 	andl	$1, %eax
 	addq	%rdi, %rax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -10199,10 +10246,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$20, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -10403,10 +10449,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -10463,10 +10508,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -10587,10 +10631,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -10674,18 +10717,19 @@ _Z11passo_tlf_8PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
 	andl	$1, %eax
+	movq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
 	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	movq	%rdx, %rcx
-	subq	%rax, %rcx
+	movq	%rax, %rcx
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -10700,10 +10744,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	addq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -10728,10 +10771,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -10760,10 +10802,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -10774,10 +10815,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$47, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$3, %rdx
 	subq	%rdx, %rax
-	salq	$3, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -10847,10 +10887,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rcx, %rax
 	cmpq	$7, %rax
@@ -10877,10 +10916,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rcx, %rax
 	cmpq	$7, %rax
@@ -10924,10 +10962,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -10938,10 +10975,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$44, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$4, %rdx
 	subq	%rdx, %rax
-	salq	$4, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	leaq	(%rcx,%rax), %rdx
@@ -10980,10 +11016,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$52, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -11079,9 +11114,12 @@ _Z11passo_tlf_8PyS_y:
 	movq	-16(%rbp), %rax
 	shrq	$37, %rax
 	andl	$1, %eax
+	movq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	subq	%rdx, %rax
 	addq	%rax, %rax
-	leaq	0(,%rax,8), %rdx
-	subq	%rax, %rdx
+	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	%rax
 	andl	$1, %eax
@@ -11127,10 +11165,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -11170,10 +11207,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
@@ -11197,10 +11233,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -11224,10 +11259,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -11299,10 +11333,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	$16, %rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rax, %rcx
 	movq	-16(%rbp), %rax
@@ -11313,10 +11346,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	addq	%rsi, %rax
 	addq	%rcx, %rax
@@ -11452,10 +11484,9 @@ _Z11passo_tlf_8PyS_y:
 	shrq	%rax
 	andl	$1, %eax
 	movq	%rax, %rdx
-	movl	$0, %eax
+	movq	%rdx, %rax
+	salq	$2, %rdx
 	subq	%rdx, %rax
-	salq	$2, %rax
-	addq	%rdx, %rax
 	addq	%rax, %rax
 	leaq	(%rcx,%rax), %rdx
 	movq	-16(%rbp), %rax
@@ -11654,12 +11685,12 @@ _Z11passo_tlf_8PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1873:
+.LFE1947:
 	.size	_Z11passo_tlf_8PyS_y, .-_Z11passo_tlf_8PyS_y
 	.globl	_Z12passo_bool_9PyS_y
 	.type	_Z12passo_bool_9PyS_y, @function
 _Z12passo_bool_9PyS_y:
-.LFB1874:
+.LFB1948:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -11700,8 +11731,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$24, %rax
-	andl	$1, %eax
 	addq	%rax, %rax
+	andl	$2, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11710,8 +11741,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$14, %rax
-	andl	$1, %eax
 	salq	$2, %rax
+	andl	$4, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11724,8 +11755,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$3, %rax
+	andl	$8, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11733,14 +11764,14 @@ _Z12passo_bool_9PyS_y:
 	andl	$1, %eax
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
-	andl	$1, %eax
 	salq	$4, %rax
+	andl	$16, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$17, %rax
-	andl	$1, %eax
 	salq	$5, %rax
+	andl	$32, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
@@ -11752,8 +11783,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$6, %rax
+	andl	$64, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11769,28 +11800,28 @@ _Z12passo_bool_9PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$8, %rax
+	andl	$256, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$46, %rax
-	andl	$1, %eax
 	salq	$9, %rax
+	andl	$512, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$13, %rax
-	andl	$1, %eax
 	salq	$10, %rax
+	andl	$1024, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$39, %rax
-	andl	$1, %eax
 	salq	$11, %rax
+	andl	$2048, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$30, %rax
-	andl	$1, %eax
 	salq	$12, %rax
+	andl	$4096, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -11798,8 +11829,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$13, %rax
+	andl	$8192, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11809,8 +11840,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$14, %rax
+	andl	$16384, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11830,14 +11861,14 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$16, %rax
+	andl	$65536, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$57, %rax
-	andl	$1, %eax
 	salq	$17, %rax
+	andl	$131072, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -11846,24 +11877,24 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$18, %rax
+	andl	$262144, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$40, %rax
-	andl	$1, %eax
 	salq	$19, %rax
+	andl	$524288, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$53, %rax
-	andl	$1, %eax
 	salq	$20, %rax
+	andl	$1048576, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$11, %rax
-	andl	$1, %eax
 	salq	$21, %rax
+	andl	$2097152, %eax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$34, %rax
@@ -11871,8 +11902,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$22, %rax
+	andl	$4194304, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11882,8 +11913,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$23, %rax
+	andl	$8388608, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11892,8 +11923,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$24, %rax
+	andl	$16777216, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11903,8 +11934,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$25, %rax
+	andl	$33554432, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11914,8 +11945,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$26, %rax
+	andl	$67108864, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11925,8 +11956,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$27, %rax
+	andl	$134217728, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11936,8 +11967,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$28, %rax
+	andl	$268435456, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11946,8 +11977,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$43, %rax
-	andl	$1, %eax
 	salq	$29, %rax
+	andl	$536870912, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11956,8 +11987,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$49, %rax
-	andl	$1, %eax
 	salq	$30, %rax
+	andl	$1073741824, %eax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11967,18 +11998,24 @@ _Z12passo_bool_9PyS_y:
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$48, %rax
-	andl	$1, %eax
 	salq	$32, %rax
+	movq	%rax, %rdx
+	movabsq	$4294967296, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$33, %rax
+	movq	%rax, %rdx
+	movabsq	$8589934592, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$31, %rax
-	andl	$1, %eax
 	salq	$34, %rax
+	movq	%rax, %rdx
+	movabsq	$17179869184, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$42, %rax
@@ -11986,8 +12023,10 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$35, %rax
+	movq	%rax, %rcx
+	movabsq	$34359738368, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -11997,8 +12036,10 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$36, %rax
+	movq	%rax, %rcx
+	movabsq	$68719476736, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -12011,29 +12052,39 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$37, %rax
+	movq	%rax, %rcx
+	movabsq	$137438953472, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$32, %rax
-	andl	$1, %eax
 	salq	$38, %rax
+	movq	%rax, %rdx
+	movabsq	$274877906944, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$47, %rax
-	andl	$1, %eax
 	salq	$39, %rax
+	movq	%rax, %rdx
+	movabsq	$549755813888, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$41, %rax
-	andl	$1, %eax
 	salq	$40, %rax
+	movq	%rax, %rdx
+	movabsq	$1099511627776, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	%rax
-	andl	$1, %eax
 	salq	$41, %rax
+	movq	%rax, %rdx
+	movabsq	$2199023255552, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$38, %rax
@@ -12041,8 +12092,10 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$33, %rax
-	andl	$1, %eax
 	salq	$42, %rax
+	movq	%rax, %rcx
+	movabsq	$4398046511104, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -12052,14 +12105,18 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$43, %rax
+	movq	%rax, %rcx
+	movabsq	$8796093022208, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$57, %rax
-	andl	$1, %eax
 	salq	$44, %rax
+	movq	%rax, %rdx
+	movabsq	$17592186044416, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$8, %rax
@@ -12067,8 +12124,10 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$9, %rax
-	andl	$1, %eax
 	salq	$45, %rax
+	movq	%rax, %rcx
+	movabsq	$35184372088832, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
@@ -12077,19 +12136,25 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$19, %rax
-	andl	$1, %eax
 	salq	$46, %rax
+	movq	%rax, %rcx
+	movabsq	$70368744177664, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$59, %rax
-	andl	$1, %eax
 	salq	$47, %rax
+	movq	%rax, %rdx
+	movabsq	$140737488355328, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$51, %rax
-	andl	$1, %eax
 	salq	$48, %rax
+	movq	%rax, %rdx
+	movabsq	$281474976710656, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$45, %rax
@@ -12097,24 +12162,32 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$51, %rax
-	andl	$1, %eax
 	salq	$49, %rax
+	movq	%rax, %rcx
+	movabsq	$562949953421312, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
-	andl	$1, %eax
 	salq	$50, %rax
+	movq	%rax, %rdx
+	movabsq	$1125899906842624, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$54, %rax
-	andl	$1, %eax
 	salq	$51, %rax
+	movq	%rax, %rdx
+	movabsq	$2251799813685248, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$52, %rax
+	movq	%rax, %rdx
+	movabsq	$4503599627370496, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$57, %rax
@@ -12122,19 +12195,25 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$15, %rax
-	andl	$1, %eax
 	salq	$53, %rax
+	movq	%rax, %rcx
+	movabsq	$9007199254740992, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$20, %rax
-	andl	$1, %eax
 	salq	$54, %rax
+	movq	%rax, %rdx
+	movabsq	$18014398509481984, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$52, %rax
-	andl	$1, %eax
 	salq	$55, %rax
+	movq	%rax, %rdx
+	movabsq	$36028797018963968, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -12142,14 +12221,18 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$56, %rax
+	movq	%rax, %rcx
+	movabsq	$72057594037927936, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$61, %rax
-	andl	$1, %eax
 	salq	$57, %rax
+	movq	%rax, %rdx
+	movabsq	$144115188075855872, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$22, %rax
@@ -12157,19 +12240,25 @@ _Z12passo_bool_9PyS_y:
 	movq	%rax, %rdx
 	movq	-16(%rbp), %rax
 	shrq	$12, %rax
-	andl	$1, %eax
 	salq	$58, %rax
+	movq	%rax, %rcx
+	movabsq	$288230376151711744, %rax
+	andq	%rcx, %rax
 	orq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	$60, %rax
-	andl	$1, %eax
 	salq	$59, %rax
+	movq	%rax, %rdx
+	movabsq	$576460752303423488, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movq	-16(%rbp), %rax
 	shrq	%rax
-	andl	$1, %eax
 	salq	$60, %rax
+	movq	%rax, %rdx
+	movabsq	$1152921504606846976, %rax
+	andq	%rdx, %rax
 	orq	%rax, -8(%rbp)
 	movabsq	$2305843009213693952, %rax
 	andq	-16(%rbp), %rax
@@ -12188,12 +12277,12 @@ _Z12passo_bool_9PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1874:
+.LFE1948:
 	.size	_Z12passo_bool_9PyS_y, .-_Z12passo_bool_9PyS_y
 	.globl	_Z11passo_tlf_9PyS_y
 	.type	_Z11passo_tlf_9PyS_y, @function
 _Z11passo_tlf_9PyS_y:
-.LFB1875:
+.LFB1949:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13169,12 +13258,12 @@ _Z11passo_tlf_9PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1875:
+.LFE1949:
 	.size	_Z11passo_tlf_9PyS_y, .-_Z11passo_tlf_9PyS_y
 	.globl	_Z18preenche_init_randPyyj
 	.type	_Z18preenche_init_randPyyj, @function
 _Z18preenche_init_randPyyj:
-.LFB1876:
+.LFB1950:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13195,7 +13284,7 @@ _Z18preenche_init_randPyyj:
 	movq	-40(%rbp), %rax
 	addq	%rdx, %rax
 	movq	$0, (%rax)
-	call	rand
+	call	rand@PLT
 	movslq	%eax, %rdx
 	movabsq	$-2147483649, %rax
 	cmpq	%rax, %rdx
@@ -13210,7 +13299,7 @@ _Z18preenche_init_randPyyj:
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -16(%rbp)
-	call	rand
+	call	rand@PLT
 	movslq	%eax, %rdx
 	movabsq	$-2147483649, %rax
 	cmpq	%rax, %rdx
@@ -13234,30 +13323,30 @@ _Z18preenche_init_randPyyj:
 	movl	$0, -28(%rbp)
 .L813:
 	movl	-28(%rbp), %eax
-	cmpl	-52(%rbp), %eax
-	jnb	.L812
+	cmpl	%eax, -52(%rbp)
+	jbe	.L812
 	movq	-24(%rbp), %rax
 	leaq	0(,%rax,8), %rdx
 	movq	-40(%rbp), %rax
-	addq	%rax, %rdx
-	movq	-24(%rbp), %rax
-	leaq	0(,%rax,8), %rcx
-	movq	-40(%rbp), %rax
-	addq	%rcx, %rax
-	movq	(%rax), %rsi
+	addq	%rdx, %rax
+	movq	(%rax), %rdx
 	movl	-28(%rbp), %eax
-	movq	-8(%rbp), %rdi
+	movq	-8(%rbp), %rsi
 	movl	%eax, %ecx
-	shrq	%cl, %rdi
-	movq	%rdi, %rax
+	shrq	%cl, %rsi
+	movq	%rsi, %rax
 	andl	$1, %eax
-	movq	%rax, %rdi
+	movq	%rax, %rsi
 	movl	-28(%rbp), %eax
 	movl	%eax, %ecx
-	salq	%cl, %rdi
-	movq	%rdi, %rax
-	orq	%rsi, %rax
-	movq	%rax, (%rdx)
+	salq	%cl, %rsi
+	movq	%rsi, %rcx
+	movq	-24(%rbp), %rax
+	leaq	0(,%rax,8), %rsi
+	movq	-40(%rbp), %rax
+	addq	%rsi, %rax
+	orq	%rcx, %rdx
+	movq	%rdx, (%rax)
 	addl	$1, -28(%rbp)
 	jmp	.L813
 .L812:
@@ -13269,57 +13358,14 @@ _Z18preenche_init_randPyyj:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1876:
+.LFE1950:
 	.size	_Z18preenche_init_randPyyj, .-_Z18preenche_init_randPyyj
-	.section	.text._ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_,"axG",@progbits,_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_,comdat
-	.weak	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_
-	.type	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_, @function
-_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_:
-.LFB1878:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	movl	%edi, -4(%rbp)
-	movq	%rsi, -16(%rbp)
-	movq	-16(%rbp), %rax
-	testq	%rax, %rax
-	js	.L817
-	pxor	%xmm0, %xmm0
-	cvtsi2sdq	%rax, %xmm0
-	jmp	.L818
-.L817:
-	movq	%rax, %rdx
-	shrq	%rdx
-	andl	$1, %eax
-	orq	%rax, %rdx
-	pxor	%xmm0, %xmm0
-	cvtsi2sdq	%rdx, %xmm0
-	addsd	%xmm0, %xmm0
-.L818:
-	pxor	%xmm2, %xmm2
-	cvtsi2sd	-4(%rbp), %xmm2
-	movapd	%xmm0, %xmm1
-	movapd	%xmm2, %xmm0
-	call	pow
-	movq	%xmm0, %rax
-	movq	%rax, -24(%rbp)
-	movsd	-24(%rbp), %xmm0
-	leave
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE1878:
-	.size	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_, .-_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_
 	.section	.text._ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv,"axG",@progbits,_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv,comdat
 	.align 2
 	.weak	_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv
 	.type	_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv, @function
 _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv:
-.LFB1880:
+.LFB1953:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13333,13 +13379,13 @@ _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl100
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1880:
+.LFE1953:
 	.size	_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv, .-_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv
 	.section	.text._ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_,"axG",@progbits,_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_,comdat
 	.weak	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
 	.type	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_, @function
 _ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_:
-.LFB1881:
+.LFB1954:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13347,55 +13393,53 @@ _ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationI
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	pushq	%rbx
-	subq	$88, %rsp
+	subq	$72, %rsp
 	.cfi_offset 3, -24
-	movq	%rdi, -88(%rbp)
-	movq	%rsi, -96(%rbp)
+	movq	%rdi, -72(%rbp)
+	movq	%rsi, -80(%rbp)
 	movq	%fs:40, %rax
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
-	movq	-88(%rbp), %rax
+	movq	-72(%rbp), %rax
 	movq	(%rax), %rax
-	movq	%rax, -80(%rbp)
-	leaq	-80(%rbp), %rax
+	movq	%rax, -56(%rbp)
+	leaq	-56(%rbp), %rax
 	movq	%rax, %rdi
 	call	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
 	movq	%rax, %rbx
-	movq	-96(%rbp), %rax
+	movq	-80(%rbp), %rax
 	movq	(%rax), %rax
-	movq	%rax, -64(%rbp)
-	leaq	-64(%rbp), %rax
+	movq	%rax, -48(%rbp)
+	leaq	-48(%rbp), %rax
 	movq	%rax, %rdi
 	call	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
 	subq	%rax, %rbx
 	movq	%rbx, %rax
-	movq	%rax, -32(%rbp)
-	leaq	-32(%rbp), %rdx
-	leaq	-48(%rbp), %rax
+	movq	%rax, -40(%rbp)
+	leaq	-40(%rbp), %rdx
+	leaq	-32(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
 	call	_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_
-	movq	-48(%rbp), %rax
+	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rcx
 	xorq	%fs:40, %rcx
-	je	.L824
-	call	__stack_chk_fail
-.L824:
-	addq	$88, %rsp
+	je	.L820
+	call	__stack_chk_fail@PLT
+.L820:
+	addq	$72, %rsp
 	popq	%rbx
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1881:
+.LFE1954:
 	.size	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_, .-_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
-	.weak	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIINS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
-	.set	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIINS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_,_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
 	.section	.text._ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE,"axG",@progbits,_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE,comdat
 	.weak	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
 	.type	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE, @function
 _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE:
-.LFB1879:
+.LFB1952:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13415,30 +13459,28 @@ _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEE
 	movq	-40(%rbp), %rax
 	movq	%rax, %rdi
 	call	_ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv
-	movq	%rax, -32(%rbp)
+	movq	%rax, -24(%rbp)
 	leaq	-16(%rbp), %rdx
-	leaq	-32(%rbp), %rax
+	leaq	-24(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
 	call	_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
 	movq	-8(%rbp), %rcx
 	xorq	%fs:40, %rcx
-	je	.L827
-	call	__stack_chk_fail
-.L827:
+	je	.L823
+	call	__stack_chk_fail@PLT
+.L823:
 	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1879:
+.LFE1952:
 	.size	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE, .-_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
-	.weak	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIIT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
-	.set	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIIT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE,_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
 	.section	.text._ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE,"axG",@progbits,_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE,comdat
 	.weak	_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE
 	.type	_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE, @function
 _ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE:
-.LFB1883:
+.LFB1956:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13453,29 +13495,29 @@ _ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2
 	movq	-40(%rbp), %rax
 	movq	%rax, %rdi
 	call	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
-	movq	%rax, -16(%rbp)
-	leaq	-16(%rbp), %rdx
-	leaq	-32(%rbp), %rax
+	movq	%rax, -24(%rbp)
+	leaq	-24(%rbp), %rdx
+	leaq	-16(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
 	call	_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_
-	movq	-32(%rbp), %rax
+	movq	-16(%rbp), %rax
 	movq	-8(%rbp), %rcx
 	xorq	%fs:40, %rcx
-	je	.L830
-	call	__stack_chk_fail
-.L830:
+	je	.L826
+	call	__stack_chk_fail@PLT
+.L826:
 	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1883:
+.LFE1956:
 	.size	_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE, .-_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1ELl1EElLb1ELb1EE6__castIlS3_EES4_RKNS1_IT_T0_EE
 	.section	.text._ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE,"axG",@progbits,_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE,comdat
 	.weak	_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE
 	.type	_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE, @function
 _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE:
-.LFB1882:
+.LFB1955:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13491,7 +13533,7 @@ _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1882:
+.LFE1955:
 	.size	_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE, .-_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE
 	.section	.rodata
 	.align 8
@@ -13507,105 +13549,104 @@ _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt
 	.globl	main
 	.type	main, @function
 main:
-.LFB1877:
+.LFB1951:
 	.cfi_startproc
-	.cfi_personality 0x3,__gxx_personality_v0
-	.cfi_lsda 0x3,.LLSDA1877
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDA1951
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	pushq	%rbx
-	subq	$200, %rsp
+	subq	$168, %rsp
 	.cfi_offset 3, -24
-	movl	%edi, -180(%rbp)
-	movq	%rsi, -192(%rbp)
+	movl	%edi, -148(%rbp)
+	movq	%rsi, -160(%rbp)
 	movq	%fs:40, %rax
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
 	movq	$0, -96(%rbp)
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev
-	cmpl	$2, -180(%rbp)
-	jle	.L834
-	movq	-192(%rbp), %rax
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev@PLT
+	cmpl	$2, -148(%rbp)
+	jle	.L830
+	movq	-160(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rax
 	movq	%rax, %rdi
-	call	atoi
-	movl	%eax, -168(%rbp)
-	movq	-192(%rbp), %rax
+	call	atoi@PLT
+	movl	%eax, -136(%rbp)
+	movq	-160(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rdx
 	leaq	-64(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
 .LEHB0:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc
-	jmp	.L876
-.L834:
-	movl	$.LC0, %edi
-	call	puts
-	movl	$.LC1, %edi
-	call	puts
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc@PLT
+	jmp	.L872
+.L830:
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	leaq	.LC1(%rip), %rdi
+	call	puts@PLT
 	movl	$1, %ebx
-	jmp	.L836
-.L876:
-	movl	-168(%rbp), %eax
+	jmp	.L832
+.L872:
+	movl	-136(%rbp), %eax
 	cltq
 	salq	$5, %rax
-	addq	$_ZL4NAME, %rax
+	movq	%rax, %rdx
+	leaq	_ZL4NAME(%rip), %rax
+	addq	%rdx, %rax
 	movq	%rax, %rdi
-	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv
+	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv@PLT
 	movq	%rax, %rsi
-	movl	$.LC2, %edi
+	leaq	.LC2(%rip), %rdi
 	movl	$0, %eax
-	call	printf
-	movl	$0, -176(%rbp)
-.L844:
-	movl	-176(%rbp), %eax
+	call	printf@PLT
+	movl	$0, -144(%rbp)
+.L840:
+	movl	-144(%rbp), %eax
 	movslq	%eax, %rbx
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv
+	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv@PLT
 	cmpq	%rax, %rbx
 	setb	%al
 	testb	%al, %al
-	je	.L837
-	movl	-176(%rbp), %eax
+	je	.L833
+	movl	-144(%rbp), %eax
 	movslq	%eax, %rdx
 	leaq	-64(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm@PLT
 	movzbl	(%rax), %eax
 	movsbl	%al, %eax
 	subl	$48, %eax
 	cltq
 	testq	%rax, %rax
-	js	.L838
-	pxor	%xmm4, %xmm4
-	cvtsi2sdq	%rax, %xmm4
-	movsd	%xmm4, -200(%rbp)
-	jmp	.L839
-.L838:
+	js	.L834
+	cvtsi2sdq	%rax, %xmm3
+	movsd	%xmm3, -168(%rbp)
+	jmp	.L835
+.L834:
 	movq	%rax, %rdx
 	shrq	%rdx
 	andl	$1, %eax
 	orq	%rax, %rdx
-	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rdx, %xmm0
-	movapd	%xmm0, %xmm3
-	addsd	%xmm0, %xmm3
-	movsd	%xmm3, -200(%rbp)
-.L839:
+	addsd	%xmm0, %xmm0
+	movsd	%xmm0, -168(%rbp)
+.L835:
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv
+	call	_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv@PLT
 	movq	%rax, %rdx
-	movl	-176(%rbp), %eax
+	movl	-144(%rbp), %eax
 	cltq
 	subq	%rax, %rdx
 	movq	%rdx, %rax
@@ -13613,235 +13654,238 @@ main:
 	movq	%rax, %rsi
 	movl	$10, %edi
 	call	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_
-	movsd	-200(%rbp), %xmm1
+	movsd	-168(%rbp), %xmm1
 	mulsd	%xmm0, %xmm1
 	movq	-96(%rbp), %rax
 	testq	%rax, %rax
-	js	.L840
-	pxor	%xmm0, %xmm0
+	js	.L836
 	cvtsi2sdq	%rax, %xmm0
-	jmp	.L841
-.L840:
+	jmp	.L837
+.L836:
 	movq	%rax, %rdx
 	shrq	%rdx
 	andl	$1, %eax
 	orq	%rax, %rdx
-	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rdx, %xmm0
 	addsd	%xmm0, %xmm0
-.L841:
+.L837:
 	addsd	%xmm1, %xmm0
 	ucomisd	.LC3(%rip), %xmm0
-	jnb	.L842
+	jnb	.L838
 	cvttsd2siq	%xmm0, %rax
 	movq	%rax, -96(%rbp)
-	jmp	.L843
-.L842:
+	jmp	.L839
+.L838:
 	movsd	.LC3(%rip), %xmm1
 	subsd	%xmm1, %xmm0
 	cvttsd2siq	%xmm0, %rax
 	movq	%rax, -96(%rbp)
 	movabsq	$-9223372036854775808, %rax
 	xorq	%rax, -96(%rbp)
-.L843:
+.L839:
 	movq	-96(%rbp), %rax
 	movq	%rax, -96(%rbp)
-	addl	$1, -176(%rbp)
-	jmp	.L844
-.L837:
+	addl	$1, -144(%rbp)
+	jmp	.L840
+.L833:
 	movq	-96(%rbp), %rax
-	movabsq	$1143914305352105984, %rdx
+	movabsq	$1152921504606846975, %rdx
 	cmpq	%rdx, %rax
-	ja	.L845
+	ja	.L841
 	salq	$3, %rax
 	movq	%rax, %rdi
-	call	_Znam
-	jmp	.L877
-.L845:
-	call	__cxa_throw_bad_array_new_length
-.L877:
+	call	_Znam@PLT
+	jmp	.L873
+.L841:
+	call	__cxa_throw_bad_array_new_length@PLT
+.L873:
 	movq	%rax, -80(%rbp)
 	movq	-96(%rbp), %rax
-	movabsq	$1143914305352105984, %rdx
+	movabsq	$1152921504606846975, %rdx
 	cmpq	%rdx, %rax
-	ja	.L847
+	ja	.L843
 	salq	$3, %rax
 	movq	%rax, %rdi
-	call	_Znam
-	jmp	.L878
-.L847:
-	call	__cxa_throw_bad_array_new_length
-.L878:
+	call	_Znam@PLT
+	jmp	.L874
+.L843:
+	call	__cxa_throw_bad_array_new_length@PLT
+.L874:
 	movq	%rax, -72(%rbp)
 	pxor	%xmm0, %xmm0
 	movsd	%xmm0, -88(%rbp)
-	movl	$3, -164(%rbp)
+	movl	$3, -132(%rbp)
 	movl	$0, %edi
-	call	omp_set_dynamic
+	call	omp_set_dynamic@PLT
 	movl	$16, %edi
-	call	omp_set_num_threads
-	movl	$0, -172(%rbp)
-.L869:
-	movl	-172(%rbp), %eax
-	cmpl	-164(%rbp), %eax
-	jge	.L849
-	call	_ZNSt6chrono3_V212steady_clock3nowEv
-	movq	%rax, -160(%rbp)
-	cmpl	$15, -168(%rbp)
-	ja	.L850
-	movl	-168(%rbp), %eax
-	movq	.L852(,%rax,8), %rax
+	call	omp_set_num_threads@PLT
+	movl	$0, -140(%rbp)
+.L865:
+	movl	-140(%rbp), %eax
+	cmpl	-132(%rbp), %eax
+	jge	.L845
+	call	_ZNSt6chrono3_V212steady_clock3nowEv@PLT
+	movq	%rax, -128(%rbp)
+	cmpl	$15, -136(%rbp)
+	ja	.L846
+	movl	-136(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	leaq	.L848(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	movslq	%eax, %rdx
+	leaq	.L848(%rip), %rax
+	addq	%rdx, %rax
 	jmp	*%rax
 	.section	.rodata
-	.align 8
 	.align 4
-.L852:
-	.quad	.L851
-	.quad	.L853
-	.quad	.L854
-	.quad	.L855
-	.quad	.L856
-	.quad	.L857
-	.quad	.L858
-	.quad	.L859
-	.quad	.L860
-	.quad	.L861
-	.quad	.L862
-	.quad	.L863
-	.quad	.L864
-	.quad	.L865
-	.quad	.L866
-	.quad	.L867
+	.align 4
+.L848:
+	.long	.L847-.L848
+	.long	.L849-.L848
+	.long	.L850-.L848
+	.long	.L851-.L848
+	.long	.L852-.L848
+	.long	.L853-.L848
+	.long	.L854-.L848
+	.long	.L855-.L848
+	.long	.L856-.L848
+	.long	.L857-.L848
+	.long	.L858-.L848
+	.long	.L859-.L848
+	.long	.L860-.L848
+	.long	.L861-.L848
+	.long	.L862-.L848
+	.long	.L863-.L848
 	.text
-.L851:
+.L847:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_1PyS_y
-	jmp	.L868
-.L853:
+	jmp	.L864
+.L849:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_1PyS_y
-	jmp	.L868
-.L854:
+	jmp	.L864
+.L850:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_2PyS_y
-	jmp	.L868
-.L855:
+	jmp	.L864
+.L851:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_2PyS_y
-	jmp	.L868
-.L856:
+	jmp	.L864
+.L852:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_3PyS_y
-	jmp	.L868
-.L857:
+	jmp	.L864
+.L853:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_3PyS_y
-	jmp	.L868
-.L858:
+	jmp	.L864
+.L854:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_5PyS_y
-	jmp	.L868
-.L859:
+	jmp	.L864
+.L855:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_5PyS_y
-	jmp	.L868
-.L860:
+	jmp	.L864
+.L856:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_6PyS_y
-	jmp	.L868
-.L861:
+	jmp	.L864
+.L857:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_6PyS_y
-	jmp	.L868
-.L862:
+	jmp	.L864
+.L858:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_7PyS_y
-	jmp	.L868
-.L863:
+	jmp	.L864
+.L859:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_7PyS_y
-	jmp	.L868
-.L864:
+	jmp	.L864
+.L860:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_8PyS_y
-	jmp	.L868
-.L865:
+	jmp	.L864
+.L861:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_8PyS_y
-	jmp	.L868
-.L866:
+	jmp	.L864
+.L862:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z12passo_bool_9PyS_y
-	jmp	.L868
-.L867:
+	jmp	.L864
+.L863:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
 	movq	%rcx, %rsi
 	movq	%rax, %rdi
 	call	_Z11passo_tlf_9PyS_y
-	jmp	.L868
-.L850:
+	jmp	.L864
+.L846:
 	movq	-96(%rbp), %rdx
 	movq	-72(%rbp), %rcx
 	movq	-80(%rbp), %rax
@@ -13849,116 +13893,152 @@ main:
 	movq	%rax, %rdi
 	call	_Z12passo_bool_1PyS_y
 	nop
-.L868:
-	call	_ZNSt6chrono3_V212steady_clock3nowEv
-	movq	%rax, -144(%rbp)
-	leaq	-160(%rbp), %rdx
-	leaq	-144(%rbp), %rax
+.L864:
+	call	_ZNSt6chrono3_V212steady_clock3nowEv@PLT
+	movq	%rax, -120(%rbp)
+	leaq	-128(%rbp), %rdx
+	leaq	-120(%rbp), %rax
 	movq	%rdx, %rsi
 	movq	%rax, %rdi
 	call	_ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
-	movq	%rax, -128(%rbp)
-	leaq	-128(%rbp), %rax
-	movq	%rax, %rdi
-	call	_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE
 	movq	%rax, -112(%rbp)
 	leaq	-112(%rbp), %rax
 	movq	%rax, %rdi
+	call	_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS3_EENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE
+	movq	%rax, -104(%rbp)
+	leaq	-104(%rbp), %rax
+	movq	%rax, %rdi
 	call	_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
-	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
 	movsd	-88(%rbp), %xmm1
 	addsd	%xmm1, %xmm0
 	movsd	%xmm0, -88(%rbp)
-	addl	$1, -172(%rbp)
-	jmp	.L869
-.L849:
+	addl	$1, -140(%rbp)
+	jmp	.L865
+.L845:
 	movq	-96(%rbp), %rax
 	testq	%rax, %rax
-	js	.L870
-	pxor	%xmm0, %xmm0
+	js	.L866
 	cvtsi2sdq	%rax, %xmm0
-	jmp	.L871
-.L870:
+	jmp	.L867
+.L866:
 	movq	%rax, %rdx
 	shrq	%rdx
 	andl	$1, %eax
 	orq	%rax, %rdx
-	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rdx, %xmm0
 	addsd	%xmm0, %xmm0
-.L871:
-	pxor	%xmm1, %xmm1
-	cvtsi2sd	-164(%rbp), %xmm1
+.L867:
+	cvtsi2sd	-132(%rbp), %xmm1
 	movsd	-88(%rbp), %xmm2
 	divsd	%xmm1, %xmm2
 	movapd	%xmm2, %xmm1
 	movapd	%xmm0, %xmm2
 	divsd	%xmm1, %xmm2
-	pxor	%xmm0, %xmm0
-	cvtsi2sd	-164(%rbp), %xmm0
+	cvtsi2sd	-132(%rbp), %xmm0
 	movsd	-88(%rbp), %xmm1
 	divsd	%xmm0, %xmm1
 	movapd	%xmm1, %xmm0
 	movq	-96(%rbp), %rax
 	movapd	%xmm2, %xmm1
 	movq	%rax, %rsi
-	movl	$.LC5, %edi
+	leaq	.LC5(%rip), %rdi
 	movl	$2, %eax
-	call	printf
+	call	printf@PLT
 .LEHE0:
 	movl	$0, %ebx
-.L836:
+.L832:
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@PLT
 	movl	%ebx, %eax
 	movq	-24(%rbp), %rbx
 	xorq	%fs:40, %rbx
-	je	.L874
-	jmp	.L879
-.L875:
+	je	.L870
+	jmp	.L875
+.L871:
 	movq	%rax, %rbx
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@PLT
 	movq	%rbx, %rax
 	movq	%rax, %rdi
 .LEHB1:
-	call	_Unwind_Resume
+	call	_Unwind_Resume@PLT
 .LEHE1:
-.L879:
-	call	__stack_chk_fail
-.L874:
-	addq	$200, %rsp
+.L875:
+	call	__stack_chk_fail@PLT
+.L870:
+	addq	$168, %rsp
 	popq	%rbx
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1877:
+.LFE1951:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA1877:
+.LLSDA1951:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE1877-.LLSDACSB1877
-.LLSDACSB1877:
-	.uleb128 .LEHB0-.LFB1877
+	.uleb128 .LLSDACSE1951-.LLSDACSB1951
+.LLSDACSB1951:
+	.uleb128 .LEHB0-.LFB1951
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L875-.LFB1877
+	.uleb128 .L871-.LFB1951
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB1877
+	.uleb128 .LEHB1-.LFB1951
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE1877:
+.LLSDACSE1951:
 	.text
 	.size	main, .-main
+	.section	.text._ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_,"axG",@progbits,_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_,comdat
+	.weak	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_
+	.type	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_, @function
+_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_:
+.LFB2154:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	movl	%edi, -4(%rbp)
+	movq	%rsi, -16(%rbp)
+	movq	-16(%rbp), %rax
+	testq	%rax, %rax
+	js	.L877
+	cvtsi2sdq	%rax, %xmm0
+	jmp	.L878
+.L877:
+	movq	%rax, %rdx
+	shrq	%rdx
+	andl	$1, %eax
+	orq	%rax, %rdx
+	cvtsi2sdq	%rdx, %xmm0
+	addsd	%xmm0, %xmm0
+.L878:
+	cvtsi2sd	-4(%rbp), %xmm2
+	movapd	%xmm0, %xmm1
+	movapd	%xmm2, %xmm0
+	call	pow@PLT
+	movq	%xmm0, %rax
+	movq	%rax, -24(%rbp)
+	movsd	-24(%rbp), %xmm0
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE2154:
+	.size	_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_, .-_ZSt3powIimEN9__gnu_cxx11__promote_2IT_T0_NS0_9__promoteIS2_XsrSt12__is_integerIS2_E7__valueEE6__typeENS4_IS3_XsrS5_IS3_E7__valueEE6__typeEE6__typeES2_S3_
+	.text
 	.type	__tcf_0, @function
 __tcf_0:
-.LFB2082:
+.LFB2292:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -13969,13 +14049,14 @@ __tcf_0:
 	subq	$24, %rsp
 	.cfi_offset 3, -24
 	movq	%rdi, -24(%rbp)
-	movl	$_ZL4NAME+448, %ebx
+	leaq	448+_ZL4NAME(%rip), %rbx
 .L882:
-	cmpq	$_ZL4NAME, %rbx
+	leaq	_ZL4NAME(%rip), %rax
+	cmpq	%rax, %rbx
 	je	.L880
 	subq	$32, %rbx
 	movq	%rbx, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@PLT
 	jmp	.L882
 .L880:
 	addq	$24, %rsp
@@ -13984,7 +14065,7 @@ __tcf_0:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE2082:
+.LFE2292:
 	.size	__tcf_0, .-__tcf_0
 	.section	.rodata
 .LC6:
@@ -14018,10 +14099,10 @@ __tcf_0:
 	.text
 	.type	_Z41__static_initialization_and_destruction_0ii, @function
 _Z41__static_initialization_and_destruction_0ii:
-.LFB2081:
+.LFB2291:
 	.cfi_startproc
-	.cfi_personality 0x3,__gxx_personality_v0
-	.cfi_lsda 0x3,.LLSDA2081
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDA2291
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -14043,312 +14124,313 @@ _Z41__static_initialization_and_destruction_0ii:
 	jne	.L883
 	cmpl	$65535, -56(%rbp)
 	jne	.L883
-	movl	$_ZStL8__ioinit, %edi
+	leaq	_ZStL8__ioinit(%rip), %rdi
 .LEHB2:
-	call	_ZNSt8ios_base4InitC1Ev
+	call	_ZNSt8ios_base4InitC1Ev@PLT
 .LEHE2:
-	movl	$__dso_handle, %edx
-	movl	$_ZStL8__ioinit, %esi
-	movl	$_ZNSt8ios_base4InitD1Ev, %edi
-	call	__cxa_atexit
-	movl	$_ZL4NAME, %r13d
+	leaq	__dso_handle(%rip), %rdx
+	leaq	_ZStL8__ioinit(%rip), %rsi
+	movq	_ZNSt8ios_base4InitD1Ev@GOTPCREL(%rip), %rax
+	movq	%rax, %rdi
+	call	__cxa_atexit@PLT
+	leaq	_ZL4NAME(%rip), %r13
 	movl	$13, %ebx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC6, %esi
+	leaq	.LC6(%rip), %rsi
 	movq	%r13, %rdi
 .LEHB3:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE3:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	leaq	32(%r13), %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC7, %esi
+	leaq	.LC7(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB4:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE4:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC8, %esi
+	leaq	.LC8(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB5:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE5:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC9, %esi
+	leaq	.LC9(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB6:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE6:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC10, %esi
+	leaq	.LC10(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB7:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE7:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC11, %esi
+	leaq	.LC11(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB8:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE8:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC12, %esi
+	leaq	.LC12(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB9:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE9:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC13, %esi
+	leaq	.LC13(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB10:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE10:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC14, %esi
+	leaq	.LC14(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB11:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE11:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC15, %esi
+	leaq	.LC15(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB12:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE12:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC16, %esi
+	leaq	.LC16(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB13:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE13:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC17, %esi
+	leaq	.LC17(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB14:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE14:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC18, %esi
+	leaq	.LC18(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB15:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE15:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	addq	$32, %r12
 	subq	$1, %rbx
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcEC1Ev
+	call	_ZNSaIcEC1Ev@PLT
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdx
-	movl	$.LC19, %esi
+	leaq	.LC19(%rip), %rsi
 	movq	%r12, %rdi
 .LEHB16:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@PLT
 .LEHE16:
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
-	movl	$__dso_handle, %edx
+	call	_ZNSaIcED1Ev@PLT
+	leaq	__dso_handle(%rip), %rdx
 	movl	$0, %esi
-	movl	$__tcf_0, %edi
-	call	__cxa_atexit
+	leaq	__tcf_0(%rip), %rdi
+	call	__cxa_atexit@PLT
 	jmp	.L883
 .L903:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L904:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L905:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L906:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L907:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L908:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L909:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L910:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L911:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L912:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L913:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L914:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L915:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 	jmp	.L886
 .L916:
 	movq	%rax, %r12
 	leaq	-41(%rbp), %rax
 	movq	%rax, %rdi
-	call	_ZNSaIcED1Ev
+	call	_ZNSaIcED1Ev@PLT
 .L886:
 	testq	%r13, %r13
 	je	.L900
@@ -14361,19 +14443,19 @@ _Z41__static_initialization_and_destruction_0ii:
 	je	.L900
 	subq	$32, %rbx
 	movq	%rbx, %rdi
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@PLT
 	jmp	.L901
 .L900:
 	movq	%r12, %rax
 	movq	%rax, %rdi
 .LEHB17:
-	call	_Unwind_Resume
+	call	_Unwind_Resume@PLT
 .LEHE17:
 .L883:
 	movq	-40(%rbp), %rax
 	xorq	%fs:40, %rax
 	je	.L902
-	call	__stack_chk_fail
+	call	__stack_chk_fail@PLT
 .L902:
 	addq	$40, %rsp
 	popq	%rbx
@@ -14383,84 +14465,84 @@ _Z41__static_initialization_and_destruction_0ii:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE2081:
+.LFE2291:
 	.section	.gcc_except_table
-.LLSDA2081:
+.LLSDA2291:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE2081-.LLSDACSB2081
-.LLSDACSB2081:
-	.uleb128 .LEHB2-.LFB2081
+	.uleb128 .LLSDACSE2291-.LLSDACSB2291
+.LLSDACSB2291:
+	.uleb128 .LEHB2-.LFB2291
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB2081
+	.uleb128 .LEHB3-.LFB2291
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L903-.LFB2081
+	.uleb128 .L903-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB2081
+	.uleb128 .LEHB4-.LFB2291
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L904-.LFB2081
+	.uleb128 .L904-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB2081
+	.uleb128 .LEHB5-.LFB2291
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L905-.LFB2081
+	.uleb128 .L905-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB2081
+	.uleb128 .LEHB6-.LFB2291
 	.uleb128 .LEHE6-.LEHB6
-	.uleb128 .L906-.LFB2081
+	.uleb128 .L906-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB2081
+	.uleb128 .LEHB7-.LFB2291
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L907-.LFB2081
+	.uleb128 .L907-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB2081
+	.uleb128 .LEHB8-.LFB2291
 	.uleb128 .LEHE8-.LEHB8
-	.uleb128 .L908-.LFB2081
+	.uleb128 .L908-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB9-.LFB2081
+	.uleb128 .LEHB9-.LFB2291
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L909-.LFB2081
+	.uleb128 .L909-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB2081
+	.uleb128 .LEHB10-.LFB2291
 	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L910-.LFB2081
+	.uleb128 .L910-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB11-.LFB2081
+	.uleb128 .LEHB11-.LFB2291
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L911-.LFB2081
+	.uleb128 .L911-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB2081
+	.uleb128 .LEHB12-.LFB2291
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L912-.LFB2081
+	.uleb128 .L912-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB2081
+	.uleb128 .LEHB13-.LFB2291
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L913-.LFB2081
+	.uleb128 .L913-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB14-.LFB2081
+	.uleb128 .LEHB14-.LFB2291
 	.uleb128 .LEHE14-.LEHB14
-	.uleb128 .L914-.LFB2081
+	.uleb128 .L914-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB2081
+	.uleb128 .LEHB15-.LFB2291
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L915-.LFB2081
+	.uleb128 .L915-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB16-.LFB2081
+	.uleb128 .LEHB16-.LFB2291
 	.uleb128 .LEHE16-.LEHB16
-	.uleb128 .L916-.LFB2081
+	.uleb128 .L916-.LFB2291
 	.uleb128 0
-	.uleb128 .LEHB17-.LFB2081
+	.uleb128 .LEHB17-.LFB2291
 	.uleb128 .LEHE17-.LEHB17
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE2081:
+.LLSDACSE2291:
 	.text
 	.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destruction_0ii
 	.type	_GLOBAL__sub_I__Z12passo_bool_1PyS_y, @function
 _GLOBAL__sub_I__Z12passo_bool_1PyS_y:
-.LFB2083:
+.LFB2293:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -14474,7 +14556,7 @@ _GLOBAL__sub_I__Z12passo_bool_1PyS_y:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE2083:
+.LFE2293:
 	.size	_GLOBAL__sub_I__Z12passo_bool_1PyS_y, .-_GLOBAL__sub_I__Z12passo_bool_1PyS_y
 	.section	.init_array,"aw"
 	.align 8
@@ -14484,6 +14566,14 @@ _GLOBAL__sub_I__Z12passo_bool_1PyS_y:
 .LC3:
 	.long	0
 	.long	1138753536
+	.hidden	DW.ref.__gxx_personality_v0
+	.weak	DW.ref.__gxx_personality_v0
+	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
+	.align 8
+	.type	DW.ref.__gxx_personality_v0, @object
+	.size	DW.ref.__gxx_personality_v0, 8
+DW.ref.__gxx_personality_v0:
+	.quad	__gxx_personality_v0
 	.hidden	__dso_handle
-	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609"
+	.ident	"GCC: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0"
 	.section	.note.GNU-stack,"",@progbits
