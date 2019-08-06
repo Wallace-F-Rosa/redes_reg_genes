@@ -8,8 +8,8 @@
 #define CLOCKS_PER_SEC_CPU 1100000000
 using namespace std;
 
-const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3"
-                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7"
+const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3",
+                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7",
                        "passo_bool_8", "passo_tlf_8", "passo_bool_9", "passo_tlf_9"};
 
 void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
@@ -1108,8 +1108,6 @@ int main(int argc, char **argv)
             case 3: passo_tlf_2(init_rand,estado,MAX_ESTADO); break;
             case 4: passo_bool_3(init_rand,estado,MAX_ESTADO); break;
             case 5: passo_tlf_3(init_rand,estado,MAX_ESTADO); break;
-            //case 7: passo_bool_4(init_rand,estado,MAX_ESTADO); break;
-            //case 8: passo_tlf_4(init_rand,estado,MAX_ESTADO); break;
             case 6: passo_bool_5(init_rand,estado,MAX_ESTADO); break;
             case 7: passo_tlf_5(init_rand,estado,MAX_ESTADO); break;
             case 8: passo_bool_6(init_rand,estado,MAX_ESTADO); break;

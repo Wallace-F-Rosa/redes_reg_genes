@@ -11,8 +11,8 @@
 
 using namespace std;
 
-const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3"
-                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7"
+const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3",
+                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7",
                        "passo_bool_8", "passo_tlf_8", "passo_bool_9", "passo_tlf_9"};
 
 void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
