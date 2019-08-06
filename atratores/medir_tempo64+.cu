@@ -145,7 +145,11 @@ int main(int argc, char **argv)
     preenche_init_rand(h_init_rand,MAX_ESTADO,nEq);
 
     for(unsigned long long i = 0; i < MAX_ESTADO; i++)
-        h_estado[i] = 0;
+        h_estado[i].x = 0;
+    for(unsigned long long i = 0; i < MAX_ESTADO; i++)
+        h_estado[i].y = 0;
+    for(unsigned long long i = 0; i < MAX_ESTADO; i++)
+        h_estado[i].z = 0;
 
     cudaMemcpy(d_init_rand, h_init_rand, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
     cudaMemcpy(d_estado, h_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
