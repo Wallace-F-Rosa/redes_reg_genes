@@ -1,13 +1,147 @@
-	.file	"medirtempo.cpp"
+	.file	"medirtempo_omp.cpp"
+	.text
+	.p2align 4,,15
+	.type	__tcf_0, @function
+__tcf_0:
+.LFB2363:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	leaq	448+_ZL4NAME(%rip), %rbx
+	leaq	-448(%rbx), %rbp
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	subq	$32, %rbx
+	movq	(%rbx), %rdi
+	leaq	16(%rbx), %rax
+	cmpq	%rax, %rdi
+	je	.L3
+	call	_ZdlPv@PLT
+	cmpq	%rbp, %rbx
+	jne	.L2
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L3:
+	.cfi_restore_state
+	cmpq	%rbp, %rbx
+	jne	.L2
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE2363:
+	.size	__tcf_0, .-__tcf_0
+	.section	.text.startup,"ax",@progbits
+	.align 2
+	.p2align 4,,15
+	.type	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18, @function
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18:
+.LFB2383:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	leaq	16(%rdi), %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	movq	%rdi, %rbx
+	movq	%rsi, %r13
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movq	%r12, (%rdi)
+	movq	%rsi, %rdi
+	movq	%fs:40, %rax
+	movq	%rax, 8(%rsp)
+	xorl	%eax, %eax
+	call	strlen@PLT
+	cmpq	$15, %rax
+	movq	%rax, %rbp
+	movq	%rax, (%rsp)
+	ja	.L18
+	cmpq	$1, %rax
+	jne	.L11
+	movzbl	0(%r13), %eax
+	movb	%al, 16(%rbx)
+.L12:
+	movq	(%rsp), %rax
+	movq	(%rbx), %rdx
+	movq	%rax, 8(%rbx)
+	movb	$0, (%rdx,%rax)
+	movq	8(%rsp), %rax
+	xorq	%fs:40, %rax
+	jne	.L19
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+.L18:
+	.cfi_restore_state
+	movq	%rsp, %rsi
+	xorl	%edx, %edx
+	movq	%rbx, %rdi
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm@PLT
+	movq	%rax, %r12
+	movq	%rax, (%rbx)
+	movq	(%rsp), %rax
+	movq	%rax, 16(%rbx)
+.L10:
+	movq	%rbp, %rdx
+	movq	%r13, %rsi
+	movq	%r12, %rdi
+	call	memcpy@PLT
+	jmp	.L12
+.L11:
+	testq	%rax, %rax
+	je	.L12
+	jmp	.L10
+.L19:
+	call	__stack_chk_fail@PLT
+	.cfi_endproc
+.LFE2383:
+	.size	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18, .-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
 	.text
 	.p2align 4,,15
 	.globl	_Z12passo_bool_1PyS_y
 	.type	_Z12passo_bool_1PyS_y, @function
 _Z12passo_bool_1PyS_y:
-.LFB2100:
+.LFB2005:
 	.cfi_startproc
 	testq	%rdx, %rdx
-	je	.L11
+	je	.L30
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
@@ -29,7 +163,7 @@ _Z12passo_bool_1PyS_y:
 	.cfi_offset 3, -56
 	.p2align 4,,10
 	.p2align 3
-.L4:
+.L23:
 	movq	(%rdi,%r15,8), %rcx
 	movq	%rcx, %r11
 	movq	%rcx, %rax
@@ -198,7 +332,7 @@ _Z12passo_bool_1PyS_y:
 	movq	%rbp, (%rsi,%r15,8)
 	addq	$1, %r15
 	cmpq	%r15, %rdx
-	jne	.L4
+	jne	.L23
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
@@ -214,7 +348,7 @@ _Z12passo_bool_1PyS_y:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L11:
+.L30:
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12
@@ -223,16 +357,16 @@ _Z12passo_bool_1PyS_y:
 	.cfi_restore 15
 	rep ret
 	.cfi_endproc
-.LFE2100:
+.LFE2005:
 	.size	_Z12passo_bool_1PyS_y, .-_Z12passo_bool_1PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_1PyS_y
 	.type	_Z11passo_tlf_1PyS_y, @function
 _Z11passo_tlf_1PyS_y:
-.LFB2101:
+.LFB2006:
 	.cfi_startproc
 	testq	%rdx, %rdx
-	je	.L91
+	je	.L109
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
@@ -256,7 +390,7 @@ _Z11passo_tlf_1PyS_y:
 	xorl	%ebx, %ebx
 	.p2align 4,,10
 	.p2align 3
-.L17:
+.L35:
 	movq	(%rdi,%rbx,8), %r8
 	movl	$64, %r15d
 	movq	%r8, %rax
@@ -461,17 +595,17 @@ _Z11passo_tlf_1PyS_y:
 	testq	%r11, %r11
 	cmove	%rcx, %rax
 	testq	%r12, %r8
-	je	.L48
+	je	.L66
 	movabsq	$4294967296, %rcx
 	orq	%rcx, %rax
-.L48:
+.L66:
 	testl	$268435456, %r8d
-	je	.L49
+	je	.L67
 	orq	%r12, %rax
 	movq	%rax, (%rsi,%rbx,8)
 	addq	$1, %rbx
 	cmpq	%rdx, %rbx
-	jne	.L17
+	jne	.L35
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 48
@@ -488,12 +622,12 @@ _Z11passo_tlf_1PyS_y:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L49:
+.L67:
 	.cfi_restore_state
 	movq	%rax, (%rsi,%rbx,8)
 	addq	$1, %rbx
 	cmpq	%rdx, %rbx
-	jne	.L17
+	jne	.L35
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
@@ -509,7 +643,7 @@ _Z11passo_tlf_1PyS_y:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L91:
+.L109:
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12
@@ -518,13 +652,13 @@ _Z11passo_tlf_1PyS_y:
 	.cfi_restore 15
 	rep ret
 	.cfi_endproc
-.LFE2101:
+.LFE2006:
 	.size	_Z11passo_tlf_1PyS_y, .-_Z11passo_tlf_1PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_2PyS_y
 	.type	_Z12passo_bool_2PyS_y, @function
 _Z12passo_bool_2PyS_y:
-.LFB2102:
+.LFB2007:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -550,12 +684,12 @@ _Z12passo_bool_2PyS_y:
 	movq	%rdi, 112(%rsp)
 	movq	%rsi, 120(%rsp)
 	movq	%rdx, 128(%rsp)
-	je	.L94
+	je	.L112
 	movq	$0, -120(%rsp)
 	movq	-120(%rsp), %rax
 	.p2align 4,,10
 	.p2align 3
-.L97:
+.L115:
 	movq	112(%rsp), %rcx
 	movq	(%rcx,%rax,8), %rax
 	movq	%rax, %rdx
@@ -902,8 +1036,8 @@ _Z12passo_bool_2PyS_y:
 	addq	$1, %rax
 	cmpq	%rax, 128(%rsp)
 	movq	%rax, -120(%rsp)
-	jne	.L97
-.L94:
+	jne	.L115
+.L112:
 	addq	$136, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -920,13 +1054,13 @@ _Z12passo_bool_2PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2102:
+.LFE2007:
 	.size	_Z12passo_bool_2PyS_y, .-_Z12passo_bool_2PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_2PyS_y
 	.type	_Z11passo_tlf_2PyS_y, @function
 _Z11passo_tlf_2PyS_y:
-.LFB2103:
+.LFB2008:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -950,11 +1084,11 @@ _Z11passo_tlf_2PyS_y:
 	movq	%rdi, -24(%rsp)
 	movq	%rsi, -16(%rsp)
 	movq	%rdx, -8(%rsp)
-	je	.L104
+	je	.L122
 	movq	$0, -80(%rsp)
 	.p2align 4,,10
 	.p2align 3
-.L141:
+.L159:
 	movq	-24(%rsp), %rax
 	movq	-80(%rsp), %rdx
 	xorl	%r8d, %r8d
@@ -1249,10 +1383,10 @@ _Z11passo_tlf_2PyS_y:
 	movq	%rdx, %rax
 	shrq	$16, %rax
 	andl	$1, %eax
-	je	.L131
+	je	.L149
 	orq	$134217728, %rbx
 	movl	$268435456, %eax
-.L131:
+.L149:
 	movq	%rdx, %rsi
 	orq	%rax, %rbx
 	movl	$2147483648, %edi
@@ -1283,11 +1417,11 @@ _Z11passo_tlf_2PyS_y:
 	cmovne	%rax, %rbx
 	shrq	$40, %rsi
 	andl	$1, %esi
-	je	.L135
+	je	.L153
 	movabsq	$4294967296, %rax
 	movabsq	$8589934592, %rsi
 	orq	%rax, %rbx
-.L135:
+.L153:
 	movabsq	$4294967296, %r10
 	movabsq	$17179869184, %rax
 	movq	%rdx, %r9
@@ -1339,8 +1473,8 @@ _Z11passo_tlf_2PyS_y:
 	addq	$1, %rcx
 	cmpq	%rcx, -8(%rsp)
 	movq	%rcx, -80(%rsp)
-	jne	.L141
-.L104:
+	jne	.L159
+.L122:
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
@@ -1355,13 +1489,13 @@ _Z11passo_tlf_2PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2103:
+.LFE2008:
 	.size	_Z11passo_tlf_2PyS_y, .-_Z11passo_tlf_2PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_3PyS_y
 	.type	_Z12passo_bool_3PyS_y, @function
 _Z12passo_bool_3PyS_y:
-.LFB2104:
+.LFB2009:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -1387,12 +1521,12 @@ _Z12passo_bool_3PyS_y:
 	movq	%rdi, 136(%rsp)
 	movq	%rsi, 144(%rsp)
 	movq	%rdx, 152(%rsp)
-	je	.L184
+	je	.L202
 	xorl	%esi, %esi
 	movq	%rsi, %r15
 	.p2align 4,,10
 	.p2align 3
-.L192:
+.L210:
 	movq	136(%rsp), %rax
 	xorl	%r11d, %r11d
 	movq	(%rax,%r15,8), %rax
@@ -1806,8 +1940,8 @@ _Z12passo_bool_3PyS_y:
 	movq	%rdx, (%rax,%r15,8)
 	addq	$1, %r15
 	cmpq	%r15, 152(%rsp)
-	jne	.L192
-.L184:
+	jne	.L210
+.L202:
 	addq	$160, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -1824,13 +1958,13 @@ _Z12passo_bool_3PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2104:
+.LFE2009:
 	.size	_Z12passo_bool_3PyS_y, .-_Z12passo_bool_3PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_3PyS_y
 	.type	_Z11passo_tlf_3PyS_y, @function
 _Z11passo_tlf_3PyS_y:
-.LFB2105:
+.LFB2010:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -1856,12 +1990,12 @@ _Z11passo_tlf_3PyS_y:
 	movq	%rdi, 72(%rsp)
 	movq	%rsi, 80(%rsp)
 	movq	%rdx, 88(%rsp)
-	je	.L204
+	je	.L222
 	xorl	%ebx, %ebx
 	movq	%rbx, -112(%rsp)
 	.p2align 4,,10
 	.p2align 3
-.L240:
+.L258:
 	movq	72(%rsp), %rax
 	movq	-112(%rsp), %rbx
 	movq	(%rax,%rbx,8), %rdx
@@ -2222,8 +2356,8 @@ _Z11passo_tlf_3PyS_y:
 	addq	$1, %rax
 	cmpq	%rax, 88(%rsp)
 	movq	%rax, -112(%rsp)
-	jne	.L240
-.L204:
+	jne	.L258
+.L222:
 	addq	$96, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -2240,13 +2374,13 @@ _Z11passo_tlf_3PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2105:
+.LFE2010:
 	.size	_Z11passo_tlf_3PyS_y, .-_Z11passo_tlf_3PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_5PyS_y
 	.type	_Z12passo_bool_5PyS_y, @function
 _Z12passo_bool_5PyS_y:
-.LFB2106:
+.LFB2011:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -2270,11 +2404,11 @@ _Z12passo_bool_5PyS_y:
 	movq	%rdi, -24(%rsp)
 	movq	%rsi, -16(%rsp)
 	movq	%rdx, -8(%rsp)
-	je	.L281
+	je	.L299
 	xorl	%edi, %edi
 	.p2align 4,,10
 	.p2align 3
-.L283:
+.L301:
 	movq	-24(%rsp), %rax
 	movq	(%rax,%rdi,8), %rax
 	movq	%rax, %rbp
@@ -2657,8 +2791,8 @@ _Z12passo_bool_5PyS_y:
 	movq	%rcx, (%rax,%rdi,8)
 	addq	$1, %rdi
 	cmpq	%rdi, -8(%rsp)
-	jne	.L283
-.L281:
+	jne	.L301
+.L299:
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
@@ -2673,13 +2807,13 @@ _Z12passo_bool_5PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2106:
+.LFE2011:
 	.size	_Z12passo_bool_5PyS_y, .-_Z12passo_bool_5PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_5PyS_y
 	.type	_Z11passo_tlf_5PyS_y, @function
 _Z11passo_tlf_5PyS_y:
-.LFB2107:
+.LFB2012:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -2705,18 +2839,18 @@ _Z11passo_tlf_5PyS_y:
 	movq	%rdi, 80(%rsp)
 	movq	%rsi, 88(%rsp)
 	movq	%rdx, 96(%rsp)
-	je	.L289
+	je	.L307
 	xorl	%r9d, %r9d
 	movq	%r9, -96(%rsp)
-	jmp	.L332
+	jmp	.L350
 	.p2align 4,,10
 	.p2align 3
-.L372:
+.L390:
 	cmpq	$2, %r11
-	jne	.L302
+	jne	.L320
 	orb	$24, %dh
 	movq	$8192, -104(%rsp)
-.L303:
+.L321:
 	movabsq	$35184372088832, %r14
 	movl	$16384, %r8d
 	andq	%rax, %r14
@@ -2972,8 +3106,8 @@ _Z11passo_tlf_5PyS_y:
 	addq	$1, %rax
 	cmpq	96(%rsp), %rax
 	movq	%rax, -96(%rsp)
-	je	.L289
-.L332:
+	je	.L307
+.L350:
 	movq	-96(%rsp), %rbx
 	movq	80(%rsp), %rax
 	movq	(%rax,%rbx,8), %rax
@@ -3127,14 +3261,14 @@ _Z11passo_tlf_5PyS_y:
 	testb	$2, %ah
 	cmovne	%r8, %rdx
 	cmpq	$0, -104(%rsp)
-	jne	.L372
+	jne	.L390
 	cmpq	$2, %r11
-	jne	.L303
+	jne	.L321
 	orb	$16, %dh
-	jmp	.L303
+	jmp	.L321
 	.p2align 4,,10
 	.p2align 3
-.L289:
+.L307:
 	addq	$104, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -3151,19 +3285,19 @@ _Z11passo_tlf_5PyS_y:
 	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
-.L302:
+.L320:
 	.cfi_restore_state
 	orb	$8, %dh
 	movq	$8192, -104(%rsp)
-	jmp	.L303
+	jmp	.L321
 	.cfi_endproc
-.LFE2107:
+.LFE2012:
 	.size	_Z11passo_tlf_5PyS_y, .-_Z11passo_tlf_5PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_6PyS_y
 	.type	_Z12passo_bool_6PyS_y, @function
 _Z12passo_bool_6PyS_y:
-.LFB2108:
+.LFB2013:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -3189,12 +3323,12 @@ _Z12passo_bool_6PyS_y:
 	movq	%rdi, 104(%rsp)
 	movq	%rsi, 112(%rsp)
 	movq	%rdx, 120(%rsp)
-	je	.L373
+	je	.L391
 	xorl	%ebp, %ebp
 	movq	%rbp, %r15
 	.p2align 4,,10
 	.p2align 3
-.L375:
+.L393:
 	movq	104(%rsp), %rax
 	movq	(%rax,%r15,8), %rax
 	movq	%rax, %rcx
@@ -3735,8 +3869,8 @@ _Z12passo_bool_6PyS_y:
 	movq	%rdx, (%rax,%r15,8)
 	addq	$1, %r15
 	cmpq	%r15, 120(%rsp)
-	jne	.L375
-.L373:
+	jne	.L393
+.L391:
 	subq	$-128, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -3753,13 +3887,13 @@ _Z12passo_bool_6PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2108:
+.LFE2013:
 	.size	_Z12passo_bool_6PyS_y, .-_Z12passo_bool_6PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_6PyS_y
 	.type	_Z11passo_tlf_6PyS_y, @function
 _Z11passo_tlf_6PyS_y:
-.LFB2109:
+.LFB2014:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -3785,12 +3919,12 @@ _Z11passo_tlf_6PyS_y:
 	movq	%rdi, 256(%rsp)
 	movq	%rsi, 264(%rsp)
 	movq	%rdx, 272(%rsp)
-	je	.L381
+	je	.L399
 	movq	$0, -88(%rsp)
 	movq	-88(%rsp), %rax
 	.p2align 4,,10
 	.p2align 3
-.L433:
+.L451:
 	movq	256(%rsp), %rbx
 	movq	(%rbx,%rax,8), %rax
 	movq	%rax, %rdx
@@ -4393,8 +4527,8 @@ _Z11passo_tlf_6PyS_y:
 	addq	$1, %rax
 	cmpq	%rax, 272(%rsp)
 	movq	%rax, -88(%rsp)
-	jne	.L433
-.L381:
+	jne	.L451
+.L399:
 	addq	$280, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -4411,13 +4545,13 @@ _Z11passo_tlf_6PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2109:
+.LFE2014:
 	.size	_Z11passo_tlf_6PyS_y, .-_Z11passo_tlf_6PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_7PyS_y
 	.type	_Z12passo_bool_7PyS_y, @function
 _Z12passo_bool_7PyS_y:
-.LFB2110:
+.LFB2015:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -4443,11 +4577,11 @@ _Z12passo_bool_7PyS_y:
 	movq	%rdi, 16(%rsp)
 	movq	%rsi, 24(%rsp)
 	movq	%rdx, 32(%rsp)
-	je	.L493
+	je	.L511
 	xorl	%r8d, %r8d
 	.p2align 4,,10
 	.p2align 3
-.L495:
+.L513:
 	movq	16(%rsp), %rax
 	movq	(%rax,%r8,8), %rax
 	movq	%rax, %rbx
@@ -4901,8 +5035,8 @@ _Z12passo_bool_7PyS_y:
 	movq	%r15, (%rax,%r8,8)
 	addq	$1, %r8
 	cmpq	%r8, 32(%rsp)
-	jne	.L495
-.L493:
+	jne	.L513
+.L511:
 	addq	$40, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -4919,13 +5053,13 @@ _Z12passo_bool_7PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2110:
+.LFE2015:
 	.size	_Z12passo_bool_7PyS_y, .-_Z12passo_bool_7PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_7PyS_y
 	.type	_Z11passo_tlf_7PyS_y, @function
 _Z11passo_tlf_7PyS_y:
-.LFB2111:
+.LFB2016:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -4951,13 +5085,13 @@ _Z11passo_tlf_7PyS_y:
 	movq	%rdi, 240(%rsp)
 	movq	%rsi, 248(%rsp)
 	movq	%rdx, 256(%rsp)
-	je	.L501
+	je	.L519
 	xorl	%ebp, %ebp
 	movq	%rbp, -112(%rsp)
 	movq	%rbp, %rax
 	.p2align 4,,10
 	.p2align 3
-.L550:
+.L568:
 	movq	240(%rsp), %rdx
 	movabsq	$562949953421312, %rsi
 	movl	$8, %r14d
@@ -5480,8 +5614,8 @@ _Z11passo_tlf_7PyS_y:
 	addq	$1, %rax
 	cmpq	%rax, 256(%rsp)
 	movq	%rax, -112(%rsp)
-	jne	.L550
-.L501:
+	jne	.L568
+.L519:
 	addq	$264, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -5498,13 +5632,13 @@ _Z11passo_tlf_7PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2111:
+.LFE2016:
 	.size	_Z11passo_tlf_7PyS_y, .-_Z11passo_tlf_7PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_8PyS_y
 	.type	_Z12passo_bool_8PyS_y, @function
 _Z12passo_bool_8PyS_y:
-.LFB2112:
+.LFB2017:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -5530,11 +5664,11 @@ _Z12passo_bool_8PyS_y:
 	movq	%rdi, 96(%rsp)
 	movq	%rsi, 104(%rsp)
 	movq	%rdx, 112(%rsp)
-	je	.L605
+	je	.L623
 	xorl	%r13d, %r13d
 	.p2align 4,,10
 	.p2align 3
-.L607:
+.L625:
 	movq	96(%rsp), %rax
 	movq	(%rax,%r13,8), %rax
 	movq	%rax, %rdx
@@ -6132,8 +6266,8 @@ _Z12passo_bool_8PyS_y:
 	movq	%r9, (%rax,%r13,8)
 	addq	$1, %r13
 	cmpq	%r13, 112(%rsp)
-	jne	.L607
-.L605:
+	jne	.L625
+.L623:
 	addq	$120, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -6150,13 +6284,13 @@ _Z12passo_bool_8PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2112:
+.LFE2017:
 	.size	_Z12passo_bool_8PyS_y, .-_Z12passo_bool_8PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_8PyS_y
 	.type	_Z11passo_tlf_8PyS_y, @function
 _Z11passo_tlf_8PyS_y:
-.LFB2113:
+.LFB2018:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -6182,13 +6316,13 @@ _Z11passo_tlf_8PyS_y:
 	movq	%rdi, 312(%rsp)
 	movq	%rsi, 320(%rsp)
 	movq	%rdx, 328(%rsp)
-	je	.L613
+	je	.L631
 	xorl	%ebp, %ebp
 	movq	%rbp, -104(%rsp)
 	movq	%rbp, %rax
 	.p2align 4,,10
 	.p2align 3
-.L668:
+.L686:
 	movq	312(%rsp), %rcx
 	movq	(%rcx,%rax,8), %rax
 	movq	%rax, %rdx
@@ -6968,8 +7102,8 @@ _Z11passo_tlf_8PyS_y:
 	addq	$1, %rax
 	cmpq	%rax, 328(%rsp)
 	movq	%rax, -104(%rsp)
-	jne	.L668
-.L613:
+	jne	.L686
+.L631:
 	addq	$336, %rsp
 	.cfi_def_cfa_offset 56
 	popq	%rbx
@@ -6986,13 +7120,13 @@ _Z11passo_tlf_8PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2113:
+.LFE2018:
 	.size	_Z11passo_tlf_8PyS_y, .-_Z11passo_tlf_8PyS_y
 	.p2align 4,,15
 	.globl	_Z12passo_bool_9PyS_y
 	.type	_Z12passo_bool_9PyS_y, @function
 _Z12passo_bool_9PyS_y:
-.LFB2114:
+.LFB2019:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -7015,7 +7149,7 @@ _Z12passo_bool_9PyS_y:
 	.cfi_offset 3, -56
 	movq	%rdi, -24(%rsp)
 	movq	%rdx, -16(%rsp)
-	je	.L727
+	je	.L745
 	leaq	16(%rsi), %rax
 	movq	%rdx, %rcx
 	movq	%rsi, -32(%rsp)
@@ -7025,14 +7159,14 @@ _Z12passo_bool_9PyS_y:
 	cmpq	%rax, %rsi
 	setnb	%al
 	orb	%al, %dl
-	je	.L735
+	je	.L753
 	cmpq	$3, %rcx
-	jbe	.L735
+	jbe	.L753
 	movq	%rdi, %rcx
 	xorl	%r9d, %r9d
 	shrq	$3, %rcx
 	andl	$1, %ecx
-	je	.L730
+	je	.L748
 	movq	(%rdi), %rax
 	movq	%rax, %r12
 	movq	%rax, %rbp
@@ -7399,7 +7533,7 @@ _Z12passo_bool_9PyS_y:
 	andl	$1, %eax
 	orq	%rdx, %rax
 	movq	%rax, (%rsi)
-.L730:
+.L748:
 	movq	-16(%rsp), %r8
 	movq	-24(%rsp), %rax
 	xorl	%edx, %edx
@@ -7413,7 +7547,7 @@ _Z12passo_bool_9PyS_y:
 	xorl	%eax, %eax
 	.p2align 4,,10
 	.p2align 3
-.L731:
+.L749:
 	movdqa	(%rsi,%rax), %xmm1
 	addq	$1, %rdx
 	movdqa	%xmm1, %xmm14
@@ -7774,15 +7908,15 @@ _Z12passo_bool_9PyS_y:
 	movups	%xmm1, (%rcx,%rax)
 	addq	$16, %rax
 	cmpq	%rdi, %rdx
-	jb	.L731
+	jb	.L749
 	movq	%r8, %rax
 	andq	$-2, %rax
 	cmpq	%rax, %r8
 	leaq	(%r9,%rax), %r10
-	je	.L727
+	je	.L745
 	.p2align 4,,10
 	.p2align 3
-.L733:
+.L751:
 	movq	-24(%rsp), %rax
 	movq	(%rax,%r10,8), %rdx
 	movq	%rdx, %r15
@@ -8149,8 +8283,8 @@ _Z12passo_bool_9PyS_y:
 	movq	%rdx, (%rax,%r10,8)
 	addq	$1, %r10
 	cmpq	%r10, -16(%rsp)
-	ja	.L733
-.L727:
+	ja	.L751
+.L745:
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 48
@@ -8167,12 +8301,12 @@ _Z12passo_bool_9PyS_y:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L735:
+.L753:
 	.cfi_restore_state
 	xorl	%r10d, %r10d
 	.p2align 4,,10
 	.p2align 3
-.L729:
+.L747:
 	movq	-24(%rsp), %rax
 	movq	(%rax,%r10,8), %rdx
 	movq	%rdx, %r15
@@ -8540,7 +8674,7 @@ _Z12passo_bool_9PyS_y:
 	movq	%rdx, (%rax,%r10,8)
 	addq	$1, %r10
 	cmpq	%r10, -16(%rsp)
-	jne	.L729
+	jne	.L747
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
@@ -8555,13 +8689,13 @@ _Z12passo_bool_9PyS_y:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE2114:
+.LFE2019:
 	.size	_Z12passo_bool_9PyS_y, .-_Z12passo_bool_9PyS_y
 	.p2align 4,,15
 	.globl	_Z11passo_tlf_9PyS_y
 	.type	_Z11passo_tlf_9PyS_y, @function
 _Z11passo_tlf_9PyS_y:
-.LFB2115:
+.LFB2020:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -8585,19 +8719,19 @@ _Z11passo_tlf_9PyS_y:
 	movq	%rdi, -24(%rsp)
 	movq	%rsi, -16(%rsp)
 	movq	%rdx, -8(%rsp)
-	je	.L749
+	je	.L767
 	xorl	%r15d, %r15d
-	jmp	.L751
+	jmp	.L769
 	.p2align 4,,10
 	.p2align 3
-.L764:
+.L782:
 	cmpq	$1, %r9
-	jbe	.L767
+	jbe	.L785
 	cmpq	$2, %r12
-	jne	.L768
+	jne	.L786
 	orq	$245760, %rdx
 	movl	$262144, %r9d
-.L766:
+.L784:
 	orq	%r9, %rdx
 	movabsq	$1099511627776, %r10
 	movq	%rdx, %r9
@@ -8627,18 +8761,18 @@ _Z11passo_tlf_9PyS_y:
 	cmpq	$1, -32(%rsp)
 	cmova	%r10, %rdx
 	cmpq	$1, %rcx
-	jbe	.L878
+	jbe	.L896
 	movq	%rdx, %r10
 	orq	$8388608, %r10
 	cmpq	$1, %r14
-	jbe	.L778
+	jbe	.L796
 	orq	$25165824, %rdx
 	movq	%rdx, %r10
-.L778:
+.L796:
 	movq	%r10, %rdx
 	movl	$134217728, %r10d
 	orq	$100663296, %rdx
-.L776:
+.L794:
 	orq	%r10, %rdx
 	leaq	(%rsi,%rdi), %r10
 	addq	%r10, %rbp
@@ -8668,17 +8802,17 @@ _Z11passo_tlf_9PyS_y:
 	cmova	%r11, %rdx
 	shrq	$48, %r10
 	andl	$1, %r10d
-	je	.L784
+	je	.L802
 	movl	$2147483648, %r11d
 	movabsq	$4294967296, %r10
 	orq	%r11, %rdx
-.L784:
+.L802:
 	orq	%r10, %rdx
 	addq	%r9, %r9
-	je	.L785
+	je	.L803
 	movabsq	$8589934592, %r11
 	orq	%r11, %rdx
-.L785:
+.L803:
 	movabsq	$17179869184, %r11
 	movq	%rdx, %r10
 	orq	%r11, %rdx
@@ -8702,31 +8836,31 @@ _Z11passo_tlf_9PyS_y:
 	addq	%rsi, %r13
 	addq	%r13, %r13
 	cmpq	$1, %r13
-	jbe	.L789
+	jbe	.L807
 	movabsq	$137438953472, %rsi
 	orq	%rsi, %rdx
-.L789:
+.L807:
 	cmpq	$2, %r9
-	jne	.L790
+	jne	.L808
 	movabsq	$274877906944, %rsi
 	orq	%rsi, %rdx
-.L790:
+.L808:
 	btq	$47, %rax
-	jnc	.L791
+	jnc	.L809
 	movabsq	$549755813888, %rsi
 	orq	%rsi, %rdx
-.L791:
+.L809:
 	btq	$41, %rax
-	jnc	.L792
+	jnc	.L810
 	movabsq	$1099511627776, %rsi
 	orq	%rsi, %rdx
-.L792:
+.L810:
 	movq	%rax, %rsi
 	andl	$2, %esi
-	je	.L793
+	je	.L811
 	movabsq	$2199023255552, %r8
 	orq	%r8, %rdx
-.L793:
+.L811:
 	movq	%rax, %r8
 	shrq	$33, %r8
 	andl	$1, %r8d
@@ -8737,20 +8871,20 @@ _Z11passo_tlf_9PyS_y:
 	addq	%r9, %r8
 	addq	%r8, %r8
 	cmpq	$1, %r8
-	jbe	.L794
+	jbe	.L812
 	movabsq	$4398046511104, %r8
 	orq	%r8, %rdx
-.L794:
+.L812:
 	cmpq	$1, %rcx
-	jbe	.L795
+	jbe	.L813
 	movabsq	$8796093022208, %rcx
 	orq	%rcx, %rdx
-.L795:
+.L813:
 	cmpq	$2, %r12
-	jne	.L796
+	jne	.L814
 	movabsq	$17592186044416, %rcx
 	orq	%rcx, %rdx
-.L796:
+.L814:
 	movq	%rax, %rcx
 	shrq	$9, %rcx
 	andl	$1, %ecx
@@ -8761,59 +8895,59 @@ _Z11passo_tlf_9PyS_y:
 	addq	%r8, %rcx
 	addq	%rcx, %rcx
 	cmpq	$1, %rcx
-	jbe	.L797
+	jbe	.L815
 	movabsq	$35184372088832, %rcx
 	orq	%rcx, %rdx
-.L797:
+.L815:
 	movq	%rax, %rcx
 	shrq	$19, %rcx
 	andl	$1, %ecx
 	addq	%rbx, %rcx
 	addq	%rcx, %rcx
 	cmpq	$1, %rcx
-	jbe	.L798
+	jbe	.L816
 	movabsq	$70368744177664, %rcx
 	orq	%rcx, %rdx
-.L798:
+.L816:
 	movabsq	$576460752303423488, %rcx
 	testq	%rcx, %rax
-	je	.L799
+	je	.L817
 	movabsq	$140737488355328, %rcx
 	orq	%rcx, %rdx
-.L799:
+.L817:
 	movq	%rax, %rcx
 	shrq	$51, %rcx
 	andl	$1, %ecx
 	movq	%rcx, %r8
-	je	.L800
+	je	.L818
 	movabsq	$281474976710656, %rcx
 	orq	%rcx, %rdx
-.L800:
+.L818:
 	movq	%rax, %rcx
 	shrq	$45, %rcx
 	andl	$1, %ecx
 	addq	%r8, %rcx
 	addq	%rcx, %rcx
 	cmpq	$1, %rcx
-	jbe	.L801
+	jbe	.L819
 	movabsq	$562949953421312, %rcx
 	orq	%rcx, %rdx
-.L801:
+.L819:
 	testb	$32, %al
-	je	.L802
+	je	.L820
 	movabsq	$1125899906842624, %rcx
 	orq	%rcx, %rdx
-.L802:
+.L820:
 	btq	$54, %rax
-	jnc	.L803
+	jnc	.L821
 	movabsq	$2251799813685248, %rcx
 	orq	%rcx, %rdx
-.L803:
+.L821:
 	testq	%rdi, %rdi
-	je	.L804
+	je	.L822
 	movabsq	$4503599627370496, %rcx
 	orq	%rcx, %rdx
-.L804:
+.L822:
 	movq	%rax, %rcx
 	movabsq	$9007199254740992, %rdi
 	shrq	$15, %rcx
@@ -8825,25 +8959,25 @@ _Z11passo_tlf_9PyS_y:
 	cmpq	$1, %rbx
 	cmovbe	%rcx, %rdx
 	testl	$1048576, %eax
-	je	.L806
+	je	.L824
 	movabsq	$18014398509481984, %rcx
 	orq	%rcx, %rdx
-.L806:
+.L824:
 	cmpq	$0, -40(%rsp)
-	je	.L807
+	je	.L825
 	movabsq	$36028797018963968, %rcx
 	orq	%rcx, %rdx
-.L807:
+.L825:
 	movabsq	$2305843009213693952, %rcx
 	andq	%rax, %rcx
 	cmpq	$1, %r14
-	jbe	.L808
+	jbe	.L826
 	testq	%rcx, %rcx
-	je	.L809
+	je	.L827
 	movabsq	$216172782113783808, %rdi
 	orq	%rdi, %rdx
 	movabsq	$288230376151711744, %rdi
-.L810:
+.L828:
 	orq	%rdi, %rdx
 	movabsq	$1152921504606846976, %rdi
 	movabsq	$576460752303423488, %rbx
@@ -8852,15 +8986,15 @@ _Z11passo_tlf_9PyS_y:
 	orq	%rdx, %rcx
 	orq	%rax, %rcx
 	cmpq	$2, %rsi
-	jne	.L877
+	jne	.L895
 	orq	%rdi, %rcx
-.L877:
+.L895:
 	movq	-16(%rsp), %rax
 	movq	%rcx, (%rax,%r15,8)
 	addq	$1, %r15
 	cmpq	%r15, -8(%rsp)
-	je	.L749
-.L751:
+	je	.L767
+.L769:
 	movq	-24(%rsp), %rax
 	xorl	%r9d, %r9d
 	movq	(%rax,%r15,8), %rax
@@ -8958,10 +9092,10 @@ _Z11passo_tlf_9PyS_y:
 	cmova	%r10, %r9
 	shrq	$46, %rdx
 	andl	$1, %edx
-	je	.L759
+	je	.L777
 	orq	$256, %r9
 	movl	$512, %edx
-.L759:
+.L777:
 	orq	%r9, %rdx
 	movabsq	$549755813888, %rbx
 	leaq	(%rdi,%r11), %r13
@@ -8998,47 +9132,47 @@ _Z11passo_tlf_9PyS_y:
 	addq	%r10, %r9
 	addq	%r9, %r9
 	cmpq	$1, %rcx
-	ja	.L764
+	ja	.L782
 	cmpq	$1, %r9
-	ja	.L879
+	ja	.L897
 	cmpq	$2, %r12
-	jne	.L875
+	jne	.L893
 	orq	$131072, %rdx
 	xorl	%r9d, %r9d
-	jmp	.L766
+	jmp	.L784
 	.p2align 4,,10
 	.p2align 3
-.L878:
+.L896:
 	cmpq	$1, %r14
-	ja	.L880
-.L780:
+	ja	.L898
+.L798:
 	xorl	%r10d, %r10d
-	jmp	.L776
+	jmp	.L794
 	.p2align 4,,10
 	.p2align 3
-.L808:
+.L826:
 	xorl	%edi, %edi
 	testq	%rcx, %rcx
-	je	.L810
+	je	.L828
 	movabsq	$144115188075855872, %r8
 	orq	%r8, %rdx
-	jmp	.L810
+	jmp	.L828
 	.p2align 4,,10
 	.p2align 3
-.L809:
+.L827:
 	movabsq	$72057594037927936, %rdi
 	orq	%rdi, %rdx
 	movabsq	$288230376151711744, %rdi
-	jmp	.L810
+	jmp	.L828
 	.p2align 4,,10
 	.p2align 3
-.L768:
+.L786:
 	orq	$114688, %rdx
 	movl	$262144, %r9d
-	jmp	.L766
+	jmp	.L784
 	.p2align 4,,10
 	.p2align 3
-.L749:
+.L767:
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 48
@@ -9053,48 +9187,48 @@ _Z11passo_tlf_9PyS_y:
 	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
-.L815:
+.L833:
 	.cfi_restore_state
 	movq	%r9, %rdx
 	.p2align 4,,10
 	.p2align 3
-.L875:
+.L893:
 	xorl	%r9d, %r9d
-	jmp	.L766
-.L767:
+	jmp	.L784
+.L785:
 	movq	%rdx, %r9
 	orq	$81920, %r9
 	cmpq	$2, %r12
-	jne	.L881
+	jne	.L899
 	orq	$212992, %rdx
 	movl	$262144, %r9d
-	jmp	.L766
-.L880:
+	jmp	.L784
+.L898:
 	orq	$16777216, %rdx
-	jmp	.L780
-.L879:
+	jmp	.L798
+.L897:
 	movq	%rdx, %r9
 	orq	$32768, %r9
 	cmpq	$2, %r12
-	jne	.L815
+	jne	.L833
 	orq	$163840, %rdx
 	xorl	%r9d, %r9d
-	jmp	.L766
-.L881:
+	jmp	.L784
+.L899:
 	movq	%r9, %rdx
 	movl	$262144, %r9d
-	jmp	.L766
+	jmp	.L784
 	.cfi_endproc
-.LFE2115:
+.LFE2020:
 	.size	_Z11passo_tlf_9PyS_y, .-_Z11passo_tlf_9PyS_y
 	.p2align 4,,15
 	.globl	_Z18preenche_init_randPyyj
 	.type	_Z18preenche_init_randPyyj, @function
 _Z18preenche_init_randPyyj:
-.LFB2116:
+.LFB2021:
 	.cfi_startproc
 	testq	%rsi, %rsi
-	je	.L896
+	je	.L914
 	pushq	%r14
 	.cfi_def_cfa_offset 16
 	.cfi_offset 14, -16
@@ -9116,7 +9250,7 @@ _Z18preenche_init_randPyyj:
 	movabsq	$-2147483649, %rbx
 	.p2align 4,,10
 	.p2align 3
-.L886:
+.L904:
 	movq	$0, (%r14)
 	xorl	%r12d, %r12d
 	call	rand@PLT
@@ -9142,11 +9276,11 @@ _Z18preenche_init_randPyyj:
 	subq	%rdx, %rax
 	testl	%r13d, %r13d
 	movq	%rax, %rsi
-	je	.L884
+	je	.L902
 	xorl	%ecx, %ecx
 	.p2align 4,,10
 	.p2align 3
-.L885:
+.L903:
 	movq	%rsi, %rax
 	shrq	%cl, %rax
 	andl	$1, %eax
@@ -9154,14 +9288,14 @@ _Z18preenche_init_randPyyj:
 	addl	$1, %ecx
 	orq	%rax, %r12
 	cmpl	%r13d, %ecx
-	jne	.L885
+	jne	.L903
 	movq	%r12, (%r14)
 	.p2align 4,,10
 	.p2align 3
-.L884:
+.L902:
 	addq	$8, %r14
 	cmpq	%r14, %rbp
-	jne	.L886
+	jne	.L904
 	popq	%rbx
 	.cfi_def_cfa_offset 40
 	popq	%rbp
@@ -9173,7 +9307,7 @@ _Z18preenche_init_randPyyj:
 	popq	%r14
 	.cfi_def_cfa_offset 8
 	ret
-.L896:
+.L914:
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12
@@ -9181,202 +9315,223 @@ _Z18preenche_init_randPyyj:
 	.cfi_restore 14
 	rep ret
 	.cfi_endproc
-.LFE2116:
+.LFE2021:
 	.size	_Z18preenche_init_randPyyj, .-_Z18preenche_init_randPyyj
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC63:
+	.string	"%s, "
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
-.LC62:
-	.string	"basic_string::_M_construct null not valid"
-	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC64:
+	.string	"\nERROR: Number of parameters insufficient\n"
+	.section	.rodata.str1.1
 .LC65:
-	.string	"\n"
-.LC66:
-	.string	" G estados/s\n"
-	.section	.text.startup,"ax",@progbits
+	.string	"Example: ./a.out 1 1000\n\n"
+.LC69:
+	.string	"%lld, %.20lf, %.20lf\n"
+	.section	.text.startup
 	.p2align 4,,15
 	.globl	main
 	.type	main, @function
 main:
-.LFB2117:
+.LFB2022:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA2117
-	pushq	%r14
+	.cfi_lsda 0x1b,.LLSDA2022
+	pushq	%r15
 	.cfi_def_cfa_offset 16
-	.cfi_offset 14, -16
-	pushq	%r13
+	.cfi_offset 15, -16
+	pushq	%r14
 	.cfi_def_cfa_offset 24
-	.cfi_offset 13, -24
-	pushq	%r12
+	.cfi_offset 14, -24
+	pushq	%r13
 	.cfi_def_cfa_offset 32
-	.cfi_offset 12, -32
-	pushq	%rbp
+	.cfi_offset 13, -32
+	pushq	%r12
 	.cfi_def_cfa_offset 40
-	.cfi_offset 6, -40
-	pushq	%rbx
+	.cfi_offset 12, -40
+	pushq	%rbp
 	.cfi_def_cfa_offset 48
-	.cfi_offset 3, -48
-	subq	$80, %rsp
-	.cfi_def_cfa_offset 128
-	movq	8(%rsi), %r12
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$88, %rsp
+	.cfi_def_cfa_offset 144
 	leaq	32(%rsp), %rbp
+	movq	$0, 40(%rsp)
+	movb	$0, 48(%rsp)
 	movq	%fs:40, %rax
 	movq	%rax, 72(%rsp)
 	xorl	%eax, %eax
-	leaq	16(%rbp), %r13
-	testq	%r12, %r12
-	movq	%r13, 32(%rsp)
-	je	.L900
-	movq	%r12, %rdi
-	call	strlen@PLT
-	cmpq	$15, %rax
+	leaq	16(%rbp), %rax
+	cmpl	$2, %edi
+	movq	%rax, 32(%rsp)
+	jle	.L918
+	movq	8(%rsi), %rdi
+	movq	%rsi, %r12
+	movl	$10, %edx
+	xorl	%esi, %esi
+	call	strtol@PLT
+	movq	16(%r12), %rsi
+	movq	%rbp, %rdi
 	movq	%rax, %rbx
-	movq	%rax, 24(%rsp)
-	ja	.L932
-	cmpq	$1, %rax
-	jne	.L904
-	movzbl	(%r12), %eax
-	movb	%al, 48(%rsp)
-.L905:
-	movq	24(%rsp), %rax
-	movq	32(%rsp), %rdx
-	xorl	%ebx, %ebx
-	movq	%rax, 40(%rsp)
-	movb	$0, (%rdx,%rax)
+	movl	%eax, %r13d
+.LEHB0:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc@PLT
+	leaq	_ZL4NAME(%rip), %rax
+	movslq	%ebx, %rbx
+	leaq	.LC63(%rip), %rsi
+	salq	$5, %rbx
+	movl	$1, %edi
+	movq	(%rax,%rbx), %rdx
+	xorl	%eax, %eax
+	call	__printf_chk@PLT
 	movq	40(%rsp), %rcx
+	xorl	%ebx, %ebx
 	testq	%rcx, %rcx
-	je	.L906
-	xorl	%r13d, %r13d
+	je	.L921
+	xorl	%r14d, %r14d
 	movabsq	$-9223372036854775808, %r12
-	jmp	.L915
+	jmp	.L930
 	.p2align 4,,10
 	.p2align 3
-.L934:
+.L968:
 	movq	40(%rsp), %rcx
-	addq	$1, %r13
+	addq	$1, %r14
 	cvttsd2siq	%xmm0, %rbx
-	cmpq	%r13, %rcx
-	jbe	.L933
-.L915:
+	cmpq	%r14, %rcx
+	jbe	.L967
+.L930:
 	movq	32(%rsp), %rax
-	movsbl	(%rax,%r13), %edx
+	movsbl	(%rax,%r14), %edx
 	subl	$48, %edx
 	movslq	%edx, %rdx
 	testq	%rdx, %rdx
-	js	.L907
+	js	.L922
 	pxor	%xmm3, %xmm3
 	cvtsi2sdq	%rdx, %xmm3
 	movsd	%xmm3, 8(%rsp)
-.L908:
-	movq	%r13, %rax
+.L923:
+	movq	%r14, %rax
 	notq	%rax
 	addq	%rcx, %rax
-	js	.L909
+	js	.L924
 	pxor	%xmm1, %xmm1
 	cvtsi2sdq	%rax, %xmm1
-.L910:
-	movsd	.LC63(%rip), %xmm0
+.L925:
+	movsd	.LC66(%rip), %xmm0
 	call	pow@PLT
 	testq	%rbx, %rbx
-	js	.L911
+	js	.L926
 	pxor	%xmm1, %xmm1
 	cvtsi2sdq	%rbx, %xmm1
-.L912:
+.L927:
 	mulsd	8(%rsp), %xmm0
 	addsd	%xmm1, %xmm0
-	ucomisd	.LC64(%rip), %xmm0
-	jb	.L934
-	subsd	.LC64(%rip), %xmm0
+	ucomisd	.LC67(%rip), %xmm0
+	jb	.L968
+	subsd	.LC67(%rip), %xmm0
 	movq	40(%rsp), %rcx
-	addq	$1, %r13
+	addq	$1, %r14
 	cvttsd2siq	%xmm0, %rbx
 	xorq	%r12, %rbx
-	cmpq	%r13, %rcx
-	ja	.L915
-.L933:
+	cmpq	%r14, %rcx
+	ja	.L930
+.L967:
 	movabsq	$1152921504606846975, %rax
 	cmpq	%rax, %rbx
-	ja	.L935
-.L906:
+	ja	.L969
+.L921:
 	leaq	0(,%rbx,8), %r12
 	movq	%r12, %rdi
-.LEHB0:
 	call	_Znam@PLT
 	movq	%r12, %rdi
-	movq	%rax, %r14
+	movq	%rax, 16(%rsp)
 	call	_Znam@PLT
-	movq	%rax, %r12
+	xorl	%edi, %edi
+	movq	%rax, 24(%rsp)
+	leaq	.L935(%rip), %r14
+	call	omp_set_dynamic@PLT
+	movl	$16, %edi
+	movl	$3, %r12d
+	call	omp_set_num_threads@PLT
+	pxor	%xmm5, %xmm5
+	movsd	%xmm5, 8(%rsp)
+.L952:
 	call	_ZNSt6chrono3_V212steady_clock3nowEv@PLT
-	movq	%r12, %rsi
+	cmpl	$15, %r13d
+	movq	%rax, %r15
+	ja	.L933
+	movl	%r13d, %eax
 	movq	%rbx, %rdx
-	movq	%r14, %rdi
-	movq	%rax, %r13
-	call	_Z12passo_bool_1PyS_y
-	call	_ZNSt6chrono3_V212steady_clock3nowEv@PLT
-	movq	%rax, %r12
-	movq	_ZSt4cout(%rip), %rax
-	movq	$20, 16+_ZSt4cout(%rip)
-	leaq	_ZSt4cout(%rip), %rdi
+	movq	24(%rsp), %rsi
+	movslq	(%r14,%rax,4), %rax
+	movq	16(%rsp), %rdi
+	addq	%r14, %rax
+	jmp	*%rax
+	.section	.rodata
+	.align 4
+	.align 4
+.L935:
+	.long	.L966-.L935
+	.long	.L936-.L935
+	.long	.L937-.L935
+	.long	.L938-.L935
+	.long	.L939-.L935
+	.long	.L940-.L935
+	.long	.L941-.L935
+	.long	.L942-.L935
+	.long	.L943-.L935
+	.long	.L944-.L935
+	.long	.L945-.L935
+	.long	.L946-.L935
+	.long	.L947-.L935
+	.long	.L948-.L935
+	.long	.L949-.L935
+	.long	.L950-.L935
+	.section	.text.startup
+.L918:
+	leaq	.LC64(%rip), %rsi
+	movl	$1, %edi
+	xorl	%eax, %eax
+	call	__printf_chk@PLT
 	leaq	.LC65(%rip), %rsi
-	movq	-24(%rax), %rdx
-	addq	%rdi, %rdx
-	movl	24(%rdx), %eax
-	andl	$-261, %eax
-	orl	$4, %eax
-	movl	%eax, 24(%rdx)
-	movl	$1, %edx
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT
-	pxor	%xmm0, %xmm0
-	subq	%r13, %r12
-	pxor	%xmm1, %xmm1
-	leaq	_ZSt4cout(%rip), %rdi
-	cvtsi2sdq	%rbx, %xmm0
-	cvtsi2sdq	%r12, %xmm1
-	divsd	%xmm1, %xmm0
-	call	_ZNSo9_M_insertIdEERSoT_@PLT
-	leaq	.LC66(%rip), %rsi
-	movq	%rax, %rdi
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT
-.LEHE0:
+	movl	$1, %edi
+	xorl	%eax, %eax
+	call	__printf_chk@PLT
+	movl	$1, %ebx
+.L920:
 	movq	32(%rsp), %rdi
 	addq	$16, %rbp
 	cmpq	%rbp, %rdi
-	je	.L918
+	je	.L917
 	call	_ZdlPv@PLT
-.L918:
-	xorl	%eax, %eax
+.L917:
 	movq	72(%rsp), %rsi
 	xorq	%fs:40, %rsi
-	jne	.L936
-	addq	$80, %rsp
+	movl	%ebx, %eax
+	jne	.L970
+	addq	$88, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 48
+	.cfi_def_cfa_offset 56
 	popq	%rbx
-	.cfi_def_cfa_offset 40
+	.cfi_def_cfa_offset 48
 	popq	%rbp
-	.cfi_def_cfa_offset 32
+	.cfi_def_cfa_offset 40
 	popq	%r12
-	.cfi_def_cfa_offset 24
+	.cfi_def_cfa_offset 32
 	popq	%r13
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 24
 	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L911:
+.L924:
 	.cfi_restore_state
-	movq	%rbx, %rax
-	pxor	%xmm1, %xmm1
-	shrq	%rax
-	andl	$1, %ebx
-	orq	%rbx, %rax
-	cvtsi2sdq	%rax, %xmm1
-	addsd	%xmm1, %xmm1
-	jmp	.L912
-	.p2align 4,,10
-	.p2align 3
-.L909:
 	movq	%rax, %rdx
 	pxor	%xmm1, %xmm1
 	shrq	%rdx
@@ -9384,10 +9539,10 @@ main:
 	orq	%rax, %rdx
 	cvtsi2sdq	%rdx, %xmm1
 	addsd	%xmm1, %xmm1
-	jmp	.L910
+	jmp	.L925
 	.p2align 4,,10
 	.p2align 3
-.L907:
+.L922:
 	movq	%rdx, %rax
 	pxor	%xmm0, %xmm0
 	shrq	%rax
@@ -9396,99 +9551,409 @@ main:
 	cvtsi2sdq	%rax, %xmm0
 	addsd	%xmm0, %xmm0
 	movsd	%xmm0, 8(%rsp)
-	jmp	.L908
-.L932:
-	leaq	24(%rsp), %rsi
-	xorl	%edx, %edx
-	movq	%rbp, %rdi
-.LEHB1:
-	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm@PLT
-.LEHE1:
-	movq	24(%rsp), %rdx
-	movq	%rax, 32(%rsp)
-	movq	%rdx, 48(%rsp)
-.L903:
+	jmp	.L923
+	.p2align 4,,10
+	.p2align 3
+.L926:
+	movq	%rbx, %rax
+	pxor	%xmm1, %xmm1
+	shrq	%rax
+	andl	$1, %ebx
+	orq	%rbx, %rax
+	cvtsi2sdq	%rax, %xmm1
+	addsd	%xmm1, %xmm1
+	jmp	.L927
+.L933:
+	movq	24(%rsp), %rsi
+	movq	16(%rsp), %rdi
 	movq	%rbx, %rdx
-	movq	%r12, %rsi
-	movq	%rax, %rdi
-	call	memcpy@PLT
-	jmp	.L905
-.L904:
-	testq	%rax, %rax
-	je	.L905
-	movq	%r13, %rax
-	jmp	.L903
-.L935:
-.LEHB2:
+.L966:
+	call	_Z12passo_bool_1PyS_y
+	.p2align 4,,10
+	.p2align 3
+.L951:
+	call	_ZNSt6chrono3_V212steady_clock3nowEv@PLT
+	pxor	%xmm0, %xmm0
+	subq	%r15, %rax
+	subl	$1, %r12d
+	cvtsi2sdq	%rax, %xmm0
+	addsd	8(%rsp), %xmm0
+	movsd	%xmm0, 8(%rsp)
+	jne	.L952
+	divsd	.LC68(%rip), %xmm0
+	leaq	.LC69(%rip), %rsi
+	movq	%rbx, %rdx
+	movl	$1, %edi
+	movl	$2, %eax
+	pxor	%xmm1, %xmm1
+	cvtsi2sdq	%rbx, %xmm1
+	divsd	%xmm0, %xmm1
+	call	__printf_chk@PLT
+	xorl	%ebx, %ebx
+	jmp	.L920
+.L950:
+	call	_Z11passo_tlf_9PyS_y
+	jmp	.L951
+.L949:
+	call	_Z12passo_bool_9PyS_y
+	jmp	.L951
+.L948:
+	call	_Z11passo_tlf_8PyS_y
+	jmp	.L951
+.L947:
+	call	_Z12passo_bool_8PyS_y
+	jmp	.L951
+.L946:
+	call	_Z11passo_tlf_7PyS_y
+	jmp	.L951
+.L945:
+	call	_Z12passo_bool_7PyS_y
+	jmp	.L951
+.L944:
+	call	_Z11passo_tlf_6PyS_y
+	jmp	.L951
+.L943:
+	call	_Z12passo_bool_6PyS_y
+	jmp	.L951
+.L942:
+	call	_Z11passo_tlf_5PyS_y
+	jmp	.L951
+.L941:
+	call	_Z12passo_bool_5PyS_y
+	jmp	.L951
+.L940:
+	call	_Z11passo_tlf_3PyS_y
+	jmp	.L951
+.L939:
+	call	_Z12passo_bool_3PyS_y
+	jmp	.L951
+.L938:
+	call	_Z11passo_tlf_2PyS_y
+	jmp	.L951
+.L937:
+	call	_Z12passo_bool_2PyS_y
+	jmp	.L951
+.L936:
+	call	_Z11passo_tlf_1PyS_y
+	jmp	.L951
+.L969:
 	call	__cxa_throw_bad_array_new_length@PLT
-.LEHE2:
-.L923:
+.LEHE0:
+.L959:
 	movq	32(%rsp), %rdi
 	addq	$16, %rbp
 	movq	%rax, %rbx
 	cmpq	%rbp, %rdi
-	je	.L920
+	je	.L955
 	call	_ZdlPv@PLT
-.L920:
+.L955:
 	movq	%rbx, %rdi
-.LEHB3:
+.LEHB1:
 	call	_Unwind_Resume@PLT
-.L936:
+.LEHE1:
+.L970:
 	call	__stack_chk_fail@PLT
-.L900:
-	leaq	.LC62(%rip), %rdi
-	call	_ZSt19__throw_logic_errorPKc@PLT
-.LEHE3:
 	.cfi_endproc
-.LFE2117:
+.LFE2022:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA2117:
+.LLSDA2022:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE2117-.LLSDACSB2117
-.LLSDACSB2117:
-	.uleb128 .LEHB0-.LFB2117
+	.uleb128 .LLSDACSE2022-.LLSDACSB2022
+.LLSDACSB2022:
+	.uleb128 .LEHB0-.LFB2022
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L923-.LFB2117
+	.uleb128 .L959-.LFB2022
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB2117
+	.uleb128 .LEHB1-.LFB2022
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB2117
-	.uleb128 .LEHE2-.LEHB2
-	.uleb128 .L923-.LFB2117
-	.uleb128 0
-	.uleb128 .LEHB3-.LFB2117
-	.uleb128 .LEHE3-.LEHB3
-	.uleb128 0
-	.uleb128 0
-.LLSDACSE2117:
+.LLSDACSE2022:
 	.section	.text.startup
 	.size	main, .-main
+	.section	.rodata.str1.1
+.LC70:
+	.string	"passo_bool_1"
+.LC71:
+	.string	"passo_tlf_1"
+.LC72:
+	.string	"passo_bool_2"
+.LC73:
+	.string	"passo_tlf_2"
+.LC74:
+	.string	"passo_bool_3"
+.LC75:
+	.string	"passo_tlf_3passo_bool_5"
+.LC76:
+	.string	"passo_tlf_5"
+.LC77:
+	.string	"passo_bool_6"
+.LC78:
+	.string	"passo_tlf_6"
+.LC79:
+	.string	"passo_bool_7"
+.LC80:
+	.string	"passo_tlf_7passo_bool_8"
+.LC81:
+	.string	"passo_tlf_8"
+.LC82:
+	.string	"passo_bool_9"
+.LC83:
+	.string	"passo_tlf_9"
+	.section	.text.startup
 	.p2align 4,,15
 	.type	_GLOBAL__sub_I__Z12passo_bool_1PyS_y, @function
 _GLOBAL__sub_I__Z12passo_bool_1PyS_y:
-.LFB2613:
+.LFB2364:
 	.cfi_startproc
-	leaq	_ZStL8__ioinit(%rip), %rdi
-	subq	$8, %rsp
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDA2364
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	leaq	_ZStL8__ioinit(%rip), %rdi
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 48
+.LEHB2:
 	call	_ZNSt8ios_base4InitC1Ev@PLT
+.LEHE2:
 	movq	_ZNSt8ios_base4InitD1Ev@GOTPCREL(%rip), %rdi
-	leaq	__dso_handle(%rip), %rdx
 	leaq	_ZStL8__ioinit(%rip), %rsi
-	addq	$8, %rsp
+	leaq	__dso_handle(%rip), %rdx
+	call	__cxa_atexit@PLT
+	leaq	.LC70(%rip), %rsi
+	leaq	_ZL4NAME(%rip), %rdi
+.LEHB3:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE3:
+	leaq	.LC71(%rip), %rsi
+	leaq	32+_ZL4NAME(%rip), %rdi
+.LEHB4:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE4:
+	leaq	.LC72(%rip), %rsi
+	leaq	64+_ZL4NAME(%rip), %rdi
+.LEHB5:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE5:
+	leaq	.LC73(%rip), %rsi
+	leaq	96+_ZL4NAME(%rip), %rdi
+.LEHB6:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE6:
+	leaq	.LC74(%rip), %rsi
+	leaq	128+_ZL4NAME(%rip), %rdi
+.LEHB7:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE7:
+	leaq	.LC75(%rip), %rsi
+	leaq	160+_ZL4NAME(%rip), %rdi
+.LEHB8:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE8:
+	leaq	.LC76(%rip), %rsi
+	leaq	192+_ZL4NAME(%rip), %rdi
+.LEHB9:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE9:
+	leaq	.LC77(%rip), %rsi
+	leaq	224+_ZL4NAME(%rip), %rdi
+.LEHB10:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE10:
+	leaq	.LC78(%rip), %rsi
+	leaq	256+_ZL4NAME(%rip), %rdi
+.LEHB11:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE11:
+	leaq	.LC79(%rip), %rsi
+	leaq	288+_ZL4NAME(%rip), %rdi
+.LEHB12:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE12:
+	leaq	.LC80(%rip), %rsi
+	leaq	320+_ZL4NAME(%rip), %rdi
+.LEHB13:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE13:
+	leaq	.LC81(%rip), %rsi
+	leaq	352+_ZL4NAME(%rip), %rdi
+.LEHB14:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE14:
+	leaq	.LC82(%rip), %rsi
+	leaq	384+_ZL4NAME(%rip), %rdi
+.LEHB15:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE15:
+	leaq	.LC83(%rip), %rsi
+	leaq	416+_ZL4NAME(%rip), %rdi
+.LEHB16:
+	call	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_.isra.18
+.LEHE16:
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	leaq	__dso_handle(%rip), %rdx
+	leaq	__tcf_0(%rip), %rdi
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
+	xorl	%esi, %esi
 	jmp	__cxa_atexit@PLT
+.L1004:
+	.cfi_restore_state
+	movl	$13, %edx
+.L974:
+	movl	$13, %ebx
+	leaq	_ZL4NAME(%rip), %rbp
+	subq	%rdx, %rbx
+	salq	$5, %rbx
+	addq	%rbp, %rbx
+.L1002:
+	cmpq	%rbp, %rbx
+	je	.L1000
+	subq	$32, %rbx
+	movq	(%rbx), %rdi
+	leaq	16(%rbx), %rdx
+	cmpq	%rdx, %rdi
+	je	.L1002
+	movq	%rax, 8(%rsp)
+	call	_ZdlPv@PLT
+	movq	8(%rsp), %rax
+	jmp	.L1002
+.L1003:
+	xorl	%edx, %edx
+	jmp	.L974
+.L1000:
+	movq	%rax, %rdi
+.LEHB17:
+	call	_Unwind_Resume@PLT
+.LEHE17:
+.L1016:
+	movl	$1, %edx
+	jmp	.L974
+.L1015:
+	movl	$2, %edx
+	jmp	.L974
+.L1014:
+	movl	$3, %edx
+	jmp	.L974
+.L1013:
+	movl	$4, %edx
+	jmp	.L974
+.L1012:
+	movl	$5, %edx
+	jmp	.L974
+.L1011:
+	movl	$6, %edx
+	jmp	.L974
+.L1010:
+	movl	$7, %edx
+	jmp	.L974
+.L1009:
+	movl	$8, %edx
+	jmp	.L974
+.L1008:
+	movl	$9, %edx
+	jmp	.L974
+.L1007:
+	movl	$10, %edx
+	jmp	.L974
+.L1006:
+	movl	$11, %edx
+	jmp	.L974
+.L1005:
+	movl	$12, %edx
+	jmp	.L974
 	.cfi_endproc
-.LFE2613:
+.LFE2364:
+	.section	.gcc_except_table
+.LLSDA2364:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE2364-.LLSDACSB2364
+.LLSDACSB2364:
+	.uleb128 .LEHB2-.LFB2364
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB2364
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L1004-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB2364
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 .L1005-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB2364
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 .L1006-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB6-.LFB2364
+	.uleb128 .LEHE6-.LEHB6
+	.uleb128 .L1007-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB7-.LFB2364
+	.uleb128 .LEHE7-.LEHB7
+	.uleb128 .L1008-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB8-.LFB2364
+	.uleb128 .LEHE8-.LEHB8
+	.uleb128 .L1009-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB9-.LFB2364
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .L1010-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB2364
+	.uleb128 .LEHE10-.LEHB10
+	.uleb128 .L1011-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB11-.LFB2364
+	.uleb128 .LEHE11-.LEHB11
+	.uleb128 .L1012-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB12-.LFB2364
+	.uleb128 .LEHE12-.LEHB12
+	.uleb128 .L1013-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB2364
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .L1014-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB14-.LFB2364
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 .L1015-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB15-.LFB2364
+	.uleb128 .LEHE15-.LEHB15
+	.uleb128 .L1016-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB16-.LFB2364
+	.uleb128 .LEHE16-.LEHB16
+	.uleb128 .L1003-.LFB2364
+	.uleb128 0
+	.uleb128 .LEHB17-.LFB2364
+	.uleb128 .LEHE17-.LEHB17
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE2364:
+	.section	.text.startup
 	.size	_GLOBAL__sub_I__Z12passo_bool_1PyS_y, .-_GLOBAL__sub_I__Z12passo_bool_1PyS_y
 	.section	.init_array,"aw"
 	.align 8
 	.quad	_GLOBAL__sub_I__Z12passo_bool_1PyS_y
+	.local	_ZL4NAME
+	.comm	_ZL4NAME,448,32
 	.local	_ZStL8__ioinit
 	.comm	_ZStL8__ioinit,1,1
 	.section	.rodata.cst16,"aM",@progbits,16
@@ -9742,13 +10207,17 @@ _GLOBAL__sub_I__Z12passo_bool_1PyS_y:
 	.quad	1152921504606846976
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
-.LC63:
+.LC66:
 	.long	0
 	.long	1076101120
 	.align 8
-.LC64:
+.LC67:
 	.long	0
 	.long	1138753536
+	.align 8
+.LC68:
+	.long	0
+	.long	1074266112
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
