@@ -2437,9 +2437,6 @@ int main(int argc, char **argv)
     cudaDeviceSynchronize(); */
     cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
 
-    /* passo_tlf_1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-    cudaDeviceSynchronize();
-    cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost); */
 
     unsigned long long i = confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
     if(i == MAX_ESTADO)
