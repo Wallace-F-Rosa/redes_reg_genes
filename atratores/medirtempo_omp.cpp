@@ -7,15 +7,17 @@
 #include <omp.h>
 
 #define CLOCKS_PER_SEC_CPU 1100000000
-#define THREADS 8
+#define THREADS 16
 using namespace std;
 
+const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3"
+                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7"
+                       "passo_bool_8", "passo_tlf_8", "passo_bool_9", "passo_tlf_9"};
 
 void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -67,7 +69,6 @@ void passo_tlf_1(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -119,7 +120,6 @@ void passo_bool_2(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -180,7 +180,6 @@ void passo_tlf_2(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -240,7 +239,6 @@ void passo_bool_3(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -303,7 +301,6 @@ void passo_tlf_3(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -365,7 +362,6 @@ void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -434,7 +430,6 @@ void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -502,7 +497,6 @@ void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -573,7 +567,6 @@ void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -644,7 +637,6 @@ void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -717,7 +709,6 @@ void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -790,7 +781,6 @@ void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -868,7 +858,6 @@ void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -946,7 +935,6 @@ void passo_bool_9(unsigned long long * init_rand, unsigned long long * estado, u
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -1026,7 +1014,6 @@ void passo_tlf_9(unsigned long long * init_rand, unsigned long long * estado, un
 {  
     unsigned long long v,aux;
 
-    omp_set_dynamic(0);
     #pragma omp parallel for num_threads(THREADS)
     for(unsigned long long i = 0; i < nSim; i++)
     {   
@@ -1105,10 +1092,8 @@ void passo_tlf_9(unsigned long long * init_rand, unsigned long long * estado, un
 
 void preenche_init_rand(unsigned long long * init_rand, unsigned long long nSim, unsigned int nEq)
 {
-    
     for(unsigned long long i = 0; i < nSim; i++)
     {
-        
         init_rand[i] = 0;
         unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
         unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
@@ -1132,7 +1117,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    printf("%2d, %s, ", n, argv2.c_str());
+    printf("%s, ", NAME[n].c_str());
 
     for(int i = 0; i < argv2.size(); i++)
         MAX_ESTADO += ((unsigned long int)(argv2[i] - '0'))*pow(10,argv2.size()-i-1);
@@ -1141,35 +1126,39 @@ int main(int argc, char **argv)
     unsigned long long *init_rand, *estado;
     init_rand = new unsigned long long[MAX_ESTADO];
     estado = new unsigned long long[MAX_ESTADO];
-    double total = 0;
+    double total = 0.0;
+    int ntest = 3;
 
+    omp_set_dynamic(0);
     omp_set_num_threads(THREADS);
     
+    for (int i = 0; i < ntest; ++i){
         auto start = chrono::steady_clock::now();
         switch (n) {
-            case 1: passo_bool_1(init_rand,estado,MAX_ESTADO); break;
-            case 2: passo_tlf_1(init_rand,estado,MAX_ESTADO); break;
-            case 3: passo_bool_2(init_rand,estado,MAX_ESTADO); break;
-            case 4: passo_tlf_2(init_rand,estado,MAX_ESTADO); break;
-            case 5: passo_bool_3(init_rand,estado,MAX_ESTADO); break;
-            case 6: passo_tlf_3(init_rand,estado,MAX_ESTADO); break;
+            case 0: passo_bool_1(init_rand,estado,MAX_ESTADO); break;
+            case 1: passo_tlf_1(init_rand,estado,MAX_ESTADO); break;
+            case 2: passo_bool_2(init_rand,estado,MAX_ESTADO); break;
+            case 3: passo_tlf_2(init_rand,estado,MAX_ESTADO); break;
+            case 4: passo_bool_3(init_rand,estado,MAX_ESTADO); break;
+            case 5: passo_tlf_3(init_rand,estado,MAX_ESTADO); break;
             //case 7: passo_bool_4(init_rand,estado,MAX_ESTADO); break;
             //case 8: passo_tlf_4(init_rand,estado,MAX_ESTADO); break;
-            case 9: passo_bool_5(init_rand,estado,MAX_ESTADO); break;
-            case 10: passo_tlf_5(init_rand,estado,MAX_ESTADO); break;
-            case 11: passo_bool_6(init_rand,estado,MAX_ESTADO); break;
-            case 12: passo_tlf_6(init_rand,estado,MAX_ESTADO); break;
-            case 13: passo_bool_7(init_rand,estado,MAX_ESTADO); break;
-            case 14: passo_tlf_7(init_rand,estado,MAX_ESTADO); break;
-            case 15: passo_bool_8(init_rand,estado,MAX_ESTADO); break;
-            case 16: passo_tlf_8(init_rand,estado,MAX_ESTADO); break;
-            case 17: passo_bool_9(init_rand,estado,MAX_ESTADO); break;
-            case 18: passo_tlf_9(init_rand,estado,MAX_ESTADO); break;
+            case 6: passo_bool_5(init_rand,estado,MAX_ESTADO); break;
+            case 7: passo_tlf_5(init_rand,estado,MAX_ESTADO); break;
+            case 8: passo_bool_6(init_rand,estado,MAX_ESTADO); break;
+            case 9: passo_tlf_6(init_rand,estado,MAX_ESTADO); break;
+            case 10: passo_bool_7(init_rand,estado,MAX_ESTADO); break;
+            case 11: passo_tlf_7(init_rand,estado,MAX_ESTADO); break;
+            case 12: passo_bool_8(init_rand,estado,MAX_ESTADO); break;
+            case 13: passo_tlf_8(init_rand,estado,MAX_ESTADO); break;
+            case 14: passo_bool_9(init_rand,estado,MAX_ESTADO); break;
+            case 15: passo_tlf_9(init_rand,estado,MAX_ESTADO); break;
             default: passo_bool_1(init_rand,estado,MAX_ESTADO); break;
         }
         auto end = chrono::steady_clock::now();
-        total = (double) chrono::duration_cast<chrono::nanoseconds>(end-start).count();
+        total += (double) chrono::duration_cast<chrono::nanoseconds>(end-start).count();
+    }
     
-    printf("%.20lf G estados/s\n", MAX_ESTADO/total);
+    printf("%lld, %.20lf, %.20lf\n", MAX_ESTADO, total/ntest, MAX_ESTADO/(total/ntest));
     return 0;
 }
