@@ -12,28 +12,37 @@ using namespace std;
 //REDE 1
 __global__ void passo_bool_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
-    unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v=0,aux=0;
     if(tid < MAX_ESTADO)
     {
-        v = init_rand[tid];
+        v.x = init_rand[tid].x;
+        v.y = init_rand[tid].y;
+        v.z = init_rand[tid].z;
     
-        estado[tid] = aux;
+        estado[tid].x = aux.x;
+        estado[tid].y = aux.y;
+        estado[tid].z = aux.z;
     }
 }
 
 unsigned long long confere_bool_1(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux = v = 0;
+        aux.x = v.x = 0;
+        aux.y = v.y = 0;
+        aux.z = v.z = 0;
         
-        v = init_rand[i];
+        v.x = init_rand[i].x;
+        v.y = init_rand[i].y;
+        v.z = init_rand[i].z;
 
 
-        if(aux != estado_gpu[i]){
-            cerr << "Estado : " << init_rand[i] << " Posição :"<<i<<"\n";
-            cerr << "GPU : " << estado_gpu[i] << "\n" << "CPU : " << aux << "\n";
+        if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
+            cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
+            cerr << "GPU : " << estado_gpu[i].x << "\n" << "CPU : " << aux.x << "\n";
             return i;
         } 
     }
@@ -43,32 +52,37 @@ unsigned long long confere_bool_1(ulonglong3 * init_rand, ulonglong3 * estado_gp
 
 __global__ void passo_tlf_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
-    unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v=0,aux=0;
     if(tid < MAX_ESTADO)
     {
-        v = init_rand[tid];
+        v.x = init_rand[tid].x;
+        v.y = init_rand[tid].y;
+        v.z = init_rand[tid].z;
     
-        
-
-    
-        estado[tid] = aux;
+        estado[tid].x = aux.x;
+        estado[tid].y = aux.y;
+        estado[tid].z = aux.z;
     }
 }
 
 unsigned long long confere_tlf_1(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux = v = 0;
+        aux.x = v.x = 0;
+        aux.y = v.y = 0;
+        aux.z = v.z = 0;
         
-        v = init_rand[i];
+        v.x = init_rand[i].x;
+        v.y = init_rand[i].y;
+        v.z = init_rand[i].z;
 
-        
 
-        if(aux != estado_gpu[i]){
-            cerr << "Estado : " << init_rand[i] << " Posição :"<<i<<"\n";
-            cerr << "GPU : " << estado_gpu[i] << "\n" << "CPU : " << aux << "\n";
+        if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
+            cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
+            cerr << "GPU : " << estado_gpu[i].x << "\n" << "CPU : " << aux.x << "\n";
             return i;
         } 
     }
@@ -84,7 +98,9 @@ void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigne
     for(unsigned long long i = 0; i < nSim; i++)
     {
         
-        init_rand[i] = 0;
+        init_rand[i].x = 0;
+        init_rand[i].y = 0;
+        init_rand[i].z = 0;
         unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
         unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
         unsigned long rand3 = rand()%((unsigned long)(1<<31)-1);
@@ -145,11 +161,11 @@ int main(int argc, char **argv)
     /* passo_bool_6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize(); */
 
-    unsigned long long i = confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO);
+    /* unsigned long long i = confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO);
     if(i == MAX_ESTADO)
         cerr << "Resultados da GPU batem com os da CPU\n";
     else
-        cerr << "Resultados não batem!\n";
+        cerr << "Resultados não batem!\n"; */
     
     delete [] h_estado;
     delete [] h_init_rand;
