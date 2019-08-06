@@ -1,8 +1,8 @@
 echo "Compiling"
 
-g++ medirtempo_omp.cpp -std=c++11 -o cpu.out
+g++ medirtempo.cpp -std=c++11 -o cpu.out
 
-g++ medirtempo_omp.cpp -std=c++11 -O3 -o cpu_o3.out
+g++ medirtempo.cpp -std=c++11 -O3 -o cpu_o3.out
 
 g++ medirtempo_omp.cpp -std=c++11 -fopenmp -o cpu_omp.out
 

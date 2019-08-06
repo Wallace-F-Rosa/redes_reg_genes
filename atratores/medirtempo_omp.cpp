@@ -8,6 +8,7 @@
 
 #define CLOCKS_PER_SEC_CPU 1100000000
 #define THREADS 16
+
 using namespace std;
 
 const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3"
@@ -1108,6 +1109,7 @@ int main(int argc, char **argv)
     unsigned long long MAX_ESTADO = 0;
     int n;
     string argv2;
+    
     if (argc >= 3) {
         n = atoi(argv[1]);
         argv2 = argv[2];
