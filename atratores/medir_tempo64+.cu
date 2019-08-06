@@ -10,30 +10,39 @@
 using namespace std;
 
 //REDE 1
-__global__ void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
-    unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        v = init_rand[tid];
+        v.x = init_rand[tid].x;
+        v.y = init_rand[tid].y;
+        v.z = init_rand[tid].z;
     
-        estado[tid] = aux;
+        estado[tid].x = aux.x;
+        estado[tid].y = aux.y;
+        estado[tid].z = aux.z;
     }
 }
 
-unsigned long long confere_bool_1(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_1(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux = v = 0;
+        aux.x = v.x = 0;
+        aux.y = v.y = 0;
+        aux.z = v.z = 0;
         
-        v = init_rand[i];
+        v.x = init_rand[i].x;
+        v.y = init_rand[i].y;
+        v.z = init_rand[i].z;
 
 
-        if(aux != estado_gpu[i]){
-            cerr << "Estado : " << init_rand[i] << " Posição :"<<i<<"\n";
-            cerr << "GPU : " << estado_gpu[i] << "\n" << "CPU : " << aux << "\n";
+        if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
+            cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
+            cerr << "GPU : " << estado_gpu[i].x << "\n" << "CPU : " << aux.x << "\n";
             return i;
         } 
     }
@@ -41,34 +50,39 @@ unsigned long long confere_bool_1(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
-    unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        v = init_rand[tid];
+        v.x = init_rand[tid].x;
+        v.y = init_rand[tid].y;
+        v.z = init_rand[tid].z;
     
-        
-
-    
-        estado[tid] = aux;
+        estado[tid].x = aux.x;
+        estado[tid].y = aux.y;
+        estado[tid].z = aux.z;
     }
 }
 
-unsigned long long confere_tlf_1(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_1(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux = v = 0;
+        aux.x = v.x = 0;
+        aux.y = v.y = 0;
+        aux.z = v.z = 0;
         
-        v = init_rand[i];
+        v.x = init_rand[i].x;
+        v.y = init_rand[i].y;
+        v.z = init_rand[i].z;
 
-        
 
-        if(aux != estado_gpu[i]){
-            cerr << "Estado : " << init_rand[i] << " Posição :"<<i<<"\n";
-            cerr << "GPU : " << estado_gpu[i] << "\n" << "CPU : " << aux << "\n";
+        if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
+            cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
+            cerr << "GPU : " << estado_gpu[i].x << "\n" << "CPU : " << aux.x << "\n";
             return i;
         } 
     }
@@ -78,18 +92,33 @@ unsigned long long confere_tlf_1(unsigned long long * init_rand, unsigned long l
 
 
 
-void preenche_init_rand(unsigned long long * init_rand, unsigned long long nSim, unsigned int nEq)
+void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigned int nEq)
 {
     
     for(unsigned long long i = 0; i < nSim; i++)
     {
         
-        init_rand[i] = 0;
+        init_rand[i].x = 0;
+        init_rand[i].y = 0;
+        init_rand[i].z = 0;
         unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
         unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
-        init_rand[i] = rand1;
-        for(int j = 0; j < nEq; j++)
-            init_rand[i] |= ((rand2>>j)%2)<<j;
+        unsigned long rand3 = rand()%((unsigned long)(1<<31)-1);
+        unsigned long rand4 = rand()%((unsigned long)(1<<31)-1);
+        unsigned long rand5 = rand()%((unsigned long)(1<<31)-1);
+        unsigned long rand6 = rand()%((unsigned long)(1<<31)-1);
+        for(int j = 0; j < nEq && j < 32; j++)
+            init_rand[i].x |= ((rand1>>j)%2)<<j;
+        for(int j = 32; j < nEq && j < 64; j++)
+            init_rand[i].x |= ((rand2>>(j-32))%2)<<j;
+        for(int j = 64; j < nEq && j < 96; j++)
+            init_rand[i].y |= ((rand3>>(j-64))%2)<<(j-64);
+        for(int j = 96; j < nEq && j < 128; j++)
+            init_rand[i].y |= ((rand4>>(j-96))%2)<<(j-64);
+        for(int j = 128; j < nEq && j < 160; j++)
+            init_rand[i].z |= ((rand5>>(j-128))%2)<<(j-128);
+        for(int j = 160; j < nEq && j < 192; j++)
+            init_rand[i].z |= ((rand6>>(j-160))%2)<<(j-128);
     }
 }
 
@@ -103,40 +132,44 @@ int main(int argc, char **argv)
     int threads = 1024;
     dim3 block(threads);
     dim3 grid((MAX_ESTADO + block.x -1)/block.x);
-    unsigned long long *h_init_rand, *h_estado;
-    h_init_rand = new unsigned long long[MAX_ESTADO];
-    h_estado = new unsigned long long[MAX_ESTADO];
+    ulonglong3 *h_init_rand, *h_estado;
+    h_init_rand = new ulonglong3[MAX_ESTADO];
+    h_estado = new ulonglong3[MAX_ESTADO];
 
-    unsigned long long *d_init_rand, *d_estado;
-    cudaMalloc(&d_init_rand,sizeof(unsigned long long)*MAX_ESTADO);
-    cudaMalloc(&d_estado,sizeof(unsigned long long)*MAX_ESTADO);
+    ulonglong3 *d_init_rand, *d_estado;
+    cudaMalloc(&d_init_rand,sizeof(ulonglong3)*MAX_ESTADO);
+    cudaMalloc(&d_estado,sizeof(ulonglong3)*MAX_ESTADO);
     
     unsigned int nEq = 41;
     srand(MAX_ESTADO);
     preenche_init_rand(h_init_rand,MAX_ESTADO,nEq);
 
     for(unsigned long long i = 0; i < MAX_ESTADO; i++)
-        h_estado[i] = 0;
+        h_estado[i].x = 0;
+    for(unsigned long long i = 0; i < MAX_ESTADO; i++)
+        h_estado[i].y = 0;
+    for(unsigned long long i = 0; i < MAX_ESTADO; i++)
+        h_estado[i].z = 0;
 
-    cudaMemcpy(d_init_rand, h_init_rand, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_estado, h_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_init_rand, h_init_rand, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_estado, h_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
 
-    passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    /* passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
     passo_tlf_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
     passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize();
-    cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_estado, d_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyDeviceToHost); */
 
     /* passo_bool_6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
     cudaDeviceSynchronize(); */
 
-    unsigned long long i = confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO);
+    /* unsigned long long i = confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO);
     if(i == MAX_ESTADO)
         cerr << "Resultados da GPU batem com os da CPU\n";
     else
-        cerr << "Resultados não batem!\n";
+        cerr << "Resultados não batem!\n"; */
     
     delete [] h_estado;
     delete [] h_init_rand;

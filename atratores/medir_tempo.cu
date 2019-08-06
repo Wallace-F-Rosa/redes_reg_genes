@@ -2387,17 +2387,17 @@ unsigned long long confere_tlf_9(unsigned long long * init_rand, unsigned long l
 }
 
 void preenche_init_rand(unsigned long long * init_rand, unsigned long long nSim, unsigned int nEq)
-{
-    
+{ 
     for(unsigned long long i = 0; i < nSim; i++)
     {
         
         init_rand[i] = 0;
         unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
         unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
-        init_rand[i] = rand1;
-        for(int j = 0; j < nEq; j++)
-            init_rand[i] |= ((rand2>>j)%2)<<j;
+        for(int j = 0; j < nEq && j < 32; j++)
+            init_rand[i] |= ((rand1>>j)%2)<<j;
+        for(int j = 32; j < nEq && j < 64 ; j++)
+            init_rand[i] |= ((rand2>>(j-32))%2)<<j;
     }
 }
 
