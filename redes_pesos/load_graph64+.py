@@ -287,23 +287,56 @@ if __name__ == '__main__':
 			# # 	orig = [j.replace("v"+i+" ","v["+i+"]") if int(i)< len(list_ext)-1 else j.replace("v"+i,"const")  for j in orig]
 			# 	orig = [pattern.sub(lambda x : '['+x.group(0)+']',j) if int(i)< len(list_ext)-1 else pattern.sub('const',j)  for j in orig]
 			for i in orig:
-				content = i.split('= ')
+				content=i.split('= ')
 				var = content[0].replace('v[','')
-				var = var.replace(']','') 
-				txt ="aux |= "
+				var = var.replace(']','')
+				auxvar=int(var)
+				if auxvar < 64:
+					txt ="aux.x |= "
+				elif auxvar < 128:
+					txt ="aux.y |= "
+				elif auxvar < 192:
+					txt ="aux.z |= " 
+
 				text = []
 				for c in range(len(content[1])) :
 					if content[1][c] == 'v':
 						text.append('( (v')
 						
 					elif content[1][c] == '[':
-						text.append('>>')
+						itcontent = 1
+						strvizinho = []
+						vizinho = 0
+						while content[1][itcontent+c] != ']':
+							strvizinho.append(content[1][itcontent+c])
+							itcontent += 1
+						vizinho = int(''.join(strvizinho))
+						mult64 = 0
+						if vizinho < 64:
+							text.append('.x')
+							mult64 = 0
+						elif vizinho < 128:
+							text.append('.y')
+							mult64 = 1
+						elif vizinho < 192:
+							text.append('.z')
+							mult64 = 2
+						text.append('>>'+str(vizinho-64*mult64))
+						while content[1][c] != ']':
+							c += 1
 					elif content[1][c] == ']':
 						text.append(')%2 )')
+					elif str.isdigit(content[1][c]):
+						continue
 					else:
 						text.append(content[1][c]) 
 
-				text = ''.join(text) +"<<"+var
+				if auxvar < 64:
+					text = ''.join(text) +"<<"+var
+				elif auxvar < 128:
+					text = ''.join(text) +"<<"+str(auxvar-64)
+				elif auxvar < 192:
+					text = ''.join(text) +"<<"+str(auxvar-128)
 				print(txt+text+";")
 
 
@@ -381,10 +414,17 @@ if __name__ == '__main__':
 				var = orig[i].split('= ')[0].replace('v','')
 				var = var.replace('[','')
 				var = var.replace(']','')
-
+				auxvar=int(var)
+				if auxvar < 64:
+					txt ="aux.x |= ( ("
+				elif auxvar < 128:
+					txt ="aux.y |= ( ("
+				elif auxvar < 192:
+					txt ="aux.z |= ( (" 
 
 				if(orig[i].split('= ')[1]) != "( const )":
-
+					posulonglong3 = ''
+					mult64 = 0
 					for j in range(len(modif[i])-1):
 						#print "*****************"+modif[i][j]
 						if modif[i][j] in num_ext:
@@ -395,9 +435,37 @@ if __name__ == '__main__':
 
 							txt +=" "+str(v_id_ext)+" * "+ str(lst_tlf[i][j])+" +"
 						else:
-							txt += ' ( (v>>'+modif[i][j]+")%2 ) * "+ str(lst_tlf[i][j])+" +"
-					txt += ' ( (v>>'+modif[i][len(modif[i])-1]+")%2 ) * "+ str(lst_tlf[i][len(modif[i])-1])
-					txt += ") >= "+str(lst_tlf[i][-1])+" ) <<"+var+";"
+							posulonglong3 = ''
+							mult64 = 0
+							if int(modif[i][j]) < 64:
+								posulonglong3 = '.x'
+							elif int(modif[i][j]) < 128:
+								posulonglong3 = '.y'
+								mult64 = 1
+							elif int(modif[i][j]) < 192:
+								posulonglong3 = '.z'
+								mult64 = 2
+							txt += ' ( (v'+posulonglong3+'>>'+str(int(modif[i][j])-64*mult64)+")%2 ) * "+ str(lst_tlf[i][j])+" +"
+					mult64 = 0
+					if int(modif[i][len(modif[i])-1]) < 64:
+						posulonglong3 = '.x'
+					elif int(modif[i][len(modif[i])-1]) < 128:
+						posulonglong3 = '.y'
+						mult64 = 1
+					elif int(modif[i][len(modif[i])-1]) < 192:
+						posulonglong3 = '.z'
+						mult64 = 2
+					txt += ' ( (v'+posulonglong3+'>>'+str(int(modif[i][len(modif[i])-1])-64*mult64)+")%2 ) * "+ str(lst_tlf[i][len(modif[i])-1])
+					mult64 =0
+					if auxvar < 64:
+						posulonglong3 = '.x'
+					elif auxvar < 128:
+						posulonglong3 = '.y'
+						mult64 = 1
+					elif auxvar < 192:
+						posulonglong3 = '.z'
+						mult64 = 2
+					txt += ") >= "+str(lst_tlf[i][-1])+" ) <<"+str(auxvar-64*mult64)+";"
 				else:
 					#modif.pop(i)
 					#modif.insert(i,[])
