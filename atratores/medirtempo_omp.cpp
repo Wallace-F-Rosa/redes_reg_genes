@@ -7,7 +7,7 @@
 #include <omp.h>
 
 #define CLOCKS_PER_SEC_CPU 1100000000
-#define THREADS 8
+#define THREADS 16
 using namespace std;
 
 
