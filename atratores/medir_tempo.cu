@@ -2452,14 +2452,15 @@ int main(int argc, char **argv)
                 break;
         case 3: passo_tlf_2_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_tlf_2_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_tlf_2_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
         case 4: passo_bool_3_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_bool_3_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                pass_tlf
                 break;
-        case 5: passo_tlf_3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+        case 5: passo_tlf_3_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_3_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
         //case 7: passo_bool_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
         //case 8: passo_tlf_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
