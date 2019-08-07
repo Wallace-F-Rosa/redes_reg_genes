@@ -2494,7 +2494,7 @@ int main(int argc, char **argv)
                 break;
         case 12: passo_bool_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_bool_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_bool_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
         case 13: passo_tlf_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
