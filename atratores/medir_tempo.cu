@@ -2419,7 +2419,7 @@ int main(int argc, char **argv)
     cudaMalloc(&d_init_rand,sizeof(unsigned long long)*MAX_ESTADO);
     cudaMalloc(&d_estado,sizeof(unsigned long long)*MAX_ESTADO);
     
-    unsigned int nEq = 41;
+    unsigned int nEq = 64;
     srand(MAX_ESTADO);
     preenche_init_rand(h_init_rand,MAX_ESTADO,nEq);
 
