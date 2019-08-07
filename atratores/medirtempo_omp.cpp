@@ -1132,8 +1132,11 @@ int main(int argc, char **argv)
     estado = new unsigned long long[MAX_ESTADO];
     double total = 0.0;
     int ntest = 3;
+    
+    unsigned int nEq = 64;
+    preenche_init_rand(init_rand, MAX_ESTADO, nEq);
 
-    omp_set_dynamic(0);
+    //omp_set_dynamic(0);
     omp_set_num_threads(THREADS);
     
     for (int i = 0; i < ntest; ++i){
@@ -1160,9 +1163,9 @@ int main(int argc, char **argv)
             default: passo_bool_1(init_rand,estado,MAX_ESTADO); break;
         }
         auto end = chrono::steady_clock::now();
-        total += (double) chrono::duration_cast<chrono::nanoseconds>(end-start).count();
+        total += (double) chrono::duration_cast<chrono::milliseconds>(end-start).count();
     }
     
-    printf("%lld, %.20lf, %.20lf\n", MAX_ESTADO, total/ntest, MAX_ESTADO/(total/ntest));
+    printf("%lld, %.20lf, %.20lf\n", MAX_ESTADO, total/ntest, (MAX_ESTADO/(total/ntest))/1000);
     return 0;
 }
