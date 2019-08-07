@@ -2404,7 +2404,16 @@ void preenche_init_rand(unsigned long long * init_rand, unsigned long long nSim,
 int main(int argc, char **argv)
 {
     unsigned long long MAX_ESTADO = 0;
-    string argv2 = argv[1];
+    unsigned int n=0;
+    string argv2 ;
+    if (argc >= 3) {
+        n = atoi(argv[1]);
+        argv2 = argv[2];
+    } else {
+        printf("\nERROR: Number of parameters insufficient\n");
+        printf("Example: ./a.out 1 1000\n\n");
+        return 1;
+    }
     for(int i = 0; i < argv2.size() ; i++)
         MAX_ESTADO += ((unsigned long int)(argv2[i] - '0'))*pow(10,argv2.size()-i-1);
     //definindo tamanho da grid e dos blocos
@@ -2429,16 +2438,131 @@ int main(int argc, char **argv)
     cudaMemcpy(d_init_rand, h_init_rand, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
     cudaMemcpy(d_estado, h_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
 
-    passo_tlf_1_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+    switch (n) {
+        case 0: passo_bool_1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 1: passo_tlf_1_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize(); 
+                passo_tlf_1_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                
+                break;
+        case 2: passo_bool_2_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_2_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 3: passo_tlf_2_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_2_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 4: passo_bool_3_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_3_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                pass_tlf
+                break;
+        case 5: passo_tlf_3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        //case 7: passo_bool_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
+        //case 8: passo_tlf_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
+        case 6: passo_bool_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_5_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 7: passo_tlf_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_5_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 8: passo_bool_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 9: passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                cudaDeviceSynchronize();
+                passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 10: passo_bool_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 11: passo_tlf_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 12: passo_bool_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 13: passo_tlf_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_8_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 14:passo_bool_9_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_9_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_9_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 15: passo_tlf_9_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_9_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_9_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        default: 
+                break;
+    }
     cudaDeviceSynchronize();
-    passo_tlf_1_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-    cudaDeviceSynchronize();
-    /* passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-    cudaDeviceSynchronize(); */
+    
     cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
 
 
-    unsigned long long i = confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
+    unsigned long long i = 0;
+    switch (n) {
+        case 0:i= confere_bool_1(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 1:i= confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
+                break;
+        case 2: i= confere_bool_2(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 3: i= confere_tlf_2(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 4: i= confere_bool_3(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 5: i= confere_tlf_3(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        //case 7: passo_bool_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        //case 8: passo_tlf_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 6: i= confere_bool_5(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 7: i= confere_tlf_5(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 8: i= confere_bool_6(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 9: i= confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 10: i= confere_bool_7(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 11: i= confere_tlf_7(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 12: i= confere_bool_8(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 13: i= confere_tlf_8(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 14: i= confere_bool_9(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        case 15: i= confere_tlf_9(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+        default: i= confere_bool_1(h_init_rand,h_estado,MAX_ESTADO); 
+                break;
+    }
+    
     if(i == MAX_ESTADO)
         cerr << "Resultados da GPU batem com os da CPU\n";
     else
