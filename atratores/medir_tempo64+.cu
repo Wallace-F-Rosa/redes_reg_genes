@@ -16,12 +16,9 @@ __global__ void passo_bool_10_parte1(ulonglong3 * init_rand, ulonglong3 * estado
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( (v.x>>41)%2 ) )<< 0 ;
         aux.x |= ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>14)%2 ) )<< 1 ;
@@ -57,12 +54,9 @@ __global__ void passo_bool_10_parte2(ulonglong3 * init_rand, ulonglong3 * estado
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( (v.x>>31)%2 ) )<< 21 ;
         aux.x |= ( ( (v.x>>59)%2 ) )<< 22 ;
@@ -98,12 +92,9 @@ __global__ void passo_bool_10_parte3(ulonglong3 * init_rand, ulonglong3 * estado
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( (v.x>>57)%2 ) )<< 42 ;
         aux.x |= ! ( ( ( (v.y>>0)%2 ) ) )<< 43 ;
@@ -125,7 +116,6 @@ __global__ void passo_bool_10_parte3(ulonglong3 * init_rand, ulonglong3 * estado
         aux.x |= ( ( (v.x>>61)%2 ) ) | ( ( (v.x>>58)%2 ) ) | ( ( (v.y>>2)%2 ) ) | ( ( (v.x>>43)%2 ) & ( ( ( ( (v.x>>58)%2 ) ) ) ) )<< 59 ;
         aux.x |= ( ( (v.x>>9)%2 ) & ( ( ( ( (v.x>>10)%2 ) ) ) ) ) | ( ( (v.x>>8)%2 ) & ( ( ( ( (v.x>>10)%2 ) & ( (v.x>>9)%2 ) ) ) ) )<< 60 ;
         aux.x |= ( ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>48)%2 ) & ( (v.x>>28)%2 ) ) & ( ( ( ! ( (v.x>>26)%2 ) ) ) ) ) ) ) & ! ( ( (v.x>>30)%2 ) ) ) | ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>48)%2 ) & ( (v.x>>29)%2 ) ) ) ) )<< 61 ;
-        aux.x |= ( ( (v.x>>62)%2 ) )<< 62 ;
 
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -139,13 +129,9 @@ unsigned long long confere_bool_10(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
         aux.x |= ( ( (v.x>>41)%2 ) )<< 0 ;
         aux.x |= ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>14)%2 ) )<< 1 ;
@@ -226,12 +212,9 @@ __global__ void passo_tlf_10_parte1(ulonglong3 * init_rand, ulonglong3 * estado,
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( ( (v.x>>41)%2 ) * 2) >= 2 ) <<0;
         aux.x |= ( ( ( (v.x>>20)%2 ) * 2 + ( (v.x>>14)%2 ) * 2) >= 2 ) <<1;
@@ -267,12 +250,9 @@ __global__ void passo_tlf_10_parte2(ulonglong3 * init_rand, ulonglong3 * estado,
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<21;
         aux.x |= ( ( ( (v.x>>59)%2 ) * 2) >= 2 ) <<22;
@@ -309,12 +289,9 @@ __global__ void passo_tlf_10_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
 
         aux.x |= ( ( ( (v.x>>57)%2 ) * 2) >= 2 ) <<42;
         aux.x |= ( ( ( (v.y>>0)%2 ) * -2) >= 0 ) <<43;
@@ -348,13 +325,9 @@ unsigned long long confere_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
         aux.x |= ( ( ( (v.x>>41)%2 ) * 2) >= 2 ) <<0;
         aux.x |= ( ( ( (v.x>>20)%2 ) * 2 + ( (v.x>>14)%2 ) * 2) >= 2 ) <<1;
@@ -430,18 +403,37 @@ unsigned long long confere_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado_gp
 }
 
 //REDE 11
-__global__ void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_11_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>57)%2 ) ) ) ) )<< 0 ;
+        aux.x |= ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 1 ;
+        aux.x |= ( ( ( (v.x>>43)%2 ) ) & ! ( ( (v.x>>62)%2 ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 4 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ! ( (v.x>>7)%2 ) ) ) | ( ( ! ( (v.x>>6)%2 ) ) ) ) )<< 5 ;
+        aux.x |= ( ( (v.x>>54)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.x>>21)%2 ) ) | ( ( (v.x>>20)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>49)%2 ) )<< 8 ;
+        aux.x |= ( ( (v.x>>24)%2 ) )<< 9 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>27)%2 ) )<< 11 ;
+        aux.x |= ( ( (v.x>>2)%2 ) & ( ( ( ( (v.x>>16)%2 ) & ( (v.x>>52)%2 ) ) ) ) )<< 12 ;
+        aux.x |= ( ( (v.x>>26)%2 ) & ( ( ( ( (v.x>>10)%2 ) & ( (v.x>>4)%2 ) & ( (v.x>>46)%2 ) ) ) ) )<< 13 ;
+        aux.x |= ( ( (v.x>>21)%2 ) ) | ( ( (v.x>>1)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>32)%2 ) )<< 17 ;
+        aux.x |= ( ( (v.x>>63)%2 ) ) | ( ( (v.x>>25)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 19 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 20 ;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -449,19 +441,155 @@ __global__ void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsig
     }
 }
 
+__global__ void passo_bool_11_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( (v.x>>29)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 21 ;
+        aux.x |= ( ( (v.x>>33)%2 ) )<< 22 ;
+        aux.x |= ( ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>51)%2 ) ) ) ) ) & ! ( ( (v.x>>62)%2 ) ) )<< 23 ;
+        aux.x |= ( ( (v.x>>55)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 25 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.x>>36)%2 ) & ( ( ( ( (v.x>>38)%2 ) ) ) ) ) | ( ( (v.x>>41)%2 ) )<< 29 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 30 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.x>>47)%2 ) )<< 32 ;
+        aux.x |= ( ( (v.x>>50)%2 ) ) | ( ( (v.x>>34)%2 ) )<< 33 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 36 ;
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>35)%2 ) ) | ( ( (v.x>>34)%2 ) ) | ( ( (v.x>>31)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 39 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 41 ;
+        
+    
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_11_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.x>>18)%2 ) & ( ( ( ( (v.x>>23)%2 ) ) ) ) ) | ( ( (v.x>>30)%2 ) )<< 43 ;
+        aux.x |= ( ( ( (v.x>>15)%2 ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) & ! ( ( (v.y>>1)%2 ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>18)%2 ) ) | ( ( (v.x>>30)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>57)%2 ) ) ) ) ) | ( ( (v.x>>1)%2 ) )<< 46 ;
+        aux.x |= ( ( (v.x>>60)%2 ) & ( ( ( ( (v.y>>2)%2 ) ) ) ) )<< 47 ;
+        aux.x |= ( ( (v.x>>5)%2 ) & ( ( ( ( (v.x>>14)%2 ) ) ) ) )<< 48 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>52)%2 ) & ( ( ( ( (v.x>>42)%2 ) & ( (v.x>>44)%2 ) ) ) ) )<< 50 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>53)%2 ) )<< 52 ;
+        aux.x |= ( ( (v.x>>24)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 54 ;
+        aux.x |= ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>23)%2 ) ) | ( ( (v.x>>18)%2 ) )<< 55 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 56 ;
+        aux.x |= ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 57 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 58 ;
+        aux.x |= ( ( ( (v.x>>37)%2 ) & ( ( ( ( (v.x>>39)%2 ) ) ) ) ) & ! ( ( (v.y>>3)%2 ) ) ) | ( ( (v.x>>40)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 60 ;
+        aux.x |= ( ( (v.x>>0)%2 ) )<< 61 ;
+
+    
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+
 unsigned long long confere_bool_11(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>57)%2 ) ) ) ) )<< 0 ;
+        aux.x |= ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 1 ;
+        aux.x |= ( ( ( (v.x>>43)%2 ) ) & ! ( ( (v.x>>62)%2 ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 4 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ! ( (v.x>>7)%2 ) ) ) | ( ( ! ( (v.x>>6)%2 ) ) ) ) )<< 5 ;
+        aux.x |= ( ( (v.x>>54)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.x>>21)%2 ) ) | ( ( (v.x>>20)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>49)%2 ) )<< 8 ;
+        aux.x |= ( ( (v.x>>24)%2 ) )<< 9 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>27)%2 ) )<< 11 ;
+        aux.x |= ( ( (v.x>>2)%2 ) & ( ( ( ( (v.x>>16)%2 ) & ( (v.x>>52)%2 ) ) ) ) )<< 12 ;
+        aux.x |= ( ( (v.x>>26)%2 ) & ( ( ( ( (v.x>>10)%2 ) & ( (v.x>>4)%2 ) & ( (v.x>>46)%2 ) ) ) ) )<< 13 ;
+        aux.x |= ( ( (v.x>>21)%2 ) ) | ( ( (v.x>>1)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>32)%2 ) )<< 17 ;
+        aux.x |= ( ( (v.x>>63)%2 ) ) | ( ( (v.x>>25)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 19 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 20 ;
+        aux.x |= ( ( (v.x>>29)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 21 ;
+        aux.x |= ( ( (v.x>>33)%2 ) )<< 22 ;
+        aux.x |= ( ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>51)%2 ) ) ) ) ) & ! ( ( (v.x>>62)%2 ) ) )<< 23 ;
+        aux.x |= ( ( (v.x>>55)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 25 ;
+        aux.x |= ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>22)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.x>>36)%2 ) & ( ( ( ( (v.x>>38)%2 ) ) ) ) ) | ( ( (v.x>>41)%2 ) )<< 29 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 30 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.x>>47)%2 ) )<< 32 ;
+        aux.x |= ( ( (v.x>>50)%2 ) ) | ( ( (v.x>>34)%2 ) )<< 33 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 36 ;
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>35)%2 ) ) | ( ( (v.x>>34)%2 ) ) | ( ( (v.x>>31)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 39 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 41 ;
+        aux.x |= ( ( (v.x>>12)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.x>>18)%2 ) & ( ( ( ( (v.x>>23)%2 ) ) ) ) ) | ( ( (v.x>>30)%2 ) )<< 43 ;
+        aux.x |= ( ( ( (v.x>>15)%2 ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) & ! ( ( (v.y>>1)%2 ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>18)%2 ) ) | ( ( (v.x>>30)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>57)%2 ) ) ) ) ) | ( ( (v.x>>1)%2 ) )<< 46 ;
+        aux.x |= ( ( (v.x>>60)%2 ) & ( ( ( ( (v.y>>2)%2 ) ) ) ) )<< 47 ;
+        aux.x |= ( ( (v.x>>5)%2 ) & ( ( ( ( (v.x>>14)%2 ) ) ) ) )<< 48 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>52)%2 ) & ( ( ( ( (v.x>>42)%2 ) & ( (v.x>>44)%2 ) ) ) ) )<< 50 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>53)%2 ) )<< 52 ;
+        aux.x |= ( ( (v.x>>24)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 54 ;
+        aux.x |= ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>23)%2 ) ) | ( ( (v.x>>18)%2 ) )<< 55 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 56 ;
+        aux.x |= ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 57 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 58 ;
+        aux.x |= ( ( ( (v.x>>37)%2 ) & ( ( ( ( (v.x>>39)%2 ) ) ) ) ) & ! ( ( (v.y>>3)%2 ) ) ) | ( ( (v.x>>40)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 60 ;
+        aux.x |= ( ( (v.x>>0)%2 ) )<< 61 ;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
             cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
@@ -473,18 +601,112 @@ unsigned long long confere_bool_11(ulonglong3 * init_rand, ulonglong3 * estado_g
     return nSim;
 }
 
-__global__ void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_11_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 4 ) <<0;
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<1;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * 2 + ( (v.x>>62)%2 ) * -2) >= 2 ) <<2;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<4;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 6 + ( (v.x>>7)%2 ) * -2 + ( (v.x>>6)%2 ) * -2) >= 4 ) <<5;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2 + ( (v.x>>20)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>24)%2 ) * 2) >= 2 ) <<9;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>27)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>2)%2 ) * 2 + ( (v.x>>16)%2 ) * 2 + ( (v.x>>52)%2 ) * 2) >= 6 ) <<12;
+        aux.x |= ( ( ( (v.x>>26)%2 ) * 2 + ( (v.x>>10)%2 ) * 2 + ( (v.x>>4)%2 ) * 2 + ( (v.x>>46)%2 ) * 2) >= 8 ) <<13;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2 + ( (v.x>>1)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>25)%2 ) * 2) >= 2 ) <<18;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<20;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_11_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>51)%2 ) * 2 + ( (v.x>>62)%2 ) * -2) >= 4 ) <<23;
+        aux.x |= ( ( ( (v.x>>55)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>38)%2 ) * 2 + ( (v.x>>41)%2 ) * 6) >= 4 ) <<29;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>47)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + ( (v.x>>34)%2 ) * 2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>35)%2 ) * 2 + ( (v.x>>34)%2 ) * 2 + ( (v.x>>31)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<39;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<41;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_11_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>23)%2 ) * 2 + ( (v.x>>30)%2 ) * 6) >= 4 ) <<43;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.x>>11)%2 ) * 2 + ( (v.y>>1)%2 ) * -2) >= 4 ) <<44;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>30)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>57)%2 ) * 2 + ( (v.x>>1)%2 ) * 6) >= 4 ) <<46;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2 + ( (v.y>>2)%2 ) * 2) >= 4 ) <<47;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2 + ( (v.x>>14)%2 ) * 2) >= 4 ) <<48;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2 + ( (v.x>>42)%2 ) * 2 + ( (v.x>>44)%2 ) * 2) >= 6 ) <<50;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>53)%2 ) * 2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.x>>24)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>30)%2 ) * 2 + ( (v.x>>23)%2 ) * 2 + ( (v.x>>18)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<57;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>37)%2 ) * 2 + ( (v.x>>39)%2 ) * 2 + 0 * -2 + ( (v.x>>40)%2 ) * 14) >= 4 ) <<59;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<60;
+        aux.x |= ( ( ( (v.x>>0)%2 ) * 2) >= 2 ) <<61;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -492,19 +714,78 @@ __global__ void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsign
     }
 }
 
+
 unsigned long long confere_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado_gpu, unsigned long long nSim)
 {  
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 4 ) <<0;
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<1;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * 2 + ( (v.x>>62)%2 ) * -2) >= 2 ) <<2;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<4;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 6 + ( (v.x>>7)%2 ) * -2 + ( (v.x>>6)%2 ) * -2) >= 4 ) <<5;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2 + ( (v.x>>20)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>24)%2 ) * 2) >= 2 ) <<9;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>27)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>2)%2 ) * 2 + ( (v.x>>16)%2 ) * 2 + ( (v.x>>52)%2 ) * 2) >= 6 ) <<12;
+        aux.x |= ( ( ( (v.x>>26)%2 ) * 2 + ( (v.x>>10)%2 ) * 2 + ( (v.x>>4)%2 ) * 2 + ( (v.x>>46)%2 ) * 2) >= 8 ) <<13;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2 + ( (v.x>>1)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>25)%2 ) * 2) >= 2 ) <<18;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<20;
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>51)%2 ) * 2 + ( (v.x>>62)%2 ) * -2) >= 4 ) <<23;
+        aux.x |= ( ( ( (v.x>>55)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>38)%2 ) * 2 + ( (v.x>>41)%2 ) * 6) >= 4 ) <<29;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>47)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + ( (v.x>>34)%2 ) * 2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>35)%2 ) * 2 + ( (v.x>>34)%2 ) * 2 + ( (v.x>>31)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<39;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>23)%2 ) * 2 + ( (v.x>>30)%2 ) * 6) >= 4 ) <<43;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.x>>11)%2 ) * 2 + ( (v.y>>1)%2 ) * -2) >= 4 ) <<44;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>30)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>57)%2 ) * 2 + ( (v.x>>1)%2 ) * 6) >= 4 ) <<46;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2 + ( (v.y>>2)%2 ) * 2) >= 4 ) <<47;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2 + ( (v.x>>14)%2 ) * 2) >= 4 ) <<48;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2 + ( (v.x>>42)%2 ) * 2 + ( (v.x>>44)%2 ) * 2) >= 6 ) <<50;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>53)%2 ) * 2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.x>>24)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>30)%2 ) * 2 + ( (v.x>>23)%2 ) * 2 + ( (v.x>>18)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>29)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<57;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>37)%2 ) * 2 + ( (v.x>>39)%2 ) * 2 + 0 * -2 + ( (v.x>>40)%2 ) * 14) >= 4 ) <<59;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<60;
+        aux.x |= ( ( ( (v.x>>0)%2 ) * 2) >= 2 ) <<61;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
             cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
@@ -517,18 +798,111 @@ unsigned long long confere_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado_gp
 }
 
 //REDE 12
-__global__ void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_12_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ! ( ( ( (v.x>>61)%2 ) ) )<< 0 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 1 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>55)%2 ) ) | ( ( (v.x>>2)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>3)%2 ) ) | ( ( (v.x>>54)%2 ) )<< 4 ;
+        aux.x |= ( ( ( (v.x>>17)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) ) | ( ( (v.x>>13)%2 ) )<< 5 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.x>>13)%2 ) ) | ( ( (v.x>>17)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 8 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 9 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 11 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 12 ;
+        aux.x |= ( ( (v.x>>62)%2 ) )<< 13 ;
+        aux.x |= ( ( (v.x>>5)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>7)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>8)%2 ) ) | ( ( (v.x>>59)%2 ) )<< 16 ;
+        aux.x |= ( ( ( (v.x>>9)%2 ) ) & ! ( ( (v.x>>18)%2 ) ) )<< 17 ;
+        aux.x |= ( ( ( ( (v.x>>12)%2 ) ) & ! ( ( (v.x>>14)%2 ) ) ) & ! ( ( (v.x>>16)%2 ) ) )<< 18 ;
+        aux.x |= ( ( (v.x>>63)%2 ) ) | ( ( (v.y>>0)%2 ) ) | ( ( (v.y>>1)%2 ) )<< 19 ;
+    
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_12_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ! ( ( ( (v.x>>57)%2 ) ) | ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 20 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 21 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 22 ;
+        aux.x |= ( ( (v.x>>41)%2 ) & ( ( ( ( (v.x>>46)%2 ) | ( (v.x>>44)%2 ) ) ) ) )<< 23 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 24 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 25 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 28 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 29 ;
+        aux.x |= ( ( ( (v.x>>39)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 30 ;
+        aux.x |= ( ( ( (v.x>>39)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 31 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 32 ;
+        aux.x |= ( ( ( (v.x>>17)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 33 ;
+        aux.x |= ! ( ( ( (v.x>>43)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 34 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 35 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 36 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>60)%2 ) ) | ( ( (v.x>>29)%2 ) )<< 39 ;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_12_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 40 ;
+        aux.x |= ( ( ( (v.x>>34)%2 ) ) & ! ( ( (v.x>>55)%2 ) ) )<< 41 ;
+        aux.x |= ( ( (v.x>>35)%2 ) )<< 42 ;
+        aux.x |= ( ( ( (v.x>>36)%2 ) ) & ! ( ( (v.x>>55)%2 ) ) )<< 43 ;
+        aux.x |= ( ( ( ( ( (v.x>>38)%2 ) ) & ! ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>47)%2 ) ) ) ) ) ) & ! ( ( (v.x>>58)%2 ) ) ) & ! ( ( (v.x>>48)%2 ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>44)%2 ) | ( (v.x>>57)%2 ) ) ) ) )<< 46 ;
+        aux.x |= ( ( (v.y>>2)%2 ) ) | ( ( (v.y>>0)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 48 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 50 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>43)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 51 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 52 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 53 ;
+        aux.x |= ( ( (v.x>>50)%2 ) ) | ( ( (v.x>>55)%2 ) )<< 54 ;
+        aux.x |= ( ( ( (v.y>>4)%2 ) ) & ! ( ( (v.x>>19)%2 ) ) ) | ( ( ( (v.y>>5)%2 ) ) & ! ( ( (v.x>>19)%2 ) ) )<< 55 ;
+        aux.x |= ( ( (v.x>>51)%2 ) ) | ( ( (v.y>>0)%2 ) )<< 56 ;
+        aux.x |= ( ( ( ( (v.x>>52)%2 ) ) & ! ( ( (v.x>>48)%2 ) ) ) & ! ( ( (v.x>>58)%2 ) ) )<< 57 ;
+        aux.x |= ( ( (v.y>>6)%2 ) )<< 58 ;
+        aux.x |= ( ( (v.x>>15)%2 ) ) | ( ( (v.y>>7)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>40)%2 ) ) | ( ( (v.y>>8)%2 ) )<< 60 ;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -541,13 +915,71 @@ unsigned long long confere_bool_12(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
+
+        aux.x |= ! ( ( ( (v.x>>61)%2 ) ) )<< 0 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 1 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>55)%2 ) ) | ( ( (v.x>>2)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>3)%2 ) ) | ( ( (v.x>>54)%2 ) )<< 4 ;
+        aux.x |= ( ( ( (v.x>>17)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) ) | ( ( (v.x>>13)%2 ) )<< 5 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.x>>13)%2 ) ) | ( ( (v.x>>17)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 8 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 9 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 11 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 12 ;
+        aux.x |= ( ( (v.x>>62)%2 ) )<< 13 ;
+        aux.x |= ( ( (v.x>>5)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>7)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>8)%2 ) ) | ( ( (v.x>>59)%2 ) )<< 16 ;
+        aux.x |= ( ( ( (v.x>>9)%2 ) ) & ! ( ( (v.x>>18)%2 ) ) )<< 17 ;
+        aux.x |= ( ( ( ( (v.x>>12)%2 ) ) & ! ( ( (v.x>>14)%2 ) ) ) & ! ( ( (v.x>>16)%2 ) ) )<< 18 ;
+        aux.x |= ( ( (v.x>>63)%2 ) ) | ( ( (v.y>>0)%2 ) ) | ( ( (v.y>>1)%2 ) )<< 19 ;
+        aux.x |= ! ( ( ( (v.x>>57)%2 ) ) | ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 20 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 21 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) | ( ( (v.x>>44)%2 ) ) )<< 22 ;
+        aux.x |= ( ( (v.x>>41)%2 ) & ( ( ( ( (v.x>>46)%2 ) | ( (v.x>>44)%2 ) ) ) ) )<< 23 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 24 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 25 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 28 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) )<< 29 ;
+        aux.x |= ( ( ( (v.x>>39)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 30 ;
+        aux.x |= ( ( ( (v.x>>39)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 31 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 32 ;
+        aux.x |= ( ( ( (v.x>>17)%2 ) ) & ! ( ( (v.x>>41)%2 ) ) )<< 33 ;
+        aux.x |= ! ( ( ( (v.x>>43)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 34 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 35 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 36 ;
+        aux.x |= ( ( (v.x>>54)%2 ) ) | ( ( (v.x>>3)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>17)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>60)%2 ) ) | ( ( (v.x>>29)%2 ) )<< 39 ;
+        aux.x |= ( ( (v.x>>31)%2 ) )<< 40 ;
+        aux.x |= ( ( ( (v.x>>34)%2 ) ) & ! ( ( (v.x>>55)%2 ) ) )<< 41 ;
+        aux.x |= ( ( (v.x>>35)%2 ) )<< 42 ;
+        aux.x |= ( ( ( (v.x>>36)%2 ) ) & ! ( ( (v.x>>55)%2 ) ) )<< 43 ;
+        aux.x |= ( ( ( ( ( (v.x>>38)%2 ) ) & ! ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>47)%2 ) ) ) ) ) ) & ! ( ( (v.x>>58)%2 ) ) ) & ! ( ( (v.x>>48)%2 ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>44)%2 ) | ( (v.x>>57)%2 ) ) ) ) )<< 46 ;
+        aux.x |= ( ( (v.y>>2)%2 ) ) | ( ( (v.y>>0)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 48 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>3)%2 ) )<< 50 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>43)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 51 ;
+        aux.x |= ! ( ( ( (v.x>>46)%2 ) ) )<< 52 ;
+        aux.x |= ! ( ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>42)%2 ) ) )<< 53 ;
+        aux.x |= ( ( (v.x>>50)%2 ) ) | ( ( (v.x>>55)%2 ) )<< 54 ;
+        aux.x |= ( ( ( (v.y>>4)%2 ) ) & ! ( ( (v.x>>19)%2 ) ) ) | ( ( ( (v.y>>5)%2 ) ) & ! ( ( (v.x>>19)%2 ) ) )<< 55 ;
+        aux.x |= ( ( (v.x>>51)%2 ) ) | ( ( (v.y>>0)%2 ) )<< 56 ;
+        aux.x |= ( ( ( ( (v.x>>52)%2 ) ) & ! ( ( (v.x>>48)%2 ) ) ) & ! ( ( (v.x>>58)%2 ) ) )<< 57 ;
+        aux.x |= ( ( (v.y>>6)%2 ) )<< 58 ;
+        aux.x |= ( ( (v.x>>15)%2 ) ) | ( ( (v.y>>7)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>40)%2 ) ) | ( ( (v.y>>8)%2 ) )<< 60 ;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -560,18 +992,111 @@ unsigned long long confere_bool_12(ulonglong3 * init_rand, ulonglong3 * estado_g
     return nSim;
 }
 
-__global__ void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_12_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>61)%2 ) * -2) >= 0 ) <<0;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<2;
+        aux.x |= ( ( ( (v.x>>55)%2 ) * 2 + ( (v.x>>2)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<4;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2 + ( (v.x>>41)%2 ) * -2 + ( (v.x>>13)%2 ) * 6) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.x>>13)%2 ) * 2 + ( (v.x>>17)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<9;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<12;
+        aux.x |= ( ( ( (v.x>>62)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>7)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>8)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2 + ( (v.x>>18)%2 ) * -2) >= 2 ) <<17;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2 + ( (v.x>>14)%2 ) * -2 + ( (v.x>>16)%2 ) * -2) >= 2 ) <<18;
+        aux.x |= ( ( 0 * 2 + 0 * 2 + ( (v.y>>1)%2 ) * 2) >= 2 ) <<19;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_12_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>57)%2 ) * -2 + ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<20;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<21;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<22;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 6 + ( (v.x>>46)%2 ) * 2 + ( (v.x>>44)%2 ) * 2) >= 8 ) <<23;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<24;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<25;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<29;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<34;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<35;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<36;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2 + ( (v.x>>29)%2 ) * 2) >= 2 ) <<39;
+    
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_12_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.x>>35)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.x>>38)%2 ) * 6 + ( (v.x>>56)%2 ) * -2 + ( (v.x>>47)%2 ) * -2 + ( (v.x>>58)%2 ) * -6 + ( (v.x>>48)%2 ) * -6) >= 4 ) <<44;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( 0 * 6 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 8 ) <<46;
+        aux.x |= ( ( 0 * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<47;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<48;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<50;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2 + ( (v.x>>43)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<51;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<52;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<53;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + ( (v.x>>55)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>19)%2 ) * -6 + ( (v.y>>5)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>51)%2 ) * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2 + ( (v.x>>48)%2 ) * -2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.y>>6)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.y>>7)%2 ) * 2) >= 2 ) <<59;
+        aux.x |= ( ( ( (v.x>>40)%2 ) * 2 + ( (v.y>>8)%2 ) * 2) >= 2 ) <<60;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -584,14 +1109,71 @@ unsigned long long confere_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
+        aux.x |= ( ( ( (v.x>>61)%2 ) * -2) >= 0 ) <<0;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<2;
+        aux.x |= ( ( ( (v.x>>55)%2 ) * 2 + ( (v.x>>2)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<4;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2 + ( (v.x>>41)%2 ) * -2 + ( (v.x>>13)%2 ) * 6) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.x>>13)%2 ) * 2 + ( (v.x>>17)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<9;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<12;
+        aux.x |= ( ( ( (v.x>>62)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>7)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>8)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2 + ( (v.x>>18)%2 ) * -2) >= 2 ) <<17;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2 + ( (v.x>>14)%2 ) * -2 + ( (v.x>>16)%2 ) * -2) >= 2 ) <<18;
+        aux.x |= ( ( 0 * 2 + 0 * 2 + ( (v.y>>1)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.x>>57)%2 ) * -2 + ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<20;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<21;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2 + ( (v.x>>44)%2 ) * -2) >= 0 ) <<22;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 6 + ( (v.x>>46)%2 ) * 2 + ( (v.x>>44)%2 ) * 2) >= 8 ) <<23;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<24;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<25;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2) >= 0 ) <<29;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2 + ( (v.x>>41)%2 ) * -2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<34;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<35;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<36;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>3)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>17)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2 + ( (v.x>>29)%2 ) * 2) >= 2 ) <<39;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.x>>35)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.x>>38)%2 ) * 6 + ( (v.x>>56)%2 ) * -2 + ( (v.x>>47)%2 ) * -2 + ( (v.x>>58)%2 ) * -6 + ( (v.x>>48)%2 ) * -6) >= 4 ) <<44;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( 0 * 6 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 8 ) <<46;
+        aux.x |= ( ( 0 * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<47;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<48;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>3)%2 ) * 2) >= 2 ) <<50;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2 + ( (v.x>>43)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<51;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * -2) >= 0 ) <<52;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * -2 + ( (v.x>>42)%2 ) * -2) >= 0 ) <<53;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + ( (v.x>>55)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>19)%2 ) * -6 + ( (v.y>>5)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>51)%2 ) * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2 + ( (v.x>>48)%2 ) * -2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.y>>6)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.y>>7)%2 ) * 2) >= 2 ) <<59;
+        aux.x |= ( ( ( (v.x>>40)%2 ) * 2 + ( (v.y>>8)%2 ) * 2) >= 2 ) <<60;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
             cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
@@ -604,19 +1186,112 @@ unsigned long long confere_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado_gp
 }
 
 //REDE 13
-__global__ void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_13_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 0 ;
+        aux.x |= ( ( (v.x>>0)%2 ) )<< 1 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>61)%2 ) )<< 2 ;
+        aux.x |= ( ( (v.x>>62)%2 ) & ( ( ( ( (v.x>>63)%2 ) ) ) ) ) | ( ( (v.x>>43)%2 ) ) | ( ( ( (v.x>>59)%2 ) ) & ! ( ( (v.x>>4)%2 ) ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>37)%2 ) ) ) ) ) | ( ( (v.x>>10)%2 ) ) | ( ( (v.y>>1)%2 ) & ( ( ( ! ( (v.x>>37)%2 ) ) ) ) )<< 3 ;
+        aux.x |= ! ( ( ( (v.x>>33)%2 ) ) )<< 4 ;
+        aux.x |= ( ( (v.x>>2)%2 ) ) | ( ( (v.x>>57)%2 ) )<< 5 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.y>>2)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>9)%2 ) )<< 8 ;
+        aux.x |= ( ( (v.x>>23)%2 ) ) | ( ( (v.y>>1)%2 ) )<< 9 ;
+        aux.x |= ( ( ( (v.x>>58)%2 ) ) ) | ! ( ( (v.x>>58)%2 ) | ( (v.x>>55)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 11 ;
+        aux.x |= ! ( ( ( (v.x>>47)%2 ) ) )<< 12 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 13 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>45)%2 ) ) | ( ( (v.x>>53)%2 ) ) | ( ( (v.x>>1)%2 ) ) | ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>35)%2 ) )<< 17 ;
+        aux.x |= ( ( ( (v.x>>61)%2 ) ) | ( ( (v.x>>39)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.x>>61)%2 ) ) ) ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.x>>39)%2 ) & ! ( (v.x>>61)%2 ) ) ) ) ) ) | ! ( ( (v.x>>39)%2 ) | ( (v.x>>38)%2 ) | ( (v.x>>61)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>18)%2 ) )<< 19 ;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_13_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 20 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 21 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 22 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 23 ;
+        aux.x |= ( ( (v.x>>14)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 25 ;
+        aux.x |= ( ( (v.y>>4)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>36)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>27)%2 ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>36)%2 ) )<< 29 ;
+        aux.x |= ( ( ( (v.y>>0)%2 ) ) & ! ( ( (v.x>>11)%2 ) ) ) | ( ( (v.x>>29)%2 ) ) | ( ( ( (v.x>>25)%2 ) ) & ! ( ( (v.x>>15)%2 ) ) )<< 30 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.y>>5)%2 ) )<< 32 ;
+        aux.x |= ( ( (v.x>>32)%2 ) )<< 33 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>21)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.y>>5)%2 ) )<< 36 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>42)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>19)%2 ) )<< 39 ;
+
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_13_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
+        aux.x |= ( ( (v.x>>7)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>57)%2 ) ) | ( ( (v.y>>6)%2 ) )<< 41 ;
+        aux.x |= ( ( (v.x>>18)%2 ) ) | ( ( (v.x>>47)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.y>>7)%2 ) ) | ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>12)%2 ) ) | ( ( (v.x>>31)%2 ) ) | ( ( (v.y>>6)%2 ) ) | ( ( ( ( (v.y>>0)%2 ) ) & ! ( ( (v.x>>13)%2 ) ) ) & ! ( ( (v.x>>56)%2 ) ) ) | ( ( ( (v.y>>1)%2 ) ) & ! ( ( (v.x>>56)%2 ) ) ) | ( ( (v.x>>14)%2 ) ) | ( ( (v.x>>49)%2 ) )<< 43 ;
+        aux.x |= ( ( (v.x>>31)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>28)%2 ) )<< 46 ;
+        aux.x |= ( ( ( (v.x>>42)%2 ) ) | ( ( (v.y>>5)%2 ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.y>>5)%2 ) & ! ( (v.x>>46)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>46)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>46)%2 ) ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) ) ) ) | ! ( ( (v.x>>38)%2 ) | ( (v.x>>46)%2 ) | ( (v.y>>5)%2 ) | ( (v.x>>61)%2 ) | ( (v.x>>42)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 48 ;
+        aux.x |= ( ( (v.y>>5)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 50 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 52 ;
+        aux.x |= ( ( (v.x>>52)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 54 ;
+        aux.x |= ( ( ( (v.x>>54)%2 ) ) & ! ( ( (v.x>>40)%2 ) ) )<< 55 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 56 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 57 ;
+        aux.x |= ( ( (v.y>>8)%2 ) )<< 58 ;
+        aux.x |= ( ( ( (v.y>>7)%2 ) ) & ! ( ( (v.x>>51)%2 ) ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>26)%2 ) ) | ( ( (v.x>>43)%2 ) ) | ( ( (v.y>>6)%2 ) ) | ( ( (v.x>>8)%2 ) )<< 59 ;
+
+
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -628,13 +1303,70 @@ unsigned long long confere_bool_13(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
+
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 0 ;
+        aux.x |= ( ( (v.x>>0)%2 ) )<< 1 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>61)%2 ) )<< 2 ;
+        aux.x |= ( ( (v.x>>62)%2 ) & ( ( ( ( (v.x>>63)%2 ) ) ) ) ) | ( ( (v.x>>43)%2 ) ) | ( ( ( (v.x>>59)%2 ) ) & ! ( ( (v.x>>4)%2 ) ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>37)%2 ) ) ) ) ) | ( ( (v.x>>10)%2 ) ) | ( ( (v.y>>1)%2 ) & ( ( ( ! ( (v.x>>37)%2 ) ) ) ) )<< 3 ;
+        aux.x |= ! ( ( ( (v.x>>33)%2 ) ) )<< 4 ;
+        aux.x |= ( ( (v.x>>2)%2 ) ) | ( ( (v.x>>57)%2 ) )<< 5 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.y>>2)%2 ) )<< 7 ;
+        aux.x |= ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>9)%2 ) )<< 8 ;
+        aux.x |= ( ( (v.x>>23)%2 ) ) | ( ( (v.y>>1)%2 ) )<< 9 ;
+        aux.x |= ( ( ( (v.x>>58)%2 ) ) ) | ! ( ( (v.x>>58)%2 ) | ( (v.x>>55)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 11 ;
+        aux.x |= ! ( ( ( (v.x>>47)%2 ) ) )<< 12 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 13 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 14 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 15 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>45)%2 ) ) | ( ( (v.x>>53)%2 ) ) | ( ( (v.x>>1)%2 ) ) | ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>35)%2 ) )<< 17 ;
+        aux.x |= ( ( ( (v.x>>61)%2 ) ) | ( ( (v.x>>39)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.x>>61)%2 ) ) ) ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.x>>39)%2 ) & ! ( (v.x>>61)%2 ) ) ) ) ) ) | ! ( ( (v.x>>39)%2 ) | ( (v.x>>38)%2 ) | ( (v.x>>61)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>18)%2 ) )<< 19 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 20 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 21 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 22 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 23 ;
+        aux.x |= ( ( (v.x>>14)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 25 ;
+        aux.x |= ( ( (v.y>>4)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 27 ;
+        aux.x |= ( ( (v.x>>36)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>27)%2 ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>36)%2 ) )<< 29 ;
+        aux.x |= ( ( ( (v.y>>0)%2 ) ) & ! ( ( (v.x>>11)%2 ) ) ) | ( ( (v.x>>29)%2 ) ) | ( ( ( (v.x>>25)%2 ) ) & ! ( ( (v.x>>15)%2 ) ) )<< 30 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.y>>5)%2 ) )<< 32 ;
+        aux.x |= ( ( (v.x>>32)%2 ) )<< 33 ;
+        aux.x |= ( ( (v.y>>0)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>21)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.x>>41)%2 ) ) | ( ( (v.y>>5)%2 ) )<< 36 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>42)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>19)%2 ) )<< 39 ;
+        aux.x |= ( ( (v.x>>7)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>57)%2 ) ) | ( ( (v.y>>6)%2 ) )<< 41 ;
+        aux.x |= ( ( (v.x>>18)%2 ) ) | ( ( (v.x>>47)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.y>>7)%2 ) ) | ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>12)%2 ) ) | ( ( (v.x>>31)%2 ) ) | ( ( (v.y>>6)%2 ) ) | ( ( ( ( (v.y>>0)%2 ) ) & ! ( ( (v.x>>13)%2 ) ) ) & ! ( ( (v.x>>56)%2 ) ) ) | ( ( ( (v.y>>1)%2 ) ) & ! ( ( (v.x>>56)%2 ) ) ) | ( ( (v.x>>14)%2 ) ) | ( ( (v.x>>49)%2 ) )<< 43 ;
+        aux.x |= ( ( (v.x>>31)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) )<< 44 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>28)%2 ) )<< 46 ;
+        aux.x |= ( ( ( (v.x>>42)%2 ) ) | ( ( (v.y>>5)%2 ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.y>>5)%2 ) & ! ( (v.x>>46)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>46)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>46)%2 ) ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) ) ) ) | ! ( ( (v.x>>38)%2 ) | ( (v.x>>46)%2 ) | ( (v.y>>5)%2 ) | ( (v.x>>61)%2 ) | ( (v.x>>42)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 48 ;
+        aux.x |= ( ( (v.y>>5)%2 ) )<< 49 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 50 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 52 ;
+        aux.x |= ( ( (v.x>>52)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 54 ;
+        aux.x |= ( ( ( (v.x>>54)%2 ) ) & ! ( ( (v.x>>40)%2 ) ) )<< 55 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 56 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 57 ;
+        aux.x |= ( ( (v.y>>8)%2 ) )<< 58 ;
+        aux.x |= ( ( ( (v.y>>7)%2 ) ) & ! ( ( (v.x>>51)%2 ) ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>26)%2 ) ) | ( ( (v.x>>43)%2 ) ) | ( ( (v.y>>6)%2 ) ) | ( ( (v.x>>8)%2 ) )<< 59 ;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -647,19 +1379,111 @@ unsigned long long confere_bool_13(ulonglong3 * init_rand, ulonglong3 * estado_g
     return nSim;
 }
 
-__global__ void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_13_parte1(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<0;
+        aux.x |= ( ( ( (v.x>>0)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>61)%2 ) * 2) >= 2 ) <<2;
+        aux.x |= ( ( 0 * 30 + 0 * 30 + ( (v.x>>43)%2 ) * 90 + ( (v.x>>59)%2 ) * 30 + ( (v.x>>4)%2 ) * -30 + 0 * 18 + ( (v.x>>37)%2 ) * -54 + ( (v.x>>10)%2 ) * 90 + ( (v.y>>1)%2 ) * 18) >= -24 ) <<3;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * -2) >= 0 ) <<4;
+        aux.x |= ( ( ( (v.x>>2)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.y>>2)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>6)%2 ) * 2 + ( (v.x>>9)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>23)%2 ) * 2 + ( (v.y>>1)%2 ) * 2) >= 2 ) <<9;
+        aux.x |= ( ( ( (v.x>>58)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 0 ) <<10;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>47)%2 ) * -2) >= 0 ) <<12;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2 + ( (v.x>>53)%2 ) * 2 + ( (v.x>>1)%2 ) * 2 + ( (v.x>>20)%2 ) * 2 + ( (v.x>>35)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>39)%2 ) * -2 + ( (v.x>>38)%2 ) * -2) >= -2 ) <<18;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2) >= 2 ) <<19;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_13_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<20;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<23;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.y>>4)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>27)%2 ) * 2 + ( (v.x>>30)%2 ) * 2 + ( (v.x>>36)%2 ) * 2) >= 2 ) <<29;
+        aux.x |= ( ( 0 * 6 + ( (v.x>>11)%2 ) * -6 + ( (v.x>>29)%2 ) * 18 + ( (v.x>>25)%2 ) * 6 + ( (v.x>>15)%2 ) * -6) >= 0 ) <<30;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.y>>5)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.y>>5)%2 ) * 2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>42)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>19)%2 ) * 2) >= 2 ) <<39;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_13_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
+        aux.x |= ( ( ( (v.x>>7)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>57)%2 ) * 2 + ( (v.y>>6)%2 ) * 2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>47)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( 0 * 22 + ( (v.x>>6)%2 ) * 22 + ( (v.x>>41)%2 ) * 22 + ( (v.x>>12)%2 ) * 22 + ( (v.x>>31)%2 ) * 22 + 0 * 22 + 0 * 2 + ( (v.x>>13)%2 ) * -2 + ( (v.x>>56)%2 ) * -10 + 0 * 6 + ( (v.x>>14)%2 ) * 22 + ( (v.x>>49)%2 ) * 22) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<44;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2) >= 2 ) <<46;
+        aux.x |= ( ( ( (v.x>>42)%2 ) * 8 + 0 * 8 + ( (v.x>>38)%2 ) * -4 + ( (v.x>>46)%2 ) * 0 + ( (v.x>>61)%2 ) * -4) >= -4 ) <<47;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<48;
+        aux.x |= ( ( ( (v.y>>5)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<50;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>40)%2 ) * -2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.y>>8)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>51)%2 ) * -2 + ( (v.x>>30)%2 ) * 6 + ( (v.x>>26)%2 ) * 6 + ( (v.x>>43)%2 ) * 6 + 0 * 6 + ( (v.x>>8)%2 ) * 6) >= 2 ) <<59;
+
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -671,14 +1495,70 @@ unsigned long long confere_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<0;
+        aux.x |= ( ( ( (v.x>>0)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>61)%2 ) * 2) >= 2 ) <<2;
+        aux.x |= ( ( 0 * 30 + 0 * 30 + ( (v.x>>43)%2 ) * 90 + ( (v.x>>59)%2 ) * 30 + ( (v.x>>4)%2 ) * -30 + 0 * 18 + ( (v.x>>37)%2 ) * -54 + ( (v.x>>10)%2 ) * 90 + ( (v.y>>1)%2 ) * 18) >= -24 ) <<3;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * -2) >= 0 ) <<4;
+        aux.x |= ( ( ( (v.x>>2)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.y>>2)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>6)%2 ) * 2 + ( (v.x>>9)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.x>>23)%2 ) * 2 + ( (v.y>>1)%2 ) * 2) >= 2 ) <<9;
+        aux.x |= ( ( ( (v.x>>58)%2 ) * 2 + ( (v.x>>55)%2 ) * -2) >= 0 ) <<10;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>47)%2 ) * -2) >= 0 ) <<12;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2 + ( (v.x>>53)%2 ) * 2 + ( (v.x>>1)%2 ) * 2 + ( (v.x>>20)%2 ) * 2 + ( (v.x>>35)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>39)%2 ) * -2 + ( (v.x>>38)%2 ) * -2) >= -2 ) <<18;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<20;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<23;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.y>>4)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>27)%2 ) * 2 + ( (v.x>>30)%2 ) * 2 + ( (v.x>>36)%2 ) * 2) >= 2 ) <<29;
+        aux.x |= ( ( 0 * 6 + ( (v.x>>11)%2 ) * -6 + ( (v.x>>29)%2 ) * 18 + ( (v.x>>25)%2 ) * 6 + ( (v.x>>15)%2 ) * -6) >= 0 ) <<30;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.y>>5)%2 ) * 2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.y>>5)%2 ) * 2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>42)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>19)%2 ) * 2) >= 2 ) <<39;
+        aux.x |= ( ( ( (v.x>>7)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>57)%2 ) * 2 + ( (v.y>>6)%2 ) * 2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.x>>18)%2 ) * 2 + ( (v.x>>47)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( 0 * 22 + ( (v.x>>6)%2 ) * 22 + ( (v.x>>41)%2 ) * 22 + ( (v.x>>12)%2 ) * 22 + ( (v.x>>31)%2 ) * 22 + 0 * 22 + 0 * 2 + ( (v.x>>13)%2 ) * -2 + ( (v.x>>56)%2 ) * -10 + 0 * 6 + ( (v.x>>14)%2 ) * 22 + ( (v.x>>49)%2 ) * 22) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.x>>31)%2 ) * 2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<44;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2) >= 2 ) <<46;
+        aux.x |= ( ( ( (v.x>>42)%2 ) * 8 + 0 * 8 + ( (v.x>>38)%2 ) * -4 + ( (v.x>>46)%2 ) * 0 + ( (v.x>>61)%2 ) * -4) >= -4 ) <<47;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<48;
+        aux.x |= ( ( ( (v.y>>5)%2 ) * 2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<50;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.x>>52)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>54)%2 ) * 2 + ( (v.x>>40)%2 ) * -2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.y>>8)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>51)%2 ) * -2 + ( (v.x>>30)%2 ) * 6 + ( (v.x>>26)%2 ) * 6 + ( (v.x>>43)%2 ) * 6 + 0 * 6 + ( (v.x>>8)%2 ) * 6) >= 2 ) <<59;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
             cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
@@ -697,13 +1577,79 @@ __global__ void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsig
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
+        aux.x |= ( ( (v.x>>62)%2 ) )<< 0 ;
+        aux.x |= ( ( (v.x>>4)%2 ) ) | ( ( (v.x>>46)%2 ) )<< 1 ;
+        aux.x |= ( ( (v.x>>44)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>12)%2 ) ) | ( ( (v.x>>57)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>11)%2 ) ) & ( ( ( ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) ) ) ) ) ) )<< 4 ;
+        aux.x |= ( ( (v.x>>39)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) & ! ( (v.x>>4)%2 ) & ! ( (v.x>>1)%2 ) ) ) ) )<< 5 ;
+        aux.x |= ( ( (v.x>>46)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.y>>1)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>44)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>7)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) )<< 7 ;
+        aux.x |= ( ( (v.x>>50)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) ) | ( ( (v.x>>44)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) ) | ( ( (v.x>>8)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) )<< 8 ;
+        aux.x |= ( ( (v.y>>0)%2 ) & ( ( ( ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>30)%2 ) & ( ( ( ( (v.x>>50)%2 ) ) ) ) )<< 9 ;
+        aux.x |= ( ( (v.x>>13)%2 ) ) | ( ( (v.y>>4)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>49)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) )<< 11 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>5)%2 ) ) ) ) )<< 12 ;
+        aux.x |= ( ( (v.y>>6)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) ) ) ) ) | ( ( (v.y>>7)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) ) ) ) )<< 13 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) ) | ( ( (v.x>>51)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) ) | ( ( (v.x>>52)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) )<< 14 ;
+        aux.x |= ( ( (v.x>>59)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>58)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>15)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) )<< 15 ;
+        aux.x |= ( ( (v.x>>38)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 17 ;
+        aux.x |= ( ( (v.x>>44)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>43)%2 ) )<< 19 ;
+        aux.x |= ( ( (v.y>>8)%2 ) )<< 20 ;
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.x>>9)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.x>>37)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) )<< 21 ;
+        aux.x |= ( ( (v.x>>21)%2 ) )<< 22 ;
+        aux.x |= ( ( (v.x>>15)%2 ) )<< 23 ;
+        aux.x |= ( ( (v.x>>23)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.y>>9)%2 ) & ( ( ( ! ( (v.x>>58)%2 ) ) ) ) )<< 25 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.y>>10)%2 ) & ( ( ( ! ( (v.x>>58)%2 ) ) ) ) )<< 27 ;
+        aux.x |= ( ( (v.y>>11)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.y>>12)%2 ) )<< 29 ;
+        aux.x |= ( ( (v.y>>13)%2 ) )<< 30 ;
+        aux.x |= ( ( (v.y>>14)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.x>>15)%2 ) & ( ( ( ! ( (v.x>>54)%2 ) ) ) ) )<< 32 ;
+        aux.x |= ( ( (v.x>>32)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) )<< 33 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.y>>15)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) ) ) ) )<< 36 ;
+        aux.x |= ( ( (v.x>>27)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>5)%2 ) & ( ( ( ! ( (v.x>>13)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) ) | ( ( (v.x>>43)%2 ) & ( ( ( ! ( (v.x>>13)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) )<< 39 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>36)%2 ) & ( ( ( ! ( (v.x>>44)%2 ) ) ) ) ) | ( ( (v.x>>35)%2 ) & ( ( ( ! ( (v.x>>44)%2 ) ) ) ) )<< 41 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.y>>4)%2 ) )<< 43 ;
+        aux.x |= ( ( (v.y>>16)%2 ) )<< 44 ;
+        aux.x |= ( ( (v.x>>39)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>11)%2 ) & ( ( ( ! ( (v.y>>1)%2 ) & ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) & ! ( (v.x>>13)%2 ) ) ) ) ) | ( ( (v.x>>57)%2 ) & ( ( ( ! ( (v.y>>1)%2 ) & ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) )<< 46 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.x>>48)%2 ) & ( ( ( ! ( (v.x>>15)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>51)%2 ) & ( ( ( ( (v.x>>55)%2 ) ) ) ) )<< 48 ;
+        aux.x |= ( ( (v.x>>49)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>44)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) )<< 49 ;
+        aux.x |= ( ( (v.x>>8)%2 ) & ( ( ( ! ( (v.x>>57)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>7)%2 ) ) ) ) ) | ( ( (v.x>>57)%2 ) & ( ( ( ( (v.x>>8)%2 ) ) ) ) )<< 50 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>61)%2 ) & ( ( ( ! ( (v.x>>0)%2 ) ) ) ) )<< 52 ;
+        aux.x |= ( ( (v.y>>0)%2 ) ) | ( ( (v.x>>54)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>40)%2 ) )<< 54 ;
+        aux.x |= ( ( (v.x>>28)%2 ) ) | ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>29)%2 ) ) | ( ( (v.x>>24)%2 ) )<< 55 ;
+        aux.x |= ( ( (v.x>>25)%2 ) & ( ( ( ! ( (v.x>>15)%2 ) ) ) ) )<< 56 ;
+        aux.x |= ( ( (v.x>>41)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) ) | ( ( (v.x>>31)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) )<< 57 ;
+        aux.x |= ( ( (v.x>>33)%2 ) )<< 58 ;
+        aux.x |= ( ( (v.x>>44)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>14)%2 ) )<< 60 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 61 ;
+        aux.x |= ( ( (v.x>>63)%2 ) )<< 62 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 63 ;
+        aux.y |= ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>54)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) )<<0;
+        aux.y |= ( ( (v.y>>1)%2 ) ) | ( ( (v.y>>3)%2 ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>48)%2 ) ) | ( ( (v.x>>7)%2 ) & ( ( ( ! ( (v.x>>8)%2 ) ) ) ) ) | ( ( (v.x>>15)%2 ) ) | ( ( (v.x>>14)%2 ) )<<1;
+        aux.y |= ( ( (v.x>>5)%2 ) )<<2;
+
+
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -715,13 +1661,77 @@ unsigned long long confere_bool_14(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
+
+        aux.x |= ( ( (v.x>>62)%2 ) )<< 0 ;
+        aux.x |= ( ( (v.x>>4)%2 ) ) | ( ( (v.x>>46)%2 ) )<< 1 ;
+        aux.x |= ( ( (v.x>>44)%2 ) & ( ( ( ( (v.x>>59)%2 ) ) ) ) )<< 2 ;
+        aux.x |= ( ( (v.x>>12)%2 ) ) | ( ( (v.x>>57)%2 ) )<< 3 ;
+        aux.x |= ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>11)%2 ) ) & ( ( ( ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) ) ) ) ) ) )<< 4 ;
+        aux.x |= ( ( (v.x>>39)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) & ! ( (v.x>>4)%2 ) & ! ( (v.x>>1)%2 ) ) ) ) )<< 5 ;
+        aux.x |= ( ( (v.x>>46)%2 ) )<< 6 ;
+        aux.x |= ( ( (v.y>>1)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>44)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>7)%2 ) & ( ( ( ! ( (v.x>>11)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) )<< 7 ;
+        aux.x |= ( ( (v.x>>50)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) ) | ( ( (v.x>>44)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) ) | ( ( (v.x>>8)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>11)%2 ) ) ) ) )<< 8 ;
+        aux.x |= ( ( (v.y>>0)%2 ) & ( ( ( ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>30)%2 ) & ( ( ( ( (v.x>>50)%2 ) ) ) ) )<< 9 ;
+        aux.x |= ( ( (v.x>>13)%2 ) ) | ( ( (v.y>>4)%2 ) )<< 10 ;
+        aux.x |= ( ( (v.x>>49)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) )<< 11 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>5)%2 ) ) ) ) )<< 12 ;
+        aux.x |= ( ( (v.y>>6)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) ) ) ) ) | ( ( (v.y>>7)%2 ) & ( ( ( ! ( (v.x>>46)%2 ) ) ) ) )<< 13 ;
+        aux.x |= ( ( (v.x>>14)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) ) | ( ( (v.x>>51)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) ) | ( ( (v.x>>52)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>55)%2 ) & ! ( (v.y>>0)%2 ) ) ) ) )<< 14 ;
+        aux.x |= ( ( (v.x>>59)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>58)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>15)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>49)%2 ) & ! ( (v.x>>18)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) )<< 15 ;
+        aux.x |= ( ( (v.x>>38)%2 ) )<< 16 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 17 ;
+        aux.x |= ( ( (v.x>>44)%2 ) )<< 18 ;
+        aux.x |= ( ( (v.x>>43)%2 ) )<< 19 ;
+        aux.x |= ( ( (v.y>>8)%2 ) )<< 20 ;
+        aux.x |= ( ( (v.x>>56)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.x>>9)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.x>>37)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>55)%2 ) ) ) ) )<< 21 ;
+        aux.x |= ( ( (v.x>>21)%2 ) )<< 22 ;
+        aux.x |= ( ( (v.x>>15)%2 ) )<< 23 ;
+        aux.x |= ( ( (v.x>>23)%2 ) )<< 24 ;
+        aux.x |= ( ( (v.y>>9)%2 ) & ( ( ( ! ( (v.x>>58)%2 ) ) ) ) )<< 25 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 26 ;
+        aux.x |= ( ( (v.y>>10)%2 ) & ( ( ( ! ( (v.x>>58)%2 ) ) ) ) )<< 27 ;
+        aux.x |= ( ( (v.y>>11)%2 ) )<< 28 ;
+        aux.x |= ( ( (v.y>>12)%2 ) )<< 29 ;
+        aux.x |= ( ( (v.y>>13)%2 ) )<< 30 ;
+        aux.x |= ( ( (v.y>>14)%2 ) )<< 31 ;
+        aux.x |= ( ( (v.x>>15)%2 ) & ( ( ( ! ( (v.x>>54)%2 ) ) ) ) )<< 32 ;
+        aux.x |= ( ( (v.x>>32)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) )<< 33 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 34 ;
+        aux.x |= ( ( (v.x>>34)%2 ) )<< 35 ;
+        aux.x |= ( ( (v.y>>15)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) ) ) ) )<< 36 ;
+        aux.x |= ( ( (v.x>>27)%2 ) )<< 37 ;
+        aux.x |= ( ( (v.x>>45)%2 ) )<< 38 ;
+        aux.x |= ( ( (v.x>>5)%2 ) & ( ( ( ! ( (v.x>>13)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) ) | ( ( (v.x>>43)%2 ) & ( ( ( ! ( (v.x>>13)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) )<< 39 ;
+        aux.x |= ( ( (v.x>>22)%2 ) )<< 40 ;
+        aux.x |= ( ( (v.x>>36)%2 ) & ( ( ( ! ( (v.x>>44)%2 ) ) ) ) ) | ( ( (v.x>>35)%2 ) & ( ( ( ! ( (v.x>>44)%2 ) ) ) ) )<< 41 ;
+        aux.x |= ( ( (v.y>>3)%2 ) )<< 42 ;
+        aux.x |= ( ( (v.y>>4)%2 ) )<< 43 ;
+        aux.x |= ( ( (v.y>>16)%2 ) )<< 44 ;
+        aux.x |= ( ( (v.x>>39)%2 ) )<< 45 ;
+        aux.x |= ( ( (v.x>>11)%2 ) & ( ( ( ! ( (v.y>>1)%2 ) & ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) & ! ( (v.x>>13)%2 ) ) ) ) ) | ( ( (v.x>>57)%2 ) & ( ( ( ! ( (v.y>>1)%2 ) & ! ( (v.x>>5)%2 ) & ! ( (v.x>>39)%2 ) ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) ) ) )<< 46 ;
+        aux.x |= ( ( (v.x>>9)%2 ) )<< 47 ;
+        aux.x |= ( ( (v.x>>48)%2 ) & ( ( ( ! ( (v.x>>15)%2 ) & ! ( (v.y>>0)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>51)%2 ) & ( ( ( ( (v.x>>55)%2 ) ) ) ) )<< 48 ;
+        aux.x |= ( ( (v.x>>49)%2 ) & ( ( ( ! ( (v.y>>3)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>44)%2 ) & ! ( (v.x>>50)%2 ) ) ) ) )<< 49 ;
+        aux.x |= ( ( (v.x>>8)%2 ) & ( ( ( ! ( (v.x>>57)%2 ) & ! ( (v.y>>1)%2 ) & ! ( (v.x>>7)%2 ) ) ) ) ) | ( ( (v.x>>57)%2 ) & ( ( ( ( (v.x>>8)%2 ) ) ) ) )<< 50 ;
+        aux.x |= ( ( (v.x>>61)%2 ) )<< 51 ;
+        aux.x |= ( ( (v.x>>61)%2 ) & ( ( ( ! ( (v.x>>0)%2 ) ) ) ) )<< 52 ;
+        aux.x |= ( ( (v.y>>0)%2 ) ) | ( ( (v.x>>54)%2 ) )<< 53 ;
+        aux.x |= ( ( (v.x>>20)%2 ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>40)%2 ) )<< 54 ;
+        aux.x |= ( ( (v.x>>28)%2 ) ) | ( ( (v.x>>41)%2 ) ) | ( ( (v.x>>29)%2 ) ) | ( ( (v.x>>24)%2 ) )<< 55 ;
+        aux.x |= ( ( (v.x>>25)%2 ) & ( ( ( ! ( (v.x>>15)%2 ) ) ) ) )<< 56 ;
+        aux.x |= ( ( (v.x>>41)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) ) | ( ( (v.x>>31)%2 ) & ( ( ( ! ( (v.x>>53)%2 ) ) ) ) )<< 57 ;
+        aux.x |= ( ( (v.x>>33)%2 ) )<< 58 ;
+        aux.x |= ( ( (v.x>>44)%2 ) )<< 59 ;
+        aux.x |= ( ( (v.x>>14)%2 ) )<< 60 ;
+        aux.x |= ( ( (v.x>>60)%2 ) )<< 61 ;
+        aux.x |= ( ( (v.x>>63)%2 ) )<< 62 ;
+        aux.x |= ( ( (v.x>>48)%2 ) )<< 63 ;
+        aux.y |= ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) ) | ( ( (v.x>>54)%2 ) & ( ( ( ! ( (v.x>>48)%2 ) & ! ( (v.x>>15)%2 ) & ! ( (v.x>>14)%2 ) ) ) ) )<<0;
+        aux.y |= ( ( (v.y>>1)%2 ) ) | ( ( (v.y>>3)%2 ) ) | ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) ) | ( ( (v.x>>48)%2 ) ) | ( ( (v.x>>7)%2 ) & ( ( ( ! ( (v.x>>8)%2 ) ) ) ) ) | ( ( (v.x>>15)%2 ) ) | ( ( (v.x>>14)%2 ) )<<1;
+        aux.y |= ( ( (v.x>>5)%2 ) )<<2;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -740,13 +1750,78 @@ __global__ void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsign
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
+        aux.x |= ( ( ( (v.x>>62)%2 ) * 2) >= 2 ) <<0;
+        aux.x |= ( ( ( (v.x>>4)%2 ) * 2 + ( (v.x>>46)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<2;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>11)%2 ) * 2 + ( (v.x>>5)%2 ) * -2 + ( (v.x>>39)%2 ) * -2) >= 4 ) <<4;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>46)%2 ) * -2 + ( (v.x>>4)%2 ) * -2 + ( (v.x>>1)%2 ) * -2) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.y>>1)%2 ) * 2 + ( (v.x>>11)%2 ) * -14 + ( (v.x>>50)%2 ) * -14 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>7)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + 0 * -14 + ( (v.y>>1)%2 ) * -14 + ( (v.x>>11)%2 ) * -14 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>8)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>50)%2 ) * 6 + ( (v.x>>30)%2 ) * 2) >= 8 ) <<9;
+        aux.x |= ( ( ( (v.x>>13)%2 ) * 2 + ( (v.y>>4)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2 + ( (v.y>>5)%2 ) * 2) >= 4 ) <<12;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>46)%2 ) * -6 + ( (v.y>>7)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2 + ( (v.x>>48)%2 ) * -14 + ( (v.x>>15)%2 ) * -14 + ( (v.x>>55)%2 ) * -14 + ( (v.y>>0)%2 ) * -14 + ( (v.x>>51)%2 ) * 2 + ( (v.x>>52)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>48)%2 ) * -14 + ( (v.x>>49)%2 ) * -14 + ( (v.x>>18)%2 ) * -14 + ( (v.y>>0)%2 ) * -14 + ( (v.x>>14)%2 ) * -14 + ( (v.x>>58)%2 ) * 2 + ( (v.x>>15)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>38)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2) >= 2 ) <<18;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.y>>8)%2 ) * 2) >= 2 ) <<20;
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>55)%2 ) * -30 + ( (v.x>>9)%2 ) * 2 + ( (v.x>>37)%2 ) * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2) >= 2 ) <<23;
+        aux.x |= ( ( ( (v.x>>23)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.y>>11)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.y>>12)%2 ) * 2) >= 2 ) <<29;
+        aux.x |= ( ( ( (v.y>>13)%2 ) * 2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.y>>14)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.x>>54)%2 ) * -2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2 + ( (v.x>>53)%2 ) * -2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( 0 * 2 + ( (v.y>>3)%2 ) * -2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>27)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2 + ( (v.x>>13)%2 ) * -6 + ( (v.x>>11)%2 ) * 6 + ( (v.x>>43)%2 ) * 2) >= 8 ) <<39;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>44)%2 ) * -6 + ( (v.x>>35)%2 ) * 2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.y>>4)%2 ) * 2) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.y>>16)%2 ) * 2) >= 2 ) <<44;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>11)%2 ) * 6 + ( (v.y>>1)%2 ) * -6 + ( (v.x>>5)%2 ) * -6 + ( (v.x>>39)%2 ) * -6 + ( (v.x>>13)%2 ) * -2 + ( (v.x>>57)%2 ) * 2) >= 6 ) <<46;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<47;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 6 + ( (v.x>>15)%2 ) * -6 + ( (v.y>>0)%2 ) * -6 + ( (v.x>>14)%2 ) * -6 + ( (v.x>>51)%2 ) * 30 + ( (v.x>>55)%2 ) * 30) >= 6 ) <<48;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2 + 0 * -2 + ( (v.y>>1)%2 ) * -2 + ( (v.x>>44)%2 ) * -2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>8)%2 ) * 10 + ( (v.x>>57)%2 ) * 6 + ( (v.y>>1)%2 ) * -2 + ( (v.x>>7)%2 ) * -2) >= 10 ) <<50;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2 + ( (v.x>>0)%2 ) * -2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>20)%2 ) * 2 + ( (v.x>>30)%2 ) * 2 + ( (v.x>>40)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>41)%2 ) * 2 + ( (v.x>>29)%2 ) * 2 + ( (v.x>>24)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>25)%2 ) * 2 + ( (v.x>>15)%2 ) * -2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>53)%2 ) * -6 + ( (v.x>>31)%2 ) * 2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2) >= 2 ) <<59;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2) >= 2 ) <<60;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<61;
+        aux.x |= ( ( ( (v.x>>63)%2 ) * 2) >= 2 ) <<62;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<63;
+        aux.y |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>48)%2 ) * -6 + ( (v.x>>15)%2 ) * -6 + ( (v.x>>14)%2 ) * -6 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<0;
+        aux.y |= ( ( ( (v.y>>1)%2 ) * 18 + 0 * 18 + ( (v.y>>0)%2 ) * 6 + ( (v.x>>50)%2 ) * -6 + ( (v.x>>48)%2 ) * 18 + ( (v.x>>7)%2 ) * 6 + ( (v.x>>8)%2 ) * -6 + ( (v.x>>15)%2 ) * 18 + ( (v.x>>14)%2 ) * 18) >= 0 ) <<1;
+        aux.y |= ( ( ( (v.x>>5)%2 ) * 2) >= 2 ) <<2;
+
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -758,14 +1833,77 @@ unsigned long long confere_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
+        aux.x |= ( ( ( (v.x>>62)%2 ) * 2) >= 2 ) <<0;
+        aux.x |= ( ( ( (v.x>>4)%2 ) * 2 + ( (v.x>>46)%2 ) * 2) >= 2 ) <<1;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 4 ) <<2;
+        aux.x |= ( ( ( (v.x>>12)%2 ) * 2 + ( (v.x>>57)%2 ) * 2) >= 2 ) <<3;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>11)%2 ) * 2 + ( (v.x>>5)%2 ) * -2 + ( (v.x>>39)%2 ) * -2) >= 4 ) <<4;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2 + ( (v.x>>46)%2 ) * -2 + ( (v.x>>4)%2 ) * -2 + ( (v.x>>1)%2 ) * -2) >= 2 ) <<5;
+        aux.x |= ( ( ( (v.x>>46)%2 ) * 2) >= 2 ) <<6;
+        aux.x |= ( ( ( (v.y>>1)%2 ) * 2 + ( (v.x>>11)%2 ) * -14 + ( (v.x>>50)%2 ) * -14 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>7)%2 ) * 2) >= 2 ) <<7;
+        aux.x |= ( ( ( (v.x>>50)%2 ) * 2 + 0 * -14 + ( (v.y>>1)%2 ) * -14 + ( (v.x>>11)%2 ) * -14 + ( (v.x>>44)%2 ) * 2 + ( (v.x>>8)%2 ) * 2) >= 2 ) <<8;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>50)%2 ) * 6 + ( (v.x>>30)%2 ) * 2) >= 8 ) <<9;
+        aux.x |= ( ( ( (v.x>>13)%2 ) * 2 + ( (v.y>>4)%2 ) * 2) >= 2 ) <<10;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<11;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2 + ( (v.y>>5)%2 ) * 2) >= 4 ) <<12;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>46)%2 ) * -6 + ( (v.y>>7)%2 ) * 2) >= 2 ) <<13;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2 + ( (v.x>>48)%2 ) * -14 + ( (v.x>>15)%2 ) * -14 + ( (v.x>>55)%2 ) * -14 + ( (v.y>>0)%2 ) * -14 + ( (v.x>>51)%2 ) * 2 + ( (v.x>>52)%2 ) * 2) >= 2 ) <<14;
+        aux.x |= ( ( ( (v.x>>59)%2 ) * 2 + ( (v.x>>48)%2 ) * -14 + ( (v.x>>49)%2 ) * -14 + ( (v.x>>18)%2 ) * -14 + ( (v.y>>0)%2 ) * -14 + ( (v.x>>14)%2 ) * -14 + ( (v.x>>58)%2 ) * 2 + ( (v.x>>15)%2 ) * 2) >= 2 ) <<15;
+        aux.x |= ( ( ( (v.x>>38)%2 ) * 2) >= 2 ) <<16;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<17;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2) >= 2 ) <<18;
+        aux.x |= ( ( ( (v.x>>43)%2 ) * 2) >= 2 ) <<19;
+        aux.x |= ( ( ( (v.y>>8)%2 ) * 2) >= 2 ) <<20;
+        aux.x |= ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>55)%2 ) * -30 + ( (v.x>>9)%2 ) * 2 + ( (v.x>>37)%2 ) * 2 + ( (v.y>>0)%2 ) * 2) >= 2 ) <<21;
+        aux.x |= ( ( ( (v.x>>21)%2 ) * 2) >= 2 ) <<22;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2) >= 2 ) <<23;
+        aux.x |= ( ( ( (v.x>>23)%2 ) * 2) >= 2 ) <<24;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<25;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<26;
+        aux.x |= ( ( 0 * 2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<27;
+        aux.x |= ( ( ( (v.y>>11)%2 ) * 2) >= 2 ) <<28;
+        aux.x |= ( ( ( (v.y>>12)%2 ) * 2) >= 2 ) <<29;
+        aux.x |= ( ( ( (v.y>>13)%2 ) * 2) >= 2 ) <<30;
+        aux.x |= ( ( ( (v.y>>14)%2 ) * 2) >= 2 ) <<31;
+        aux.x |= ( ( ( (v.x>>15)%2 ) * 2 + ( (v.x>>54)%2 ) * -2) >= 2 ) <<32;
+        aux.x |= ( ( ( (v.x>>32)%2 ) * 2 + ( (v.x>>53)%2 ) * -2) >= 2 ) <<33;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<34;
+        aux.x |= ( ( ( (v.x>>34)%2 ) * 2) >= 2 ) <<35;
+        aux.x |= ( ( 0 * 2 + ( (v.y>>3)%2 ) * -2) >= 2 ) <<36;
+        aux.x |= ( ( ( (v.x>>27)%2 ) * 2) >= 2 ) <<37;
+        aux.x |= ( ( ( (v.x>>45)%2 ) * 2) >= 2 ) <<38;
+        aux.x |= ( ( ( (v.x>>5)%2 ) * 2 + ( (v.x>>13)%2 ) * -6 + ( (v.x>>11)%2 ) * 6 + ( (v.x>>43)%2 ) * 2) >= 8 ) <<39;
+        aux.x |= ( ( ( (v.x>>22)%2 ) * 2) >= 2 ) <<40;
+        aux.x |= ( ( ( (v.x>>36)%2 ) * 2 + ( (v.x>>44)%2 ) * -6 + ( (v.x>>35)%2 ) * 2) >= 2 ) <<41;
+        aux.x |= ( ( ( (v.y>>3)%2 ) * 2) >= 2 ) <<42;
+        aux.x |= ( ( ( (v.y>>4)%2 ) * 2) >= 2 ) <<43;
+        aux.x |= ( ( ( (v.y>>16)%2 ) * 2) >= 2 ) <<44;
+        aux.x |= ( ( ( (v.x>>39)%2 ) * 2) >= 2 ) <<45;
+        aux.x |= ( ( ( (v.x>>11)%2 ) * 6 + ( (v.y>>1)%2 ) * -6 + ( (v.x>>5)%2 ) * -6 + ( (v.x>>39)%2 ) * -6 + ( (v.x>>13)%2 ) * -2 + ( (v.x>>57)%2 ) * 2) >= 6 ) <<46;
+        aux.x |= ( ( ( (v.x>>9)%2 ) * 2) >= 2 ) <<47;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 6 + ( (v.x>>15)%2 ) * -6 + ( (v.y>>0)%2 ) * -6 + ( (v.x>>14)%2 ) * -6 + ( (v.x>>51)%2 ) * 30 + ( (v.x>>55)%2 ) * 30) >= 6 ) <<48;
+        aux.x |= ( ( ( (v.x>>49)%2 ) * 2 + 0 * -2 + ( (v.y>>1)%2 ) * -2 + ( (v.x>>44)%2 ) * -2 + ( (v.x>>50)%2 ) * -2) >= 2 ) <<49;
+        aux.x |= ( ( ( (v.x>>8)%2 ) * 10 + ( (v.x>>57)%2 ) * 6 + ( (v.y>>1)%2 ) * -2 + ( (v.x>>7)%2 ) * -2) >= 10 ) <<50;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<51;
+        aux.x |= ( ( ( (v.x>>61)%2 ) * 2 + ( (v.x>>0)%2 ) * -2) >= 2 ) <<52;
+        aux.x |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<53;
+        aux.x |= ( ( ( (v.x>>20)%2 ) * 2 + ( (v.x>>30)%2 ) * 2 + ( (v.x>>40)%2 ) * 2) >= 2 ) <<54;
+        aux.x |= ( ( ( (v.x>>28)%2 ) * 2 + ( (v.x>>41)%2 ) * 2 + ( (v.x>>29)%2 ) * 2 + ( (v.x>>24)%2 ) * 2) >= 2 ) <<55;
+        aux.x |= ( ( ( (v.x>>25)%2 ) * 2 + ( (v.x>>15)%2 ) * -2) >= 2 ) <<56;
+        aux.x |= ( ( ( (v.x>>41)%2 ) * 2 + ( (v.x>>53)%2 ) * -6 + ( (v.x>>31)%2 ) * 2) >= 2 ) <<57;
+        aux.x |= ( ( ( (v.x>>33)%2 ) * 2) >= 2 ) <<58;
+        aux.x |= ( ( ( (v.x>>44)%2 ) * 2) >= 2 ) <<59;
+        aux.x |= ( ( ( (v.x>>14)%2 ) * 2) >= 2 ) <<60;
+        aux.x |= ( ( ( (v.x>>60)%2 ) * 2) >= 2 ) <<61;
+        aux.x |= ( ( ( (v.x>>63)%2 ) * 2) >= 2 ) <<62;
+        aux.x |= ( ( ( (v.x>>48)%2 ) * 2) >= 2 ) <<63;
+        aux.y |= ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>48)%2 ) * -6 + ( (v.x>>15)%2 ) * -6 + ( (v.x>>14)%2 ) * -6 + ( (v.x>>54)%2 ) * 2) >= 2 ) <<0;
+        aux.y |= ( ( ( (v.y>>1)%2 ) * 18 + 0 * 18 + ( (v.y>>0)%2 ) * 6 + ( (v.x>>50)%2 ) * -6 + ( (v.x>>48)%2 ) * 18 + ( (v.x>>7)%2 ) * 6 + ( (v.x>>8)%2 ) * -6 + ( (v.x>>15)%2 ) * 18 + ( (v.x>>14)%2 ) * 18) >= 0 ) <<1;
+        aux.y |= ( ( ( (v.x>>5)%2 ) * 2) >= 2 ) <<2;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
             cerr << "Estado : " << init_rand[i].x << " Posição :"<<i<<"\n";
@@ -784,12 +1922,9 @@ __global__ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsig
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -802,13 +1937,9 @@ unsigned long long confere_bool_15(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -827,12 +1958,9 @@ __global__ void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsign
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -845,13 +1973,9 @@ unsigned long long confere_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -871,12 +1995,9 @@ __global__ void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsig
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -889,13 +2010,9 @@ unsigned long long confere_bool_17(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -914,12 +2031,9 @@ __global__ void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsign
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -932,13 +2046,9 @@ unsigned long long confere_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -958,12 +2068,9 @@ __global__ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsig
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -976,13 +2083,9 @@ unsigned long long confere_bool_18(ulonglong3 * init_rand, ulonglong3 * estado_g
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
@@ -1001,12 +2104,9 @@ __global__ void passo_tlf_18(ulonglong3 * init_rand, ulonglong3 * estado, unsign
     ulonglong3 v,aux;
     if(tid < MAX_ESTADO)
     {
-        aux.x = 0;
-        aux.y = 0;
-        aux.z = 0;
-        v.x = init_rand[tid].x;
-        v.y = init_rand[tid].y;
-        v.z = init_rand[tid].z;
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
     
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -1019,13 +2119,9 @@ unsigned long long confere_tlf_18(ulonglong3 * init_rand, ulonglong3 * estado_gp
     ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
-        aux.x = v.x = 0;
-        aux.y = v.y = 0;
-        aux.z = v.z = 0;
-        
-        v.x = init_rand[i].x;
-        v.y = init_rand[i].y;
-        v.z = init_rand[i].z;
+        aux.x = v.x = init_rand[i].x;
+        aux.y = v.y = init_rand[i].y;
+        aux.z = v.z = init_rand[i].z;
 
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
