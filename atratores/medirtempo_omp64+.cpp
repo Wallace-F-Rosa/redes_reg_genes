@@ -13,6 +13,11 @@
 #define THREADS 16
 
 using namespace std;
+struct ulonglong3{
+    unsigned long long x;
+    unsigned long long y;
+    unsigned long long z;
+};
 
 const string NAME[] = {"passo_bool_10", "passo_tlf_10", "passo_bool_11", "passo_tlf_11", "passo_bool_12", "passo_tlf_12",
                        "passo_bool_13", "passo_tlf_13", "passo_bool_14", "passo_tlf_14", "passo_bool_15", "passo_tlf_15",
