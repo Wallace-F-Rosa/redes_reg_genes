@@ -20,7 +20,7 @@ const string NAME[] = {"passo_bool_10", "passo_tlf_10", "passo_bool_11", "passo_
 
 void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -100,7 +100,7 @@ void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -180,7 +180,7 @@ void passo_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -260,7 +260,7 @@ void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -339,7 +339,7 @@ void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -418,7 +418,7 @@ void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -497,7 +497,7 @@ void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -575,7 +575,7 @@ void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -653,7 +653,7 @@ void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -738,7 +738,7 @@ void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -823,7 +823,7 @@ void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -912,7 +912,7 @@ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -1001,7 +1001,7 @@ void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -1095,7 +1095,7 @@ void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -1189,7 +1189,7 @@ void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
@@ -1337,7 +1337,7 @@ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    unsigned long long v,aux;
+    ulonglong3 v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
     {   
         aux.x = v.x = init_rand[i].x;
