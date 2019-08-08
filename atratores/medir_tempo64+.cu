@@ -3615,12 +3615,17 @@ int main(int argc, char **argv)
     cudaMalloc(&d_init_rand,sizeof(ulonglong3)*MAX_ESTADO);
     cudaMalloc(&d_estado,sizeof(ulonglong3)*MAX_ESTADO);
     
-    unsigned int nEq = 64;
+    unsigned int nEq = 192;
     srand(MAX_ESTADO);
     preenche_init_rand(h_init_rand,MAX_ESTADO,nEq);
 
     for(unsigned long long i = 0; i < MAX_ESTADO; i++)
-        h_estado[i] = 0;
+    {
+        h_estado[i].x = 0;
+        h_estado[i].y = 0;
+        h_estado[i].z = 0;
+    }
+        
 
     cudaMemcpy(d_init_rand, h_init_rand, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
     cudaMemcpy(d_estado, h_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
@@ -3734,43 +3739,43 @@ int main(int argc, char **argv)
 
     unsigned long long i = 0;
     switch (n) {
-        case 0:i= confere_bool_1(h_init_rand,h_estado,MAX_ESTADO); 
+        case 0:i= confere_bool_10(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 1:i= confere_tlf_1(h_init_rand,h_estado,MAX_ESTADO);
+        case 1:i= confere_tlf_10(h_init_rand,h_estado,MAX_ESTADO);
                 break;
-        case 2: i= confere_bool_2(h_init_rand,h_estado,MAX_ESTADO); 
+        case 2: i= confere_bool_11(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 3: i= confere_tlf_2(h_init_rand,h_estado,MAX_ESTADO); 
+        case 3: i= confere_tlf_11(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 4: i= confere_bool_3(h_init_rand,h_estado,MAX_ESTADO); 
+        case 4: i= confere_bool_12(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 5: i= confere_tlf_3(h_init_rand,h_estado,MAX_ESTADO); 
+        case 5: i= confere_tlf_12(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
         //case 7: passo_bool_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
         //case 8: passo_tlf_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
-        case 6: i= confere_bool_5(h_init_rand,h_estado,MAX_ESTADO); 
+        case 6: i= confere_bool_13(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 7: i= confere_tlf_5(h_init_rand,h_estado,MAX_ESTADO); 
+        case 7: i= confere_tlf_13(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 8: i= confere_bool_6(h_init_rand,h_estado,MAX_ESTADO); 
+        case 8: i= confere_bool_14(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 9: i= confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO); 
+        case 9: i= confere_tlf_14(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 10: i= confere_bool_7(h_init_rand,h_estado,MAX_ESTADO); 
+        case 10: i= confere_bool_15(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 11: i= confere_tlf_7(h_init_rand,h_estado,MAX_ESTADO); 
+        case 11: i= confere_tlf_15(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 12: i= confere_bool_8(h_init_rand,h_estado,MAX_ESTADO); 
+        case 12: i= confere_bool_17(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 13: i= confere_tlf_8(h_init_rand,h_estado,MAX_ESTADO); 
+        case 13: i= confere_tlf_17(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 14: i= confere_bool_9(h_init_rand,h_estado,MAX_ESTADO); 
+        case 14: i= confere_bool_18(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 15: i= confere_tlf_9(h_init_rand,h_estado,MAX_ESTADO); 
+        case 15: i= confere_tlf_18(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        default: i= confere_bool_1(h_init_rand,h_estado,MAX_ESTADO); 
+        default: 
                 break;
     }
     
