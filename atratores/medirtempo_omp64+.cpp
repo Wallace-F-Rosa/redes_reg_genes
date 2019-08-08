@@ -1536,37 +1536,6 @@ void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigne
 }
 
 
-
-void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigned int nEq)
-{
-    
-    for(unsigned long long i = 0; i < nSim; i++)
-    {
-        
-        init_rand[i].x = 0;
-        init_rand[i].y = 0;
-        init_rand[i].z = 0;
-        unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand3 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand4 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand5 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand6 = rand()%((unsigned long)(1<<31)-1);
-        for(int j = 0; j < nEq && j < 32; j++)
-            init_rand[i].x |=(unsigned long long) ((rand1>>j)%2)<<j;
-        for(int j = 32; j < nEq && j < 64; j++)
-            init_rand[i].x |=(unsigned long long) ((rand2>>(j-32))%2)<<j;
-        for(int j = 64; j < nEq && j < 96; j++)
-            init_rand[i].y |=(unsigned long long) ((rand3>>(j-64))%2)<<(j-64);
-        for(int j = 96; j < nEq && j < 128; j++)
-            init_rand[i].y |=(unsigned long long) ((rand4>>(j-96))%2)<<(j-64);
-        for(int j = 128; j < nEq && j < 160; j++)
-            init_rand[i].z |=(unsigned long long) ((rand5>>(j-128))%2)<<(j-128);
-        for(int j = 160; j < nEq && j < 192; j++)
-            init_rand[i].z |=(unsigned long long) ((rand6>>(j-160))%2)<<(j-128);
-    }
-}
-
 int main(int argc, char **argv)
 {
     unsigned long long MAX_ESTADO = 0;
