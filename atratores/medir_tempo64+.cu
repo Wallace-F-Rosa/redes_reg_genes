@@ -3298,13 +3298,6 @@ __global__ void passo_tlf_18_parte1(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.x |=(unsigned long long) ( ( ( (v.x>>52)%2 ) * 14 + ( (v.x>>23)%2 ) * 2 + ( (v.y>>14)%2 ) * -2 + ( (v.x>>46)%2 ) * -2) >= 2 ) <<23;
         aux.x |=(unsigned long long) ( ( ( (v.y>>45)%2 ) * 6 + ( (v.x>>24)%2 ) * 2 + ( (v.y>>15)%2 ) * -10 + ( (v.x>>42)%2 ) * 10 + ( (v.y>>49)%2 ) * 10) >= 8 ) <<24;
         aux.x |=(unsigned long long) ( ( ( (v.y>>52)%2 ) * 2) >= 2 ) <<25;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * 6 + ( (v.y>>4)%2 ) * 90 + ( (v.y>>25)%2 ) * -154 + ( (v.x>>23)%2 ) * -154 + ( (v.x>>34)%2 ) * 6 + ( (v.x>>8)%2 ) * 34 + ( (v.y>>45)%2 ) * 34 + ( (v.x>>32)%2 ) * 6 + ( (v.x>>35)%2 ) * 6) >= 68 ) <<26;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>27)%2 ) * 0 + ( (v.y>>61)%2 ) * -4 + ( (v.x>>32)%2 ) * 0 + ( (v.y>>56)%2 ) * 4) >= 0 ) <<27;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>28)%2 ) * 0 + ( (v.y>>5)%2 ) * 4 + ( (v.x>>22)%2 ) * 8 + ( (v.y>>41)%2 ) * -8 + ( (v.x>>37)%2 ) * 4) >= 12 ) <<28;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * -4 + ( (v.y>>24)%2 ) * -32 + ( (v.x>>29)%2 ) * -4 + ( (v.y>>57)%2 ) * 28 + ( (v.y>>7)%2 ) * 4 + ( (v.y>>59)%2 ) * -4 + ( (v.z>>5)%2 ) * 4) >= -24 ) <<29;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>58)%2 ) * 8 + ( (v.x>>30)%2 ) * -4 + ( (v.x>>34)%2 ) * -4 + ( (v.y>>24)%2 ) * -4 + ( (v.y>>11)%2 ) * -4) >= -8 ) <<30;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>59)%2 ) * 4 + ( (v.x>>35)%2 ) * 4 + ( (v.y>>7)%2 ) * -4 + ( (v.x>>31)%2 ) * 4 + ( (v.y>>24)%2 ) * -8) >= -4 ) <<31;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>27)%2 ) * 6 + ( (v.y>>56)%2 ) * 2 + ( (v.x>>32)%2 ) * -2) >= 2 ) <<32;
         
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -3322,6 +3315,13 @@ __global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.y = v.y = init_rand[tid].y;
         aux.z = v.z = init_rand[tid].z;
 
+        aux.x |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * 6 + ( (v.y>>4)%2 ) * 90 + ( (v.y>>25)%2 ) * -154 + ( (v.x>>23)%2 ) * -154 + ( (v.x>>34)%2 ) * 6 + ( (v.x>>8)%2 ) * 34 + ( (v.y>>45)%2 ) * 34 + ( (v.x>>32)%2 ) * 6 + ( (v.x>>35)%2 ) * 6) >= 68 ) <<26;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>27)%2 ) * 0 + ( (v.y>>61)%2 ) * -4 + ( (v.x>>32)%2 ) * 0 + ( (v.y>>56)%2 ) * 4) >= 0 ) <<27;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>28)%2 ) * 0 + ( (v.y>>5)%2 ) * 4 + ( (v.x>>22)%2 ) * 8 + ( (v.y>>41)%2 ) * -8 + ( (v.x>>37)%2 ) * 4) >= 12 ) <<28;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * -4 + ( (v.y>>24)%2 ) * -32 + ( (v.x>>29)%2 ) * -4 + ( (v.y>>57)%2 ) * 28 + ( (v.y>>7)%2 ) * 4 + ( (v.y>>59)%2 ) * -4 + ( (v.z>>5)%2 ) * 4) >= -24 ) <<29;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>58)%2 ) * 8 + ( (v.x>>30)%2 ) * -4 + ( (v.x>>34)%2 ) * -4 + ( (v.y>>24)%2 ) * -4 + ( (v.y>>11)%2 ) * -4) >= -8 ) <<30;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>59)%2 ) * 4 + ( (v.x>>35)%2 ) * 4 + ( (v.y>>7)%2 ) * -4 + ( (v.x>>31)%2 ) * 4 + ( (v.y>>24)%2 ) * -8) >= -4 ) <<31;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>27)%2 ) * 6 + ( (v.y>>56)%2 ) * 2 + ( (v.x>>32)%2 ) * -2) >= 2 ) <<32;
         aux.x |=(unsigned long long) ( ( ( (v.y>>57)%2 ) * 2 + ( (v.x>>29)%2 ) * 6 + ( (v.x>>33)%2 ) * -2) >= 2 ) <<33;
         aux.x |=(unsigned long long) ( ( ( (v.y>>58)%2 ) * 2 + ( (v.x>>30)%2 ) * 6 + ( (v.x>>34)%2 ) * -2) >= 2 ) <<34;
         aux.x |=(unsigned long long) ( ( ( (v.x>>31)%2 ) * 6 + ( (v.y>>59)%2 ) * 2 + ( (v.x>>35)%2 ) * -2) >= 2 ) <<35;
@@ -3341,21 +3341,7 @@ __global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.x |=(unsigned long long) ( ( ( (v.y>>26)%2 ) * 2 + ( (v.x>>16)%2 ) * 2) >= 2 ) <<49;
         aux.x |=(unsigned long long) ( ( ( (v.x>>16)%2 ) * 2 + ( (v.y>>40)%2 ) * 6 + ( (v.y>>26)%2 ) * 2) >= 8 ) <<50;
         aux.x |=(unsigned long long) ( ( ( (v.x>>38)%2 ) * 2 + ( (v.y>>26)%2 ) * 2 + ( (v.x>>16)%2 ) * 2) >= 2 ) <<51;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>61)%2 ) * 0 + ( (v.y>>51)%2 ) * 108 + ( (v.y>>14)%2 ) * -92 + ( (v.x>>52)%2 ) * -92 + ( (v.x>>53)%2 ) * 12 + ( (v.y>>27)%2 ) * 84 + ( (v.x>>54)%2 ) * 12 + ( (v.x>>55)%2 ) * 12) >= 4 ) <<52;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 4 + ( (v.y>>43)%2 ) * 8 + ( (v.x>>37)%2 ) * 8 + ( (v.x>>58)%2 ) * 4 + ( (v.y>>52)%2 ) * 12 + ( (v.y>>26)%2 ) * 12 + ( (v.y>>35)%2 ) * 12 + ( (v.x>>25)%2 ) * 12 + ( (v.x>>16)%2 ) * 12) >= 12 ) <<53;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>54)%2 ) * -30 + ( (v.x>>22)%2 ) * 30 + ( (v.y>>45)%2 ) * 2 + ( (v.y>>12)%2 ) * 2 + ( (v.x>>37)%2 ) * 2) >= 32 ) <<54;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>52)%2 ) * 2 + ( (v.x>>28)%2 ) * -14 + ( (v.y>>26)%2 ) * 2 + ( (v.x>>38)%2 ) * 2) >= 2 ) <<55;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>16)%2 ) * 2 + ( (v.y>>26)%2 ) * 2) >= 2 ) <<56;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>39)%2 ) * 12 + ( (v.x>>57)%2 ) * -52 + ( (v.x>>48)%2 ) * -64 + ( (v.x>>47)%2 ) * 4 + ( (v.x>>11)%2 ) * 4 + ( (v.x>>61)%2 ) * 12 + ( (v.y>>39)%2 ) * 12) >= -56 ) <<57;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>46)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 2 ) <<58;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>14)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<59;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>13)%2 ) * 2) >= 2 ) <<60;
-        aux.x |=(unsigned long long) ( ( ( (v.y>>26)%2 ) * 86 + ( (v.x>>59)%2 ) * 42 + ( (v.x>>6)%2 ) * -42 + ( (v.x>>37)%2 ) * 126 + ( (v.y>>7)%2 ) * -258 + ( (v.y>>45)%2 ) * 18 + ( (v.x>>61)%2 ) * 18 + ( (v.x>>16)%2 ) * 86 + ( (v.y>>16)%2 ) * -18) >= 80 ) <<61;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>8)%2 ) * 6 + ( (v.x>>23)%2 ) * -2 + ( (v.y>>7)%2 ) * 2) >= 6 ) <<62;
-        aux.x |=(unsigned long long) ( ( ( (v.z>>1)%2 ) * 2 + ( (v.y>>45)%2 ) * 2) >= 2 ) <<63;
-        aux.y |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * 6 + ( (v.x>>28)%2 ) * 6 + ( (v.x>>24)%2 ) * 6 + ( (v.x>>17)%2 ) * 6 + ( (v.y>>35)%2 ) * 6 + ( (v.x>>22)%2 ) * 2 + ( (v.y>>45)%2 ) * 2) >= 4 ) <<0;
-        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 2 + ( (v.y>>8)%2 ) * 2 + ( (v.x>>3)%2 ) * 2 + ( (v.x>>29)%2 ) * 2 + ( (v.x>>30)%2 ) * 2) >= 2 ) <<1;
-        
+
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -3372,6 +3358,20 @@ __global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.y = v.y = init_rand[tid].y;
         aux.z = v.z = init_rand[tid].z;
 
+        aux.x |=(unsigned long long) ( ( ( (v.x>>61)%2 ) * 0 + ( (v.y>>51)%2 ) * 108 + ( (v.y>>14)%2 ) * -92 + ( (v.x>>52)%2 ) * -92 + ( (v.x>>53)%2 ) * 12 + ( (v.y>>27)%2 ) * 84 + ( (v.x>>54)%2 ) * 12 + ( (v.x>>55)%2 ) * 12) >= 4 ) <<52;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 4 + ( (v.y>>43)%2 ) * 8 + ( (v.x>>37)%2 ) * 8 + ( (v.x>>58)%2 ) * 4 + ( (v.y>>52)%2 ) * 12 + ( (v.y>>26)%2 ) * 12 + ( (v.y>>35)%2 ) * 12 + ( (v.x>>25)%2 ) * 12 + ( (v.x>>16)%2 ) * 12) >= 12 ) <<53;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>0)%2 ) * 2 + ( (v.x>>54)%2 ) * -30 + ( (v.x>>22)%2 ) * 30 + ( (v.y>>45)%2 ) * 2 + ( (v.y>>12)%2 ) * 2 + ( (v.x>>37)%2 ) * 2) >= 32 ) <<54;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>52)%2 ) * 2 + ( (v.x>>28)%2 ) * -14 + ( (v.y>>26)%2 ) * 2 + ( (v.x>>38)%2 ) * 2) >= 2 ) <<55;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>16)%2 ) * 2 + ( (v.y>>26)%2 ) * 2) >= 2 ) <<56;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>39)%2 ) * 12 + ( (v.x>>57)%2 ) * -52 + ( (v.x>>48)%2 ) * -64 + ( (v.x>>47)%2 ) * 4 + ( (v.x>>11)%2 ) * 4 + ( (v.x>>61)%2 ) * 12 + ( (v.y>>39)%2 ) * 12) >= -56 ) <<57;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>46)%2 ) * 2 + ( (v.x>>59)%2 ) * 2) >= 2 ) <<58;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>14)%2 ) * 2 + ( (v.x>>22)%2 ) * 2) >= 2 ) <<59;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>13)%2 ) * 2) >= 2 ) <<60;
+        aux.x |=(unsigned long long) ( ( ( (v.y>>26)%2 ) * 86 + ( (v.x>>59)%2 ) * 42 + ( (v.x>>6)%2 ) * -42 + ( (v.x>>37)%2 ) * 126 + ( (v.y>>7)%2 ) * -258 + ( (v.y>>45)%2 ) * 18 + ( (v.x>>61)%2 ) * 18 + ( (v.x>>16)%2 ) * 86 + ( (v.y>>16)%2 ) * -18) >= 80 ) <<61;
+        aux.x |=(unsigned long long) ( ( ( (v.x>>8)%2 ) * 6 + ( (v.x>>23)%2 ) * -2 + ( (v.y>>7)%2 ) * 2) >= 6 ) <<62;
+        aux.x |=(unsigned long long) ( ( ( (v.z>>1)%2 ) * 2 + ( (v.y>>45)%2 ) * 2) >= 2 ) <<63;
+        aux.y |=(unsigned long long) ( ( ( (v.x>>33)%2 ) * 6 + ( (v.x>>28)%2 ) * 6 + ( (v.x>>24)%2 ) * 6 + ( (v.x>>17)%2 ) * 6 + ( (v.y>>35)%2 ) * 6 + ( (v.x>>22)%2 ) * 2 + ( (v.y>>45)%2 ) * 2) >= 4 ) <<0;
+        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 2 + ( (v.y>>8)%2 ) * 2 + ( (v.x>>3)%2 ) * 2 + ( (v.x>>29)%2 ) * 2 + ( (v.x>>30)%2 ) * 2) >= 2 ) <<1;
         aux.y |=(unsigned long long) ( ( ( (v.x>>60)%2 ) * 22 + ( (v.y>>2)%2 ) * 6 + ( (v.y>>49)%2 ) * 6 + ( (v.y>>39)%2 ) * 22 + ( (v.y>>45)%2 ) * 2 + ( (v.x>>24)%2 ) * 2 + ( (v.x>>3)%2 ) * 22) >= 4 ) <<2;
         aux.y |=(unsigned long long) ( ( ( (v.y>>3)%2 ) * 0 + ( (v.y>>15)%2 ) * -8 + ( (v.y>>2)%2 ) * -8 + ( (v.y>>1)%2 ) * 8 + ( (v.y>>0)%2 ) * 8) >= 0 ) <<3;
         aux.y |=(unsigned long long) ( ( ( (v.y>>15)%2 ) * 6 + ( (v.y>>5)%2 ) * 6 + ( (v.y>>1)%2 ) * 6 + ( (v.y>>2)%2 ) * 6 + ( (v.y>>4)%2 ) * 18) >= 12 ) <<4;
@@ -3384,6 +3384,23 @@ __global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.y |=(unsigned long long) ( ( ( (v.x>>30)%2 ) * 14 + ( (v.x>>33)%2 ) * 2 + ( (v.y>>11)%2 ) * 2 + ( (v.y>>7)%2 ) * -2) >= 4 ) <<11;
         aux.y |=(unsigned long long) ( ( ( (v.y>>45)%2 ) * 12 + ( (v.x>>24)%2 ) * 12 + ( (v.y>>5)%2 ) * 36 + ( (v.x>>0)%2 ) * -4 + ( (v.x>>22)%2 ) * 20 + ( (v.x>>60)%2 ) * -4) >= 24 ) <<12;
         aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 6 + ( (v.x>>3)%2 ) * 102 + ( (v.x>>5)%2 ) * 90 + ( (v.y>>4)%2 ) * 94 + ( (v.y>>5)%2 ) * 94 + ( (v.y>>8)%2 ) * 6 + ( (v.y>>26)%2 ) * 6 + ( (v.x>>16)%2 ) * 6) >= 190 ) <<13;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
         aux.y |=(unsigned long long) ( ( ( (v.x>>22)%2 ) * -2) >= 0 ) <<14;
         aux.y |=(unsigned long long) ( ( 0 * 90 + ( (v.y>>45)%2 ) * -34 + ( (v.y>>15)%2 ) * -34 + ( (v.y>>23)%2 ) * 6 + ( (v.y>>0)%2 ) * 6 + ( (v.y>>37)%2 ) * 6 + ( (v.x>>16)%2 ) * 6) >= -10 ) <<15;
         aux.y |=(unsigned long long) ( ( 0 * -6 + ( (v.x>>22)%2 ) * -2 + ( (v.z>>4)%2 ) * -2) >= -2 ) <<16;
@@ -3404,6 +3421,12 @@ __global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.y |=(unsigned long long) ( ( ( (v.x>>11)%2 ) * 2 + ( (v.y>>33)%2 ) * 2 + ( (v.x>>2)%2 ) * 2) >= 2 ) <<31;
         aux.y |=(unsigned long long) ( ( ( (v.y>>31)%2 ) * 2) >= 2 ) <<32;
         aux.y |=(unsigned long long) ( ( ( (v.y>>59)%2 ) * 14 + ( (v.x>>8)%2 ) * 210 + ( (v.y>>8)%2 ) * -210 + ( (v.y>>35)%2 ) * -30 + ( (v.x>>63)%2 ) * -30 + ( (v.y>>5)%2 ) * -30 + ( (v.y>>57)%2 ) * 14 + ( (v.y>>58)%2 ) * 14 + ( (v.y>>56)%2 ) * 14) >= 164 ) <<33;
+        aux.y |=(unsigned long long) ( ( ( (v.y>>7)%2 ) * 6 + ( (v.y>>45)%2 ) * 18 + ( (v.y>>60)%2 ) * 18 + ( (v.y>>34)%2 ) * -6 + ( (v.x>>29)%2 ) * -6 + ( (v.x>>12)%2 ) * 6) >= 36 ) <<34;
+        aux.y |=(unsigned long long) ( ( ( (v.y>>36)%2 ) * 2 + ( (v.y>>41)%2 ) * 2 + ( (v.y>>44)%2 ) * 2) >= 2 ) <<35;
+        aux.y |=(unsigned long long) ( ( ( (v.x>>11)%2 ) * 2 + ( (v.x>>16)%2 ) * 6 + ( (v.x>>19)%2 ) * 2) >= 8 ) <<36;
+        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * -8 + ( (v.x>>36)%2 ) * -8 + ( (v.y>>63)%2 ) * -8 + ( (v.y>>7)%2 ) * -8 + ( (v.y>>61)%2 ) * 16 + ( (v.y>>38)%2 ) * -16) >= -24 ) <<37;
+        aux.y |=(unsigned long long) ( ( ( (v.x>>0)%2 ) * -2 + ( (v.y>>8)%2 ) * -2 + ( (v.y>>4)%2 ) * -2) >= 0 ) <<38;
+        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 2) >= 2 ) <<39;
         
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
@@ -3411,7 +3434,7 @@ __global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3421,12 +3444,6 @@ __global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.y = v.y = init_rand[tid].y;
         aux.z = v.z = init_rand[tid].z;
 
-        aux.y |=(unsigned long long) ( ( ( (v.y>>7)%2 ) * 6 + ( (v.y>>45)%2 ) * 18 + ( (v.y>>60)%2 ) * 18 + ( (v.y>>34)%2 ) * -6 + ( (v.x>>29)%2 ) * -6 + ( (v.x>>12)%2 ) * 6) >= 36 ) <<34;
-        aux.y |=(unsigned long long) ( ( ( (v.y>>36)%2 ) * 2 + ( (v.y>>41)%2 ) * 2 + ( (v.y>>44)%2 ) * 2) >= 2 ) <<35;
-        aux.y |=(unsigned long long) ( ( ( (v.x>>11)%2 ) * 2 + ( (v.x>>16)%2 ) * 6 + ( (v.x>>19)%2 ) * 2) >= 8 ) <<36;
-        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * -8 + ( (v.x>>36)%2 ) * -8 + ( (v.y>>63)%2 ) * -8 + ( (v.y>>7)%2 ) * -8 + ( (v.y>>61)%2 ) * 16 + ( (v.y>>38)%2 ) * -16) >= -24 ) <<37;
-        aux.y |=(unsigned long long) ( ( ( (v.x>>0)%2 ) * -2 + ( (v.y>>8)%2 ) * -2 + ( (v.y>>4)%2 ) * -2) >= 0 ) <<38;
-        aux.y |=(unsigned long long) ( ( ( (v.y>>37)%2 ) * 2) >= 2 ) <<39;
         aux.y |=(unsigned long long) ( ( ( (v.x>>45)%2 ) * 10 + ( (v.x>>46)%2 ) * -6 + ( (v.y>>40)%2 ) * -18 + ( (v.y>>14)%2 ) * -6 + ( (v.y>>42)%2 ) * 10) >= -8 ) <<40;
         aux.y |=(unsigned long long) ( ( ( (v.x>>28)%2 ) * 2) >= 2 ) <<41;
         aux.y |=(unsigned long long) ( ( ( (v.x>>56)%2 ) * 2 + ( (v.x>>4)%2 ) * 1022 + ( (v.x>>49)%2 ) * 2 + ( (v.x>>50)%2 ) * 2 + ( (v.x>>51)%2 ) * 2 + ( (v.y>>46)%2 ) * 2 + ( (v.x>>53)%2 ) * 2 + ( (v.y>>51)%2 ) * 2 + ( (v.x>>54)%2 ) * 2 + ( (v.x>>55)%2 ) * 2) >= 1024 ) <<42;
@@ -3454,6 +3471,7 @@ __global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.z |=(unsigned long long) ( ( ( (v.x>>44)%2 ) * 2 + ( (v.y>>14)%2 ) * -14 + ( (v.x>>46)%2 ) * -14 + ( (v.x>>43)%2 ) * 2 + ( (v.y>>42)%2 ) * 2) >= 2 ) <<0;
         aux.z |=(unsigned long long) ( ( ( (v.x>>23)%2 ) * 2 + ( (v.z>>1)%2 ) * -2 + ( (v.x>>63)%2 ) * 2) >= 4 ) <<1;
     
+        
         estado[tid].x |= aux.x;
         estado[tid].y |= aux.y;
         estado[tid].z |= aux.z;
@@ -3780,7 +3798,7 @@ int main(int argc, char **argv)
                 cudaDeviceSynchronize();
                 passo_bool_18_parte4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_bool_18_parte4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_bool_18_parte5<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
         case 15: passo_tlf_18_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
