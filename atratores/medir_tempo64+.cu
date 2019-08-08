@@ -2917,6 +2917,23 @@ __global__ void passo_bool_18_parte1(ulonglong3 * init_rand, ulonglong3 * estado
         aux.x |=(unsigned long long) ( ( (v.y>>20)%2 ) ) | ( ( (v.y>>21)%2 ) ) | ( ( (v.y>>19)%2 ) ) | ( ( (v.y>>22)%2 ) )<< 8 ;
         aux.x |=(unsigned long long) ( ( (v.x>>39)%2 ) )<< 9 ;
         aux.x |=(unsigned long long) ( ( ( (v.x>>41)%2 ) ) & ! ( ( (v.z>>3)%2 ) ) )<< 10 ;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
         aux.x |=(unsigned long long) ( ( (v.x>>10)%2 ) )<< 11 ;
         aux.x |=(unsigned long long) ( ( (v.x>>13)%2 ) & ( ( ( ( (v.x>>11)%2 ) ) ) ) )<< 12 ;
         aux.x |=(unsigned long long) ( ( (v.x>>11)%2 ) )<< 13 ;
@@ -2935,7 +2952,7 @@ __global__ void passo_bool_18_parte1(ulonglong3 * init_rand, ulonglong3 * estado
     }
 }
 
-__global__ void passo_bool_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -2956,6 +2973,23 @@ __global__ void passo_bool_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado
         aux.x |=(unsigned long long) ( ( (v.y>>58)%2 ) & ( ( ( ! ( (v.x>>30)%2 ) ) & ( ( ( ! ( (v.x>>34)%2 ) ) ) ) ) ) ) | ( ( (v.x>>30)%2 ) & ( ( ( ! ( (v.y>>24)%2 ) & ! ( (v.y>>11)%2 ) ) ) & ( ( ( (v.x>>34)%2 ) ) ) ) )<< 30 ;
         aux.x |=(unsigned long long) ( ( (v.y>>59)%2 ) & ( ( ( ! ( (v.x>>35)%2 ) ) ) & ( ( ! ( (v.y>>7)%2 ) ) ) & ( ( ! ( (v.x>>31)%2 ) ) ) ) ) | ( ( (v.x>>35)%2 ) & ( ( ( ! ( (v.y>>24)%2 ) ) ) & ( ( ( (v.x>>31)%2 ) ) ) ) )<< 31 ;
         aux.x |=(unsigned long long) ( ( (v.x>>27)%2 ) ) | ( ( (v.y>>56)%2 ) & ( ( ( ! ( (v.x>>27)%2 ) ) ) & ( ( ! ( (v.x>>32)%2 ) ) ) ) )<< 32 ;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
         aux.x |=(unsigned long long) ( ( (v.y>>57)%2 ) & ( ( ( ! ( (v.x>>29)%2 ) ) ) & ( ( ! ( (v.x>>33)%2 ) ) ) ) ) | ( ( (v.x>>29)%2 ) )<< 33 ;
         aux.x |=(unsigned long long) ( ( (v.y>>58)%2 ) & ( ( ( ! ( (v.x>>30)%2 ) ) ) & ( ( ! ( (v.x>>34)%2 ) ) ) ) ) | ( ( (v.x>>30)%2 ) )<< 34 ;
         aux.x |=(unsigned long long) ( ( (v.x>>31)%2 ) ) | ( ( (v.y>>59)%2 ) & ( ( ( ! ( (v.x>>35)%2 ) ) ) & ( ( ! ( (v.x>>31)%2 ) ) ) ) )<< 35 ;
@@ -2974,7 +3008,7 @@ __global__ void passo_bool_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado
     }
 }
 
-__global__ void passo_bool_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -2994,6 +3028,23 @@ __global__ void passo_bool_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado
         aux.x |=(unsigned long long) ( ( (v.x>>38)%2 ) ) | ( ( (v.y>>26)%2 ) ) | ( ( (v.x>>16)%2 ) )<< 51 ;
         aux.x |=(unsigned long long) ( ( ( (v.x>>61)%2 ) & ( ( ( ( (v.y>>51)%2 ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) ) | ( ( ( (v.y>>51)%2 ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) ) | ( ( ( (v.x>>53)%2 ) & ( ( ( ( (v.y>>27)%2 ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) ) | ( ( ( (v.x>>54)%2 ) & ( ( ( ( (v.y>>27)%2 ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) ) | ( ( ( (v.y>>27)%2 ) & ( ( ( ( (v.y>>51)%2 ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) ) | ( ( ( (v.x>>55)%2 ) & ( ( ( ( (v.y>>27)%2 ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.x>>52)%2 ) ) ) ) ) )<< 52 ;
         aux.x |=(unsigned long long) ( ( (v.y>>37)%2 ) & ( ( ( ( (v.y>>43)%2 ) ) ) | ( ( ( (v.x>>37)%2 ) ) ) ) ) | ( ( (v.x>>58)%2 ) & ( ( ( ( (v.y>>43)%2 ) ) ) | ( ( ( (v.x>>37)%2 ) ) ) ) ) | ( ( (v.x>>37)%2 ) & ( ( ( ( (v.y>>43)%2 ) ) ) ) ) | ( ( (v.y>>52)%2 ) ) | ( ( (v.y>>26)%2 ) ) | ( ( (v.y>>35)%2 ) ) | ( ( (v.x>>25)%2 ) ) | ( ( (v.x>>16)%2 ) )<< 53 ;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_18_parte6(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
         aux.x |=(unsigned long long) ( ( (v.y>>0)%2 ) & ( ( ( ! ( (v.x>>54)%2 ) ) ) & ( ( ( (v.x>>22)%2 ) ) ) ) ) | ( ( (v.y>>45)%2 ) & ( ( ( ( (v.x>>22)%2 ) ) ) & ( ( ! ( (v.x>>54)%2 ) ) ) ) ) | ( ( (v.y>>12)%2 ) & ( ( ( ( (v.x>>22)%2 ) ) ) & ( ( ! ( (v.x>>54)%2 ) ) ) ) ) | ( ( (v.x>>37)%2 ) & ( ( ( ! ( (v.x>>54)%2 ) ) ) & ( ( ( (v.x>>22)%2 ) ) ) ) )<< 54 ;
         aux.x |=(unsigned long long) ( ( ( (v.y>>52)%2 ) ) & ! ( ( (v.x>>28)%2 ) ) ) | ( ( ( (v.y>>26)%2 ) ) & ! ( ( (v.x>>28)%2 ) ) ) | ( ( ( (v.x>>38)%2 ) ) & ! ( ( (v.x>>28)%2 ) ) )<< 55 ;
         aux.x |=(unsigned long long) ( ( (v.x>>16)%2 ) ) | ( ( (v.y>>26)%2 ) )<< 56 ;
@@ -3013,7 +3064,7 @@ __global__ void passo_bool_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado
     }
 }
 
-__global__ void passo_bool_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_18_parte7(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3032,6 +3083,23 @@ __global__ void passo_bool_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado
         aux.y |=(unsigned long long) ( ( ( (v.x>>0)%2 ) & ( ( ( ( (v.x>>10)%2 ) ) ) & ( ( ( (v.y>>9)%2 ) ) ) ) ) & ! ( ( (v.y>>53)%2 ) & ( ( ( ( (v.y>>8)%2 ) ) ) ) ) ) | ( ( ( (v.y>>8)%2 ) & ( ( ( ! ( (v.y>>14)%2 ) ) ) & ( ( ! ( (v.y>>53)%2 ) ) ) ) ) & ! ( ( (v.y>>53)%2 ) & ( ( ( ( (v.y>>8)%2 ) ) ) ) ) ) | ( ( ( (v.x>>19)%2 ) & ( ( ( ( (v.x>>10)%2 ) ) ) & ( ( ( (v.y>>9)%2 ) ) ) ) ) & ! ( ( (v.y>>53)%2 ) & ( ( ( ( (v.y>>8)%2 ) ) ) ) ) )<<8;
         aux.y |=(unsigned long long) ( ( (v.y>>8)%2 ) & ( ( ( ! ( (v.y>>9)%2 ) ) ) & ( ( ( (v.x>>63)%2 ) ) ) ) ) | ( ( (v.y>>9)%2 ) & ( ( ( ! ( (v.y>>8)%2 ) ) ) ) ) | ( ( (v.x>>63)%2 ) & ( ( ( ! ( (v.y>>8)%2 ) ) ) ) )<<9;
         aux.y |=(unsigned long long) ( ( (v.y>>4)%2 ) & ( ( ( ( (v.x>>23)%2 ) ) ) & ( ( ( (v.y>>5)%2 ) ) ) ) ) | ( ( (v.y>>5)%2 ) & ( ( ( ( (v.x>>12)%2 ) ) ) & ( ( ( (v.y>>4)%2 ) ) ) ) ) | ( ( (v.x>>12)%2 ) & ( ( ( ( (v.x>>10)%2 ) ) ) ) ) | ( ( (v.x>>23)%2 ) & ( ( ( ( (v.x>>10)%2 ) ) ) ) )<<10;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_bool_18_parte8(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{   
+    unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+    
         aux.y |=(unsigned long long) ( ( (v.x>>30)%2 ) ) | ( ( ( (v.x>>33)%2 ) & ( ( ( ( (v.y>>11)%2 ) ) ) ) ) & ! ( ( (v.y>>7)%2 ) & ( ( ( ! ( (v.x>>30)%2 ) ) ) ) ) )<<11;
         aux.y |=(unsigned long long) ( ( (v.y>>45)%2 ) & ( ( ( ( (v.x>>24)%2 ) & ( (v.y>>5)%2 ) ) ) ) ) | ( ( (v.x>>24)%2 ) & ( ( ( ( (v.y>>45)%2 ) ) ) & ( ( ! ( (v.y>>5)%2 ) & ! ( (v.x>>0)%2 ) & ! ( (v.x>>22)%2 ) & ! ( (v.x>>60)%2 ) ) ) ) ) | ( ( ( (v.x>>22)%2 ) & ( ( ( ( (v.y>>5)%2 ) ) ) ) ) & ! ( ( (v.x>>60)%2 ) & ( ( ( ! ( (v.x>>24)%2 ) & ! ( (v.y>>45)%2 ) ) ) & ( ( ( (v.x>>0)%2 ) ) ) ) ) )<<12;
         aux.y |=(unsigned long long) ( ( (v.y>>37)%2 ) & ( ( ( ! ( (v.x>>3)%2 ) ) ) & ( ( ( (v.x>>5)%2 ) ) & ( ( ( ( (v.y>>4)%2 ) ) ) | ( ( ( (v.y>>5)%2 ) ) ) ) ) ) ) | ( ( (v.y>>8)%2 ) & ( ( ( ! ( (v.x>>3)%2 ) ) ) & ( ( ( (v.x>>5)%2 ) ) & ( ( ( ( (v.y>>4)%2 ) ) ) | ( ( ( (v.y>>5)%2 ) ) ) ) ) ) ) | ( ( (v.x>>3)%2 ) & ( ( ( ( (v.y>>5)%2 ) ) ) | ( ( ( (v.y>>4)%2 ) ) ) ) ) | ( ( (v.y>>26)%2 ) & ( ( ( ! ( (v.x>>3)%2 ) ) ) & ( ( ( (v.x>>5)%2 ) ) & ( ( ( ( (v.y>>5)%2 ) ) ) | ( ( ( (v.y>>4)%2 ) ) ) ) ) ) ) | ( ( (v.x>>16)%2 ) & ( ( ( ! ( (v.x>>3)%2 ) ) ) & ( ( ( (v.x>>5)%2 ) ) & ( ( ( ( (v.y>>5)%2 ) ) ) | ( ( ( (v.y>>4)%2 ) ) ) ) ) ) )<<13;
@@ -3052,7 +3120,7 @@ __global__ void passo_bool_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado
     }
 }
 
-__global__ void passo_bool_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_18_parte9(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3090,7 +3158,7 @@ __global__ void passo_bool_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado
     }
 }
 
-__global__ void passo_bool_18_parte6(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_18_parte10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long  tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3299,6 +3367,23 @@ __global__ void passo_tlf_18_parte1(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.x |=(unsigned long long) ( ( ( (v.y>>20)%2 ) * 2 + ( (v.y>>21)%2 ) * 2 + ( (v.y>>19)%2 ) * 2 + ( (v.y>>22)%2 ) * 2) >= 2 ) <<8;
         aux.x |=(unsigned long long) ( ( ( (v.x>>39)%2 ) * 2) >= 2 ) <<9;
         aux.x |=(unsigned long long) ( ( ( (v.x>>41)%2 ) * 2 + ( (v.z>>3)%2 ) * -2) >= 2 ) <<10;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
         aux.x |=(unsigned long long) ( ( ( (v.x>>10)%2 ) * 2) >= 2 ) <<11;
         aux.x |=(unsigned long long) ( ( ( (v.x>>13)%2 ) * 2 + ( (v.x>>11)%2 ) * 2) >= 4 ) <<12;
         aux.x |=(unsigned long long) ( ( ( (v.x>>11)%2 ) * 2) >= 2 ) <<13;
@@ -3317,7 +3402,8 @@ __global__ void passo_tlf_18_parte1(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+
+__global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3338,6 +3424,23 @@ __global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado,
         aux.x |=(unsigned long long) ( ( ( (v.y>>58)%2 ) * 8 + ( (v.x>>30)%2 ) * -4 + ( (v.x>>34)%2 ) * -4 + ( (v.y>>24)%2 ) * -4 + ( (v.y>>11)%2 ) * -4) >= -8 ) <<30;
         aux.x |=(unsigned long long) ( ( ( (v.y>>59)%2 ) * 4 + ( (v.x>>35)%2 ) * 4 + ( (v.y>>7)%2 ) * -4 + ( (v.x>>31)%2 ) * 4 + ( (v.y>>24)%2 ) * -8) >= -4 ) <<31;
         aux.x |=(unsigned long long) ( ( ( (v.x>>27)%2 ) * 6 + ( (v.y>>56)%2 ) * 2 + ( (v.x>>32)%2 ) * -2) >= 2 ) <<32;
+        
+        estado[tid].x |= aux.x;
+        estado[tid].y |= aux.y;
+        estado[tid].z |= aux.z;
+    }
+}
+
+__global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+{
+    unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
+    ulonglong3 v,aux;
+    if(tid < MAX_ESTADO)
+    {
+        aux.x = v.x = init_rand[tid].x;
+        aux.y = v.y = init_rand[tid].y;
+        aux.z = v.z = init_rand[tid].z;
+
         aux.x |=(unsigned long long) ( ( ( (v.y>>57)%2 ) * 2 + ( (v.x>>29)%2 ) * 6 + ( (v.x>>33)%2 ) * -2) >= 2 ) <<33;
         aux.x |=(unsigned long long) ( ( ( (v.y>>58)%2 ) * 2 + ( (v.x>>30)%2 ) * 6 + ( (v.x>>34)%2 ) * -2) >= 2 ) <<34;
         aux.x |=(unsigned long long) ( ( ( (v.x>>31)%2 ) * 6 + ( (v.y>>59)%2 ) * 2 + ( (v.x>>35)%2 ) * -2) >= 2 ) <<35;
@@ -3356,7 +3459,7 @@ __global__ void passo_tlf_18_parte2(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3395,7 +3498,7 @@ __global__ void passo_tlf_18_parte3(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_18_parte6(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3434,7 +3537,7 @@ __global__ void passo_tlf_18_parte4(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_18_parte7(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3473,7 +3576,7 @@ __global__ void passo_tlf_18_parte5(ulonglong3 * init_rand, ulonglong3 * estado,
     }
 }
 
-__global__ void passo_tlf_18_parte6(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_18_parte8(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long tid = threadIdx.x + blockIdx.x* blockDim.x;
     ulonglong3 v,aux;
@@ -3814,6 +3917,8 @@ int main(int argc, char **argv)
                 passo_bool_17_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_bool_17_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_17_parte4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
         case 13: passo_tlf_17_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
@@ -3833,7 +3938,15 @@ int main(int argc, char **argv)
                 cudaDeviceSynchronize();
                 passo_bool_18_parte5<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_bool_18_parte6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_bool_18_parte6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_18_parte7<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_18_parte8<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_18_parte9<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_18_parte10<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
         case 15: passo_tlf_18_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
@@ -3846,6 +3959,10 @@ int main(int argc, char **argv)
                 passo_tlf_18_parte5<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_tlf_18_parte6<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_18_parte7<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_18_parte8<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
         default: 
                 break;
