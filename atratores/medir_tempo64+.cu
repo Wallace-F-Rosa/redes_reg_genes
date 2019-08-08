@@ -3607,13 +3607,13 @@ int main(int argc, char **argv)
     int threads = 1024;
     dim3 block(threads);
     dim3 grid((MAX_ESTADO + block.x -1)/block.x);
-    unsigned long long *h_init_rand, *h_estado;
-    h_init_rand = new unsigned long long[MAX_ESTADO];
-    h_estado = new unsigned long long[MAX_ESTADO];
+    ulonglong3 *h_init_rand, *h_estado;
+    h_init_rand = new ulonglong3[MAX_ESTADO];
+    h_estado = new ulonglong3[MAX_ESTADO];
 
-    unsigned long long *d_init_rand, *d_estado;
-    cudaMalloc(&d_init_rand,sizeof(unsigned long long)*MAX_ESTADO);
-    cudaMalloc(&d_estado,sizeof(unsigned long long)*MAX_ESTADO);
+    ulonglong3 *d_init_rand, *d_estado;
+    cudaMalloc(&d_init_rand,sizeof(ulonglong3)*MAX_ESTADO);
+    cudaMalloc(&d_estado,sizeof(ulonglong3)*MAX_ESTADO);
     
     unsigned int nEq = 64;
     srand(MAX_ESTADO);
@@ -3622,8 +3622,8 @@ int main(int argc, char **argv)
     for(unsigned long long i = 0; i < MAX_ESTADO; i++)
         h_estado[i] = 0;
 
-    cudaMemcpy(d_init_rand, h_init_rand, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_estado, h_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_init_rand, h_init_rand, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_estado, h_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyHostToDevice);
 
     switch (n) {
         case 0: passo_bool_10_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
@@ -3729,7 +3729,7 @@ int main(int argc, char **argv)
     }
     cudaDeviceSynchronize();
     
-    cudaMemcpy(h_estado, d_estado, sizeof(unsigned long long)*MAX_ESTADO, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_estado, d_estado, sizeof(ulonglong3)*MAX_ESTADO, cudaMemcpyDeviceToHost);
 
 
     unsigned long long i = 0;
