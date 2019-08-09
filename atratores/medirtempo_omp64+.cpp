@@ -13,6 +13,11 @@
 #define THREADS 16
 
 using namespace std;
+struct ulonglong3{
+    unsigned long long x;
+    unsigned long long y;
+    unsigned long long z;
+};
 
 const string NAME[] = {"passo_bool_10", "passo_tlf_10", "passo_bool_11", "passo_tlf_11", "passo_bool_12", "passo_tlf_12",
                        "passo_bool_13", "passo_tlf_13", "passo_bool_14", "passo_tlf_14", "passo_bool_15", "passo_tlf_15",
@@ -94,9 +99,9 @@ void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( ( (v.x>>29)%2 ) & ( ( ( ( (v.x>>48)%2 ) & ( (v.x>>28)%2 ) ) & ( ( ( ! ( (v.x>>26)%2 ) ) ) ) ) ) ) & ! ( ( (v.x>>30)%2 ) ) ) | ( ( (v.x>>28)%2 ) & ( ( ( ( (v.x>>48)%2 ) & ( (v.x>>29)%2 ) ) ) ) )<< 61 ;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -175,9 +180,9 @@ void passo_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.x |=(unsigned long long) ( ( ( (v.x>>29)%2 ) * 8 + ( (v.x>>48)%2 ) * 8 + ( (v.x>>28)%2 ) * 8 + ( (v.x>>26)%2 ) * 0 + ( (v.x>>30)%2 ) * 0) >= 24 ) <<61;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -256,9 +261,9 @@ void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>0)%2 ) )<< 61 ;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -336,9 +341,9 @@ void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.x |=(unsigned long long) ( ( ( (v.x>>61)%2 ) * 2) >= 2 ) <<60;
         aux.x |=(unsigned long long) ( ( ( (v.x>>0)%2 ) * 2) >= 2 ) <<61;
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -416,9 +421,9 @@ void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>40)%2 ) ) | ( ( (v.y>>8)%2 ) )<< 60 ;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -496,9 +501,9 @@ void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.x |=(unsigned long long) ( ( ( (v.x>>40)%2 ) * 2 + ( (v.y>>8)%2 ) * 2) >= 2 ) <<60;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -575,9 +580,9 @@ void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( ( (v.y>>7)%2 ) ) & ! ( ( (v.x>>51)%2 ) ) ) | ( ( (v.x>>30)%2 ) ) | ( ( (v.x>>26)%2 ) ) | ( ( (v.x>>43)%2 ) ) | ( ( (v.y>>6)%2 ) ) | ( ( (v.x>>8)%2 ) )<< 59 ;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -654,9 +659,9 @@ void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.x |=(unsigned long long) ( ( 0 * 2 + ( (v.x>>51)%2 ) * -2 + ( (v.x>>30)%2 ) * 6 + ( (v.x>>26)%2 ) * 6 + ( (v.x>>43)%2 ) * 6 + 0 * 6 + ( (v.x>>8)%2 ) * 6) >= 2 ) <<59;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -740,9 +745,9 @@ void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.y |=(unsigned long long) ( ( (v.x>>5)%2 ) )<<2;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -826,9 +831,9 @@ void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.y |=(unsigned long long) ( ( ( (v.x>>5)%2 ) * 2) >= 2 ) <<2;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -916,9 +921,9 @@ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.y |=(unsigned long long) ( ( ( (v.x>>16)%2 ) ) & !( ( (v.x>>58)%2 ) ) )<<6;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -1006,9 +1011,9 @@ void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.y |=(unsigned long long) ( ( ( (v.x>>16)%2 ) * 2 + ( (v.x>>58)%2 ) * -2) >= 2 ) <<6;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -1101,9 +1106,9 @@ void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.y |=(unsigned long long) ( ( (v.x>>14)%2 ) & ( ( ( ( (v.x>>51)%2 ) ) ) ) ) | ( ( (v.x>>49)%2 ) & ( ( ( ( (v.x>>14)%2 ) ) ) ) )<<11;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -1196,9 +1201,9 @@ void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.y |=(unsigned long long) ( ( ( (v.x>>14)%2 ) * 6 + ( (v.x>>51)%2 ) * 2 + ( (v.x>>49)%2 ) * 2) >= 8 ) <<11;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -1345,9 +1350,9 @@ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.z |=(unsigned long long) ( ( (v.x>>23)%2 ) & ( ( ( ! ( (v.z>>1)%2 ) ) ) & ( ( ( (v.x>>63)%2 ) ) ) ) )<<1;
 
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
     }
 }
 
@@ -1493,9 +1498,9 @@ void passo_tlf_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
         aux.z |=(unsigned long long) ( ( ( (v.x>>44)%2 ) * 2 + ( (v.y>>14)%2 ) * -14 + ( (v.x>>46)%2 ) * -14 + ( (v.x>>43)%2 ) * 2 + ( (v.y>>42)%2 ) * 2) >= 2 ) <<0;
         aux.z |=(unsigned long long) ( ( ( (v.x>>23)%2 ) * 2 + ( (v.z>>1)%2 ) * -2 + ( (v.x>>63)%2 ) * 2) >= 4 ) <<1;
 
-        estado[tid].x = aux.x;
-        estado[tid].y = aux.y;
-        estado[tid].z = aux.z;
+        estado[i].x = aux.x;
+        estado[i].y = aux.y;
+        estado[i].z = aux.z;
 
     }
 }
@@ -1530,37 +1535,6 @@ void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigne
     }
 }
 
-
-
-void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigned int nEq)
-{
-    
-    for(unsigned long long i = 0; i < nSim; i++)
-    {
-        
-        init_rand[i].x = 0;
-        init_rand[i].y = 0;
-        init_rand[i].z = 0;
-        unsigned long rand1 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand2 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand3 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand4 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand5 = rand()%((unsigned long)(1<<31)-1);
-        unsigned long rand6 = rand()%((unsigned long)(1<<31)-1);
-        for(int j = 0; j < nEq && j < 32; j++)
-            init_rand[i].x |=(unsigned long long) ((rand1>>j)%2)<<j;
-        for(int j = 32; j < nEq && j < 64; j++)
-            init_rand[i].x |=(unsigned long long) ((rand2>>(j-32))%2)<<j;
-        for(int j = 64; j < nEq && j < 96; j++)
-            init_rand[i].y |=(unsigned long long) ((rand3>>(j-64))%2)<<(j-64);
-        for(int j = 96; j < nEq && j < 128; j++)
-            init_rand[i].y |=(unsigned long long) ((rand4>>(j-96))%2)<<(j-64);
-        for(int j = 128; j < nEq && j < 160; j++)
-            init_rand[i].z |=(unsigned long long) ((rand5>>(j-128))%2)<<(j-128);
-        for(int j = 160; j < nEq && j < 192; j++)
-            init_rand[i].z |=(unsigned long long) ((rand6>>(j-160))%2)<<(j-128);
-    }
-}
 
 int main(int argc, char **argv)
 {
