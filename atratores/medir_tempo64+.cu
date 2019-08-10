@@ -2548,7 +2548,7 @@ __global__ void passo_bool_17_parte4(ulonglong3 * init_rand, ulonglong3 * estado
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<7;
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<8;
         aux.y |=(unsigned long long)( ( ( (v.x>>19)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) | ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<9;
-        aux.y |= ! ( ( ( (v.x>>1)%2 ) ) ) )<<10;
+        aux.y |= (unsigned long long)(!  (v.x>>1)%2 ) <<10;
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.x>>51)%2 ) ) ) ) ) | ( ( (v.x>>49)%2 ) & ( ( ( ( (v.x>>14)%2 ) ) ) ) ) )<<11;
         
         estado[tid].x |= aux.x;
@@ -2641,7 +2641,7 @@ unsigned long long confere_bool_17(ulonglong3 * init_rand, ulonglong3 * estado_g
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<7;
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<8;
         aux.y |=(unsigned long long)( ( ( (v.x>>19)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) | ( ( (v.x>>14)%2 ) & ( ( ( ( (v.y>>36)%2 ) ) ) ) ) )<<9;
-        aux.y |= ! ( ( ( (v.x>>1)%2 ) ) ) )<<10;
+        aux.y |= (unsigned long long)(! (  (v.x>>1)%2 ) )<<10;
         aux.y |=(unsigned long long)( ( ( (v.x>>14)%2 ) & ( ( ( ( (v.x>>51)%2 ) ) ) ) ) | ( ( (v.x>>49)%2 ) & ( ( ( ( (v.x>>14)%2 ) ) ) ) ) )<<11;
 
         if(aux.x != estado_gpu[i].x || aux.y != estado_gpu[i].y || aux.z != estado_gpu[i].z ){
