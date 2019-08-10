@@ -751,7 +751,7 @@ unsigned long long confere_tlf_3(unsigned long long * init_rand, unsigned long l
 
 
 //REDE 5
-__global__ void passo_bool_5_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_4_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -788,7 +788,7 @@ __global__ void passo_bool_5_parte1(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_5_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_4_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -825,7 +825,7 @@ __global__ void passo_bool_5_parte2(unsigned long long * init_rand, unsigned lon
     }
 }
 
-unsigned long long confere_bool_5(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_4(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -895,7 +895,7 @@ unsigned long long confere_bool_5(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_5_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_4_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -932,7 +932,7 @@ __global__ void passo_tlf_5_parte1(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_5_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_4_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -969,7 +969,7 @@ __global__ void passo_tlf_5_parte2(unsigned long long * init_rand, unsigned long
     }
 }
 
-unsigned long long confere_tlf_5(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_4(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1041,7 +1041,7 @@ unsigned long long confere_tlf_5(unsigned long long * init_rand, unsigned long l
 
 
 //REDE 6
-__global__ void passo_bool_6_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_5_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1067,7 +1067,7 @@ __global__ void passo_bool_6_parte1(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_6_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_5_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1092,7 +1092,7 @@ __global__ void passo_bool_6_parte2(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_6_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_5_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1131,7 +1131,7 @@ __global__ void passo_bool_6_parte3(unsigned long long * init_rand, unsigned lon
     }
 }
 
-unsigned long long confere_bool_6(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_5(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1204,7 +1204,7 @@ unsigned long long confere_bool_6(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_6_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_5_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1234,7 +1234,7 @@ __global__ void passo_tlf_6_parte1(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_6_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_5_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1263,7 +1263,7 @@ __global__ void passo_tlf_6_parte2(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_6_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_5_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1294,7 +1294,7 @@ __global__ void passo_tlf_6_parte3(unsigned long long * init_rand, unsigned long
     }
 }
 
-unsigned long long confere_tlf_6(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_5(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1369,7 +1369,7 @@ unsigned long long confere_tlf_6(unsigned long long * init_rand, unsigned long l
 
 
 //REDE 7
-__global__ void passo_bool_7_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_6_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1404,7 +1404,7 @@ __global__ void passo_bool_7_parte1(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_7_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_6_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1448,7 +1448,7 @@ __global__ void passo_bool_7_parte2(unsigned long long * init_rand, unsigned lon
     }
 }
 
-unsigned long long confere_bool_7(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_6(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1523,7 +1523,7 @@ unsigned long long confere_bool_7(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_7_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_6_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1558,7 +1558,7 @@ __global__ void passo_tlf_7_parte1(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_7_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_6_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1603,7 +1603,7 @@ __global__ void passo_tlf_7_parte2(unsigned long long * init_rand, unsigned long
 }
 
 
-unsigned long long confere_tlf_7(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_6(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1679,7 +1679,7 @@ unsigned long long confere_tlf_7(unsigned long long * init_rand, unsigned long l
 }
 
 //REDE 8
-__global__ void passo_bool_8_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_7_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1722,7 +1722,7 @@ __global__ void passo_bool_8_parte1(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_8_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_7_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1765,7 +1765,7 @@ __global__ void passo_bool_8_parte2(unsigned long long * init_rand, unsigned lon
 
 
 
-unsigned long long confere_bool_8(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_7(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -1845,7 +1845,7 @@ unsigned long long confere_bool_8(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_8_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_7_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1872,7 +1872,7 @@ __global__ void passo_tlf_8_parte1(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_8_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_7_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1901,7 +1901,7 @@ __global__ void passo_tlf_8_parte2(unsigned long long * init_rand, unsigned long
 }
 
 
-__global__ void passo_tlf_8_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_7_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -1942,7 +1942,7 @@ __global__ void passo_tlf_8_parte3(unsigned long long * init_rand, unsigned long
     }
 }
 
-unsigned long long confere_tlf_8(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_7(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -2024,7 +2024,7 @@ unsigned long long confere_tlf_8(unsigned long long * init_rand, unsigned long l
 
 
 //REDE 9
-__global__ void passo_bool_9_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_8_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2052,7 +2052,7 @@ __global__ void passo_bool_9_parte1(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_9_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_8_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2079,7 +2079,7 @@ __global__ void passo_bool_9_parte2(unsigned long long * init_rand, unsigned lon
     }
 }
 
-__global__ void passo_bool_9_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_bool_8_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {   
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2123,7 +2123,7 @@ __global__ void passo_bool_9_parte3(unsigned long long * init_rand, unsigned lon
 }
 
 
-unsigned long long confere_bool_9(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_bool_8(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -2205,7 +2205,7 @@ unsigned long long confere_bool_9(unsigned long long * init_rand, unsigned long 
     return nSim;
 }
 
-__global__ void passo_tlf_9_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_8_parte1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2232,7 +2232,7 @@ __global__ void passo_tlf_9_parte1(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_9_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_8_parte2(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2260,7 +2260,7 @@ __global__ void passo_tlf_9_parte2(unsigned long long * init_rand, unsigned long
     }
 }
 
-__global__ void passo_tlf_9_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
+__global__ void passo_tlf_8_parte3(unsigned long long * init_rand, unsigned long long * estado, unsigned long long MAX_ESTADO)
 {
     unsigned long long v=0,aux=0, tid = threadIdx.x + blockIdx.x* blockDim.x;
     if(tid < MAX_ESTADO)
@@ -2304,7 +2304,7 @@ __global__ void passo_tlf_9_parte3(unsigned long long * init_rand, unsigned long
 }
 
 
-unsigned long long confere_tlf_9(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
+unsigned long long confere_tlf_8(unsigned long long * init_rand, unsigned long long * estado_gpu, unsigned long long nSim)
 {  
     unsigned long long v,aux;
     for(unsigned long long i = 0; i < nSim; i++)
@@ -2464,55 +2464,55 @@ int main(int argc, char **argv)
                 break;
         //case 7: passo_bool_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
         //case 8: passo_tlf_4<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); break;
-        case 6: passo_bool_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 6: passo_bool_4_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_4_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 7: passo_tlf_4_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_4_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                break;
+        case 8: passo_bool_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_bool_5_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                break;
-        case 7: passo_tlf_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_tlf_5_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                passo_bool_5_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
-        case 8: passo_bool_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 9: passo_tlf_5_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_bool_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                passo_tlf_5_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 cudaDeviceSynchronize();
-                passo_bool_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                passo_tlf_5_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
-        case 9: passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 10: passo_bool_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                break;
+        case 11: passo_tlf_6_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_tlf_6_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
-                cudaDeviceSynchronize();
-                passo_tlf_6_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
-        case 10: passo_bool_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 12: passo_bool_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_bool_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_bool_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
-        case 11: passo_tlf_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 13: passo_tlf_7_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
-                passo_tlf_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
+                passo_tlf_7_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_tlf_7_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
-        case 12: passo_bool_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 14:passo_bool_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_bool_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+                cudaDeviceSynchronize();
+                passo_bool_8_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
                 break;
-        case 13: passo_tlf_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
+        case 15: passo_tlf_8_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_tlf_8_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 cudaDeviceSynchronize();
                 passo_tlf_8_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                break;
-        case 14:passo_bool_9_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                cudaDeviceSynchronize();
-                passo_bool_9_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                cudaDeviceSynchronize();
-                passo_bool_9_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO); 
-                break;
-        case 15: passo_tlf_9_parte1<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                cudaDeviceSynchronize();
-                passo_tlf_9_parte2<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
-                cudaDeviceSynchronize();
-                passo_tlf_9_parte3<<<grid,block>>>(d_init_rand,d_estado,MAX_ESTADO);
                 break;
         default: 
                 break;
@@ -2542,23 +2542,23 @@ int main(int argc, char **argv)
                 break;
         case 6: i= confere_bool_5(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 7: i= confere_tlf_5(h_init_rand,h_estado,MAX_ESTADO); 
+        case 7: i= confere_tlf_4(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 8: i= confere_bool_6(h_init_rand,h_estado,MAX_ESTADO); 
+        case 8: i= confere_bool_5(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 9: i= confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO); 
+        case 9: i= confere_tlf_5(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 10: i= confere_bool_7(h_init_rand,h_estado,MAX_ESTADO); 
+        case 10: i= confere_bool_6(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 11: i= confere_tlf_7(h_init_rand,h_estado,MAX_ESTADO); 
+        case 11: i= confere_tlf_6(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 12: i= confere_bool_8(h_init_rand,h_estado,MAX_ESTADO); 
+        case 12: i= confere_bool_7(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 13: i= confere_tlf_8(h_init_rand,h_estado,MAX_ESTADO); 
+        case 13: i= confere_tlf_7(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 14: i= confere_bool_9(h_init_rand,h_estado,MAX_ESTADO); 
+        case 14: i= confere_bool_8(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
-        case 15: i= confere_tlf_9(h_init_rand,h_estado,MAX_ESTADO); 
+        case 15: i= confere_tlf_8(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
         default: i= confere_bool_1(h_init_rand,h_estado,MAX_ESTADO); 
                 break;
