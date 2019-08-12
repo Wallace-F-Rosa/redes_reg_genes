@@ -1,6 +1,6 @@
-#pragma GCC optimize("O3","unroll-loops","omit-frame-pointer","inline") //Optimization flags
-#pragma GCC option("arch=native","tune=native","no-zero-upper") //Enable AVX
-#pragma GCC target("avx")  //Enable AVX
+//#pragma GCC optimize("O3","unroll-loops","omit-frame-pointer","inline") //Optimization flags
+//#pragma GCC option("arch=native","tune=native","no-zero-upper") //Enable AVX
+//#pragma GCC target("avx")  //Enable AVX
 #include <iostream>
 #include <chrono>
 #include <cmath>
@@ -8,9 +8,6 @@
 #include <limits>
 #include <stdio.h>
 #include <omp.h>
-
-#define CLOCKS_PER_SEC_CPU 1100000000
-#define THREADS 16
 
 using namespace std;
 struct ulonglong3{
@@ -27,10 +24,11 @@ const string NAME[] = {"passo_bool_10", "passo_tlf_10", "passo_bool_11", "passo_
 
 void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -84,7 +82,7 @@ void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>27)%2 ) & ( ( ( ( (v.x>>54)%2 ) ) ) ) ) | ( ( (v.x>>63)%2 ) )<< 46 ;
         aux.x |=(unsigned long long) ( ( (v.y>>0)%2 ) ) | ( ( (v.x>>62)%2 ) & ( ( ( ( (v.y>>1)%2 ) ) ) ) )<< 47 ;
         aux.x |=(unsigned long long) ! ( ( ( (v.x>>14)%2 ) ) )<< 48 ;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>20)%2 ) ) ) | ! ( ( (v.x>>20)%2 ) | ( (v.x>>43)%2 ) )<< 49 ;
+        aux.x |=(unsigned long long) ( ( ( ( (v.x>>20)%2 ) ) ) | ! ( ( (v.x>>20)%2 ) | ( (v.x>>43)%2 ) ) )<< 49 ;
         aux.x |=(unsigned long long) ( ( (v.x>>36)%2 ) )<< 50 ;
         aux.x |=(unsigned long long) ! ( ( ( (v.x>>11)%2 ) ) )<< 51 ;
         aux.x |=(unsigned long long) ( ( ( ( (v.x>>61)%2 ) ) & ! ( ( (v.x>>50)%2 ) ) ) & ! ( ( (v.x>>57)%2 ) ) ) | ( ( ( ( (v.x>>59)%2 ) ) & ! ( ( (v.x>>50)%2 ) ) ) & ! ( ( (v.x>>57)%2 ) ) )<< 52 ;
@@ -108,10 +106,11 @@ void passo_bool_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -189,10 +188,11 @@ void passo_tlf_10(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -270,10 +270,11 @@ void passo_bool_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -350,10 +351,11 @@ void passo_tlf_11(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -430,10 +432,11 @@ void passo_bool_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -510,10 +513,11 @@ void passo_tlf_12(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -565,7 +569,7 @@ void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>31)%2 ) & ( ( ( ! ( (v.x>>50)%2 ) ) ) ) )<< 44 ;
         aux.x |=(unsigned long long) ( ( (v.x>>61)%2 ) )<< 45 ;
         aux.x |=(unsigned long long) ( ( (v.x>>28)%2 ) )<< 46 ;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>42)%2 ) ) | ( ( (v.y>>5)%2 ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.y>>5)%2 ) & ! ( (v.x>>46)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>46)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>46)%2 ) ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) ) ) ) | ! ( ( (v.x>>38)%2 ) | ( (v.x>>46)%2 ) | ( (v.y>>5)%2 ) | ( (v.x>>61)%2 ) | ( (v.x>>42)%2 ) )<< 47 ;
+        aux.x |=(unsigned long long) ( ( ( ( (v.x>>42)%2 ) ) | ( ( (v.y>>5)%2 ) ) | ( ( (v.x>>38)%2 ) & ( ( ( ! ( (v.y>>5)%2 ) & ! ( (v.x>>46)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>46)%2 ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>61)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) | ( ( (v.x>>61)%2 ) & ( ( ( ( (v.x>>46)%2 ) ) & ( ( ( ! ( (v.x>>38)%2 ) & ! ( (v.y>>5)%2 ) & ! ( (v.x>>42)%2 ) ) ) ) ) ) ) ) | ! ( ( (v.x>>38)%2 ) | ( (v.x>>46)%2 ) | ( (v.y>>5)%2 ) | ( (v.x>>61)%2 ) | ( (v.x>>42)%2 ) ) )<< 47 ;
         aux.x |=(unsigned long long) ( ( (v.x>>60)%2 ) )<< 48 ;
         aux.x |=(unsigned long long) ( ( (v.y>>5)%2 ) )<< 49 ;
         aux.x |=(unsigned long long) ( ( (v.x>>60)%2 ) )<< 50 ;
@@ -589,10 +593,11 @@ void passo_bool_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -668,10 +673,11 @@ void passo_tlf_13(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -754,10 +760,11 @@ void passo_bool_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -840,10 +847,11 @@ void passo_tlf_14(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -881,8 +889,8 @@ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>48)%2 ) )<< 30 ;
         aux.x |=(unsigned long long) ( !( ( ( (v.x>>59)%2 ) ) | ( ( (v.x>>58)%2 ) ) ) ) | !( ( (v.x>>58)%2 ) | ( (v.x>>59)%2 ) )<< 31 ;
         aux.x |=(unsigned long long) ( ( (v.x>>47)%2 ) ) | ( ( (v.x>>19)%2 ) )<< 32 ;
-        aux.x |=(unsigned long long) ( !( ( ( (v.x>>32)%2 ) ) | ( ( (v.x>>56)%2 ) ) | ( ( (v.x>>57)%2 ) ) ) ) | !( ( (v.x>>32)%2 ) | ( (v.x>>56)%2 ) | ( (v.x>>57)%2 ) )<< 33 ;
-        aux.x |=(unsigned long long) ( !( ( ( (v.x>>58)%2 ) ) | ( ( (v.x>>56)%2 ) ) | ( ( (v.x>>57)%2 ) ) | ( ( (v.x>>59)%2 ) ) ) ) | !( ( (v.x>>56)%2 ) | ( (v.x>>58)%2 ) | ( (v.x>>57)%2 ) | ( (v.x>>59)%2 ) )<< 34 ;
+        aux.x |=(unsigned long long) ( ( !( ( ( (v.x>>32)%2 ) ) | ( ( (v.x>>56)%2 ) ) | ( ( (v.x>>57)%2 ) ) ) ) | !( ( (v.x>>32)%2 ) | ( (v.x>>56)%2 ) | ( (v.x>>57)%2 ) ) )<< 33 ;
+        aux.x |=(unsigned long long) ( ( !( ( ( (v.x>>58)%2 ) ) | ( ( (v.x>>56)%2 ) ) | ( ( (v.x>>57)%2 ) ) | ( ( (v.x>>59)%2 ) ) ) ) | !( ( (v.x>>56)%2 ) | ( (v.x>>58)%2 ) | ( (v.x>>57)%2 ) | ( (v.x>>59)%2 ) ) )<< 34 ;
         aux.x |=(unsigned long long) ( ( (v.x>>63)%2 ) )<< 35 ;
         aux.x |=(unsigned long long) ( ( (v.x>>52)%2 ) )<< 36 ;
         aux.x |=(unsigned long long) ( ( (v.x>>39)%2 ) )<< 37 ;
@@ -898,7 +906,7 @@ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>37)%2 ) )<< 47 ;
         aux.x |=(unsigned long long) ( ( (v.x>>22)%2 ) )<< 48 ;
         aux.x |=(unsigned long long) ( ( (v.x>>9)%2 ) ) | ( ( (v.x>>8)%2 ) )<< 49 ;
-        aux.x |=(unsigned long long) ( ( ( (v.x>>63)%2 ) ) | ( ( (v.x>>44)%2 ) ) | ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>19)%2 ) ) ) | !( ( (v.x>>8)%2 ) | ( (v.x>>63)%2 ) | ( (v.x>>44)%2 ) | ( (v.x>>20)%2 ) | ( (v.x>>19)%2 ) | ( (v.x>>6)%2 ) )<< 50 ;
+        aux.x |=(unsigned long long) ( ( ( ( (v.x>>63)%2 ) ) | ( ( (v.x>>44)%2 ) ) | ( ( (v.x>>6)%2 ) ) | ( ( (v.x>>19)%2 ) ) ) | !( ( (v.x>>8)%2 ) | ( (v.x>>63)%2 ) | ( (v.x>>44)%2 ) | ( (v.x>>20)%2 ) | ( (v.x>>19)%2 ) | ( (v.x>>6)%2 ) ) )<< 50 ;
         aux.x |=(unsigned long long) ( ( (v.y>>6)%2 ) )<< 51 ;
         aux.x |=(unsigned long long) ( ( (v.x>>53)%2 ) )<< 52 ;
         aux.x |=(unsigned long long) ( ( ( (v.x>>26)%2 ) ) & !( ( (v.x>>54)%2 ) ) )<< 53 ;
@@ -930,10 +938,11 @@ void passo_bool_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -1020,10 +1029,11 @@ void passo_tlf_15(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -1115,10 +1125,11 @@ void passo_bool_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -1210,10 +1221,11 @@ void passo_tlf_17(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lon
 
 void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -1266,7 +1278,7 @@ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.x |=(unsigned long long) ( ( (v.x>>56)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>49)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>50)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>51)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>53)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>54)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) ) | ( ( (v.x>>55)%2 ) & ( ( ( ( (v.x>>4)%2 ) ) ) ) )<< 45 ;
         aux.x |=(unsigned long long) ( ( (v.z>>0)%2 ) & ( ( ( ( (v.y>>60)%2 ) ) ) ) ) | ( ( (v.x>>23)%2 ) & ( ( ( ( (v.y>>60)%2 ) ) ) ) ) | ( ( (v.y>>40)%2 ) & ( ( ( ( (v.y>>60)%2 ) ) ) ) )<< 46 ;
         aux.x |=(unsigned long long) ( ( ( ( (v.x>>11)%2 ) & ( ( ( ! ( (v.x>>61)%2 ) ) ) & ( ( ! ( (v.y>>7)%2 ) ) ) ) ) & ! ( ( (v.y>>7)%2 ) ) ) & ! ( ( (v.x>>61)%2 ) ) ) | ( ( ( ( (v.x>>23)%2 ) & ( ( ( ! ( (v.y>>7)%2 ) ) ) & ( ( ! ( (v.x>>61)%2 ) ) ) ) ) & ! ( ( (v.y>>7)%2 ) ) ) & ! ( ( (v.x>>61)%2 ) ) )<< 47 ;
-        aux.x |=(unsigned long long) ( ( ( ( ( ( ( (v.y>>7)%2 ) & ( ( ( ( (v.y>>39)%2 ) ) ) ) ) & ! ( ( (v.x>>39)%2 ) ) ) & ! ( ( (v.y>>8)%2 ) ) ) & ! ( ( (v.x>>61)%2 ) ) ) & ! ( ( (v.y>>27)%2 ) ) ) ) | ! ( ( (v.x>>39)%2 ) | ( (v.y>>8)%2 ) | ( (v.y>>39)%2 ) | ( (v.y>>7)%2 ) | ( (v.y>>27)%2 ) | ( (v.x>>61)%2 ) )<< 48 ;
+        aux.x |=(unsigned long long) ( ( ( ( ( ( ( ( (v.y>>7)%2 ) & ( ( ( ( (v.y>>39)%2 ) ) ) ) ) & ! ( ( (v.x>>39)%2 ) ) ) & ! ( ( (v.y>>8)%2 ) ) ) & ! ( ( (v.x>>61)%2 ) ) ) & ! ( ( (v.y>>27)%2 ) ) ) ) | ! ( ( (v.x>>39)%2 ) | ( (v.y>>8)%2 ) | ( (v.y>>39)%2 ) | ( (v.y>>7)%2 ) | ( (v.y>>27)%2 ) | ( (v.x>>61)%2 ) ) )<< 48 ;
         aux.x |=(unsigned long long) ( ( (v.y>>26)%2 ) ) | ( ( (v.x>>16)%2 ) )<< 49 ;
         aux.x |=(unsigned long long) ( ( (v.x>>16)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) ) | ( ( (v.y>>26)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) )<< 50 ;
         aux.x |=(unsigned long long) ( ( (v.x>>38)%2 ) ) | ( ( (v.y>>26)%2 ) ) | ( ( (v.x>>16)%2 ) )<< 51 ;
@@ -1320,7 +1332,7 @@ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
         aux.y |=(unsigned long long) ( ( (v.y>>36)%2 ) ) | ( ( (v.y>>41)%2 ) ) | ( ( (v.y>>44)%2 ) )<<35;
         aux.y |=(unsigned long long) ( ( (v.x>>11)%2 ) & ( ( ( ( (v.x>>16)%2 ) ) ) ) ) | ( ( (v.x>>19)%2 ) & ( ( ( ( (v.x>>16)%2 ) ) ) ) )<<36;
         aux.y |=(unsigned long long) ( ( (v.y>>37)%2 ) & ( ( ( ! ( (v.x>>36)%2 ) & ! ( (v.y>>63)%2 ) & ! ( (v.y>>7)%2 ) ) ) ) ) | ( ( (v.y>>61)%2 ) & ( ( ( ! ( (v.y>>38)%2 ) & ! ( (v.y>>37)%2 ) ) ) ) )<<37;
-        aux.y |=(unsigned long long) ( ! ( ( ( (v.x>>0)%2 ) ) | ( ( (v.y>>8)%2 ) ) | ( ( (v.y>>4)%2 ) ) ) ) | ! ( ( (v.y>>4)%2 ) | ( (v.x>>0)%2 ) | ( (v.y>>8)%2 ) )<<38;
+        aux.y |=(unsigned long long) ( ( ! ( ( ( (v.x>>0)%2 ) ) | ( ( (v.y>>8)%2 ) ) | ( ( (v.y>>4)%2 ) ) ) ) | ! ( ( (v.y>>4)%2 ) | ( (v.x>>0)%2 ) | ( (v.y>>8)%2 ) ) )<<38;
         aux.y |=(unsigned long long) ( ( (v.y>>37)%2 ) )<<39;
         aux.y |=(unsigned long long) ( ( ( ( (v.x>>45)%2 ) ) & ! ( ( (v.x>>46)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) ) ) | ( ( ( ( (v.y>>42)%2 ) ) & ! ( ( (v.x>>46)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) ) ) & ! ( ( (v.y>>14)%2 ) & ( ( ( ( (v.y>>40)%2 ) ) ) ) ) )<<40;
         aux.y |=(unsigned long long) ( ( (v.x>>28)%2 ) )<<41;
@@ -1359,10 +1371,11 @@ void passo_bool_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long lo
 
 void passo_tlf_18(ulonglong3 * init_rand, ulonglong3 * estado, unsigned long long nSim)
 {  
-    ulonglong3 v,aux;
-    #pragma omp parallel for num_threads(THREADS)
+    
+    #pragma omp parallel for 
     for(unsigned long long i = 0; i < nSim; i++)
     {   
+        ulonglong3 v,aux;
         aux.x = v.x = init_rand[i].x;
         aux.y = v.y = init_rand[i].y;
         aux.z = v.z = init_rand[i].z;
@@ -1510,7 +1523,6 @@ void preenche_init_rand(ulonglong3 * init_rand, unsigned long long nSim, unsigne
     
     for(unsigned long long i = 0; i < nSim; i++)
     {
-        
         init_rand[i].x = 0;
         init_rand[i].y = 0;
         init_rand[i].z = 0;
@@ -1565,9 +1577,6 @@ int main(int argc, char **argv)
     
     unsigned int nEq = 192;
     preenche_init_rand(init_rand, MAX_ESTADO, nEq);
-
-    //omp_set_dynamic(0);
-    omp_set_num_threads(THREADS);
     
     for (int i = 0; i < ntest; ++i){
         auto start = chrono::steady_clock::now();
