@@ -12,8 +12,8 @@
 using namespace std;
 
 const string NAME[] = {"passo_bool_1", "passo_tlf_1", "passo_bool_2", "passo_tlf_2", "passo_bool_3", "passo_tlf_3",
-                       "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6", "passo_bool_7", "passo_tlf_7",
-                       "passo_bool_8", "passo_tlf_8", "passo_bool_9", "passo_tlf_9"};
+                       "passo_bool_4", "passo_tlf_4", "passo_bool_5", "passo_tlf_5", "passo_bool_6", "passo_tlf_6",
+                       "passo_bool_7", "passo_tlf_7", "passo_bool_8", "passo_tlf_8"};
 
 void passo_bool_1(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
@@ -357,7 +357,7 @@ void passo_tlf_3(unsigned long long * init_rand, unsigned long long * estado, un
     return;
 }
 
-void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_bool_4(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -425,7 +425,7 @@ void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, u
 }
 
 
-void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_tlf_4(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -492,7 +492,7 @@ void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, un
     return;
 }
 
-void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_bool_5(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -562,7 +562,7 @@ void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, u
     return;
 }
 
-void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_tlf_5(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -632,7 +632,7 @@ void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, un
     return;
 }
 
-void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_bool_6(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -704,7 +704,7 @@ void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, u
     return;
 }
 
-void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_tlf_6(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -776,7 +776,7 @@ void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, un
     return;
 }
 
-void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_bool_7(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -853,7 +853,7 @@ void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, u
     return;
 }
 
-void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_tlf_7(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -930,7 +930,7 @@ void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, un
     return;
 }
 
-void passo_bool_9(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_bool_8(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -1009,7 +1009,7 @@ void passo_bool_9(unsigned long long * init_rand, unsigned long long * estado, u
     return;
 }
 
-void passo_tlf_9(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
+void passo_tlf_8(unsigned long long * init_rand, unsigned long long * estado, unsigned long long nSim)
 {  
     
 
@@ -1145,16 +1145,16 @@ int main(int argc, char **argv)
             case 5: passo_tlf_3(init_rand,estado,MAX_ESTADO); break;
             //case 7: passo_bool_4(init_rand,estado,MAX_ESTADO); break;
             //case 8: passo_tlf_4(init_rand,estado,MAX_ESTADO); break;
-            case 6: passo_bool_5(init_rand,estado,MAX_ESTADO); break;
-            case 7: passo_tlf_5(init_rand,estado,MAX_ESTADO); break;
-            case 8: passo_bool_6(init_rand,estado,MAX_ESTADO); break;
-            case 9: passo_tlf_6(init_rand,estado,MAX_ESTADO); break;
-            case 10: passo_bool_7(init_rand,estado,MAX_ESTADO); break;
-            case 11: passo_tlf_7(init_rand,estado,MAX_ESTADO); break;
-            case 12: passo_bool_8(init_rand,estado,MAX_ESTADO); break;
-            case 13: passo_tlf_8(init_rand,estado,MAX_ESTADO); break;
-            case 14: passo_bool_9(init_rand,estado,MAX_ESTADO); break;
-            case 15: passo_tlf_9(init_rand,estado,MAX_ESTADO); break;
+            case 6: passo_bool_4(init_rand,estado,MAX_ESTADO); break;
+            case 7: passo_tlf_4(init_rand,estado,MAX_ESTADO); break;
+            case 8: passo_bool_5(init_rand,estado,MAX_ESTADO); break;
+            case 9: passo_tlf_5(init_rand,estado,MAX_ESTADO); break;
+            case 10: passo_bool_6(init_rand,estado,MAX_ESTADO); break;
+            case 11: passo_tlf_6(init_rand,estado,MAX_ESTADO); break;
+            case 12: passo_bool_7(init_rand,estado,MAX_ESTADO); break;
+            case 13: passo_tlf_7(init_rand,estado,MAX_ESTADO); break;
+            case 14: passo_bool_8(init_rand,estado,MAX_ESTADO); break;
+            case 15: passo_tlf_8(init_rand,estado,MAX_ESTADO); break;
             default: passo_bool_1(init_rand,estado,MAX_ESTADO); break;
         }
         auto end = chrono::steady_clock::now();

@@ -1,9 +1,9 @@
-file = "histogramas/entrada/arquivos.txt"
+file = "histogramas/saida/arquivos.txt"
 input = open(file,'r')
 
 g = {}
 for l in input.readlines():
-    caminho = "histogramas/entrada/"+l.replace("\n","")
+    caminho = "histogramas/saida/"+l.replace("\n","")
     histograma = open(caminho,'r')
     for l1 in histograma.readlines():
         values = l1.replace("\n","").split(' ')
@@ -14,7 +14,7 @@ for l in input.readlines():
     histograma.close()
 input.close()
 
-output = open("histogramas/entrada/geral.txt",'w+')
+output = open("histogramas/saida/geral.txt",'w+')
 for i in g :
     output.write(str(i)+" "+str(g[i])+"\n")
 output.close()

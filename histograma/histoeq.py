@@ -35,27 +35,38 @@ for i in range(0,nEq):
     gout.append(0)
 
 for i in range(nEq):
-    print(i)
     if len(pesos[i]) == 3 and pesos[i][len(pesos[i])-2] == 0:
         gin[i] = 0
     else:
         gin[i] = (len(pesos[i])-1)//2
 
+for eq in pesos:
+	if len(eq) != 3 or eq[len(eq)-2] != 0:
+		for i in range(0,(len(eq)-1),2):
+			v = eq[i]
+			gout[v] +=1
 
 #neste ponto temos o grau de entrada e saida de cada vertice, falta plotar
 gin.sort()
+gout.sort()
 
 #plotando histograma de saida
-data = []
+datain = []
+dataout = []
 for i in range (0,gin[len(gin)-1]+1):
-    data.append(0)
+    datain.append(0)
 for i in gin :
-    data[i] = data[i] + 1
+    datain[i] = datain[i] + 1
+
+for i in range (0,gout[len(gout)-1]+1):
+    dataout.append(0)
+for i in gout :
+    dataout[i] = dataout[i] + 1
 
 index = np.arange(0,gin[len(gin)-1]+1)
 
 maior = 0
-for i in data:
+for i in datain:
     if i > maior :
         maior = i
 indexy = np.arange(1,maior+1)
@@ -72,15 +83,26 @@ out = "histogramas/entrada/txt/"+nome+".txt"
 outfile = open(out,'w+')
 
 j=0
-for i in data :
+for i in datain :
     outfile.write(str(j)+" "+str(i)+"\n")
     j = j + 1
 outfile.close()
 
-plt.bar(index, data)
+
+#criando arquivo txt com os dados do histograma
+out = "histogramas/saida/txt/"+nome+".txt"
+outfile = open(out,'w+')
+
+j=0
+for i in dataout :
+    outfile.write(str(j)+" "+str(i)+"\n")
+    j = j + 1
+outfile.close()
+
+""" plt.bar(index, datain)
 plt.xlabel('grau de entrada')
 plt.ylabel('nº de vértices')
 plt.yticks(indexy, labely, fontsize=10)
 plt.xticks(index, index, fontsize=10)
 plt.title(nome)
-plt.show()
+plt.show() """
