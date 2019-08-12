@@ -1,5 +1,0 @@
-CtrA = (CtrA OR GcrA) AND (NOT CcrM) AND (NOT SciP)
-GcrA = DnaA AND NOT CtrA
-SciP = CtrA AND NOT DnaA 
-DnaA = CtrA AND CcrM AND (NOT GcrA) AND (NOT DnaA)
-CcrM = CtrA AND (NOT CcrM) AND (NOT SciP )

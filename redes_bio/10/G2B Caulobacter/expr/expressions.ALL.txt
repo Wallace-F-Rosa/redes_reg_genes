@@ -1,9 +1,0 @@
-PleC = NOT DivK 
-DivJ = DivK AND NOT PleC 
-DivK = DivJ AND NOT PleC 
-DivL = NOT DivK 
-CckA = DivL 
-ChpT = CckA 
-CpdR = ChpT 
-ClpXP-RcdA = NOT CpdR 
-CtrAb = ChpT AND NOT ClpXP-RcdA 
