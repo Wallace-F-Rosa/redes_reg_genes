@@ -1,0 +1,18 @@
+ | Nome da rede | Identificador | Quantidade de vértices | 
+ | --- | --- | --- | 
+ | Cholesterol Regulatory Pathway | 1 | 34 | 
+ | Apoptosis network | 2 | 41 | 
+ | Guard Cell Abscisic Acid Signaling | 3 | 44 | 
+ | Differentiation of T lymphocytes | 4 | 50 | 
+ | B bronchiseptica and T retortaeformis coinfectio | 5 | 53 | 
+ | MAPK Cancer Cell Fate Network | 6 | 55 | 
+ | T-LGL Survival Network 2011 | 7 | 60 | 
+ | PC12 Cell Differentiation | 8 | 62 | 
+ | Bortezomib Responses in U266 Human Myelo | 9 | 67 | 
+ | HGF Signaling in Keratinocytes | 10 | 68 | 
+ | Glucose Repression Signaling 2009 | 11 | 73 | 
+ | Yeast Apoptosis | 12 | 73 | 
+ | Lymphopoiesis Regulatory Network | 13 | 81 | 
+ | IL-6 Signalling | 14 | 87 | 
+ | EGFR & ErbB Signaling | 15 | 104 | 
+ | signal transduction in fibroblasts | 16 | 139 | 
