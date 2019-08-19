@@ -26,20 +26,20 @@ Das 21 redes disponívels, as seguintes 16 foram utilizadas nos programas contid
 
 Descrição dos diretórios:
 
-atratores/ : calculo de atratores e programas utilizados para medir desempenho
+atratores/ : calculo de atratores e programas utilizados para medir desempenho.
     
-    atratores.cu : cáculo de atratores utilizando a extensão de C\C++ CUDA e memória compartilhada.
-    
-    atratores_globalmem.cu : cálculo de atratores utilizando memória global.
-    
-    medir_tempo.cu : programa utilizado par medir desempenho das redes em GPU's utilizando o nvprof, ferramenta do CUDA toolkit da NVIDIA. Os kernels possuem o seguinte padrão:
-    passo_bool_<identificador_da_rede> se refere às equações booleanas da rede e passo_tlf_<identificador_da _rede> se refere às utilizando lógica limiar. O número de identificador se encontra na tabela acima.
+atratores.cu : cáculo de atratores utilizando a extensão de C\C++ CUDA e memória compartilhada.
 
-    medir_tempo64+.cu : versão de medirtempo.cpp para redes com número de vértices entre 64 e 192.
+atratores_globalmem.cu : cálculo de atratores utilizando memória global.
 
-    medirtempo.cpp : programa utilizado par medir desempenho das redes em CPU's. Utiliza a biblioteca chrono para medição de desempenho. As funções que contém as equações seguem o mesmo padrão de medir_tempo.cu.
+medir_tempo.cu : programa utilizado par medir desempenho das redes em GPU's utilizando o nvprof, ferramenta do CUDA toolkit da NVIDIA. Os kernels possuem o seguinte padrão:
+passo_bool_<identificador_da_rede> se refere às equações booleanas da rede e passo_tlf_<identificador_da _rede> se refere às utilizando lógica limiar. O número de identificador se encontra na tabela acima.
 
-    medirtempo64+.cpp : versão de medirtempo.cpp para redes com número de vértices entre 64 e 192.
+medir_tempo64+.cu : versão de medirtempo.cpp para redes com número de vértices entre 64 e 192.
+
+medirtempo.cpp : programa utilizado par medir desempenho das redes em CPU's. Utiliza a biblioteca chrono para medição de desempenho. As funções que contém as equações seguem o mesmo padrão de medir_tempo.cu.
+
+medirtempo64+.cpp : versão de medirtempo.cpp para redes com número de vértices entre 64 e 192.
 
 
 redes_arq/ : configurações de rede física e avaliação das configurações 3 e 7 em relação às redes utilizadas.
