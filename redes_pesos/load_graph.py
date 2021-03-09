@@ -106,7 +106,7 @@ if __name__ == '__main__':
 	try:
 		print(int(sys.argv[2]))
 		redepath = sys.argv[1].split("/")
-		name = redepath[len(redepath)-3]
+		name = redepath[-1].split('.')[0]
 		print(name)
 		if int(sys.argv[2]) == 3:
 			print("Abrendo saida.txt")
@@ -350,7 +350,7 @@ if __name__ == '__main__':
 			num_ext = [i[1] for i in num_ext_id]
 
 			if int(sys.argv[2]) == 1:
-				entry =  open('eq_pesos/'+str(name)+'.txt','w+')
+				entry =  open(str(name)+'_pesos.txt','w+')
 				entry.write(str(len(lst_tlf)+len(external))+'\n')
 				eqtam =""
 				for i in modif:
@@ -408,8 +408,10 @@ if __name__ == '__main__':
 				print(txt)
 
 	except Exception as e:
-		print("Error: "+ str(e))
-		sys.exit(1)
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print(exc_type, fname, exc_tb.tb_lineno)
+            sys.exit(1)
 
 	# t,l = tabelaVerdade('( v1 and v2 ) or ( v1 and v3 ) ')
 	# tlf = TLF(t)
