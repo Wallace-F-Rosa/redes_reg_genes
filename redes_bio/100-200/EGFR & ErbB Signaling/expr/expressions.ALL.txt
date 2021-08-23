@@ -74,31 +74,31 @@ raf1 = ( ( ras and ( ( ( csrc ) ) )     ) and not ( aktd  ) )  or ( ( pak1 and (
 p90rskerk12d = ( p90rsk and ( ( ( erk12 ) ) )    ) 
 shp1 = ( erbb11 ) 
 rab5a = ( ( rin1  ) and not ( rntre  ) ) 
-pdk1
-pp2a
-pp2b
-tgfa
-btc
-ar
-bir
-egf
-hbegf
-epr
-erbb1
-erbb2
-nrg1a
-nrg2a
-erbb3
-nrg1b
-nrg2b
-nrg4
-erbb4
-nrg3
-mtorr
-mkp
-pi3kr
-pten
-csrc
-esp8r
-ship2
-sos1r
+pdk1 = pdk1
+pp2a = pp2a
+pp2b = pp2b
+tgfa = tgfa
+btc = btc
+ar = ar
+bir = bir
+egf = egf
+hbegf = hbegf
+epr = epr
+erbb1 = erbb1
+erbb2 = erbb2
+nrg1a = nrg1a
+nrg2a = nrg2a
+erbb3 = erbb3
+nrg1b = nrg1b
+nrg2b = nrg2b
+nrg4 = nrg4
+erbb4 = erbb4
+nrg3 = nrg3
+mtorr = mtorr
+mkp = mkp
+pi3kr = pi3kr
+pten = pten
+csrc = csrc
+esp8r = esp8r
+ship2 = ship2
+sos1r = sos1r

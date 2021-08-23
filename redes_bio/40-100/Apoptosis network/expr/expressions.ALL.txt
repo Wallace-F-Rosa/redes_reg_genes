@@ -37,5 +37,5 @@ Mito = ( ( BID  ) and not ( BclX  ) )
 TRAF = ( TRADD ) 
 DNADamageEvent = ( Cas3_dummy and ( ( ( Cas3 ) ) )    ) 
 Cas7 = ( ( APC  ) and not ( IAP  ) )  or ( ( Cas8  ) and not ( IAP  ) )
-GF
-TNF
+GF = GF
+TNF = TNF

@@ -60,8 +60,8 @@ MDM = ( ( AKT  ) and not ( ATM  ) )  or ( ( p53  ) and not ( ATM  ) )
 CYCE = ( MYC ) 
 MYC = ( pSTAT3 )  or ( MEKK )  or ( ERK ) 
 RAS = ( IL6 and ( ( ( gp130 ) ) )    )  or ( SHP1 ) 
-TNFAR
-SHP1
-Bort
-TNFA
-X
+TNFAR = TNFAR
+SHP1 = SHP1
+Bort = Bort
+TNFA = TNF
+X = X

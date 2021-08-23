@@ -69,19 +69,19 @@ mek6 = ( il6rc_p )
 stat1_ta = ( ( ( dum_pkcd_camk24_stat1_ta and ( ( ( stat1_py ) ) )     ) and not( slim  )  ) and not( pias1  ) ) 
 irs1_py = (  not( ( irs1_ps )  or ( shp2 )  or ( shp2_a ) ) ) or  not( irs1_ps or shp2 or shp2_a ) 
 gab1_mem = ( grb2_sos )  or ( erk12 and ( ( ( pip3 ) ) )    ) 
-nfkb
-pdk1
-phlpp
-ship
-gab1_kin
-il6
-gp130m
-mtor
-notshp2_a
-pten
-ros
-sirp1a
-cyt_ptpe
-slim
-pias1
-pias3
+nfkb = nfkb
+pdk1 = pdk1
+phlpp = phlpp
+ship = ship
+gab1_kin = gab1_kin
+il6 = il6
+gp130m = gp130m
+mtor = mtor
+notshp2_a = notshp2_a
+pten = pten
+ros = ros
+sirp1a = sirp1a
+cyt_ptpe = cyt_ptpe
+slim = slim
+pias1 = pias1
+pias3 = pias3

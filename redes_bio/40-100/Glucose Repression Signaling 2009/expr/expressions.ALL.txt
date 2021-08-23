@@ -59,15 +59,15 @@ MIG2 =  not ( ( Rgt1p ) )
 STD1 =  not ( ( Rgt1p ) )
 GAL2 = ( Gal11p )  or ( Gal4p ) 
 MLS1 = ( Sip4p )  or ( Cat8p )
-RGT1
-GAL11
-GLC7
-glucose_ext
-REG1
-RGT2
-GRR1
-SNF1
-SNF4
-YCK1_2
-galactose_ext
-maltose_ext
+RGT1 = RGT1
+GAL11 = GAL11
+GLC7 = GLC7
+glucose_ext = glucose_ext
+REG1 = REG1
+RGT2 = RGT2
+GRR1 = GRR1
+SNF1 = SNF1
+SNF4 = SNF4
+YCK1_2 = YCK1_2
+galactose_ext = galactose_ext
+maltose_ext = maltose_ext

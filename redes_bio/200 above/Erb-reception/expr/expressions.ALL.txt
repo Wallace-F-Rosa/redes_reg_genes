@@ -223,22 +223,22 @@ Gbg_i = ( alpha_iR and ( ( ( not Gbg_i ) )  and ( ( not Gai ) ) )    )  or ( Gai
 Palpha_iR = ( alpha_iR and ( ( ( GRK ) ) )    ) 
 PI5K = ( PA )  or ( PI5K and ( ( ( Talin ) ) )    )  or ( RhoK )  or ( Src and ( ( ( Fak ) )  and ( ( not PI5K ) )  and ( ( not Talin ) ) )    )  or ( ARF ) 
 DGK = ( EGFR_ErbB3 )  or ( EGFR_EGFR_TGFa_CCV )  or ( EGFR_ErbB2 )  or ( EGFR_EGFR_EGF_End )  or ( EGFR_ErbB4 )  or ( Src and ( ( ( PA  and Ca ) ) )    )  or ( EGFR_EGFR_EGF_CCP )  or ( EGFR_EGFR_EGF_CCV )  or ( PKC and ( ( ( DAG ) ) )    )  or ( EGFR_EGFR_TGFa_CCP )  or ( EGFR_EGFR_EGF_MVB )  or ( EGFR_EGFR )  or ( EGFR_EGFR_TGFa_End )  or ( EGFR_EGFR_EGF_PM )  or ( EGFR_EGFR_TGFa_PM ) 
-ECM
-AG
-ExtPump
-Trastuzumab
-EGF
-TGFa
-Pertuzumab
-NRG
-ErbB2Deg_Contr
-EGFR_Contr
-ExtE_cadherin
-ErbB2_Contr
-ErbB3_Contr
-ErbB4_Contr
-alpha_sL
-IL1_TNF
-PI3K_I
-Stress
-PTEN_I
+ECM = ECM
+AG = AG
+ExtPump = ExtPump
+Trastuzumab = Trastuzumab
+EGF = EGF
+TGFa = TGFa
+Pertuzumab = Pertuzumab
+NRG = NRG
+ErbB2Deg_Contr = ErbB2Deg_Contr
+EGFR_Contr = EGFR_Contr
+ExtE_cadherin = ExtE_cadherin
+ErbB2_Contr = ErbB2_Contr
+ErbB3_Contr = ErbB3_Contr
+ErbB4_Contr = ErbB4_Contr
+alpha_sL = alpha_sL
+IL1_TNF = IL1_TNF
+PI3K_I = PI3K_I
+Stress = Stress
+PTEN_I = PTEN_I

@@ -60,9 +60,9 @@ MET = ( HGF )
 HBEGF = ( p38 )  or ( Erk ) 
 Mekk7 = ( Mekk1 ) 
 JNK = ( Mekk7 and ( ( ( Mkk4 ) ) )    )  or ( PAK2 ) 
-PTEN
-EGF
-HGF
-AKAP12
-PAI-1
-DUSP1
+PTEN = PTEN
+EGF = EGF
+HGF = HGF
+AKAP12 = AKAP12
+PAI-1 = PAI-1 
+DUSP1 = DUSP1

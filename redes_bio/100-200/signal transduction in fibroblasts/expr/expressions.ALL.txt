@@ -128,12 +128,12 @@ ARF = ( PIP3_345 )  or ( PIP2_45 )
 Fak = ( ( Src and ( ( ( Fak ) ) )     ) and not ( PTEN and ( ( ( Fak ) ) )     ) )  or ( ( Integrins and ( ( ( Talin ) ) )     ) and not ( PTEN and ( ( ( Fak ) ) )     ) ) 
 Raf = ( Src and ( ( ( RKIP  and Raf_Loc  and PAK ) )  and ( ( not Raf ) ) )    )  or ( Ras and ( ( ( Raf ) ) )    )  or ( Raf and ( ( ( not PKA  and not Akt  and not Erk ) ) )    )  or ( PAK and ( ( ( not Ras  and not Akt  and not Erk ) )  and ( ( Raf ) ) )    ) 
 IP3R1 = ( ( ( ( Gbg_i  ) and not ( Ca and ( ( ( IP3R1 ) )  and ( ( not IP3 ) ) )     )  ) and not ( CaM and ( ( ( IP3R1 ) )  and ( ( Ca ) ) )     )  ) and not ( IP3R1 and ( ( ( CaM  and Gbg_i ) )  and ( ( not IP3  and not PP2A  and not PKA  and not Ca ) ) )     ) )  or ( ( ( IP3 and ( ( ( Ca ) ) )     ) and not ( Ca and ( ( ( IP3R1 ) )  and ( ( not IP3 ) ) )     )  ) and not ( CaM and ( ( ( IP3R1 ) )  and ( ( Ca ) ) )     ) )  or ( ( ( ( PKA  ) and not ( Ca and ( ( ( IP3R1 ) )  and ( ( not IP3 ) ) )     )  ) and not ( CaM and ( ( ( IP3R1 ) )  and ( ( Ca ) ) )     )  ) and not ( PP2A and ( ( ( IP3R1 ) ) )     ) ) 
-ECM
-ExtPump
-EGF
-alpha_sL
-IL1_TNF
-Stress
-alpha_1213L
-alpha_iL
-alpha_qL
+ECM = ECM
+ExtPump = ExtPump
+EGF = EGF
+alpha_sL = alpha_sL
+IL1_TNF = IL1_TNF
+Stress = Stress
+alpha_1213L = alpha_1213L
+alpha_iL = alpha_iL
+alpha_qL = alpha_qL

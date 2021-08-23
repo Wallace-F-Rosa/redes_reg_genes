@@ -65,17 +65,17 @@ Gzmb = ( EOMES )
 STAT3 = ( IL21R )  or ( JAK3 )  or ( IL23R )  or ( IL10R ) 
 IFNg = ( STAT4 and ( ( ( not STAT3 ) ) )    )  or ( EOMES and ( ( ( not STAT3 ) ) )    )  or ( IRAK and ( ( ( not STAT3 ) ) )    )  or ( Tbet and ( ( ( not STAT3 ) ) )    ) 
 ThPOK = ( ThPOK )  or ( TCR )  or ( Tbet and ( ( ( not Runx3 ) ) )    )  or ( RORgt )  or ( CD4 and ( ( ( not CD8 ) ) )    )  or ( GATA3 )  or ( Foxp3 ) 
-TCR
-BCR
-B9
-Flt3L
-Hoxa9
-IFNb
-IL12
-IL18
-IL21
-IL23
-IL27
-IL2
-IL7
-Dll1
+TCR = TCR
+BCR = BCR
+B9  = B9 
+Flt3L = Flt3L
+Hoxa9 = Hoxa9
+IFNb = IFNb
+IL12 = IL12
+IL18 = IL18
+IL21 = IL21
+IL23 = IL23
+IL27 = IL27
+IL2 = IL2
+IL7 = IL7
+Dll1 = Dll1

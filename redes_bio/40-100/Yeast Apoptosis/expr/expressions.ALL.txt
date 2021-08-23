@@ -58,16 +58,16 @@ SLT2 = ( ( RLM1 )  or ( Heat )  or ( PTP2 and ( ( ( not Heat  and not SDP1  and 
 MDV1 = ( HK ) 
 Protosom = ( CDC6 ) 
 CDC48 = ( HK ) 
-HK
-Stress
-CU2
-H2O2
-AceticAcid
-CPR3
-Adozelesin
-Mating
-AbnormalTelomer
-Heat
-RedActinDyn
-Salt
-MG2
+HK = HK
+Stress = Stress
+CU2 = CU2
+H2O2 = H2O2
+AceticAcid = AceticAcid
+CPR3 = CPR3
+Adozelesin = Adozelesin
+Mating = Mating
+AbnormalTelomer = AbnormalTelomer
+Heat = Heat
+RedActinDyn = RedActinDyn
+Salt = Salt
+MG2 = MG2

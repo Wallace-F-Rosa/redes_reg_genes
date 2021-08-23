@@ -47,9 +47,9 @@ FOS = ( ERK and ( ( ( RSK )  and (  ( ( ELK1  or CREB ) ) ) ) )    )
 MTK1 = ( GADD45 ) 
 SOS = ( ( GRB2  ) and not( RSK  ) ) 
 RAF = ( ( ( RAS  ) and not( AKT  )  ) and not( ERK  ) )  or ( ( ( PKC  ) and not( AKT  )  ) and not( ERK  ) ) 
-DNA_damage
-EGFR_stimulus
-FGFR3_stimulus
-notDUSP1
-TGFBR_stimulus
-notMDM2
+DNA_damage = DNA_damage
+EGFR_stimulus = EGFR_stimulus
+FGFR3_stimulus = FGFR3_stimulus
+notDUSP1 = notDUSP1
+TGFBR_stimulus = TGFBR_stimulus
+notMDM2 = notMDM2

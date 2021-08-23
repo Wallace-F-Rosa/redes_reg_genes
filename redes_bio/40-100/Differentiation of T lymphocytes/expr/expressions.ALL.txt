@@ -39,12 +39,12 @@ CD4 = ( ( ThPOK  ) and not ( Runx3  ) )  or ( ( Notch1  ) and not ( Runx3  ) )  
 RORgt = ( ( ( ( SMAD2  ) and not ( Tbet  )  ) and not ( Foxp3  )  ) and not ( GATA3  ) )  or ( ( ( ( RORgt  ) and not ( Tbet  )  ) and not ( Foxp3  )  ) and not ( GATA3  ) )  or ( ( ( ( STAT3  ) and not ( Tbet  )  ) and not ( Foxp3  )  ) and not ( GATA3  ) ) 
 IL4R = ( ( IL4  ) and not ( SOCS  ) ) 
 Prf1 = ( Eomes ) 
-TCR
-IFNB
-IL12
-IL18
-IL23
-IL27
-IL2
-IL7
-Dll1
+TCR = TCR
+IFNB = IFNB
+IL12 = IL12
+IL18 = IL18
+IL23 = IL23
+IL27 = IL27
+IL2 = IL2
+IL7 = IL7
+Dll1 = Dll1

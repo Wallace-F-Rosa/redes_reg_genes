@@ -152,37 +152,37 @@ Bcl10_Carma1_MALTI = ( BCL10_Malt1 and ( ( ( CARMA1 ) ) )    )
 Cdc42 = ( C3G )  or ( RhoGEF ) 
 IL23 = ( NFAT and ( ( ( STAT3  and proliferation ) ) )    ) 
 TBET = ( ( TBET  ) and not ( GATA3  ) )  or ( ( STAT1  ) and not ( GATA3  ) ) 
-ECM
-CAV1_ACTIVATOR
-APC
-B7
-MHC_II
-IL12_e
-alpha_13L
-GalphaS_L
-Galpha_QL
-Galpha_iL
-IFNB_e
-IFNG_e
-IFNGR2
-IFNGR1
-IL10_e
-IL10RB
-IL10RA
-CGC
-IL15RA
-IL2RB
-IL15_e
-IL18_e
-IL21_e
-GP130
-IL22_e
-IL23_e
-IL27RA
-IL27_e
-IL2_e
-IL4_e
-IL6_e
-IL6RA
-IL9_e
-TGFB_e
+ECM = ECM
+CAV1_ACTIVATOR = CAV1_ACTIVATOR
+APC = APC
+B7 = B7
+MHC_II = MHC_II
+IL12_e = IL12_e
+alpha_13L = alpha_13L
+GalphaS_L = GalphaS_L
+Galpha_QL = Galpha_QL
+Galpha_iL = Galpha_iL
+IFNB_e = IFNB_e
+IFNG_e = IFNG_e
+IFNGR2 = IFNGR2
+IFNGR1 = IFNGR1
+IL10_e = IL10_e
+IL10RB = IL10RB
+IL10RA = IL10RA
+CGC = CGC
+IL15RA = IL15RA
+IL2RB = IL2RB
+IL15_e = IL15_e
+IL18_e = IL18_e
+IL21_e = IL21_e
+GP130 = GP130
+IL22_e = IL22_e
+IL23_e = IL23_e
+IL27RA = IL27RA
+IL27_e = IL27_e
+IL2_e = IL2_e
+IL4_e = IL4_e
+IL6_e = IL6_e
+IL6RA = IL6RA
+IL9_e = IL9_e
+TGFB_e = TGFB_e

@@ -59,4 +59,4 @@ KLF2 = ( AKT )  or ( JNK )  or ( ERK )
 P53 = ( AKT )  or ( JNK )  or ( ERK ) 
 ZFP36 = ( JNK )  or ( ERK ) 
 TrkA = ( NGF ) 
-NGF
+NGF = NGF

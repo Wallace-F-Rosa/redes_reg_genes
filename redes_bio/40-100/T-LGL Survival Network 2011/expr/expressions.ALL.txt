@@ -52,9 +52,9 @@ PLCG1 = ( ( PDGFR  ) and not ( Apoptosis  ) )  or ( ( GRB2  ) and not ( Apoptosi
 BID = ( ( ( ( Caspase  ) and not ( MCL1  )  ) and not ( Apoptosis  )  ) and not ( BclxL  ) )  or ( ( ( ( GZMB  ) and not ( MCL1  )  ) and not ( Apoptosis  )  ) and not ( BclxL  ) ) 
 TNF = ( ( NFKB  ) and not ( Apoptosis  ) ) 
 P2 = ( ( ( IFNG  ) and not ( Stimuli2  )  ) and not ( Apoptosis  ) )  or ( ( ( P2  ) and not ( Stimuli2  )  ) and not ( Apoptosis  ) ) 
-IL15
-Stimuli
-CD45
-Stimuli2
-PDGF
-TAX
+IL15 = IL15
+Stimuli = Stimuli
+CD45 = CD45
+Stimuli2 = Stimuli2
+PDGF = PDGF
+TAX = TAX
