@@ -103,25 +103,25 @@ if __name__ == '__main__':
         # Clear current session
         cy.session.delete()
 
-    print(int(sys.argv[2]))
+    # print(int(sys.argv[2]))
     redepath = sys.argv[1].split("/")
     name = redepath[-1].split('.')[0]
     print(name)
     if int(sys.argv[2]) == 3:
-        print("Abrendo saida.txt")
+        # print("Abrendo saida.txt")
 
         if os.path.exists("grn_gpu/saida.txt"):
             lines = open("grn_gpu/saida.txt").readlines()
             if len(lines) == 0:
                 command = "saida.txt"
-                print(command)
+                # print(command)
                 os.remove("saida145.txt")
             posdel =[]
             for u in range(len(lines[1:])):
                 elem = lines[u+1].split()[1]
                 rep = [x for x in list(map(lambda x,y : y if x in y.split() else None, [elem]*len(lines[u+2:]),lines[u+2:])) if x is not None]
                 if len(rep) > 0:
-                    print("Modificando um erro...")
+                    # print("Modificando um erro...")
                     line = lines[u+1].split()
                     if line[0] == 0:
                         line[0] = str(len(line)-2)
@@ -145,15 +145,15 @@ if __name__ == '__main__':
         external = [(i.strip().split()[0],0) for i in open(sys.argv[1],'r').readlines() if (len(i.strip().split())==1)]
         external += [(i.strip().split()[0],int(i.strip().split()[2])) for i in open(sys.argv[1],'r').readlines() if (len(i.strip().split())==3 and i.strip().split()[2].isdigit())]
 
-        print(external)
+        # print(external)
         node_ext = [i[0] for i in external]
 
         list_ext = [i.strip().split()[0] for i in line ]
-        print(list_ext)
+        # print(list_ext)
 
-        print("Len: "+str(len(list_ext))+"\n")
-        print(node_ext)
-        print("Len: "+str(len(node_ext))+"\n")
+        # print("Len: "+str(len(list_ext))+"\n")
+        # print(node_ext)
+        # print("Len: "+str(len(node_ext))+"\n")
         #creating graph with all numbers of nodes
         tam=len(list_ext)+len(node_ext)
         # graph = np.empty((tam,3),dtype=str)
@@ -217,7 +217,7 @@ if __name__ == '__main__':
 
 
             if count > 0:
-                print(txt)
+                # print(txt)
                 table,l = tabelaVerdade(txt.split('=')[1])
                 tlf=TLF(table)
                 # print("TLF: "+str(tlf))
@@ -230,7 +230,7 @@ if __name__ == '__main__':
         if int(sys.argv[2]) == 0:
             data = pd.DataFrame(graph, columns=['source','target','interaction'])
             net_name=os.path.basename(sys.argv[1]).split(".")[0]
-            print(sys.argv[1])
+            # print(sys.argv[1])
             net1 = cy.network.create_from_dataframe(data, collection="TLF",name =net_name )
             cy.layout.apply(network=net1)
             cy.layout.fit(network=net1)
@@ -265,11 +265,11 @@ if __name__ == '__main__':
             update_eq = pd.DataFrame(tmp_data,columns=['id','fixed','observe'])
             net1.update_node_table(update_eq,data_key_col="id")
 
-        print(orig)
-        print('\n')
-        print("Nodes: "+str(list_ext))
-        print(str(len(list_ext))+'\n')
-        print('\n')
+        # print(orig)
+        # print('\n')
+        # print("Nodes: "+str(list_ext))
+        # print(str(len(list_ext))+'\n')
+        # print('\n')
         #for i in orig:
         #       print i.replace('or','|')
         #print (orig)
@@ -303,17 +303,17 @@ if __name__ == '__main__':
                     text.append(content[1][c])
 
             text = ''.join(text) +"<<"+var
-            print(txt+text+";")
+            # print(txt+text+";")
 
 
-        print('\n')
-        print("Vetores: "+str(modif))
-        print("tamanho: "+str(len(modif)))
-        print('\n')
-        print("TLF: "+str(lst_tlf))
-    #       print("\n")
-        print("tamanho: "+str(len(lst_tlf)))
-        print("\n")
+        # print('\n')
+        # print("Vetores: "+str(modif))
+        # print("tamanho: "+str(len(modif)))
+        # print('\n')
+        # print("TLF: "+str(lst_tlf))
+    # #       print("\n")
+        # print("tamanho: "+str(len(lst_tlf)))
+        # print("\n")
 
         # cont = 0
         # txt="pair<int, int> equacoe["+str(len(lst_tlf))+"] = {"
@@ -343,9 +343,9 @@ if __name__ == '__main__':
         # print("tamanho: "+str(cont))
         # print('\n')
         # #for i in range(len([i for i in orig if i.split("= ")[1] != "const"])):
-        print(external)
-        print()
-        print(num_ext_id)
+        # print(external)
+        # print()
+        # print(num_ext_id)
         num_ext = [i[1] for i in num_ext_id]
 
         if int(sys.argv[2]) == 1:
