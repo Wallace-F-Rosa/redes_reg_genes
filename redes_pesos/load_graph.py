@@ -106,7 +106,7 @@ if __name__ == '__main__':
     # print(int(sys.argv[2]))
     redepath = sys.argv[1].split("/")
     name = redepath[-1].split('.')[0]
-    print(name)
+    # print(name)
     if int(sys.argv[2]) == 3:
         # print("Abrendo saida.txt")
 
@@ -273,7 +273,7 @@ if __name__ == '__main__':
         #for i in orig:
         #       print i.replace('or','|')
         #print (orig)
-        print('\n')
+        # print('\n')
 
         orig = [i.replace('or', '|') for i in orig]
         orig = [i.replace('and', '&') for i in orig]
@@ -405,7 +405,7 @@ if __name__ == '__main__':
                 #lst_tlf.insert(i,[])
                 txt = orig[i].split('= ')[0]+"= 0;"
                 txt = txt.replace("v","aux")
-            print(txt)
+            # print(txt)
 
     # t,l = tabelaVerdade('( v1 and v2 ) or ( v1 and v3 ) ')
     # tlf = TLF(t)
