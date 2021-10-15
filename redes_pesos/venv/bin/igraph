@@ -1,4 +1,0 @@
-#!/home/wallace/Documentos/UFV/IC-Ricardo/rede_pesos/venv/bin/python3
-"""Small script to execute the igraph command line interface"""
-from igraph.app.shell import main
-main()
